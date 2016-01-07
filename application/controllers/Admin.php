@@ -45,6 +45,42 @@ class Admin extends CI_Controller
         }
     }
 
+    public function update_system_configuration()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('top_heading1', 'This Top Heading 1', 'trim|required|min_length[4]');
+            $this->form_validation->set_rules('top_heading2', 'This Top Heading 2', 'trim|required|min_length[4]');
+            $this->form_validation->set_rules('footer_text', 'This Footer text', 'trim|required|min_length[4]');
+            $this->form_validation->set_rules('meta_keyword', 'This Meta Keyword', 'trim|required|min_length[4]');
+            $this->form_validation->set_rules('meta_desc', 'This Meta Description', 'required');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update System Configuration - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'system_configuration_page';
+                $data['common_header'] = 'Update Settings';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                $system_config_id = 1;
+                $all_system_configuration = $this->App_user_model->get_system_configuration_by_id($system_config_id); // Reading and showing the System configuration from DB
+                $data['all_system_configuration'] = $all_system_configuration;
+
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/system_configuration_view', $data);
+                $this->load->view('admin/footer_view', $data);
+            } else {
+                $this->App_user_model->update_system_config();
+                $this->session->set_flashdata('update_config_message', "System Configuration updated successfully.");
+                redirect(base_url() . 'admin/configuration');
+            }
+        }
+    }
+
     public function get_all_contacts()
     {
         if (($this->session->userdata('user_email') == "")) {

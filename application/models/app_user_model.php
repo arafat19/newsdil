@@ -40,6 +40,16 @@ class App_user_model extends CI_Model
         }
     }
 
+
+    public function get_system_configuration_by_id($system_config_id)
+    {
+        $this->db->select('top_heading1, top_heading2, footer_text, meta_keyword, meta_description');
+        $this->db->where('id', $system_config_id);
+        $query = $this->db->get('system_configuration');
+
+        return $query->row_array();
+    }
+
     public function add_user()
     {
         $data = array(
@@ -53,6 +63,18 @@ class App_user_model extends CI_Model
 
         );
         $this->db->insert('app_user', $data);
+    }
+
+    public function update_system_config()
+    {
+        $data = array(
+            'top_heading1' => $this->input->post('top_heading1'),
+            'top_heading2' => $this->input->post('top_heading2'),
+            'footer_text' => $this->input->post('footer_text'),
+            'meta_keyword' => $this->input->post('meta_keyword'),
+            'meta_description' => $this->input->post('meta_desc'),
+        );
+        $this->db->update('system_configuration', $data);
     }
 
     public function add_services()

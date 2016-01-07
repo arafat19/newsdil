@@ -53,6 +53,7 @@ $route['default_controller'] = 'Index';
 $route['admin/service'] = "admin/add_service_page";
 $route['admin/profile'] = "admin/edit_admin_user";
 $route['admin/contacts'] = "admin/get_all_contacts";
+$route['admin/configuration'] = "admin/update_system_configuration";
 $route['signout'] = "admin/logout";
 $route['admin/sedit/(:any)'] = "admin/edit_service/$1";
 $route['admin/sdelete/(:any)'] = 'admin/delete_service/$1';

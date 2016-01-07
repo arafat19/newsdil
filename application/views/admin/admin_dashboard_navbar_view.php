@@ -102,7 +102,7 @@
                     <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                    <a href="<?php echo base_url();?>admin/configuration"><i class="fa fa-fw fa-gear"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -125,6 +125,9 @@
             </li>
             <li class="<?php echo($active=='admin_profile')?'active':''; ?>">
                 <a href="<?php echo base_url();?>admin/profile"><i class="fa fa-fw fa-user"></i>Profile Edit</a>
+            </li>
+            <li class="<?php echo($active=='system_configuration_page')?'active':''; ?>">
+                <a href="<?php echo base_url();?>admin/configuration"><i class="fa fa-fw fa-gear"></i>System Configuration</a>
             </li>
             <li class="">
                 <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
