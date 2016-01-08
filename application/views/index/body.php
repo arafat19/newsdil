@@ -39,9 +39,9 @@
                 <div class="row">
                     <div class="intro-body-area clearfix">
                         <div class="col-xs-12">
-                            <h1><?php echo $top_heading_h1;?></h1>
+                            <h1><?php echo $all_system_configuration_ui['top_heading1'];?></h1>
 
-                            <h2><?php echo $top_heading_h2;?></h2>
+                            <h2><?php echo $all_system_configuration_ui['top_heading2'];?></h2>
 
                             <div class="read-btn"><a href="">Read More</a></div>
                         </div>

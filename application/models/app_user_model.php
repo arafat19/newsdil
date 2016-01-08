@@ -76,6 +76,10 @@ class App_user_model extends CI_Model
         );
         $this->db->update('system_configuration', $data);
     }
+    function update_image($data)
+    {
+        $this->db->update('system_configuration',$data);
+    }
 
     public function add_services()
     {

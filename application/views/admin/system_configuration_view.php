@@ -58,7 +58,18 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        <?php } ?>
+                                        <?php }
+                                        if ($this->session->flashdata('error_config_message')) { ?>
+                                        <div class="form-group">
+                                            <div class="col-md-8">
+                                                <div class="alert alert-danger" role="alert">
+                                                    <a href="#" class="close" data-dismiss="alert"
+                                                       aria-label="close">&times;</a>
+                                                    <?php echo $this->session->flashdata('error_config_message'); ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       <?php  } ?>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="top_heading1">Landing Page Top
                                                 Heading 1:</label>
@@ -81,7 +92,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="footer_text">Footer Text:</label>
+                                            <label class="col-md-3 control-label" for="footer_text">Client Side Footer Text:</label>
 
                                             <div class="col-md-5">
                                                 <textarea type="text" class="form-control" id="footer_text"
@@ -106,6 +117,14 @@
                                                 <textarea type="text" class="form-control" id="meta_desc"
                                                           name="meta_desc" rows="7"
                                                           placeholder="255 Char Max" required><?php echo $all_system_configuration['meta_description']; ?></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="meta_keyword">Favicon:</label>
+
+                                            <div class="col-md-5">
+                                                <input type="file" class="form-control" name="show_favicon"
+                                                       id="show_favicon"/>
                                             </div>
                                         </div>
                                     </fieldset>

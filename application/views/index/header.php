@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="keyword" content="<?php echo $all_system_configuration_ui['meta_keyword'];?>">
+    <meta name="description" content="<?php echo $all_system_configuration_ui['meta_description'];?>">
+    <meta name="author" content="<?php echo $title;?>">
     <link rel="shortcut icon" href="<?php echo base_url();?>images/favicon.ico" type="image/x-icon" />
     <title><?php echo $title;?></title>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>

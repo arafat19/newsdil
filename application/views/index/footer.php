@@ -45,7 +45,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <p> &copy; Copyright 2015 Orange Light. All Rights Reserved by SHWAPNO DUAR IT LTD.</p>
+                        <p> <?php echo $all_system_configuration_ui['footer_text'];?></p>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="social-iteam">
