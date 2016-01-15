@@ -29,13 +29,14 @@
                     <div class="panel-heading">
                         <h3 class="panel-title"> <?php echo $common_header; ?></h3>
                     </div>
-                    <form name='add_service_form' id='add_service_form' enctype="multipart/form-data"
-                          class="form-horizontal form-widgets" role="form" method="post">
+                    <form name='add_service_form' id='add_service_form' enctype="multipart/form-data" action="<?php echo base_url(); ?>admin/configuration"
+                          class="form-horizontal form-widgets" role="form" method="POST">
                         <div class="panel-body">
                             <div class="form-group">
                                 <div class="col-md-8">
                                     <fieldset>
-                                        <?php if (validation_errors()) { ?>
+                                        <?php
+                                        if (validation_errors()) { ?>
                                             <div class="form-group">
                                                 <div class="col-md-8">
                                                     <div class="alert alert-danger" role="alert">
@@ -123,7 +124,7 @@
                                             <label class="col-md-3 control-label" for="meta_keyword">Favicon:</label>
 
                                             <div class="col-md-5">
-                                                <input type="file" class="form-control" name="show_favicon"
+                                                <input type="file" class="form-control" name="show_favicon" multiple="multiple"
                                                        id="show_favicon"/>
                                             </div>
                                         </div>

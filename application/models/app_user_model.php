@@ -73,6 +73,7 @@ class App_user_model extends CI_Model
             'footer_text' => $this->input->post('footer_text'),
             'meta_keyword' => $this->input->post('meta_keyword'),
             'meta_description' => $this->input->post('meta_desc'),
+            'favicon' => $this->input->post('show_favicon'),
         );
         $this->db->update('system_configuration', $data);
     }
