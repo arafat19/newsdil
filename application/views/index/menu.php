@@ -4,7 +4,7 @@
         <div class="header">
             <nav class="wsmenu slideLeft clearfix">
                 <ul class="mobile-sub wsmenu-list">
-                    <li><a href="#" class="active"><i class="fa fa-home"></i><span class="hometext">&nbsp;&nbsp;Home</span></a></li>
+                    <li><a href="<?php echo base_url();?>" class="active"><i class="fa fa-home"></i><span class="hometext">&nbsp;&nbsp;Home</span></a></li>
                     <li><a href="#">What we do</a>
                         <ul class="wsmenu-submenu">
                             <?php if (isset($all_services) && $all_services->num_rows() > 0):

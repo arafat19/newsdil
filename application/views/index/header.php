@@ -7,7 +7,7 @@
     <meta name="keyword" content="<?php echo $all_system_configuration_ui['meta_keyword'];?>">
     <meta name="description" content="<?php echo $all_system_configuration_ui['meta_description'];?>">
     <meta name="author" content="<?php echo $title;?>">
-    <link rel="shortcut icon" href="<?php echo base_url();?>images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo base_url();?>uploaded/admin/<?php echo $all_system_configuration_ui['favicon'];?>" type="image/x-icon" />
     <title><?php echo $title;?></title>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     <!-- Bootstrap Core CSS -->
@@ -29,24 +29,4 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <script type="text/javascript">
-        var popupWindow = null;
-        function MyPopFunction () {
-            // if (window.createPopup) {        //Internet Explorer
-            //     if (!popupWindow) {
-            //         popupWindow = window.createPopup ();
-            //         var popupBody = popupWindow.document.body;
-            //         popupBody.style.backgroundColor = "lightblue";
-            //         popupBody.style.border = "solid black 1px";
-            //         popupBody.innerHTML = "Click outside to close.";
-            //     }
-            //     popupWindow.show (100, 100, 150, 25, document.body);
-            // }
-            // else {
-            alert ("The Site is under construction! Update is comming soon...");
-            // }
-        }
-    </script>
-
 </head>

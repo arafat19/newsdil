@@ -43,7 +43,16 @@ class App_user_model extends CI_Model
 
     public function get_system_configuration_by_id($system_config_id)
     {
-        $this->db->select('top_heading1, top_heading2, footer_text, meta_keyword, meta_description');
+        $this->db->select('top_heading1, top_heading2, footer_text, meta_keyword, meta_description,favicon,logo');
+        $this->db->where('id', $system_config_id);
+        $query = $this->db->get('system_configuration');
+
+        return $query->row_array();
+    }
+
+    public function get_system_favcion_by_id($system_config_id)
+    {
+        $this->db->select('favicon');
         $this->db->where('id', $system_config_id);
         $query = $this->db->get('system_configuration');
 

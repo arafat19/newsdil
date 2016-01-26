@@ -29,7 +29,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title"> <?php echo $common_header; ?></h3>
                     </div>
-                    <form name='add_service_form' id='add_service_form' enctype="multipart/form-data" action="<?php echo base_url(); ?>admin/configuration"
+                    <form name='add_service_form' id='add_service_form' enctype="multipart/form-data"
                           class="form-horizontal form-widgets" role="form" method="POST">
                         <div class="panel-body">
                             <div class="form-group">
@@ -120,14 +120,7 @@
                                                           placeholder="255 Char Max" required><?php echo $all_system_configuration['meta_description']; ?></textarea>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="meta_keyword">Favicon:</label>
 
-                                            <div class="col-md-5">
-                                                <input type="file" class="form-control" name="show_favicon" multiple="multiple"
-                                                       id="show_favicon"/>
-                                            </div>
-                                        </div>
                                     </fieldset>
                                 </div>
                             </div>
@@ -141,6 +134,8 @@
                             <button id="clearFormButton" name="clearFormButton" type="reset"
                                     class="btn btn-submit btn-danger"><span class="glyphicon glyphicon-remove"></span>Cancel
                             </button>
+                            <a href="<?php echo base_url(); ?>admin/uploadfavicon" class="btn btn-submit btn-warning">Upload Favicon</a>
+                            <a href="<?php echo base_url(); ?>admin/uploadlogofile" class="btn btn-submit btn-info">Upload Logo</a>
                         </div>
                     </form>
                 </div>

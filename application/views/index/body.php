@@ -21,7 +21,9 @@
                     <div class="col-xs-12 col-sm-3 col-md-3">
                         <div class="logo clearfix"><a href="<?php echo base_url(); ?>index.html"
                                                       title="Responsive Slide Menus"><img
-                                    src="<?php echo base_url(); ?>images/logo.png" alt=""/></a></div>
+                                    src="<?php echo base_url(); ?>uploaded/admin/<?php echo $all_system_configuration_ui['logo']; ?>"
+                                    alt="<?php echo base_url(); ?>uploaded/admin/<?php echo $all_system_configuration_ui['logo']; ?>"/></a>
+                        </div>
                     </div>
                     <!-- Navigation -->
                     <?php $this->load->view('index/menu'); ?>
@@ -39,9 +41,9 @@
                 <div class="row">
                     <div class="intro-body-area clearfix">
                         <div class="col-xs-12">
-                            <h1><?php echo $all_system_configuration_ui['top_heading1'];?></h1>
+                            <h1><?php echo $all_system_configuration_ui['top_heading1']; ?></h1>
 
-                            <h2><?php echo $all_system_configuration_ui['top_heading2'];?></h2>
+                            <h2><?php echo $all_system_configuration_ui['top_heading2']; ?></h2>
 
                             <div class="read-btn"><a href="">Read More</a></div>
                         </div>
@@ -88,20 +90,20 @@
                         <ul>
                             <?php if (isset($all_services) && $all_services->num_rows() > 0):
                                 foreach ($all_services->result() as $row):
-                                    echo "<li><a href='$row->service_page_url'><i class='fa fa-check'></i>".$row->service_name."</a></li>";
+                                    echo "<li><a href='$row->service_page_url'><i class='fa fa-check'></i>" . $row->service_name . "</a></li>";
                                 endforeach;
                             endif; ?>
-                           <!-- <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Softwear
-                                    Development</a></li>
-                            <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Web Develpoment Multi
-                                    Framework</a></li>
-                            <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Branding & Graphics</a>
-                            </li>
-                            <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Digital Advertising
-                                    Operations</a></li>
-                            <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Domain Hosting</a></li>
-                            <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Back office processing</a>
-                            </li>-->
+                            <!-- <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Softwear
+                                     Development</a></li>
+                             <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Web Develpoment Multi
+                                     Framework</a></li>
+                             <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Branding & Graphics</a>
+                             </li>
+                             <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Digital Advertising
+                                     Operations</a></li>
+                             <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Domain Hosting</a></li>
+                             <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Back office processing</a>
+                             </li>-->
                         </ul>
                         <div class="read-btn"><a href="javascript:MyPopFunction();">Read more</a></div>
                     </div>

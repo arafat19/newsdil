@@ -85,5 +85,12 @@
 <script src="<?php echo base_url();?>js/smooth-scroll.js"></script>
 <!-- Custom js  -->
 <script src="<?php echo base_url();?>js/custom.js"></script>
+
+<script type="text/javascript">
+    var popupWindow = null;
+    function MyPopFunction () {
+        alert ("The Site is under construction! Update is comming soon...");
+    }
+</script>
 </body>
 </html>
