@@ -40,6 +40,15 @@ class App_user_model extends CI_Model
         }
     }
 
+    function get_social_icon()
+    {
+        $result = $this->db->get("social_icon");
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
+    }
 
     public function get_system_configuration_by_id($system_config_id)
     {
@@ -106,6 +115,11 @@ class App_user_model extends CI_Model
         $this->db->insert('service_list', $data);
     }
 
+    public function add_social_icon($data)
+    {
+        $this->db->insert('social_icon', $data);
+    }
+
     public function delete_service($service_id)
     {
         $this->db->where('id', $service_id);
@@ -120,6 +134,16 @@ class App_user_model extends CI_Model
 
         return $query->row_array();
     }
+
+    public function get_social_icon_by_id($socialicon_id)
+    {
+        $this->db->select('id, social_icon_name, social_icon_link, social_icon_logo_class_name, is_active');
+        $this->db->where('id', $socialicon_id);
+        $query = $this->db->get('social_icon');
+
+        return $query->row_array();
+    }
+
     public function get_user_by_id($user_id)
     {
         $this->db->select('id, full_name, cell_number, password, email');
@@ -144,6 +168,37 @@ class App_user_model extends CI_Model
     {
         $this->db->where('service_name', $name);
         $query = $this->db->get('service_list');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function exist_sicon_name($name)
+    {
+        $this->db->where('social_icon_name', $name);
+        $query = $this->db->get('social_icon');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+    public function exist_sicon_link($name)
+    {
+        $this->db->where('social_icon_link', $name);
+        $query = $this->db->get('social_icon');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+    public function exist_sicon_class_name($name)
+    {
+        $this->db->where('social_icon_logo_class_name', $name);
+        $query = $this->db->get('social_icon');
         if ($query->num_rows() > 0) {
             return TRUE;
         } else {
@@ -199,6 +254,21 @@ class App_user_model extends CI_Model
         $this->db->where('id', $service_id);
         $this->db->update('service_list', $data);
     }
+
+    public function update_social_icon($social_icon_id)
+    {
+        $is_active = $this->input->post('is_active') ? 1 : 0;
+        $data = array(
+            'social_icon_name' => $this->input->post('social_icon_name'),
+            'social_icon_link' => $this->input->post('social_icon_link'),
+            'social_icon_logo_class_name' => $this->input->post('social_icon_class_name'),
+            'is_active' => $is_active
+        );
+        $this->db->where('id', $social_icon_id);
+        $this->db->update('social_icon', $data);
+    }
+
+
     public function update_user_info($user_id)
     {
         $data = array(

@@ -50,13 +50,23 @@
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="social-iteam">
                             <ul>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                <li><a href="#"><i class="fa fa-share"></i></a></li>
+                                <?php if (isset($active_social_icons) && $active_social_icons->num_rows() > 0):
+                                    foreach ($active_social_icons->result() as $row):    ?>
+                                        <li>
+                                            <a href="<?php echo $row->social_icon_link;?>" target="_blank">
+                                                <i class="<?php echo $row->social_icon_logo_class_name;?>"></i>
+                                            </a>
+                                        </li>
+                                    <?php
+                                    endforeach;
+                                endif; ?>
+                                <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                             <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                             <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                             <li><a href="#"><i class="fa fa-share"></i></a></li>-->
                             </ul>
                         </div>
                     </div>

@@ -22,10 +22,23 @@ class Main_ui_model extends CI_Model
 
     }
 
+    public function get_social_icon_by_is_active($is_active)
+    {
+        $this->db->select('id, social_icon_name, social_icon_link, social_icon_logo_class_name, is_active');
+        $this->db->where('is_active', $is_active);
+        $result = $this->db->get('social_icon');
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
+
+    }
+
     public function submit_contact_request()
     {
         $human_check = $this->input->post('human');
-        if($human_check == 5){
+        if ($human_check == 5) {
             $data = array(
                 'full_name' => $this->input->post('full_name'),
                 'email' => $this->input->post('email'),
@@ -36,8 +49,7 @@ class Main_ui_model extends CI_Model
             );
             $this->db->insert('contact_us', $data);
             return TRUE;
-        }
-        else {
+        } else {
             return false;
         }
 
