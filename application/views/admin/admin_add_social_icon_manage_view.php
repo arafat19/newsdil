@@ -1,4 +1,13 @@
 <body>
+<script language="javascript">
+    function checkMe() {
+        if (confirm("Are you sure you want to delete the selected social icon?")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
 <div id="wrapper">
     <?php $this->load->view('admin/admin_dashboard_navbar_view'); ?>
 
@@ -36,16 +45,16 @@
                                 <div class="col-md-12">
                                     <fieldset>
                                         <?php if (validation_errors()) { ?>
-                                        <div class="form-group">
-                                            <div class="col-md-8">
-                                                <div class="alert alert-danger" role="alert">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-                                                    <?php echo validation_errors(); ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-danger" role="alert">
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo validation_errors(); ?>
 
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
                                         <?php }
                                         if ($this->session->flashdata('add_success')) { ?>
@@ -66,6 +75,29 @@
                                                         <a href="#" class="close" data-dismiss="alert"
                                                            aria-label="close">&times;</a>
                                                         <?php echo $this->session->flashdata('update_message'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                        if ($this->session->flashdata('cant_delete_message')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8"><i class="fa fa-check"></i>
+
+                                                    <div class="alert alert-warning" role="alert">
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('cant_delete_message'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                        if ($this->session->flashdata('delete_message')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-success" role="alert">
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('delete_message'); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -139,47 +171,50 @@
                         <div class="form-group">
                             <div class="col-lg-12">
                                 <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>Serial</th>
-                                        <th>Social Icon Name</th>
-                                        <th>Social Icon Link</th>
-                                        <th>Social Icon</th>
-                                        <th>Is Active</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <?php $i = 1; ?>
-                                    <?php if (isset($all_social_icons) && $all_social_icons->num_rows() > 0): ?>
-                                    <?php foreach ($all_social_icons->result() as $row): ?>
-
-                                        <tbody>
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
                                         <tr>
-                                            <td align="right"><?php echo $i++; ?></td>
-                                            <td><?php echo $row->social_icon_name; ?></td>
-                                            <td align="left"><?php echo $row->social_icon_link ? $row->social_icon_link : 'No URL'; ?></td>
-                                            <td align="center"><i
-                                                class="<?php echo $row->social_icon_logo_class_name; ?>"></i></td>
-                                            <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
-                                            <td align="center"><a class="btn btn-success" title="Edit"
-                                                                  href="<?php echo base_url(); ?>admin/socialedit/<?php echo base64_encode($row->id); ?>"
-                                                                  role="button"><span
-                                                class="glyphicon glyphicon-edit"></span></a>
-
-                                                <a class="btn btn-danger"
-                                                   href="<?php echo base_url(); ?>admin/socialdelete/<?php echo base64_encode($row->id); ?>"
-                                                   onclick="return checkMe()" title="Delete"
-                                                   role="button"><span class="glyphicon glyphicon-trash"></span></a>
-                                            </td>
+                                            <th>Serial</th>
+                                            <th>Social Icon Name</th>
+                                            <th>Social Icon Link</th>
+                                            <th>Social Icon</th>
+                                            <th>Is Active</th>
+                                            <th>Action</th>
                                         </tr>
-                                        </tbody>
+                                        </thead>
+                                        <?php $i = 1; ?>
+                                        <?php if (isset($all_social_icons) && $all_social_icons->num_rows() > 0): ?>
+                                        <?php foreach ($all_social_icons->result() as $row): ?>
+
+                                            <tbody>
+                                            <tr>
+                                                <td align="right"><?php echo $i++; ?></td>
+                                                <td><?php echo $row->social_icon_name; ?></td>
+                                                <td align="left"><?php echo $row->social_icon_link ? $row->social_icon_link : 'No URL'; ?></td>
+                                                <td align="center"><i
+                                                        class="<?php echo $row->social_icon_logo_class_name; ?>"></i>
+                                                </td>
+                                                <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
+                                                <td align="center"><a class="btn btn-success" title="Edit"
+                                                                      href="<?php echo base_url(); ?>admin/socialedit/<?php echo base64_encode($row->id); ?>"
+                                                                      role="button"><span
+                                                            class="glyphicon glyphicon-edit"></span></a>
+
+                                                    <a class="btn btn-danger"
+                                                       href="<?php echo base_url(); ?>admin/socialdelete/<?php echo base64_encode($row->id); ?>"
+                                                       onclick="return checkMe()" title="Delete"
+                                                       role="button"><span class="glyphicon glyphicon-trash"></span></a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
                                         <?php endforeach; ?>
                                     </table>
                                     <?php else: ?>
-                                    <div>
-                                        <p>No results were found</p>
-                                    </div>
+                                        <div class="col-md-12">
+                                            <div class="alert alert-info " role="alert">
+                                                No Results were found.
+                                            </div>
+                                        </div>
                                     <?php endif; ?>
                                 </div>
                             </div>

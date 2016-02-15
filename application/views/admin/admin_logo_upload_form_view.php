@@ -64,7 +64,7 @@
                                         <label class="col-md-3 control-label" for="userfile">Company Logo:</label>
 
                                         <div class="col-md-5">
-                                            <input type="file" class="form-control" name="userfile"
+                                            <input type="file" class="form-control" name="userfile" title="Allowed dimension: 684x313 and size: 1024kb"
                                                    id="userfile"/>
                                         </div>
                                     </div>

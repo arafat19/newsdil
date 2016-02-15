@@ -95,9 +95,10 @@ class App_user_model extends CI_Model
         );
         $this->db->update('system_configuration', $data);
     }
+
     function update_image($data)
     {
-        $this->db->update('system_configuration',$data);
+        $this->db->update('system_configuration', $data);
     }
 
     public function add_services()
@@ -125,6 +126,13 @@ class App_user_model extends CI_Model
         $this->db->where('id', $service_id);
         $this->db->delete('service_list');
     }
+
+    public function delete_social_icon($social_icon_id)
+    {
+        $this->db->where('id', $social_icon_id);
+        $this->db->delete('social_icon');
+    }
+
 
     public function get_service_by_id($service_id)
     {
@@ -185,6 +193,7 @@ class App_user_model extends CI_Model
             return FALSE;
         }
     }
+
     public function exist_sicon_link($name)
     {
         $this->db->where('social_icon_link', $name);
@@ -195,6 +204,7 @@ class App_user_model extends CI_Model
             return FALSE;
         }
     }
+
     public function exist_sicon_class_name($name)
     {
         $this->db->where('social_icon_logo_class_name', $name);

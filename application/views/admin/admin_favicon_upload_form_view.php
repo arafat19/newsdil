@@ -64,7 +64,7 @@
                                         <label class="col-md-3 control-label" for="userfile">Favicon:</label>
 
                                         <div class="col-md-5">
-                                            <input type="file" class="form-control" name="userfile"
+                                            <input type="file" class="form-control" name="userfile" title="Allowed dimension: 30x30 and size: 100kb"
                                                    id="userfile"/>
                                         </div>
                                     </div>
