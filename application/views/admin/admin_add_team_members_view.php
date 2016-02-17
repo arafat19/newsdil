@@ -38,7 +38,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title"> <?php echo $common_header; ?></h3>
                     </div>
-                    <form name='add_social_form' id='add_social_form' enctype="multipart/form-data"
+                    <form name='add_team_members_form' id='add_social_form' enctype="multipart/form-data"
                           class="form-horizontal form-widgets" role="form" method="POST">
                         <div class="panel-body">
                             <div class="form-group">
@@ -106,33 +106,71 @@
                                             </div>
                                         <?php } ?>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="social_icon_name">Social Icon
-                                                Name:</label>
+                                            <label class="col-md-3 control-label" for="full_name">Full Name:</label>
 
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" name="social_icon_name"
-                                                       id="social_icon_name"
-                                                       placeholder="Social Icon Name" required autofocus/>
+                                                <input type="text" class="form-control" name="full_name"
+                                                       id="full_name"
+                                                       placeholder="Full Name" required autofocus/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="social_icon_link">Social Icon
-                                                URL:</label>
+                                            <label class="col-md-3 control-label" for="designation">Designation:</label>
 
                                             <div class="col-md-5">
-                                                <input type="url" class="form-control" name="social_icon_link"
-                                                       id="social_icon_link" pattern="https?://.+"
-                                                       placeholder="http://" required/>
+                                                <input type="url" class="form-control" name="designation"
+                                                       id="designation" placeholder="Write Designation" required/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="social_icon_class_name">Social
-                                                Icon Class Name:</label>
+                                            <label class="col-md-3 control-label" for="member_description">Member Description:</label>
 
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" name="social_icon_class_name"
-                                                       id="social_icon_class_name"
-                                                       placeholder="Example: fa fa-facebook" required/>
+                                                <textarea type="text" class="form-control" id="member_description"
+                                                          name="member_description" rows="7"
+                                                          placeholder="255 Char Max" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="userfile">Member Photo:</label>
+
+                                            <div class="col-md-5">
+                                                <input type="file" class="form-control" name="userfile" title="Allowed dimension: 30x30 and size: 100kb"
+                                                       id="userfile"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-3 control-label" for="facebook_link"><i class="fa fa-facebook-square fa-2x" style="color: #3b5998"></i></div>
+
+                                            <div class="col-md-5">
+                                                <input type="url" class="form-control" name="facebook_link"
+                                                       id="facebook_link" placeholder="Write Facebook link" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-3 control-label" for="twitter_link"><i class="fa fa-twitter-square fa-2x" style="color: #55acee"></i></div>
+
+                                            <div class="col-md-5">
+                                                <input type="url" class="form-control" name="twitter_link"
+                                                       id="twitter_link" placeholder="Write Twitter link" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-3 control-label" for="linkedin_link"><i class="fa fa-linkedin-square fa-2x" style="color: #0077B5"></i></div>
+
+                                            <div class="col-md-5">
+                                                <input type="url" class="form-control" name="linkedin_link"
+                                                       id="twitter_link" placeholder="Write Linked In link"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-3 control-label" for="googleplus_link"><i class="fa fa-google-plus-square fa-2x" style="color: #dd4b39"></i></div>
+
+                                            <div class="col-md-5">
+                                                <input type="url" class="form-control" name="googleplus_link"
+                                                       id="twitter_link" placeholder="Write google+ link" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -173,7 +211,7 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <div class="col-lg-12">
-                                <div class="table-responsive">
+                                <!--<div class="table-responsive">
                                     <table class="table table-bordered table-hover table-striped">
                                         <thead>
                                         <tr>
@@ -185,41 +223,41 @@
                                             <th>Action</th>
                                         </tr>
                                         </thead>
-                                        <?php $i = 1; ?>
-                                        <?php if (isset($all_social_icons) && $all_social_icons->num_rows() > 0): ?>
-                                        <?php foreach ($all_social_icons->result() as $row): ?>
+                                        <?php /*$i = 1; */?>
+                                        <?php /*if (isset($all_social_icons) && $all_social_icons->num_rows() > 0): */?>
+                                        <?php /*foreach ($all_social_icons->result() as $row): */?>
 
                                             <tbody>
                                             <tr>
-                                                <td align="right"><?php echo $i++; ?></td>
-                                                <td><?php echo $row->social_icon_name; ?></td>
-                                                <td align="left"><?php echo $row->social_icon_link ? $row->social_icon_link : 'No URL'; ?></td>
+                                                <td align="right"><?php /*echo $i++; */?></td>
+                                                <td><?php /*echo $row->social_icon_name; */?></td>
+                                                <td align="left"><?php /*echo $row->social_icon_link ? $row->social_icon_link : 'No URL'; */?></td>
                                                 <td align="center"><i
-                                                        class="<?php echo $row->social_icon_logo_class_name; ?>"></i>
+                                                        class="<?php /*echo $row->social_icon_logo_class_name; */?>"></i>
                                                 </td>
-                                                <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
+                                                <td align="center"><?php /*echo $row->is_active ? 'Yes' : 'No'; */?></td>
                                                 <td align="center"><a class="btn btn-success" title="Edit"
-                                                                      href="<?php echo base_url(); ?>admin/socialedit/<?php echo base64_encode($row->id); ?>"
+                                                                      href="<?php /*echo base_url(); */?>admin/socialedit/<?php /*echo base64_encode($row->id); */?>"
                                                                       role="button"><span
                                                             class="glyphicon glyphicon-edit"></span></a>
 
                                                     <a class="btn btn-danger"
-                                                       href="<?php echo base_url(); ?>admin/socialdelete/<?php echo base64_encode($row->id); ?>"
+                                                       href="<?php /*echo base_url(); */?>admin/socialdelete/<?php /*echo base64_encode($row->id); */?>"
                                                        onclick="return checkMe()" title="Delete"
                                                        role="button"><span class="glyphicon glyphicon-trash"></span></a>
                                                 </td>
                                             </tr>
                                             </tbody>
-                                        <?php endforeach; ?>
+                                        <?php /*endforeach; */?>
                                     </table>
-                                    <?php else: ?>
+                                    <?php /*else: */?>
                                         <div class="col-md-12">
                                             <div class="alert alert-info " role="alert">
                                                 No Results were found.
                                             </div>
                                         </div>
-                                    <?php endif; ?>
-                                </div>
+                                    <?php /*endif; */?>
+                                </div>-->
                             </div>
                         </div>
                     </div>

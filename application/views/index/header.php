@@ -20,6 +20,8 @@
     <link href="<?php echo base_url();?>css/owl.carousel.css" rel="stylesheet">
     <link href="<?php echo base_url();?>css/owl.theme.css" rel="stylesheet">
     <link href="<?php echo base_url();?>css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
     <!-- portfolio CSS -->
     <link href="<?php echo base_url();?>css/prettyPhoto.css" media="screen" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url();?>css/buttons.css" media="screen" rel="stylesheet" type="text/css">

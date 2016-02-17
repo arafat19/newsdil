@@ -59,6 +59,7 @@ $route['admin/uploadlogo'] = "admin/upload_logo";
 $route['admin/uploadfavicon'] = "admin/upload_favicon_file";
 $route['admin/uploadlogofile'] = "admin/upload_logo_file";
 $route['admin/socialicon'] = "admin/social_icon_management";
+$route['admin/addteam'] = "admin/add_team_members";
 $route['signout'] = "admin/logout";
 $route['admin/sedit/(:any)'] = "admin/edit_service/$1";
 $route['admin/sdelete/(:any)'] = 'admin/delete_service/$1';

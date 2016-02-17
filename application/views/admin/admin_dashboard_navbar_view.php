@@ -132,6 +132,9 @@
             <li class="<?php echo($active=='social_icon')?'active':''; ?>">
                 <a href="<?php echo base_url();?>admin/socialicon"><i class="fa fa-fw fa-database"></i>Add Social Icon</a>
             </li>
+            <li class="<?php echo($active=='team_members')?'active':''; ?>">
+                <a href="<?php echo base_url();?>admin/addteam"><i class="fa fa-fw fa-group"></i>Add Team Member</a>
+            </li>
             <li class="">
                 <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
             </li>
