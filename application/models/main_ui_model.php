@@ -35,6 +35,18 @@ class Main_ui_model extends CI_Model
 
     }
 
+    function get_active_team_members()
+    {
+        $this->db->select('*');
+        $this->db->where('is_active', 1);
+        $result = $this->db->get('team_members');
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
+    }
+
     public function submit_contact_request()
     {
         $human_check = $this->input->post('human');

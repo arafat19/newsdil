@@ -22,6 +22,9 @@ class Home extends CI_Controller
         $all_system_configuration = $this->App_user_model->get_system_configuration_by_id($system_config_id); // Reading and showing the System configuration from DB
         $data['all_system_configuration_ui'] = $all_system_configuration;
 
+        $active_team_members = $this->Main_ui_model->get_active_team_members(); // Reading and showing Only the Active Social Icons list from DB by setting is_active = 1
+        $data['active_team_members'] = $active_team_members;
+
         $data['title'] = 'Shwapno Duar IT Ltd.';
         $data['active'] = 'contacts';
         $data['top_heading_h1'] = 'WE ARE Shwapno Duar';

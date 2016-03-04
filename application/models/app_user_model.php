@@ -50,11 +50,31 @@ class App_user_model extends CI_Model
         }
     }
 
+    function get_all_team_members()
+    {
+        $result = $this->db->get("team_members");
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
+    }
+
+
     public function get_system_configuration_by_id($system_config_id)
     {
         $this->db->select('top_heading1, top_heading2, footer_text, meta_keyword, meta_description,favicon,logo');
         $this->db->where('id', $system_config_id);
         $query = $this->db->get('system_configuration');
+
+        return $query->row_array();
+    }
+
+    public function get_single_member_by_id($member_id)
+    {
+        $this->db->select('*');
+        $this->db->where('id', $member_id);
+        $query = $this->db->get('team_members');
 
         return $query->row_array();
     }
@@ -96,9 +116,15 @@ class App_user_model extends CI_Model
         $this->db->update('system_configuration', $data);
     }
 
-    function update_image($data)
+    function update_image($table_name,$data)
     {
-        $this->db->update('system_configuration', $data);
+        $this->db->update($table_name, $data);
+    }
+
+    function update_single_image($member_id_dec,$table_name,$data)
+    {
+        $this->db->where('id', $member_id_dec);
+        $this->db->update($table_name, $data);
     }
 
     public function add_services()
@@ -121,10 +147,29 @@ class App_user_model extends CI_Model
         $this->db->insert('social_icon', $data);
     }
 
+    public function add_team_member($data)
+    {
+        $this->db->insert('team_members', $data);
+    }
+
     public function delete_service($service_id)
     {
         $this->db->where('id', $service_id);
         $this->db->delete('service_list');
+    }
+    public function delete_member_image($member_id)
+    {
+        $data = array(
+            'personal_image' => ''
+        );
+        $this->db->where('id', $member_id);
+        $this->db->update('team_members', $data);
+    }
+
+    public function delete_member($member_id)
+    {
+        $this->db->where('id', $member_id);
+        $this->db->delete('team_members');
     }
 
     public function delete_social_icon($social_icon_id)
@@ -194,6 +239,59 @@ class App_user_model extends CI_Model
         }
     }
 
+    public function exist_designation($designation)
+    {
+        $this->db->where('designation', $designation);
+        $query = $this->db->get('team_members');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+    public function exist_facebook($facebook_link)
+    {
+        $this->db->where('facebook_link', $facebook_link);
+        $query = $this->db->get('team_members');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function exist_twitter($twitter_link)
+    {
+        $this->db->where('twitter_link', $twitter_link);
+        $query = $this->db->get('team_members');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+    public function exist_linkedin($linkedin_link)
+    {
+        $this->db->where('linkedin_link', $linkedin_link);
+        $query = $this->db->get('team_members');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function exist_googleplus($googleplus_link)
+    {
+        $this->db->where('googleplus_link', $googleplus_link);
+        $query = $this->db->get('team_members');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
     public function exist_sicon_link($name)
     {
         $this->db->where('social_icon_link', $name);
@@ -237,6 +335,16 @@ class App_user_model extends CI_Model
             return TRUE;
         }
     }
+    public function exist_team_member_edit($field,$attr)
+    {
+        $this->db->where($field, $attr);
+        $query = $this->db->get('team_members');
+        if ($query->num_rows() > 1) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
 
     public function check_user_email($email)
     {
@@ -276,6 +384,23 @@ class App_user_model extends CI_Model
         );
         $this->db->where('id', $social_icon_id);
         $this->db->update('social_icon', $data);
+    }
+
+    public function update_team_members($member_id)
+    {
+        $is_active = $this->input->post('is_active') ? 1 : 0;
+        $data = array(
+            'full_name' => $this->input->post('full_name'),
+            'designation' => $this->input->post('designation'),
+            'member_description' => $this->input->post('member_description'),
+            'facebook_link' => $this->input->post('facebook_link'),
+            'twitter_link' => $this->input->post('twitter_link'),
+            'linkedin_link' => $this->input->post('linkedin_link'),
+            'googleplus_link' => $this->input->post('googleplus_link'),
+            'is_active' => $is_active
+        );
+        $this->db->where('id', $member_id);
+        $this->db->update('team_members', $data);
     }
 
 

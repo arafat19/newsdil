@@ -381,73 +381,35 @@
             </div>
             <div class="contain-body team-section clearfix">
                 <div id="team-list">
-                    <!-- <div class="iteam">
-                      <h4><span>Sussan</span> Miatter</h4>
-                      <div class="team-thumb"><a href="#"><img src="images/team_thumb_01.jpg" alt=""></a></div>
-                      <div class="contain">
-                        <h5>Back Office Processing</h5>
-                        <div class="divied"></div>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                        <div class="social-link">
-                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        </div>
-                      </div>
-                    </div> -->
-                    <!-- <div class="iteam">
-                      <h4><span>Sussan</span> Miatter</h4>
-                      <div class="team-thumb"><a href="#"><img src="images/team_thumb_02.jpg" alt=""></a></div>
-                      <div class="contain">
-                        <h5>Back Office Processing</h5>
-                        <div class="divied"></div>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                        <div class="social-link">
-                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        </div>
-                      </div>
-                    </div> -->
-                    <div class="iteam">
-                        <h4><span>Rabiul</span> Biblob</h4>
+                    <?php if (isset($active_team_members) && $active_team_members->num_rows() > 0):
+                        foreach ($active_team_members->result() as $row): ?>
+                            <div class="iteam">
+                                <h4><?php echo $row->full_name; ?></h4>
 
-                        <div class="team-thumb"><a href="#"><img src="<?php echo base_url(); ?>images/CEO.png"
-                                                                 alt=""></a></div>
-                        <div class="contain">
-                            <h5>CEO</h5>
+                                <div class="team-thumb"><img
+                                        src="<?php echo base_url(); ?>uploaded/admin/<?php echo $row->personal_image; ?>" alt="<?php echo $row->personal_image; ?>"></div>
+                                <div class="contain">
+                                    <h5><?php echo $row->designation; ?></h5>
 
-                            <div class="divied"></div>
-                            <p>Rabiul Biplob is the Chief Executive Officer of SDIL. As CEO, he is responsible for
-                                formulating the strategic vision, executing the business plan, and building the team for
-                                SDIL Software. Rabiul is a successful entrepreneur, with extensive experience running
-                                enterprise software companies.</p>
+                                    <div class="divied"></div>
+                                    <p><?php echo $row->member_description; ?></p>
 
-                            <div class="social-link">
-                                <li><a href="javascript:MyPopFunction();"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="javascript:MyPopFunction();"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="javascript:MyPopFunction();"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="javascript:MyPopFunction();"><i class="fa fa-google-plus"></i></a></li>
+                                    <div class="social-link">
+                                        <li><a href="<?php echo $row->facebook_link; ?>"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li><a href="<?php echo $row->twitter_link; ?>"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="<?php echo $row->linkedin_link; ?>"><i class="fa fa-linkedin"></i></a>
+                                        </li>
+                                        <li><a href="<?php echo $row->googleplus_link; ?>"><i class="fa fa-google-plus"></i></a>
+                                        </li>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <!--  <div class="iteam">
-                       <h4><span>Sussan</span> Miatter</h4>
-                       <div class="team-thumb"><a href="#"><img src="images/team_thumb_01.jpg" alt=""></a></div>
-                       <div class="contain">
-                         <h5>Back Office Processing</h5>
-                         <div class="divied"></div>
-                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                         <div class="social-link">
-                           <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                           <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                           <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                           <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                         </div>
-                       </div>
-                     </div> -->
+                        <?php
+                        endforeach;
+                    else:
+                        echo "<p>No Member Found!</p>";
+                    endif; ?>
                 </div>
             </div>
         </div>
