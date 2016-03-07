@@ -384,10 +384,10 @@
                     <?php if (isset($active_team_members) && $active_team_members->num_rows() > 0):
                         foreach ($active_team_members->result() as $row): ?>
                             <div class="iteam">
-                                <h4><?php echo $row->full_name; ?></h4>
+                                <h4><span><?php echo $row->first_name; ?></span><?php echo " ".$row->last_name; ?></h4>
 
-                                <div class="team-thumb"><img
-                                        src="<?php echo base_url(); ?>uploaded/admin/<?php echo $row->personal_image; ?>" alt="<?php echo $row->personal_image; ?>"></div>
+                                <div class="team-thumb"><img height="167px" width="167px"
+                                        src="<?php echo base_url(); ?>uploaded/admin/<?php echo $row->personal_image ? $row->personal_image : 'blank_person.png';?>" alt="<?php echo $row->personal_image; ?>"></div>
                                 <div class="contain">
                                     <h5><?php echo $row->designation; ?></h5>
 

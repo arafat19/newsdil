@@ -126,12 +126,21 @@
                                             </div>
                                         <?php } ?>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="full_name">Full Name:</label>
+                                            <label class="col-md-3 control-label" for="first_name">First Name:</label>
 
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" name="full_name"
-                                                       id="full_name"
-                                                       placeholder="Full Name" required autofocus/>
+                                                <input type="text" class="form-control" name="first_name"
+                                                       id="first_name"
+                                                       placeholder="First Name" required autofocus/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="last_name">Last Name:</label>
+
+                                            <div class="col-md-5">
+                                                <input type="text" class="form-control" name="last_name"
+                                                       id="last_name"
+                                                       placeholder="Last Name" required/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -250,7 +259,7 @@
                                             <tbody>
                                             <tr>
                                                 <td align="right"><?php echo $i++; ?></td>
-                                                <td><?php echo $row->full_name; ?></td>
+                                                <td><?php echo $row->first_name." ".$row->last_name; ?></td>
                                                 <td><?php echo $row->designation; ?></td>
                                                 <td align="center">
                                                     <a href="<?php echo $row->facebook_link ? $row->facebook_link : '#'; ?>"

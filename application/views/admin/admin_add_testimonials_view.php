@@ -7,13 +7,6 @@
             return false;
         }
     }
-    function deleteImage() {
-        if (confirm("Are you sure you want to delete the selected image?")) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 </script>
 <div id="wrapper">
     <?php $this->load->view('admin/admin_dashboard_navbar_view'); ?>
@@ -64,13 +57,73 @@
                                                 </div>
                                             </div>
 
+                                        <?php }
+                                        if ($this->session->flashdata('add_success')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-success" role="alert">
+                                                        <i class="fa fa-check"></i>
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('add_success'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                        if ($this->session->flashdata('team_mem_update_message')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-success" role="alert">
+                                                        <i class="fa fa-check"></i>
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('team_mem_update_message'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                        if ($this->session->flashdata('cant_delete_message')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-warning" role="alert">
+                                                        <i class="fa fa-exclamation-triangle"></i>
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('cant_delete_message'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                        if ($this->session->flashdata('member_delete_message')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-success" role="alert">
+                                                        <i class="fa fa-check"></i>
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('member_delete_message'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                        if ($this->session->flashdata('image_delete_message')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-success" role="alert">
+                                                        <i class="fa fa-check"></i>
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('image_delete_message'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <?php } ?>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="first_name">First Name:</label>
 
                                             <div class="col-md-5">
                                                 <input type="text" class="form-control" name="first_name"
-                                                       id="first_name"  value="<?php echo $single_member['first_name']; ?>"
+                                                       id="first_name"
                                                        placeholder="First Name" required autofocus/>
                                             </div>
                                         </div>
@@ -79,80 +132,19 @@
 
                                             <div class="col-md-5">
                                                 <input type="text" class="form-control" name="last_name"
-                                                       id="last_name"  value="<?php echo $single_member['last_name']; ?>"
-                                                       placeholder="Last Name" required autofocus/>
+                                                       id="last_name"
+                                                       placeholder="Last Name" required/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="designation">Designation:</label>
 
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" name="designation" value="<?php echo $single_member['designation']; ?>"
+                                                <input type="text" class="form-control" name="designation"
                                                        id="designation" placeholder="Write Designation" required/>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="member_description">Member
-                                                Description:</label>
 
-                                            <div class="col-md-5">
-                                                <textarea type="text" class="form-control" id="member_description"
-                                                          name="member_description" rows="7"
-                                                          placeholder="255 Char Max" required><?php echo $single_member['member_description']; ?></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3 control-label" for="facebook_link"><i
-                                                    class="fa fa-facebook-square fa-2x" style="color: #3b5998"></i>
-                                            </div>
-
-                                            <div class="col-md-5">
-                                                <input type="url" class="form-control" name="facebook_link" value="<?php echo $single_member['facebook_link']; ?>"
-                                                       id="facebook_link" placeholder="Write Facebook link"/>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-md-3 control-label" for="twitter_link"><i
-                                                    class="fa fa-twitter-square fa-2x" style="color: #55acee"></i></div>
-
-                                            <div class="col-md-5">
-                                                <input type="url" class="form-control" name="twitter_link" value="<?php echo $single_member['twitter_link']; ?>"
-                                                       id="twitter_link" placeholder="Write Twitter link"/>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-md-3 control-label" for="linkedin_link"><i
-                                                    class="fa fa-linkedin-square fa-2x" style="color: #0077B5"></i>
-                                            </div>
-
-                                            <div class="col-md-5">
-                                                <input type="url" class="form-control" name="linkedin_link" value="<?php echo $single_member['linkedin_link']; ?>"
-                                                       id="twitter_link" placeholder="Write Linked In link"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3 control-label" for="googleplus_link"><i
-                                                    class="fa fa-google-plus-square fa-2x" style="color: #dd4b39"></i>
-                                            </div>
-
-                                            <div class="col-md-5">
-                                                <input type="url" class="form-control" name="googleplus_link" value="<?php echo $single_member['googleplus_link']; ?>"
-                                                       id="twitter_link" placeholder="Write google+ link"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label label-optional"
-                                                   for="is_active">Is Active:</label>
-
-                                            <div class="col-md-1">
-                                                <div class="checkbox">
-                                                    <input type="checkbox" id="is_active"
-                                                           name="is_active" value="1" <?php echo ($single_member['is_active']== 1 ? 'checked' : '');?> />
-                                                </div>
-                                            </div>
-                                        </div>
                                     </fieldset>
                                 </div>
                             </div>
@@ -160,10 +152,12 @@
                         <div class="panel-footer panel-success">
 
                             <button id="update" name="update" type="submit" data-role="button"
-                                    class="btn btn-submit btn-success"><span class="glyphicon glyphicon-edit"></span>Update
+                                    class="btn btn-submit btn-success"><span class="glyphicon glyphicon-plus"></span>Create
                             </button>
 
-                            <a class="btn btn-danger" href="<?php echo base_url();?>admin/addteam/" role="button"><span class="glyphicon glyphicon-remove"></span>Cancel</a>
+                            <button id="clearFormButton" name="clearFormButton" type="reset"
+                                    class="btn btn-submit btn-danger"><span class="glyphicon glyphicon-remove"></span>Cancel
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -187,6 +181,7 @@
                                             <th>Social Links</th>
                                             <th>Photo</th>
                                             <th>Is Active</th>
+                                            <th>Action</th>
                                         </tr>
                                         </thead>
                                         <?php /*$i = 1; */?>
@@ -196,7 +191,7 @@
                                             <tbody>
                                             <tr>
                                                 <td align="right"><?php /*echo $i++; */?></td>
-                                                <td><?php /*echo $row->full_name; */?></td>
+                                                <td><?php /*echo $row->first_name." ".$row->last_name; */?></td>
                                                 <td><?php /*echo $row->designation; */?></td>
                                                 <td align="center">
                                                     <a href="<?php /*echo $row->facebook_link ? $row->facebook_link : '#'; */?>"
@@ -243,6 +238,16 @@
                                                     <?php /*} */?>
                                                 </td>
                                                 <td align="center"><?php /*echo $row->is_active ? 'Yes' : 'No'; */?></td>
+                                                <td align="center"><a class="btn btn-success" title="Edit"
+                                                                      href="<?php /*echo base_url(); */?>admin/updateteamember/<?php /*echo base64_encode($row->id); */?>"
+                                                                      role="button"><span
+                                                            class="glyphicon glyphicon-edit"></span></a>
+
+                                                    <a class="btn btn-danger"
+                                                       href="<?php /*echo base_url(); */?>admin/memberdelete/<?php /*echo base64_encode($row->id); */?>"
+                                                       onclick="return checkMe()" title="Delete"
+                                                       role="button"><span class="glyphicon glyphicon-trash"></span></a>
+                                                </td>
                                             </tr>
                                             </tbody>
                                         <?php /*endforeach; */?>

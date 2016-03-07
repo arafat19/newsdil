@@ -135,21 +135,10 @@
             <li class="<?php echo($active=='team_members')?'active':''; ?>">
                 <a href="<?php echo base_url();?>admin/addteam"><i class="fa fa-fw fa-group"></i>Add Team Member</a>
             </li>
-            <li class="">
-                <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+            <li class="<?php echo($active=='testimonials')?'active':''; ?>">
+                <a href="<?php echo base_url();?>admin/addtest"><i class="fa fa-fw fa-database"></i>Add Testimonials</a>
             </li>
-            <li>
-                <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
-            </li>
-            <li>
-                <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-            </li>
-            <li>
-                <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-            </li>
-            <li>
-                <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-            </li>
+
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">

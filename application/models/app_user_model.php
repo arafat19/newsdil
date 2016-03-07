@@ -390,7 +390,8 @@ class App_user_model extends CI_Model
     {
         $is_active = $this->input->post('is_active') ? 1 : 0;
         $data = array(
-            'full_name' => $this->input->post('full_name'),
+            'first_name' => $this->input->post('first_name'),
+            'last_name' => $this->input->post('last_name'),
             'designation' => $this->input->post('designation'),
             'member_description' => $this->input->post('member_description'),
             'facebook_link' => $this->input->post('facebook_link'),
