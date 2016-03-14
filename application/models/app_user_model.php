@@ -30,7 +30,7 @@ class App_user_model extends CI_Model
         return false;
     }
 
-    function get_service()
+/*    function get_service()
     {
         $result = $this->db->get("service_list");
         if ($result->num_rows() > 0) {
@@ -38,6 +38,21 @@ class App_user_model extends CI_Model
         } else {
             return NULL;
         }
+    }*/
+
+    public function total_count() {
+        return $this->db->count_all("service_list");
+    }
+
+    public function get_services($limit, $start) {
+        $this->db->limit($limit, $start);
+        $this->db->order_by("id", "desc");
+        $query = $this->db->get("service_list");
+
+        if ($query->num_rows() > 0) {
+            return $query;
+        }
+        return false;
     }
 
     function get_social_icon()
@@ -150,6 +165,10 @@ class App_user_model extends CI_Model
     public function add_team_member($data)
     {
         $this->db->insert('team_members', $data);
+    }
+    public function add_testimonials($data)
+    {
+        $this->db->insert('sdil_testimonials', $data);
     }
 
     public function delete_service($service_id)

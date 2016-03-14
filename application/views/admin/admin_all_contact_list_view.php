@@ -69,13 +69,13 @@
                                             <th>Action</th>
                                         </tr>
                                         </thead>
-                                        <?php $i = 1; ?>
+
                                         <?php if (isset($all_contacts) && $all_contacts->num_rows() > 0): ?>
                                         <?php foreach ($all_contacts->result() as $row): ?>
 
                                             <tbody>
                                             <tr>
-                                                <td align="right"><?php echo $i++; ?></td>
+                                                <td align="center"><?php echo $serial++; ?></td>
                                                 <td><?php echo $row->full_name; ?></td>
                                                 <td><?php echo $row->email; ?></td>
                                                 <td align="left"><?php echo $row->cell_number; ?></td>
@@ -90,6 +90,8 @@
                                             </tbody>
                                         <?php endforeach; ?>
                                     </table>
+                                    <div class="pagination" style="float:right;"> <?php echo $paginglinks; ?></div>
+                                    <div class="pagination" style="float:left;"> <?php echo (!empty($pagermessage) ? $pagermessage : ''); ?></div>
                                     <?php else: ?>
 
                                         <div class="form-group">

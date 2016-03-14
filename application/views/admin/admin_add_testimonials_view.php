@@ -118,32 +118,7 @@
                                                 </div>
                                             </div>
                                         <?php } ?>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="first_name">First Name:</label>
-
-                                            <div class="col-md-5">
-                                                <input type="text" class="form-control" name="first_name"
-                                                       id="first_name"
-                                                       placeholder="First Name" required autofocus/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="last_name">Last Name:</label>
-
-                                            <div class="col-md-5">
-                                                <input type="text" class="form-control" name="last_name"
-                                                       id="last_name"
-                                                       placeholder="Last Name" required/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="designation">Designation:</label>
-
-                                            <div class="col-md-5">
-                                                <input type="text" class="form-control" name="designation"
-                                                       id="designation" placeholder="Write Designation" required/>
-                                            </div>
-                                        </div>
+                                        <div id="input-fields"></div>
 
                                     </fieldset>
                                 </div>
@@ -163,7 +138,7 @@
                 </div>
                 <!-- /.row -->
             </div>
-            <!--<div class="row row-fluid">
+            <div class="row row-fluid">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title">Team Members List</h3>
@@ -184,87 +159,45 @@
                                             <th>Action</th>
                                         </tr>
                                         </thead>
-                                        <?php /*$i = 1; */?>
-                                        <?php /*if (isset($all_team_members) && $all_team_members->num_rows() > 0): */?>
-                                        <?php /*foreach ($all_team_members->result() as $row): */?>
+                                        <?php $i = 1; ?>
+                                        <?php if (isset($all_team_members) && $all_team_members->num_rows() > 0): ?>
+                                        <?php foreach ($all_team_members->result() as $row):?>
 
                                             <tbody>
                                             <tr>
-                                                <td align="right"><?php /*echo $i++; */?></td>
-                                                <td><?php /*echo $row->first_name." ".$row->last_name; */?></td>
-                                                <td><?php /*echo $row->designation; */?></td>
-                                                <td align="center">
-                                                    <a href="<?php /*echo $row->facebook_link ? $row->facebook_link : '#'; */?>"
-                                                       target="_blank">
-                                                        <i class="fa fa-facebook-square fa-2x"
-                                                           style="color: #3b5998"></i>
-                                                    </a>
-                                                    <a href="<?php /*echo $row->twitter_link ? $row->twitter_link : '#'; */?>"
-                                                       target="_blank">
-                                                        <i class="fa fa-twitter-square fa-2x"
-                                                           style="color: #55acee"></i>
-                                                    </a>
-                                                    <a href="<?php /*echo $row->linkedin_link ? $row->linkedin_link : '#'; */?>"
-                                                       target="_blank">
-                                                        <i class="fa fa-linkedin-square fa-2x"
-                                                           style="color: #0077B5"></i>
-                                                    </a>
-                                                    <a href="<?php /*echo $row->googleplus_link ? $row->googleplus_link : '#'; */?>"
-                                                       target="_blank">
-                                                        <i class="fa fa-google-plus-square fa-2x"
-                                                           style="color: #dd4b39"></i>
-                                                    </a>
-                                                </td>
-                                                <td align="center">
-                                                    <?php /*if ($row->personal_image) { */?>
-                                                        <img class="img-responsive img-circle" height="85px" width="85px"
-                                                             src="<?php /*echo base_url(); */?>uploaded/admin/<?php /*echo $row->personal_image; */?>"
-                                                             alt="<?php /*echo $row->personal_image; */?>"/> <br/>
+                                                <td align="right"><?php echo $i++; ?></td>
+                                                <td><?php echo $row->first_name." ".$row->last_name; ?></td>
+                                                <td><?php echo $row->designation; ?></td>
 
-                                                        <a class='btn btn-sm btn-warning'
-                                                           href="<?php /*echo base_url(); */?>/admin/uploadmemberimg/<?php /*echo base64_encode($row->id); */?>"
-                                                           role="button"><span class='glyphicon glyphicon-edit'></span>Change
-                                                            Image</a>
-                                                        <a class="btn btn-danger"
-                                                           href="<?php /*echo base_url(); */?>admin/imagedelete/<?php /*echo base64_encode($row->id); */?>"
-                                                           onclick="return deleteImage()" title="Delete"
-                                                           role="button"><span class="glyphicon glyphicon-trash"></span></a>
 
-                                                    <?php /*} else { */?>
-                                                        <a class='btn btn-submit btn-info'
-                                                           href="<?php /*echo base_url(); */?>/admin/uploadmemberimg/<?php /*echo base64_encode($row->id); */?>"
-                                                           role="button"><span class='glyphicon glyphicon-plus'></span>Add
-                                                            Image</a>
-                                                    <?php /*} */?>
-                                                </td>
-                                                <td align="center"><?php /*echo $row->is_active ? 'Yes' : 'No'; */?></td>
+                                                <td align="center"><?php echo $row->is_active ? 'Yes' : 'No';  ?></td>
                                                 <td align="center"><a class="btn btn-success" title="Edit"
-                                                                      href="<?php /*echo base_url(); */?>admin/updateteamember/<?php /*echo base64_encode($row->id); */?>"
+                                                                      href="<?php echo base_url();  ?>admin/updateteamember/<?php echo base64_encode($row->id); ?>"
                                                                       role="button"><span
                                                             class="glyphicon glyphicon-edit"></span></a>
 
                                                     <a class="btn btn-danger"
-                                                       href="<?php /*echo base_url(); */?>admin/memberdelete/<?php /*echo base64_encode($row->id); */?>"
+                                                       href="<?php echo base_url(); ?>admin/memberdelete/<?php echo base64_encode($row->id); ?>"
                                                        onclick="return checkMe()" title="Delete"
                                                        role="button"><span class="glyphicon glyphicon-trash"></span></a>
                                                 </td>
                                             </tr>
                                             </tbody>
-                                        <?php /*endforeach; */?>
+                                        <?php endforeach;  ?>
                                     </table>
-                                    <?php /*else: */?>
+                                    <?php else: ?>
                                         <div class="col-md-12">
                                             <div class="alert alert-info " role="alert">
                                                 No Results were found.
                                             </div>
                                         </div>
-                                    <?php /*endif; */?>
+                                    <?php endif;  ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>-->
+            </div>
         </div>
         <!-- /.container-fluid -->
     </div>
@@ -278,5 +211,78 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+
+<!--React Js -->
+
+<script type="text/babel">
+    var InputFields = React.createClass({
+
+      render: function() {
+
+        return (
+            <div>
+                    <div className="form-group">
+                        <label className="col-md-3 control-label" htmlFor="title">Title:</label>
+
+                        <div className="col-md-5">
+                            <input type="text" className="form-control" name="title"
+                                   id="title" placeholder="Title" autofocus/>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <label className="col-md-3 control-label" htmlFor="testimonial_description">Testimonial Description:</label>
+
+                        <div className="col-md-5">
+                            <textarea type="text" className="form-control" id="testimonial_description"
+                                      name="testimonial_description" rows="7"
+                                      placeholder="255 Char Max" required></textarea>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <label className="col-md-3 control-label" htmlFor="testimonial_details_link">Testimonial Details Link:</label>
+
+                        <div className="col-md-5">
+                            <input type="url" className="form-control" name="testimonial_details_link"
+                                   id="testimonial_details_link" placeholder="Write testimonial details link"/>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <label className="col-md-3 control-label" htmlFor="commented_by">Commented By:</label>
+
+                        <div className="col-md-5">
+                            <input type="text" className="form-control" name="commented_by"
+                                   id="commented_by" placeholder="Write commentator name"/>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <label className="col-md-3 control-label label-optional"
+                               htmlFor="is_active">Is Active:</label>
+
+                        <div className="col-md-1">
+                            <div className="checkbox">
+                                <input type="checkbox" id="is_active"
+                                       name="is_active" value="1"/>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        );
+      },
+    });
+
+
+    ReactDOM.render(
+      React.createElement(InputFields),
+      document.getElementById('input-fields'));
+
+
+
+
+
+</script>
+<script src="<?php echo base_url(); ?>js/react.js"></script>
+<script src="<?php echo base_url(); ?>js/react-dom.js"></script>
+<script src="<?php echo base_url(); ?>js/browser.js"></script>
+
 
 </body>

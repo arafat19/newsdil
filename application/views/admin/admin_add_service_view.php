@@ -7,6 +7,8 @@
             return false;
         }
     }
+
+
 </script>
 <div id="wrapper">
     <?php $this->load->view('admin/admin_dashboard_navbar_view'); ?>
@@ -147,7 +149,7 @@
                         <div class="form-group">
                             <div class="col-lg-12">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
+                                    <table id="myTable" class="table table-bordered table-hover table-striped">
                                         <thead>
                                         <tr>
                                             <th>Serial</th>
@@ -158,13 +160,12 @@
                                             <th>Action</th>
                                         </tr>
                                         </thead>
-                                        <?php $i = 1; ?>
                                         <?php if (isset($all_services) && $all_services->num_rows() > 0): ?>
                                         <?php foreach ($all_services->result() as $row): ?>
 
                                             <tbody>
                                             <tr>
-                                                <td align="right"><?php echo $i++; ?></td>
+                                                <td align="center"><?php echo $serial++; ?></td>
                                                 <td><?php echo $row->service_name; ?></td>
                                                 <td><?php echo $row->total_description_div; ?></td>
                                                 <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
@@ -180,7 +181,11 @@
                                             </tr>
                                             </tbody>
                                         <?php endforeach; ?>
+
                                     </table>
+                                    <div class="pagination" style="float:right;"> <?php echo $paginglinks; ?></div>
+                                    <div class="pagination" style="float:left;"> <?php echo (!empty($pagermessage) ? $pagermessage : ''); ?></div>
+
                                     <?php else: ?>
                                         <div>
                                             <p>No results were found</p>
@@ -206,5 +211,6 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+
 
 </body>

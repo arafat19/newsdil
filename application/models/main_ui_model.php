@@ -67,14 +67,22 @@ class Main_ui_model extends CI_Model
 
     }
 
-    public function get_contacts()
+
+    public function total_count_of_contacts()
     {
-        $result = $this->db->get("contact_us");
-        if ($result->num_rows() > 0) {
-            return $result;
-        } else {
-            return NULL;
+        return $this->db->count_all("contact_us");
+    }
+
+    public function get_contacts($limit, $start)
+    {
+        $this->db->limit($limit, $start);
+        $this->db->order_by("id", "desc");
+        $query = $this->db->get("contact_us");
+
+        if ($query->num_rows() > 0) {
+            return $query;
         }
+        return false;
     }
 
     public function delete_contact($contact_id)

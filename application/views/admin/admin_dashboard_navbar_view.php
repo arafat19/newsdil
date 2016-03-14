@@ -136,7 +136,7 @@
                 <a href="<?php echo base_url();?>admin/addteam"><i class="fa fa-fw fa-group"></i>Add Team Member</a>
             </li>
             <li class="<?php echo($active=='testimonials')?'active':''; ?>">
-                <a href="<?php echo base_url();?>admin/addtest"><i class="fa fa-fw fa-database"></i>Add Testimonials</a>
+                <a href="<?php echo base_url();?>admin/addtestimonials"><i class="fa fa-fw fa-database"></i>Add Testimonials</a>
             </li>
 
             <li>
