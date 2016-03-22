@@ -160,12 +160,13 @@
                                             <th>Action</th>
                                         </tr>
                                         </thead>
+                                        <?php $i = $start_from; $start = 0;?>
                                         <?php if (isset($all_services) && $all_services->num_rows() > 0): ?>
                                         <?php foreach ($all_services->result() as $row): ?>
 
                                             <tbody>
                                             <tr>
-                                                <td align="center"><?php echo $serial++; ?></td>
+                                                <td align="center"><?php echo $i+$start; ?></td>
                                                 <td><?php echo $row->service_name; ?></td>
                                                 <td><?php echo $row->total_description_div; ?></td>
                                                 <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
@@ -179,7 +180,7 @@
                                                        role="button"><span class="glyphicon glyphicon-trash"></span></a>
                                                 </td>
                                             </tr>
-                                            </tbody>
+                                            </tbody> <?php $i++; ?>
                                         <?php endforeach; ?>
 
                                     </table>

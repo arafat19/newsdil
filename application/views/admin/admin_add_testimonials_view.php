@@ -151,24 +151,23 @@
                                         <thead>
                                         <tr>
                                             <th>Serial</th>
-                                            <th>Member Name</th>
-                                            <th>Designation</th>
-                                            <th>Social Links</th>
-                                            <th>Photo</th>
+                                            <th>Title</th>
+                                            <th>Testimonial Description</th>
+                                            <th>Commented By</th>
                                             <th>Is Active</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
-                                        <?php $i = 1; ?>
-                                        <?php if (isset($all_team_members) && $all_team_members->num_rows() > 0): ?>
-                                        <?php foreach ($all_team_members->result() as $row):?>
+                                        <?php $i = $start_from; $start = 0; ?>
+                                        <?php if (isset($all_testimonials) && $all_testimonials->num_rows() > 0): ?>
+                                        <?php foreach ($all_testimonials->result() as $row):?>
 
                                             <tbody>
                                             <tr>
-                                                <td align="right"><?php echo $i++; ?></td>
-                                                <td><?php echo $row->first_name." ".$row->last_name; ?></td>
-                                                <td><?php echo $row->designation; ?></td>
-
+                                                <td align="center"><?php echo $i+$start; ?></td>
+                                                <td><?php echo $row->title; ?></td>
+                                                <td><?php echo $row->testimonial_description; ?></td>
+                                                <td><?php echo $row->commented_by; ?></td>
 
                                                 <td align="center"><?php echo $row->is_active ? 'Yes' : 'No';  ?></td>
                                                 <td align="center"><a class="btn btn-success" title="Edit"
@@ -182,9 +181,11 @@
                                                        role="button"><span class="glyphicon glyphicon-trash"></span></a>
                                                 </td>
                                             </tr>
-                                            </tbody>
+                                            </tbody> <?php $i++; ?>
                                         <?php endforeach;  ?>
                                     </table>
+                                    <div class="pagination" style="float:right;"> <?php echo $paginglinks; ?></div>
+                                    <div class="pagination" style="float:left;"> <?php echo (!empty($pagermessage) ? $pagermessage : ''); ?></div>
                                     <?php else: ?>
                                         <div class="col-md-12">
                                             <div class="alert alert-info " role="alert">

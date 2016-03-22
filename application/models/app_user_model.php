@@ -30,7 +30,7 @@ class App_user_model extends CI_Model
         return false;
     }
 
-/*    function get_service()
+    function get_service()
     {
         $result = $this->db->get("service_list");
         if ($result->num_rows() > 0) {
@@ -38,7 +38,7 @@ class App_user_model extends CI_Model
         } else {
             return NULL;
         }
-    }*/
+    }
 
     public function total_count() {
         return $this->db->count_all("service_list");
@@ -55,15 +55,37 @@ class App_user_model extends CI_Model
         return false;
     }
 
-    function get_social_icon()
-    {
-        $result = $this->db->get("social_icon");
-        if ($result->num_rows() > 0) {
-            return $result;
-        } else {
-            return NULL;
-        }
+    public function total_count_of_testimonials() {
+        return $this->db->count_all("sdil_testimonials");
     }
+
+    public function get_all_testimonials($limit, $start) {
+        $this->db->limit($limit, $start);
+        $this->db->order_by("id", "desc");
+        $query = $this->db->get("sdil_testimonials");
+
+        if ($query->num_rows() > 0) {
+            return $query;
+        }
+        return false;
+    }
+
+    public function total_count_of_social_icons() {
+        return $this->db->count_all("social_icon");
+    }
+
+    public function get_social_icon($limit, $start) {
+        $this->db->limit($limit, $start);
+        $this->db->order_by("id", "desc");
+        $query = $this->db->get("social_icon");
+
+        if ($query->num_rows() > 0) {
+            return $query;
+        }
+        return false;
+    }
+
+
 
     function get_all_team_members()
     {
@@ -337,7 +359,10 @@ class App_user_model extends CI_Model
     {
         $this->db->where('service_name', $name);
         $query = $this->db->get('service_list');
-        if ($query->num_rows() == 1) {
+
+        echo $count_row = $query->num_rows();
+
+        if ( $count_row == 1) {
             return FALSE;
         } else {
             return TRUE;
@@ -358,10 +383,21 @@ class App_user_model extends CI_Model
     {
         $this->db->where($field, $attr);
         $query = $this->db->get('team_members');
-        if ($query->num_rows() > 1) {
-            return TRUE;
-        } else {
+        if ($query->num_rows() == 1) {
             return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
+
+    public function exist_social_icon_edit($field,$attr)
+    {
+        $this->db->where($field, $attr);
+        $query = $this->db->get('social_icon');
+        if ($query->num_rows() == 1) {
+            return FALSE;
+        } else {
+            return TRUE;
         }
     }
 

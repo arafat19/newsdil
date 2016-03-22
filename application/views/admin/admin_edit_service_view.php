@@ -116,7 +116,7 @@
                 <!-- /.row -->
             </div>
 
-            <div class="row">
+           <!-- <div class="row">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title">Service List</h3>
@@ -135,32 +135,34 @@
                                             <th>Service URL</th>
                                         </tr>
                                         </thead>
-                                        <?php $i = 1; ?>
-                                        <?php if (isset($all_services) && $all_services->num_rows() > 0): ?>
-                                        <?php foreach ($all_services->result() as $row): ?>
+                                        <?php /*$i = $start_from; $start = 0;*/?>
+                                        <?php /*if (isset($all_services) && $all_services->num_rows() > 0): */?>
+                                        <?php /*foreach ($all_services->result() as $row): */?>
 
                                             <tbody>
                                             <tr>
-                                                <td align="right"><?php echo $i++; ?></td>
-                                                <td><?php echo $row->service_name; ?></td>
-                                                <td><?php echo $row->total_description_div; ?></td>
-                                                <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
-                                                <td align="left"><?php echo $row->service_page_url ? $row->service_page_url : 'No URL'; ?></td>
+                                                <td align="right"><?php /*echo $i+$start; */?></td>
+                                                <td><?php /*echo $row->service_name; */?></td>
+                                                <td><?php /*echo $row->total_description_div; */?></td>
+                                                <td align="center"><?php /*echo $row->is_active ? 'Yes' : 'No'; */?></td>
+                                                <td align="left"><?php /*echo $row->service_page_url ? $row->service_page_url : 'No URL'; */?></td>
                                             </tr>
-                                            </tbody>
-                                        <?php endforeach; ?>
+                                            </tbody><?php /*$i++; */?>
+                                        <?php /*endforeach; */?>
                                     </table>
-                                    <?php else: ?>
+                                    <div class="pagination" style="float:right;"> <?php /*echo $paginglinks; */?></div>
+                                    <div class="pagination" style="float:left;"> <?php /*echo (!empty($pagermessage) ? $pagermessage : ''); */?></div>
+                                    <?php /*else: */?>
                                         <div>
                                             <p>No results were found</p>
                                         </div>
-                                    <?php endif; ?>
+                                    <?php /*endif; */?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
         <!-- /.container-fluid -->
 

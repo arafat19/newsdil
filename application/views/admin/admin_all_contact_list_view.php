@@ -41,22 +41,20 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <div class="col-lg-12">
-                                <?php
-                                if ($this->session->flashdata('contact_delete_message')) { ?>
-                                    <script language="javascript">
-                                        alert("<?php echo $this->session->flashdata('contact_delete_message'); ?>");
-                                    </script>
-                                  <!--  <div class="form-group">
-                                        <div class="col-md-8">
-                                            <div class="alert alert-success" role="alert">
-                                                <a href="#" class="close" data-dismiss="alert"
-                                                   aria-label="close">&times;</a>
-                                                <?php /*echo $this->session->flashdata('update_message'); */?>
+                                <div class="table-responsive">
+                                    <?php
+                                    if ($this->session->flashdata('contact_delete_message')) { ?>
+                                        <div class="form-group">
+                                            <div class="col-md-8">
+                                                <div class="alert alert-success" role="alert">
+                                                    <i class="fa fa-check"></i>
+                                                    <a href="#" class="close" data-dismiss="alert"
+                                                       aria-label="close">&times;</a>
+                                                    <?php echo $this->session->flashdata('contact_delete_message'); ?>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>-->
-                                <?php } ?>
-                                <div class="table-responsive">
+                                    <?php } ?>
                                     <table class="table table-bordered table-hover table-striped">
                                         <thead>
                                         <tr>
@@ -69,13 +67,13 @@
                                             <th>Action</th>
                                         </tr>
                                         </thead>
-
+                                        <?php $i = $start_from; $start = 0;?>
                                         <?php if (isset($all_contacts) && $all_contacts->num_rows() > 0): ?>
                                         <?php foreach ($all_contacts->result() as $row): ?>
 
                                             <tbody>
                                             <tr>
-                                                <td align="center"><?php echo $serial++; ?></td>
+                                                <td align="center"><?php echo $i+$start; ?></td>
                                                 <td><?php echo $row->full_name; ?></td>
                                                 <td><?php echo $row->email; ?></td>
                                                 <td align="left"><?php echo $row->cell_number; ?></td>
@@ -87,7 +85,7 @@
                                                        role="button"><span class="glyphicon glyphicon-trash"></span></a>
                                                 </td>
                                             </tr>
-                                            </tbody>
+                                            </tbody><?php $i++; ?>
                                         <?php endforeach; ?>
                                     </table>
                                     <div class="pagination" style="float:right;"> <?php echo $paginglinks; ?></div>

@@ -36,19 +36,19 @@
                                 <div class="col-md-8">
                                     <fieldset>
                                         <?php if (validation_errors()) { ?>
-                                        <div class="form-group">
-                                            <div class="col-md-8">
-                                                <div class="alert alert-danger" role="alert">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-                                                    <?php echo validation_errors(); ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-danger" role="alert">
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo validation_errors(); ?>
 
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
                                         <?php
-                                    }
+                                        }
                                         if ($this->session->flashdata('update_message')) {
                                             ?>
                                             <div class="form-group">
@@ -60,7 +60,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <?php } ?>
+                                        <?php } ?>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="social_icon_name">Social Icon
                                                 Name:</label>
@@ -102,7 +102,7 @@
                                                 <div class="checkbox">
                                                     <input type="checkbox" id="is_active"
                                                            name="is_active"
-                                                           value="1" <?php echo ($social['is_active'] == 1 ? 'checked' : '');?>/>
+                                                           value="1" <?php echo($social['is_active'] == 1 ? 'checked' : ''); ?>/>
                                                 </div>
                                             </div>
                                         </div>
@@ -116,8 +116,9 @@
                             <button id="update" name="update" type="submit" data-role="button"
                                     class="btn btn-submit btn-success"><span class="glyphicon glyphicon-edit"></span>Update
                             </button>
-                            <a class="btn btn-danger" href="<?php echo base_url();?>admin/socialicon/" role="button"><span
-                                class="glyphicon glyphicon-remove"></span>Cancel</a>
+                            <a class="btn btn-danger" href="<?php echo base_url(); ?>admin/socialicon/"
+                               role="button"><span
+                                    class="glyphicon glyphicon-remove"></span>Cancel</a>
 
                         </div>
                     </form>
@@ -125,7 +126,7 @@
                 <!-- /.row -->
             </div>
 
-            <div class="row">
+            <!--<div class="row">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title">Social Icon List</h3>
@@ -134,50 +135,51 @@
                         <div class="form-group">
                             <div class="col-lg-12">
                                 <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>Serial</th>
-                                        <th>Social Icon Name</th>
-                                        <th>Social Icon Link</th>
-                                        <th>Social Icon</th>
-                                        <th>Is Active</th>
-                                    </tr>
-                                    </thead>
-                                    <?php $i = 1; ?>
-                                    <?php if (isset($all_social_icons) && $all_social_icons->num_rows() > 0): ?>
-                                    <?php foreach ($all_social_icons->result() as $row): ?>
-
-                                        <tbody>
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
                                         <tr>
-                                            <td align="right"><?php echo $i++; ?></td>
-                                            <td><?php echo $row->social_icon_name; ?></td>
-                                            <td align="left"><?php echo $row->social_icon_link ? $row->social_icon_link : 'No URL'; ?></td>
-                                            <td align="center"><i
-                                                class="<?php echo $row->social_icon_logo_class_name; ?>"></i></td>
-                                            <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
-
+                                            <th>Serial</th>
+                                            <th>Social Icon Name</th>
+                                            <th>Social Icon Link</th>
+                                            <th>Social Icon</th>
+                                            <th>Is Active</th>
                                         </tr>
-                                        </tbody>
-                                        <?php endforeach; ?>
+                                        </thead>
+                                        <?php /*$i = 1; */?>
+                                        <?php /*if (isset($all_social_icons) && $all_social_icons->num_rows() > 0): */?>
+                                        <?php /*foreach ($all_social_icons->result() as $row): */?>
+
+                                            <tbody>
+                                            <tr>
+                                                <td align="right"><?php /*echo $i++; */?></td>
+                                                <td><?php /*echo $row->social_icon_name; */?></td>
+                                                <td align="left"><?php /*echo $row->social_icon_link ? $row->social_icon_link : 'No URL'; */?></td>
+                                                <td align="center"><i
+                                                        class="<?php /*echo $row->social_icon_logo_class_name; */?>"></i>
+                                                </td>
+                                                <td align="center"><?php /*echo $row->is_active ? 'Yes' : 'No'; */?></td>
+
+                                            </tr>
+                                            </tbody>
+                                        <?php /*endforeach; */?>
                                     </table>
-                                    <?php else: ?>
-                                    <div>
-                                        <p>No results were found</p>
-                                    </div>
-                                    <?php endif; ?>
+                                    <?php /*else: */?>
+                                        <div>
+                                            <p>No results were found</p>
+                                        </div>
+                                    <?php /*endif; */?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
-        </div>
-        <!-- /.container-fluid -->
-
     </div>
-    <!-- /#page-wrapper -->
+    <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
 
 </div>
 <!-- /#wrapper -->

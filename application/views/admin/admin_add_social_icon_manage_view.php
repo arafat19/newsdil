@@ -185,13 +185,13 @@
                                             <th>Action</th>
                                         </tr>
                                         </thead>
-                                        <?php $i = 1; ?>
+                                        <?php $i = $start_from; $start = 0; ?>
                                         <?php if (isset($all_social_icons) && $all_social_icons->num_rows() > 0): ?>
                                         <?php foreach ($all_social_icons->result() as $row): ?>
 
                                             <tbody>
                                             <tr>
-                                                <td align="right"><?php echo $i++; ?></td>
+                                                <td align="center"><?php echo $i+$start; ?></td>
                                                 <td><?php echo $row->social_icon_name; ?></td>
                                                 <td align="left"><?php echo $row->social_icon_link ? $row->social_icon_link : 'No URL'; ?></td>
                                                 <td align="center"><i
@@ -209,9 +209,11 @@
                                                        role="button"><span class="glyphicon glyphicon-trash"></span></a>
                                                 </td>
                                             </tr>
-                                            </tbody>
+                                            </tbody> <?php $i++; ?>
                                         <?php endforeach; ?>
                                     </table>
+                                    <div class="pagination" style="float:right;"> <?php echo $paginglinks; ?></div>
+                                    <div class="pagination" style="float:left;"> <?php echo (!empty($pagermessage) ? $pagermessage : ''); ?></div>
                                     <?php else: ?>
                                         <div class="col-md-12">
                                             <div class="alert alert-info " role="alert">
