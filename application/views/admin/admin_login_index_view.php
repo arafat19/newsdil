@@ -23,12 +23,12 @@
                                     </div>
                                 <?php } ?>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" id="email" value="ibrahim.arafat@sebpo.com"
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" id="email" value="ibrahim.arafat@gmail.com"
                                            pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
                                            required="required" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="password" name="password" value="arafat@123"
+                                    <input type="password" class="form-control" id="password" name="password" value="sdil@123"
                                            pattern="^.*(?=.{8,})(((?=.*[a-z])(?=.*[A-Z])(?=.*[\d]))|((?=.*[a-z])(?=.*[A-Z])(?=.*[\W]))|((?=.*[a-z])(?=.*[\d])(?=.*[\W]))|((?=.*[A-Z])(?=.*[\d])(?=.*[\W]))).*$"
                                            placeholder="Letters,Numbers & Special Characters" required
                                            data-required-msg="Required"

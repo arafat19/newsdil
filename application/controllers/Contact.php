@@ -7,8 +7,8 @@ class Contact extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Main_ui_model');
-        $this->load->model('App_user_model');
+        $this->load->model('app_user_model');
+        $this->load->model('main_ui_model');
 
     }
 
@@ -30,10 +30,10 @@ class Contact extends CI_Controller
             $data['active'] = 'contacts';
 
             $system_config_id = 1;
-            $all_system_configuration = $this->App_user_model->get_system_configuration_by_id($system_config_id); // Reading and showing the System configuration from DB
+            $all_system_configuration = $this->app_user_model->get_system_configuration_by_id($system_config_id); // Reading and showing the System configuration from DB
             $data['all_system_configuration_ui'] = $all_system_configuration;
 
-            $active_social_icons = $this->Main_ui_model->get_social_icon_by_is_active(1); // Reading and showing Only the Active Social Icons list from DB by setting is_active = 1
+            $active_social_icons = $this->main_ui_model->get_social_icon_by_is_active(1); // Reading and showing Only the Active Social Icons list from DB by setting is_active = 1
             $data['active_social_icons'] = $active_social_icons;
 
 
@@ -47,7 +47,7 @@ class Contact extends CI_Controller
 
     public function submit_contact()
     {
-        $is_human = $this->Main_ui_model->submit_contact_request();
+        $is_human = $this->main_ui_model->submit_contact_request();
         if ($is_human) {
             $this->session->set_flashdata('con_success_msg', 'Email has been sent successfully');
         } else {
@@ -58,7 +58,7 @@ class Contact extends CI_Controller
 
     public function get_all_contacts()
     {
-       return $this->Main_ui_model->get_contacts();
+       return $this->main_ui_model->get_contacts();
     }
 
 }
