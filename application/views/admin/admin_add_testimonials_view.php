@@ -1,7 +1,7 @@
 <body>
 <script language="javascript">
     function checkMe() {
-        if (confirm("Are you sure you want to delete the selected Member?")) {
+        if (confirm("Are you sure you want to delete the selected testimonial?")) {
             return true;
         } else {
             return false;
@@ -70,14 +70,26 @@
                                                 </div>
                                             </div>
                                         <?php }
-                                        if ($this->session->flashdata('team_mem_update_message')) { ?>
+                                        if ($this->session->flashdata('testimonial_update_message')) { ?>
                                             <div class="form-group">
                                                 <div class="col-md-8">
                                                     <div class="alert alert-success" role="alert">
                                                         <i class="fa fa-check"></i>
                                                         <a href="#" class="close" data-dismiss="alert"
                                                            aria-label="close">&times;</a>
-                                                        <?php echo $this->session->flashdata('team_mem_update_message'); ?>
+                                                        <?php echo $this->session->flashdata('testimonial_update_message'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                        if ($this->session->flashdata('testimonial_delete_message')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-success" role="alert">
+                                                        <i class="fa fa-check"></i>
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('testimonial_delete_message'); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -90,30 +102,6 @@
                                                         <a href="#" class="close" data-dismiss="alert"
                                                            aria-label="close">&times;</a>
                                                         <?php echo $this->session->flashdata('cant_delete_message'); ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php }
-                                        if ($this->session->flashdata('member_delete_message')) { ?>
-                                            <div class="form-group">
-                                                <div class="col-md-8">
-                                                    <div class="alert alert-success" role="alert">
-                                                        <i class="fa fa-check"></i>
-                                                        <a href="#" class="close" data-dismiss="alert"
-                                                           aria-label="close">&times;</a>
-                                                        <?php echo $this->session->flashdata('member_delete_message'); ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php }
-                                        if ($this->session->flashdata('image_delete_message')) { ?>
-                                            <div class="form-group">
-                                                <div class="col-md-8">
-                                                    <div class="alert alert-success" role="alert">
-                                                        <i class="fa fa-check"></i>
-                                                        <a href="#" class="close" data-dismiss="alert"
-                                                           aria-label="close">&times;</a>
-                                                        <?php echo $this->session->flashdata('image_delete_message'); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -171,12 +159,12 @@
 
                                                 <td align="center"><?php echo $row->is_active ? 'Yes' : 'No';  ?></td>
                                                 <td align="center"><a class="btn btn-success" title="Edit"
-                                                                      href="<?php echo base_url();  ?>admin/updateteamember/<?php echo base64_encode($row->id); ?>"
+                                                                      href="<?php echo base_url();  ?>admin/update/testimonial/<?php echo base64_encode($row->id); ?>"
                                                                       role="button"><span
                                                             class="glyphicon glyphicon-edit"></span></a>
 
                                                     <a class="btn btn-danger"
-                                                       href="<?php echo base_url(); ?>admin/memberdelete/<?php echo base64_encode($row->id); ?>"
+                                                       href="<?php echo base_url(); ?>admin/delete/testimonial/<?php echo base64_encode($row->id); ?>"
                                                        onclick="return checkMe()" title="Delete"
                                                        role="button"><span class="glyphicon glyphicon-trash"></span></a>
                                                 </td>

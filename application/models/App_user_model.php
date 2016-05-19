@@ -116,6 +116,14 @@ class app_user_model extends CI_Model
 
         return $query->row_array();
     }
+    public function get_single_testimonial_by_id($testimonial_id)
+    {
+        $this->db->select('*');
+        $this->db->where('id', $testimonial_id);
+        $query = $this->db->get('sdil_testimonials');
+
+        return $query->row_array();
+    }
 
     public function get_system_favcion_by_id($system_config_id)
     {
@@ -212,6 +220,11 @@ class app_user_model extends CI_Model
     {
         $this->db->where('id', $member_id);
         $this->db->delete('team_members');
+    }
+    public function delete_testimonial($testimonial_id)
+    {
+        $this->db->where('id', $testimonial_id);
+        $this->db->delete('sdil_testimonials');
     }
 
     public function delete_social_icon($social_icon_id)
@@ -391,6 +404,17 @@ class app_user_model extends CI_Model
         }
     }
 
+    public function exist_testimonial_edit($field, $attr)
+    {
+        $this->db->where($field, $attr);
+        $query = $this->db->get('sdil_testimonials');
+        if ($query->num_rows() == 1) {
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
+
     public function exist_social_icon_edit($field,$attr)
     {
         $this->db->where($field, $attr);
@@ -458,6 +482,12 @@ class app_user_model extends CI_Model
         );
         $this->db->where('id', $member_id);
         $this->db->update('team_members', $data);
+    }
+
+    public function update_testimonial($data, $testimonial_id)
+    {
+        $this->db->where('id', $testimonial_id);
+        $this->db->update('sdil_testimonials', $data);
     }
 
 

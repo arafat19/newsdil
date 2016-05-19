@@ -25,6 +25,9 @@ class Home extends CI_Controller
         $active_team_members = $this->main_ui_model->get_active_team_members(); // Reading and showing Only the Active Social Icons list from DB by setting is_active = 1
         $data['active_team_members'] = $active_team_members;
 
+        $active_testimonials = $this->main_ui_model->get_active_testimonials(); // Reading and showing Only the Active Social Icons list from DB by setting is_active = 1
+        $data['active_testimonials'] = $active_testimonials;
+
         $data['title'] = 'Shwapno Duar IT Ltd.';
         $data['active'] = 'contacts';
         $data['top_heading_h1'] = 'WE ARE Shwapno Duar';

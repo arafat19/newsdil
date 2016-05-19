@@ -47,6 +47,17 @@ class main_ui_model extends CI_Model
             return NULL;
         }
     }
+    function get_active_testimonials()
+    {
+        $this->db->select('*');
+        $this->db->where('is_active', 1);
+        $result = $this->db->get('sdil_testimonials');
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
+    }
 
     public function submit_contact_request()
     {

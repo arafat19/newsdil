@@ -1,7 +1,7 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <header>
     <div class="header-section clearfix">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="wsmenucontainer clearfix">
                 <div class="wsmenucontent overlapblackbg"></div>
                 <div class="wsmenuexpandermain slideRight"><a id="navToggle"
@@ -9,11 +9,11 @@
                         href="#" class="smallogo"><img src="<?php echo base_url(); ?>images/logo.png" width="120"
                                                        alt=""/></a>
 
-                    <form action="#" class="searchBox" id="searchiteam" method="get">
+                    <!--<form action="#" class="searchBox" id="searchiteam" method="get">
                         <input type="search" onblur="if (this.value == '') {this.value = 'Search';}"
                                onfocus="if (this.value == 'Search') {this.value = '';}" id="s" name="s" value=""
                                placeholder="Search">
-                    </form>
+                    </form>-->
                 </div>
             </div>
             <div class="container">
@@ -200,7 +200,8 @@
                                             href="<?php echo base_url(); ?>images/work_01.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_01.jpg"></div>
+                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_01.jpg"
+                                                            alt="work"></div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 megento">
                                 <div class="portfolio-hover">
@@ -215,7 +216,8 @@
                                             href="<?php echo base_url(); ?>images/work_02.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_02.jpg"></div>
+                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_02.jpg"
+                                                            alt="work"></div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 drupal">
                                 <div class="portfolio-hover">
@@ -230,7 +232,8 @@
                                             href="<?php echo base_url(); ?>images/work_03.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_03.jpg"></div>
+                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_03.jpg"
+                                                            alt="work"></div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 html">
                                 <div class="portfolio-hover">
@@ -245,7 +248,8 @@
                                             href="<?php echo base_url(); ?>images/work_04.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_04.jpg"></div>
+                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_04.jpg"
+                                                            alt="work"></div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 wordpress">
                                 <div class="portfolio-hover">
@@ -260,7 +264,8 @@
                                             href="<?php echo base_url(); ?>images/work_05.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_05.jpg"></div>
+                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_05.jpg"
+                                                            alt="work"></div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 megento">
                                 <div class="portfolio-hover">
@@ -275,7 +280,7 @@
                                             href="<?php echo base_url(); ?>images/work_01.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="images/work_01.jpg"></div>
+                                <div class="img-thumb"><img src="images/work_01.jpg" alt="work"></div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 drupal">
                                 <div class="portfolio-hover">
@@ -290,7 +295,8 @@
                                             href="<?php echo base_url(); ?>images/work_02.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_02.jpg"></div>
+                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_02.jpg"
+                                                            alt="work"></div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 html">
                                 <div class="portfolio-hover">
@@ -305,7 +311,8 @@
                                             href="<?php echo base_url(); ?>images/work_08.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_08.jpg"></div>
+                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_08.jpg"
+                                                            alt="work"></div>
                             </div>
                             <!-- END ISOTOPE SCRIPT -->
                         </div>
@@ -369,7 +376,7 @@
     </div>
 </section>
 <!-- Our Team Section -->
-<section id="counter" class="top-gape">
+<section class="top-gape">
     <div class="container">
         <div class="row">
             <div class="titel-area clearfix">
@@ -384,25 +391,29 @@
                     <?php if (isset($active_team_members) && $active_team_members->num_rows() > 0):
                         foreach ($active_team_members->result() as $row): ?>
                             <div class="iteam">
-                                <h4><span><?php echo $row->first_name; ?></span><?php echo " ".$row->last_name; ?></h4>
+                                <h4><span><?php echo $row->first_name; ?></span><?php echo " " . $row->last_name; ?>
+                                </h4>
 
-                                <div class="team-thumb"><img height="167px" width="167px"
-                                        src="<?php echo base_url(); ?>uploaded/admin/<?php echo $row->personal_image ? $row->personal_image : 'blank_person.png';?>" alt="<?php echo $row->personal_image; ?>"></div>
+                                <div class="team-thumb"><img height="167" width="167"
+                                                             src="<?php echo base_url(); ?>uploaded/admin/<?php echo $row->personal_image ? $row->personal_image : 'blank_person.png'; ?>"
+                                                             alt="<?php echo $row->personal_image; ?>"></div>
                                 <div class="contain">
                                     <h5><?php echo $row->designation; ?></h5>
 
                                     <div class="divied"></div>
                                     <p><?php echo $row->member_description; ?></p>
 
-                                    <div class="social-link">
+                                    <ul class="social-link">
                                         <li><a href="<?php echo $row->facebook_link; ?>"><i class="fa fa-facebook"></i></a>
                                         </li>
-                                        <li><a href="<?php echo $row->twitter_link; ?>"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="<?php echo $row->twitter_link; ?>"><i
+                                                    class="fa fa-twitter"></i></a></li>
                                         <li><a href="<?php echo $row->linkedin_link; ?>"><i class="fa fa-linkedin"></i></a>
                                         </li>
-                                        <li><a href="<?php echo $row->googleplus_link; ?>"><i class="fa fa-google-plus"></i></a>
+                                        <li><a href="<?php echo $row->googleplus_link; ?>"><i
+                                                    class="fa fa-google-plus"></i></a>
                                         </li>
-                                    </div>
+                                    </ul>
                                 </div>
                             </div>
                         <?php
@@ -435,7 +446,7 @@
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="nees-iteam">
                             <div class="news-thumb"><a href="#"><img
-                                        src="<?php echo base_url(); ?>images/news_thumb_01.jpg" alt=""></a>
+                                        src="<?php echo base_url(); ?>images/news_thumb_01.jpg" alt="thumb"></a>
 
                                 <div class="read-btn"><a href="#">More News</a></div>
                             </div>
@@ -447,7 +458,7 @@
                         </div>
                         <div class="nees-iteam">
                             <div class="news-thumb"><a href="#"><img
-                                        src="<?php echo base_url(); ?>images/news_thumb_02.jpg" alt=""></a>
+                                        src="<?php echo base_url(); ?>images/news_thumb_02.jpg" alt="thumb"></a>
 
                                 <div class="read-btn"><a href="#">More News</a></div>
                             </div>
@@ -459,7 +470,7 @@
                         </div>
                         <div class="nees-iteam">
                             <div class="news-thumb"><a href="#"><img
-                                        src="<?php echo base_url(); ?>images/news_thumb_03.jpg" alt=""></a>
+                                        src="<?php echo base_url(); ?>images/news_thumb_03.jpg" alt="thumb"></a>
 
                                 <div class="read-btn"><a href="#">More News</a></div>
                             </div>
@@ -471,7 +482,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="video-area"><img src="<?php echo base_url(); ?>images/video.jpg" alt=""></div>
+                        <div class="video-area"><img src="<?php echo base_url(); ?>images/video.jpg" alt="thumb"></div>
                     </div>
                 </div>
             </div>
@@ -498,49 +509,55 @@
             </div>
             <div class="contain-body testimonial-section clearfix">
                 <div id="testimonial-list">
-                    <div class="iteam">
-                        <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
-                        <div class="contain">
-                            <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
-                                suffered alteration in some form, by injected humour, or randomised words which don't
-                                look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
+                    <?php if (isset($active_testimonials) && $active_testimonials->num_rows() > 0):
+                        foreach ($active_testimonials->result() as $row): ?>
+                            <div class="iteam">
+                                <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
+                                <div class="contain">
+                                    <p>" <?php echo $row->testimonial_description; ?> "</p>
 
-                            <div class="more-btn"><a href="#">Read more</a></div>
-                        </div>
-                    </div>
-                    <div class="iteam">
-                        <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
-                        <div class="contain">
-                            <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
-                                suffered alteration in some form, by injected humour, or randomised words which don't
-                                look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
+                                    <div class="more-btn"><a href="<?php echo $row->testimonial_details_link; ?>">Read
+                                            more</a></div>
+                                </div>
+                            </div>
+                        <?php
+                        endforeach;
+                    endif; ?>
 
-                            <div class="more-btn"><a href="#">Read more</a></div>
-                        </div>
-                    </div>
-                    <div class="iteam">
-                        <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
-                        <div class="contain">
-                            <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
-                                suffered alteration in some form, by injected humour, or randomised words which don't
-                                look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
+                </div>
+               <!-- <div class="iteam">
+                    <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
+                    <div class="contain">
+                        <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
+                            suffered alteration in some form, by injected humour, or randomised words which don't
+                            look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
 
-                            <div class="more-btn"><a href="#">Read more</a></div>
-                        </div>
-                    </div>
-                    <div class="iteam">
-                        <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
-                        <div class="contain">
-                            <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
-                                suffered alteration in some form, by injected humour, or randomised words which don't
-                                look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
-
-                            <div class="more-btn"><a href="#">Read more</a></div>
-                        </div>
+                        <div class="more-btn"><a href="#">Read more</a></div>
                     </div>
                 </div>
+                <div class="iteam">
+                    <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
+                    <div class="contain">
+                        <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
+                            suffered alteration in some form, by injected humour, or randomised words which don't
+                            look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
+
+                        <div class="more-btn"><a href="#">Read more</a></div>
+                    </div>
+                </div>
+                <div class="iteam">
+                    <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
+                    <div class="contain">
+                        <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
+                            suffered alteration in some form, by injected humour, or randomised words which don't
+                            look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
+
+                        <div class="more-btn"><a href="#">Read more</a></div>
+                    </div>
+                </div>-->
             </div>
         </div>
+    </div>
     </div>
 </section>
 <!-- Patner Section -->
@@ -557,11 +574,16 @@
             <div class="contain-body patner-section clearfix">
                 <div class="patner-list">
                     <ul>
-                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_01.png" alt=""></a></li>
-                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_02.png" alt=""></a></li>
-                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_03.png" alt=""></a></li>
-                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_04.png" alt=""></a></li>
-                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_05.png" alt=""></a></li>
+                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_01.png" alt="partner"></a>
+                        </li>
+                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_02.png" alt="partner"></a>
+                        </li>
+                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_03.png" alt="partner"></a>
+                        </li>
+                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_04.png" alt="partner"></a>
+                        </li>
+                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_05.png" alt="partner"></a>
+                        </li>
                     </ul>
                 </div>
             </div>

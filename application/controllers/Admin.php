@@ -152,6 +152,74 @@ class Admin extends CI_Controller
         }
     }
 
+    public function update_testimonial($testimonial_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $testimonial_id_dec = base64_decode($testimonial_id);
+            $single_testimonial = $this->app_user_model->get_single_testimonial_by_id($testimonial_id_dec);
+
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('title', 'This title', 'trim|min_length[2]');
+            $this->form_validation->set_rules('testimonial_description', 'This description', 'trim|required|min_length[10]');
+            $this->form_validation->set_rules('testimonial_details_link', 'This link', 'trim|min_length[2]');
+            $this->form_validation->set_rules('commented_by', 'This commentator', 'trim|min_length[2]');
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            $single_testimonial_details_link_db = $single_testimonial["testimonial_details_link"];
+            $single_testimonial_details_link = $this->input->post('testimonial_details_link');
+
+            if ($single_testimonial_details_link_db != $single_testimonial_details_link) {
+                $this->form_validation->set_rules('testimonial_details_link', 'This link', 'trim|min_length[2]|callback_unique_testimonial_details_link');
+            } else {
+                $this->form_validation->set_rules('testimonial_details_link', 'This link', 'trim|min_length[2]');
+            }
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update Testimonial - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'testimonials';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                $data['single_testimonial'] = $single_testimonial;
+                $data['common_header'] = 'Update Testimonial Information';
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_testimonials_view', $data);
+                $this->load->view('admin/footer_view', $data);
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $data = array(
+                    'title' => $this->input->post('title'),
+                    'testimonial_description' => $this->input->post('testimonial_description'),
+                    'testimonial_details_link' => $this->input->post('testimonial_details_link'),
+                    'commented_by' => $this->input->post('commented_by'),
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->update_testimonial($data, $testimonial_id_dec);
+                $this->session->set_flashdata('testimonial_update_message', "Selected Testimonial information is updated successfully.");
+                redirect(base_url() . 'admin/addtestimonials/');
+            }
+        }
+    }
+
+    public function delete_testimonial($testimonial_id)
+    {
+        $testimonial_id_dec = base64_decode($testimonial_id);
+        $single_testimonial = $this->app_user_model->get_single_testimonial_by_id($testimonial_id_dec);
+        $is_active = $single_testimonial["is_active"];
+        if ($is_active) {
+            $this->session->set_flashdata('cant_delete_message', 'Active Testimonial can not be deleted');
+        } else {
+            $this->app_user_model->delete_testimonial($testimonial_id_dec);
+            $this->session->set_flashdata('testimonial_delete_message', 'Selected Testimonial is successfully deleted');
+        }
+
+        redirect(base_url() . 'admin/addtestimonials');
+    }
+
     public function add_team_members()
     {
         if (($this->session->userdata('user_email') == "")) {
@@ -446,6 +514,7 @@ class Admin extends CI_Controller
         $data['navbar_title'] = 'SDIL Admin Panel';
         $data['active'] = 'system_configuration_page';
         $data['common_header'] = 'Upload Favicon';
+        $data['page_backlink'] = base_url().'admin/configuration';
         $data['full_name'] = $this->session->userdata('full_name');
         $data['error'] = '';
 
@@ -474,6 +543,7 @@ class Admin extends CI_Controller
             $data['navbar_title'] = 'SDIL Admin Panel';
             $data['active'] = 'system_configuration_page';
             $data['common_header'] = 'Upload Favicon';
+            $data['page_backlink'] = base_url().'admin/configuration';
             $data['full_name'] = $this->session->userdata('full_name');
             $data['error'] = $this->upload->display_errors();
 
@@ -916,7 +986,6 @@ class Admin extends CI_Controller
             } else {
                 $this->app_user_model->update_service($service_id);
                 $this->session->set_flashdata('update_message', "Selected Service updated successfully.");
-                //echo "<script> alert('Selected Service updated successfully.');</script>";
                 redirect(base_url() . 'admin/service');
             }
         }
@@ -937,6 +1006,15 @@ class Admin extends CI_Controller
             return TRUE;
         } else {
             $this->form_validation->set_message('unique_designation_edit', "%s {$str} already exist!");
+            return FALSE;
+        }
+    }
+    function unique_testimonial_details_link($str)
+    {
+        if ($this->app_user_model->exist_testimonial_edit('testimonial_details_link', $str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_testimonial_details_link', "%s {$str} already exist!");
             return FALSE;
         }
     }

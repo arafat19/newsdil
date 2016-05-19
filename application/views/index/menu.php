@@ -39,7 +39,7 @@
                     <li><a class="<?php echo($active=='contacts')?'active':''; ?>" href="<?php echo base_url();?>contact">Contact</a></li>
                     <li>
                         <form action="#" class="searchBox" id="searchiteam" method="get">
-                            <input type="search" onblur="if (this.value == '') {this.value = 'Search';}" onfocus="if (this.value == 'Search') {this.value = '';}" id="s" name="s" value="" placeholder="Search">
+                            <input type="search" onblur="if (this.value == '') {this.value = 'Search';}" onfocus="if (this.value == 'Search') {this.value = '';}" id="s" name="s" value="" />
                         </form>
                     </li>
                 </ul>

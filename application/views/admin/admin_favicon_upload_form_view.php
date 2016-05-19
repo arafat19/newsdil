@@ -16,6 +16,10 @@
                         <li>
                             <i class="fa fa-dashboard"></i> <a href="<?php echo base_url(); ?>admin">Dashboard</a>
                         </li>
+                        <li>
+                            <i class="fa fa-backward"></i> <a href="<?php echo $page_backlink; ?>">Update Settings</a>
+                        </li>
+
                         <li class="active">
                             <i class="fa fa-edit"></i>  <?php echo $common_header; ?>
                         </li>

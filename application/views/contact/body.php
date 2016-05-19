@@ -1,7 +1,7 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <header>
     <div class="header-section clearfix">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="wsmenucontainer clearfix">
                 <div class="wsmenucontent overlapblackbg"></div>
                 <div class="wsmenuexpandermain slideRight"><a id="navToggle"
@@ -9,11 +9,11 @@
                         href="#" class="smallogo"><img src="<?php echo base_url(); ?>images/logo.png" width="120"
                                                        alt=""/></a>
 
-                    <form action="#" class="searchBox" id="searchiteam" method="get">
+                    <!--<form action="#" class="searchBox" id="searchiteam" method="get">
                         <input type="search" onblur="if (this.value == '') {this.value = 'Search';}"
                                onfocus="if (this.value == 'Search') {this.value = '';}" id="s" name="s" value=""
                                placeholder="Search">
-                    </form>
+                    </form>-->
                 </div>
             </div>
             <div class="container">
