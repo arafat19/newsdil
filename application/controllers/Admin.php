@@ -11,12 +11,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin extends CI_Controller
 {
 
+    public static  $title = 'Admin LogIn - Shwapno Duar IT Ltd';
     function __construct()
     {
         parent::__construct();
         $this->load->model('app_user_model');
         $this->load->model('main_ui_model');
-
     }
 
     function index()
@@ -31,7 +31,7 @@ class Admin extends CI_Controller
             $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[32]');
 
             if ($this->form_validation->run() == FALSE) {
-                $data['title'] = 'Admin LogIn - Shwapno Duar IT Ltd.';
+                $data['title'] = Admin::$title;
                 $this->load->view('admin/header_view', $data);
                 $this->load->view('admin/admin_login_index_view', $data);
                 $this->load->view('admin/footer_view', $data);
@@ -40,7 +40,7 @@ class Admin extends CI_Controller
                 $password = md5($this->input->post('password'));
 
                 $result = $this->app_user_model->login($email, $password);
-                echo $result;
+                //echo $result;
                 if ($result) {
                     $this->welcome_admin_dashboard();
                 } else {
@@ -87,8 +87,8 @@ class Admin extends CI_Controller
                 $data['full_name'] = $this->session->userdata('full_name');
 
                 /*==================================================
-              Start of Pagination Code segment for service page
-              ===================================================*/
+                Start of Pagination Code segment for service page
+                ===================================================*/
 
                 $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
                 $config['total_rows'] = $this->app_user_model->total_count_of_testimonials();
@@ -514,7 +514,7 @@ class Admin extends CI_Controller
         $data['navbar_title'] = 'SDIL Admin Panel';
         $data['active'] = 'system_configuration_page';
         $data['common_header'] = 'Upload Favicon';
-        $data['page_backlink'] = base_url().'admin/configuration';
+        $data['page_backlink'] = base_url() . 'admin/configuration';
         $data['full_name'] = $this->session->userdata('full_name');
         $data['error'] = '';
 
@@ -543,7 +543,7 @@ class Admin extends CI_Controller
             $data['navbar_title'] = 'SDIL Admin Panel';
             $data['active'] = 'system_configuration_page';
             $data['common_header'] = 'Upload Favicon';
-            $data['page_backlink'] = base_url().'admin/configuration';
+            $data['page_backlink'] = base_url() . 'admin/configuration';
             $data['full_name'] = $this->session->userdata('full_name');
             $data['error'] = $this->upload->display_errors();
 
@@ -1009,6 +1009,7 @@ class Admin extends CI_Controller
             return FALSE;
         }
     }
+
     function unique_testimonial_details_link($str)
     {
         if ($this->app_user_model->exist_testimonial_edit('testimonial_details_link', $str)) {
@@ -1283,7 +1284,7 @@ class Admin extends CI_Controller
             } else {
                 $this->app_user_model->update_user_info($user_id);
                 $this->session->set_flashdata('user_info_update_message', "Your information updated successfully.");
-                redirect(base_url() . '/admin/profile', 'refresh');
+                redirect(base_url() . 'admin/sdil/profile', 'refresh');
             }
         }
     }

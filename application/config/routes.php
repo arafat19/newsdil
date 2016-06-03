@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'Home';
 $route['admin/service'] = "admin/add_service_page";
-$route['admin/profile'] = "admin/edit_admin_user";
+$route['admin/sdil/profile'] = "admin/edit_admin_user";
 $route['admin/contacts'] = "admin/get_all_contacts";
 $route['admin/configuration'] = "admin/update_system_configuration";
 $route['admin/uploadfav'] = "admin/upload_favicon";

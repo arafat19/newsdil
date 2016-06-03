@@ -146,20 +146,21 @@
                                             <th>Action</th>
                                         </tr>
                                         </thead>
-                                        <?php $i = $start_from; $start = 0; ?>
+                                        <?php $i = $start_from;
+                                        $start = 0; ?>
                                         <?php if (isset($all_testimonials) && $all_testimonials->num_rows() > 0): ?>
-                                        <?php foreach ($all_testimonials->result() as $row):?>
+                                        <?php foreach ($all_testimonials->result() as $row): ?>
 
                                             <tbody>
                                             <tr>
-                                                <td align="center"><?php echo $i+$start; ?></td>
+                                                <td align="center"><?php echo $i + $start; ?></td>
                                                 <td><?php echo $row->title; ?></td>
-                                                <td><?php echo $row->testimonial_description; ?></td>
+                                                <td><?php echo substr($row->testimonial_description, 0, 100); ?></td>
                                                 <td><?php echo $row->commented_by; ?></td>
 
-                                                <td align="center"><?php echo $row->is_active ? 'Yes' : 'No';  ?></td>
+                                                <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
                                                 <td align="center"><a class="btn btn-success" title="Edit"
-                                                                      href="<?php echo base_url();  ?>admin/update/testimonial/<?php echo base64_encode($row->id); ?>"
+                                                                      href="<?php echo base_url(); ?>admin/update/testimonial/<?php echo base64_encode($row->id); ?>"
                                                                       role="button"><span
                                                             class="glyphicon glyphicon-edit"></span></a>
 
@@ -170,17 +171,18 @@
                                                 </td>
                                             </tr>
                                             </tbody> <?php $i++; ?>
-                                        <?php endforeach;  ?>
+                                        <?php endforeach; ?>
                                     </table>
                                     <div class="pagination" style="float:right;"> <?php echo $paginglinks; ?></div>
-                                    <div class="pagination" style="float:left;"> <?php echo (!empty($pagermessage) ? $pagermessage : ''); ?></div>
+                                    <div class="pagination"
+                                         style="float:left;"> <?php echo(!empty($pagermessage) ? $pagermessage : ''); ?></div>
                                     <?php else: ?>
                                         <div class="col-md-12">
                                             <div class="alert alert-info " role="alert">
                                                 No Results were found.
                                             </div>
                                         </div>
-                                    <?php endif;  ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -263,6 +265,7 @@
     ReactDOM.render(
       React.createElement(InputFields),
       document.getElementById('input-fields'));
+
 
 
 
