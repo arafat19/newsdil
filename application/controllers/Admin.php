@@ -11,7 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin extends CI_Controller
 {
 
-    public static  $title = 'Admin LogIn - Shwapno Duar IT Ltd';
+    public static $title = 'Admin LogIn - Shwapno Duar IT Ltd';
+
     function __construct()
     {
         parent::__construct();
@@ -64,6 +65,505 @@ class Admin extends CI_Controller
         $this->load->view('admin/admin_dashboard_header_view', $data);
         $this->load->view('admin/admin_dashboard_view', $data);
         $this->load->view('admin/footer_view', $data);
+    }
+
+
+    public function add_project()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('project_category', 'Please select a Project Category', 'required');
+            $this->form_validation->set_rules('project_title', 'This Project title', 'required|trim|min_length[4]|callback_unique_project_title');
+            $this->form_validation->set_rules('project_description', 'This Project description', 'required|trim|min_length[8]');
+            $this->form_validation->set_rules('project_internal_link', 'This Project Internal Link', 'trim|min_length[4]|callback_unique_project_internal_link');
+            $this->form_validation->set_rules('project_external_link', 'This Project External Link', 'trim|min_length[4]|callback_unique_project_external_link');
+            $this->form_validation->set_rules('project_start_date', 'This Project Start Date', 'required|trim|min_length[4]');
+            $this->form_validation->set_rules('project_end_date', 'This Project End Date', 'required|trim|min_length[4]');
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Add Project - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'pr_category';
+                $data['common_header'] = 'Add Project';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                /*==================================================
+                Start of Pagination Code segment for service page
+                ===================================================*/
+
+                $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
+                $config['total_rows'] = $this->app_user_model->total_count_of_projects();
+                $config['per_page'] = 5;
+                $config['uri_segment'] = 3;
+                $config['base_url'] = base_url() . 'admin/add_project';
+                $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['prev_link'] = '&laquo;';
+                $config['prev_tag_open'] = '<li>';
+                $config['prev_tag_close'] = '</li>';
+                $config['next_link'] = '&raquo;';
+                $config['next_tag_open'] = '<li>';
+                $config['next_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="active"><a href="#">';
+                $config['cur_tag_close'] = '</a></li>';
+                $config['num_tag_open'] = '<li>';
+                $config['num_tag_close'] = '</li>';
+                $this->pagination->initialize($config);
+                $data['paginglinks'] = $this->pagination->create_links();
+
+                $current_page = ($this->pagination->cur_page == 0) ? 1 : $this->pagination->cur_page;
+                $data['start_from'] = ($current_page - 1) * $config["per_page"] + 1;
+
+
+                /*$data['serial'] = (($this->pagination->cur_page - 1) * $config["per_page"]) + 1;*/
+                $data['cur'] = $this->pagination->cur_page;
+
+                // Showing total rows count
+                if ($data['paginglinks'] != '') {
+                    $to_serial = $this->pagination->cur_page * $this->pagination->per_page;
+                    $data['pagermessage'] = 'Showing ' . ((($this->pagination->cur_page - 1) * $this->pagination->per_page) + 1) . ' to ' . ($to_serial >= $config['total_rows'] ? $config['total_rows'] : $to_serial) . ' of ' . $config['total_rows'];
+                }
+
+                /*=================================================
+                    End of Pagination Code segment for service page
+               ===================================================*/
+
+                $all_projects = $this->app_user_model->get_all_projects($config["per_page"], $offset); // Reading and showing the Testimonials list from DB
+                $data['all_projects'] = $all_projects;
+                $data['list_title'] = 'Project List';
+
+                $active_project_category = $this->main_ui_model->get_active_project_category(); // Reading and showing Only the Active project category list from DB by setting is_active = 1
+                $data['active_project_category'] = $active_project_category;
+
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_add_project_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $data = array(
+                    'project_title' => $this->input->post('project_title'),
+                    'project_description' => $this->input->post('project_description'),
+                    'project_external_link' => $this->input->post('project_external_link'),
+                    'project_internal_link' => $this->input->post('project_internal_link'),
+                    'project_start_date' => $this->input->post('project_start_date'),
+                    'project_end_date' => $this->input->post('project_end_date'),
+                    'project_category_id' => $this->input->post('project_category'),
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->add_projects($data);
+                $this->session->set_flashdata('add_success', 'Project is successfully added');
+                redirect(base_url() . 'admin/add/project');
+            }
+        }
+    }
+
+    public function update_project($project_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $project_id_dec = base64_decode($project_id);
+            $single_project = $this->app_user_model->get_single_project_by_id($project_id_dec);
+
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            $single_project_title_db = $single_project["project_title"];
+            $single_project_title = $this->input->post('project_title');
+
+            $project_internal_link_db = $single_project["project_internal_link"];
+            $project_internal_link = strtolower($this->input->post('project_internal_link'));
+
+            $project_external_link_db = $single_project["project_external_link"];
+            $project_external_link = strtolower($this->input->post('project_external_link'));
+
+            if ($single_project_title_db != $single_project_title) {
+                $this->form_validation->set_rules('project_title', 'This Project title', 'required|trim|min_length[4]|callback_unique_project_title');
+            } else {
+                $this->form_validation->set_rules('project_title', 'This Project title', 'required|trim|min_length[4]');
+            }
+            if ($project_internal_link_db != $project_internal_link) {
+                $this->form_validation->set_rules('project_internal_link', 'This Project Internal Link', 'trim|min_length[4]|callback_unique_project_internal_link');
+            } else {
+                $this->form_validation->set_rules('project_internal_link', 'This Project Internal Link', 'trim|min_length[4]');
+            }
+            if ($project_external_link_db != $project_external_link) {
+                $this->form_validation->set_rules('project_external_link', 'This Project External Link', 'trim|min_length[4]|callback_unique_project_external_link');
+            } else {
+                $this->form_validation->set_rules('project_external_link', 'This Project External Link', 'trim|min_length[4]');
+            }
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update Project - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'pr_category';
+                $data['common_header'] = 'Update Project';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                $data['single_project'] = $single_project;
+
+                $active_project_category = $this->main_ui_model->get_active_project_category(); // Reading and showing Only the Active project category list from DB by setting is_active = 1
+                $data['active_project_category'] = $active_project_category;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_project_view', $data);
+                $this->load->view('admin/footer_view', $data);
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $data = array(
+                    'project_title' => $this->input->post('project_title'),
+                    'project_description' => $this->input->post('project_description'),
+                    'project_external_link' => $this->input->post('project_external_link'),
+                    'project_internal_link' => $this->input->post('project_internal_link'),
+                    'project_start_date' => $this->input->post('project_start_date'),
+                    'project_end_date' => $this->input->post('project_end_date'),
+                    'project_category_id' => $this->input->post('project_category'),
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->update_project($data, $project_id_dec);
+                $this->session->set_flashdata('project_update_message', "Selected Project is updated successfully.");
+                redirect(base_url() . 'admin/add/project/');
+            }
+        }
+    }
+
+
+    public function upload_project_file($project_id)
+    {
+        $project_id_dec = base64_decode($project_id);
+        $data['title'] = 'Upload Project Image - Shwapno Duar IT Ltd.';
+        $data['navbar_title'] = 'SDIL Admin Panel';
+        $data['active'] = 'pr_category';
+
+        $data['full_name'] = $this->session->userdata('full_name');
+        $data['error'] = '';
+        $data['project_id'] = $project_id;
+
+        $single_project = $this->app_user_model->get_single_project_by_id($project_id_dec);
+        $data['single_project'] = $single_project;
+        $single_project_title = $single_project['project_title'];
+        $data['common_header'] = 'Upload ' . $single_project_title . ' Image';
+
+        $this->load->view('admin/admin_dashboard_header_view', $data);
+        $this->load->view('admin/admin_project_image_upload_form_view', $data);
+        $this->load->view('admin/footer_view', $data);
+    }
+
+    public function upload_project_photo($project_id)
+    {
+        $project_id_dec = base64_decode($project_id);
+        $config['upload_path'] = './uploaded/projects';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['overwrite'] = TRUE;
+        $config['max_size'] = 60000;
+        $config['max_width'] = 600;
+        $config['max_height'] = 600;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload()) {
+            $data['title'] = 'Upload Project Image - Shwapno Duar IT Ltd.';
+            $data['navbar_title'] = 'SDIL Admin Panel';
+            $data['active'] = 'pr_category';
+            $data['full_name'] = $this->session->userdata('full_name');
+            $data['error'] = $this->upload->display_errors();
+            $data['project_id'] = $project_id;
+
+            $single_project = $this->app_user_model->get_single_project_by_id($project_id_dec);
+            $data['single_project'] = $single_project;
+            $single_project_title = $single_project['project_title'];
+            $data['common_header'] = 'Upload ' . $single_project_title . ' Image';
+
+            $this->load->view('admin/admin_dashboard_header_view', $data);
+            $this->load->view('admin/admin_project_image_upload_form_view', $data);
+            $this->load->view('admin/footer_view', $data);
+
+            /*$error = array('error' => $this->upload->display_errors());
+            $this->load->view('admin/upload_form', $error);            */
+        } else {
+            $file = array(
+                'project_image' => $this->upload->data('file_name')
+            );
+            $table_name = 'sdil_projects';
+            $this->app_user_model->update_single_image($project_id_dec, $table_name, $file);
+            $this->session->set_flashdata('upload_success', 'Your file is successfully uploaded');
+            redirect(base_url() . 'admin/upload/project/photo/' . $project_id);
+        }
+
+    }
+
+
+    public function delete_project_image($project_id)
+    {
+        $project_id_dec = base64_decode($project_id);
+        $single_project = $this->app_user_model->get_single_project_by_id($project_id_dec);
+        $this->app_user_model->delete_projects_image($project_id_dec);
+        $image_name = $single_project["project_image"];
+        $path = "./uploaded/projects/".$image_name;
+        unlink($path);
+        $this->session->set_flashdata('image_delete_message', 'Selected image is successfully deleted');
+        redirect(base_url() . 'admin/add/project');
+    }
+
+    public function delete_project($project_id)
+    {
+        $project_id_dec = base64_decode($project_id);
+        $single_project = $this->app_user_model->get_single_project_by_id($project_id_dec);
+        $is_active = $single_project["is_active"];
+        $have_project_image = $single_project["project_image"];
+        if ($is_active || $have_project_image) {
+            $this->session->set_flashdata('cant_delete_message', 'Active Project or Project with image can not be deleted');
+        } else {
+            $this->app_user_model->delete_project($project_id_dec);
+            $this->session->set_flashdata('project_delete_message', 'Selected Project is successfully deleted');
+        }
+
+        redirect(base_url() . 'admin/add/project/');
+    }
+
+    public function add_project_category()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('project_cat_name', 'This category name', 'trim|min_length[2]|callback_unique_project_cat_name');
+            $this->form_validation->set_rules('project_cat_code', 'This category code', 'trim|min_length[2]|callback_unique_project_cat_code');
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Add Project Category - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'pr_category';
+                $data['common_header'] = 'Add Project Category';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                /*==================================================
+                Start of Pagination Code segment for service page
+                ===================================================*/
+
+                $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
+                $config['total_rows'] = $this->app_user_model->total_count_of_project_cat();
+                $config['per_page'] = 5;
+                $config['uri_segment'] = 3;
+                $config['base_url'] = base_url() . 'admin/add_project_category';
+                $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['prev_link'] = '&laquo;';
+                $config['prev_tag_open'] = '<li>';
+                $config['prev_tag_close'] = '</li>';
+                $config['next_link'] = '&raquo;';
+                $config['next_tag_open'] = '<li>';
+                $config['next_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="active"><a href="#">';
+                $config['cur_tag_close'] = '</a></li>';
+                $config['num_tag_open'] = '<li>';
+                $config['num_tag_close'] = '</li>';
+                $this->pagination->initialize($config);
+                $data['paginglinks'] = $this->pagination->create_links();
+
+                $current_page = ($this->pagination->cur_page == 0) ? 1 : $this->pagination->cur_page;
+                $data['start_from'] = ($current_page - 1) * $config["per_page"] + 1;
+
+
+                /*$data['serial'] = (($this->pagination->cur_page - 1) * $config["per_page"]) + 1;*/
+                $data['cur'] = $this->pagination->cur_page;
+
+                // Showing total rows count
+                if ($data['paginglinks'] != '') {
+                    $to_serial = $this->pagination->cur_page * $this->pagination->per_page;
+                    $data['pagermessage'] = 'Showing ' . ((($this->pagination->cur_page - 1) * $this->pagination->per_page) + 1) . ' to ' . ($to_serial >= $config['total_rows'] ? $config['total_rows'] : $to_serial) . ' of ' . $config['total_rows'];
+                }
+
+                /*=================================================
+                    End of Pagination Code segment for service page
+               ===================================================*/
+
+                $all_project_cat = $this->app_user_model->get_all_project_cat($config["per_page"], $offset); // Reading and showing the Testimonials list from DB
+                $data['all_project_cat'] = $all_project_cat;
+                $data['list_title'] = 'Project Category List';
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_add_project_category_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $project_category_code = strtolower($this->input->post('project_cat_code'));
+                $data = array(
+                    'project_category_name' => $this->input->post('project_cat_name'),
+                    'project_category_code' => $project_category_code,
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->add_project_category($data);
+                $this->session->set_flashdata('add_success', 'Project Category is successfully added');
+                redirect(base_url() . 'admin/add/project/category');
+            }
+        }
+    }
+
+    public function update_project_category($project_category_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $project_category_id_dec = base64_decode($project_category_id);
+            $single_project_cat = $this->app_user_model->get_single_project_cat_by_id($project_category_id_dec);
+
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            $single_project_cat_name_db = $single_project_cat["project_category_name"];
+            $single_project_cat_name = $this->input->post('project_cat_name');
+            $single_project_cat_code_db = $single_project_cat["project_category_code"];
+            $single_project_cat_code = strtolower($this->input->post('project_cat_code'));
+
+            if ($single_project_cat_name_db != $single_project_cat_name) {
+                $this->form_validation->set_rules('project_cat_name', 'This category name', 'trim|min_length[2]|callback_unique_project_cat_name');
+            } else {
+                $this->form_validation->set_rules('project_cat_name', 'This category name', 'trim|min_length[2]');
+            }
+            if ($single_project_cat_code_db != $single_project_cat_code) {
+                $this->form_validation->set_rules('project_cat_code', 'This category code', 'trim|min_length[2]|callback_unique_project_cat_code');
+            } else {
+                $this->form_validation->set_rules('project_cat_code', 'This category code', 'trim|min_length[2]');
+            }
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update Project Category - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'pr_category';
+                $data['common_header'] = 'Update Project Category';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                $data['single_project_cat'] = $single_project_cat;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_project_cat_view', $data);
+                $this->load->view('admin/footer_view', $data);
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $project_category_code = strtolower($this->input->post('project_cat_code'));
+                $data = array(
+                    'project_category_name' => $this->input->post('project_cat_name'),
+                    'project_category_code' => $project_category_code,
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->update_project_cat($data, $project_category_id_dec);
+                $this->session->set_flashdata('project_cat_update_message', "Selected Category is updated successfully.");
+                redirect(base_url() . 'admin/add/project/category/');
+            }
+        }
+    }
+
+    public function delete_project_category($project_category_id)
+    {
+        $project_category_id_dec = base64_decode($project_category_id);
+        $single_project_cat = $this->app_user_model->get_single_project_cat_by_id($project_category_id_dec);
+        $is_active = $single_project_cat["is_active"];
+        if ($is_active) {
+            $this->session->set_flashdata('cant_delete_message', 'Active Project Category can not be deleted');
+        } else {
+            $this->app_user_model->delete_project_category($project_category_id_dec);
+            $this->session->set_flashdata('project_cat_delete_message', 'Selected Project Category is successfully deleted');
+        }
+
+        redirect(base_url() . 'admin/add/project/category/');
+    }
+
+
+    public function add_partners()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('partner_name', 'This partner name', 'trim|min_length[2]|callback_unique_partner_name');
+            $this->form_validation->set_rules('partner_internal_link', 'This internal link', 'trim|min_length[7]|callback_unique_partner_internal_link');
+            $this->form_validation->set_rules('partner_external_link', 'This external link', 'trim|min_length[7]|callback_unique_partner_internal_link');
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Add Partners - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'partners';
+                $data['common_header'] = 'Add Partners';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                /*==================================================
+                Start of Pagination Code segment for service page
+                ===================================================*/
+
+                $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
+                $config['total_rows'] = $this->app_user_model->total_count_of_partners();
+                $config['per_page'] = 5;
+                $config['uri_segment'] = 3;
+                $config['base_url'] = base_url() . 'admin/add_partners';
+                $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['prev_link'] = '&laquo;';
+                $config['prev_tag_open'] = '<li>';
+                $config['prev_tag_close'] = '</li>';
+                $config['next_link'] = '&raquo;';
+                $config['next_tag_open'] = '<li>';
+                $config['next_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="active"><a href="#">';
+                $config['cur_tag_close'] = '</a></li>';
+                $config['num_tag_open'] = '<li>';
+                $config['num_tag_close'] = '</li>';
+                $this->pagination->initialize($config);
+                $data['paginglinks'] = $this->pagination->create_links();
+
+                $current_page = ($this->pagination->cur_page == 0) ? 1 : $this->pagination->cur_page;
+                $data['start_from'] = ($current_page - 1) * $config["per_page"] + 1;
+
+
+                /*$data['serial'] = (($this->pagination->cur_page - 1) * $config["per_page"]) + 1;*/
+                $data['cur'] = $this->pagination->cur_page;
+
+                // Showing total rows count
+                if ($data['paginglinks'] != '') {
+                    $to_serial = $this->pagination->cur_page * $this->pagination->per_page;
+                    $data['pagermessage'] = 'Showing ' . ((($this->pagination->cur_page - 1) * $this->pagination->per_page) + 1) . ' to ' . ($to_serial >= $config['total_rows'] ? $config['total_rows'] : $to_serial) . ' of ' . $config['total_rows'];
+                }
+
+                /*=================================================
+                    End of Pagination Code segment for service page
+               ===================================================*/
+
+                $all_partners = $this->app_user_model->get_all_partners($config["per_page"], $offset); // Reading and showing the Testimonials list from DB
+                $data['all_partners'] = $all_partners;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_add_partners_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $data = array(
+                    'partner_name' => $this->input->post('partner_name'),
+                    'partner_internal_link' => $this->input->post('partner_internal_link'),
+                    'partner_external_link' => $this->input->post('partner_external_link'),
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->add_partners($data);
+                $this->session->set_flashdata('add_success', 'Partner is successfully added');
+                redirect(base_url() . 'admin/add/partners');
+            }
+        }
     }
 
     public function add_testimonials()
@@ -148,6 +648,73 @@ class Admin extends CI_Controller
                 $this->app_user_model->add_testimonials($data);
                 $this->session->set_flashdata('add_success', 'Testimonial is successfully added');
                 redirect(base_url() . 'admin/addtestimonials');
+            }
+        }
+    }
+
+    public function update_partners($partner_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $partner_id_dec = base64_decode($partner_id);
+            $single_partner = $this->app_user_model->get_single_partner_by_id($partner_id_dec);
+
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            $partner_name_db = $single_partner["partner_name"];
+            $partner_name = $this->input->post('partner_name');
+
+            $partner_internal_link_db = $single_partner["partner_internal_link"];
+            $partner_internal_link = $this->input->post('partner_internal_link');
+
+            $partner_external_link_db = $single_partner["partner_external_link"];
+            $partner_external_link = $this->input->post('partner_external_link');
+
+            if ($partner_name_db != $partner_name) {
+                $this->form_validation->set_rules('partner_name', 'This partner name', 'trim|min_length[2]|callback_unique_partner_name');
+            } else {
+                $this->form_validation->set_rules('partner_name', 'This partner name', 'trim|min_length[2]');
+            }
+
+            if ($partner_internal_link_db != $partner_internal_link) {
+                $this->form_validation->set_rules('partner_internal_link', 'This internal link', 'trim|min_length[2]|callback_unique_partner_internal_link');
+            } else {
+                $this->form_validation->set_rules('partner_internal_link', 'This link', 'trim|min_length[2]');
+            }
+
+            if ($partner_external_link_db != $partner_external_link) {
+                $this->form_validation->set_rules('partner_external_link', 'This external link', 'trim|min_length[2]|callback_unique_partner_external_link');
+            } else {
+                $this->form_validation->set_rules('partner_external_link', 'This link', 'trim|min_length[2]');
+            }
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update Partners - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'partners';
+                $data['common_header'] = 'Update Partners';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                $data['single_partner'] = $single_partner;
+                $data['common_header'] = 'Update Partner Information';
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_partner_view', $data);
+                $this->load->view('admin/footer_view', $data);
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $data = array(
+                    'partner_name' => $this->input->post('partner_name'),
+                    'partner_internal_link' => $this->input->post('partner_internal_link'),
+                    'partner_external_link' => $this->input->post('partner_external_link'),
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->update_partner($data, $partner_id_dec);
+                $this->session->set_flashdata('partner_update_message', "Selected Partner information is updated successfully.");
+                redirect(base_url() . 'admin/add/partners/');
             }
         }
     }
@@ -273,6 +840,100 @@ class Admin extends CI_Controller
 
     }
 
+    public function upload_partner_image_file($partner_id)
+    {
+        $partner_id_dec = base64_decode($partner_id);
+        $data['title'] = 'Upload Partner Image - Shwapno Duar IT Ltd.';
+        $data['navbar_title'] = 'SDIL Admin Panel';
+        $data['active'] = 'partners';
+
+        $data['full_name'] = $this->session->userdata('full_name');
+        $data['error'] = '';
+        $data['partner_id'] = $partner_id;
+
+        $single_partner = $this->app_user_model->get_single_partner_by_id($partner_id_dec);
+        $data['single_partner'] = $single_partner;
+        $single_partner_full_name = $single_partner['partner_name'];
+        $data['common_header'] = 'Upload ' . $single_partner_full_name . ' Photo';
+
+        $this->load->view('admin/admin_dashboard_header_view', $data);
+        $this->load->view('admin/admin_partner_image_upload_form_view', $data);
+        $this->load->view('admin/footer_view', $data);
+    }
+
+    public function upload_partner_photo($partner_id)
+    {
+        $partner_id_dec = base64_decode($partner_id);
+        $config['upload_path'] = './uploaded/partners/';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['overwrite'] = TRUE;
+        $config['max_size'] = 150;
+        $config['maintain_ratio'] = TRUE;
+        $config['max_width'] = 500;
+        $config['max_height'] = 500;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload()) {
+            $data['title'] = 'Upload Partner Image - Shwapno Duar IT Ltd.';
+            $data['navbar_title'] = 'SDIL Admin Panel';
+            $data['active'] = 'partners';
+            $data['full_name'] = $this->session->userdata('full_name');
+            $data['error'] = $this->upload->display_errors();
+            $data['partner_id'] = $partner_id;
+
+            $single_partner = $this->app_user_model->get_single_partner_by_id($partner_id_dec);
+            $data['single_partner'] = $single_partner;
+            $single_partner_full_name = $single_partner['partner_name'];
+            $data['common_header'] = 'Upload ' . $single_partner_full_name . ' Photo';
+
+            $this->load->view('admin/admin_dashboard_header_view', $data);
+            $this->load->view('admin/admin_partner_image_upload_form_view', $data);
+            $this->load->view('admin/footer_view', $data);
+
+            /*$error = array('error' => $this->upload->display_errors());
+            $this->load->view('admin/upload_form', $error);            */
+        } else {
+            $file = array(
+                'partner_image' => $this->upload->data('file_name')
+            );
+            $table_name = 'sdil_partners';
+            $this->app_user_model->update_single_image($partner_id_dec, $table_name, $file);
+            $this->session->set_flashdata('upload_success', 'Your file is successfully uploaded');
+            redirect(base_url() . 'admin/upload/partner/photo/' . $partner_id);
+            /*$data = array('upload_data' => $this->upload->data());
+            $this->load->view('admin/upload_success', $data);*/
+        }
+
+    }
+
+    public function delete_partner_image($partner_id)
+    {
+        $partner_id_dec = base64_decode($partner_id);
+        $single_partner = $this->app_user_model->get_single_partner_by_id($partner_id_dec);
+        $this->app_user_model->delete_partners_image($partner_id_dec);
+        $image_name = $single_partner["partner_image"];
+        $path = "./uploaded/partners/".$image_name;
+        unlink($path);
+        $this->session->set_flashdata('image_delete_message', 'Selected partner image is successfully deleted');
+        redirect(base_url() . 'admin/add/partners');
+    }
+
+    public function delete_partner($partner_id)
+    {
+        $partner_id_dec = base64_decode($partner_id);
+        $single_partner = $this->app_user_model->get_single_partner_by_id($partner_id_dec);
+        $is_active = $single_partner["is_active"];
+        if ($is_active) {
+            $this->session->set_flashdata('cant_delete_message', 'Active Partner can not be deleted');
+        } else {
+            $this->app_user_model->delete_partner($partner_id_dec);
+            $this->session->set_flashdata('partner_delete_message', 'Selected Partner is successfully deleted');
+        }
+
+        redirect(base_url() . 'admin/add/partners');
+    }
+
     public function upload_member_image_file($member_id)
     {
         $member_id_dec = base64_decode($member_id);
@@ -286,7 +947,7 @@ class Admin extends CI_Controller
 
         $single_member = $this->app_user_model->get_single_member_by_id($member_id_dec);
         $data['single_member'] = $single_member;
-        $single_member_full_name = $single_member['full_name'];
+        $single_member_full_name = $single_member['first_name'] . " " . $single_member['last_name'];
         $data['common_header'] = 'Upload ' . $single_member_full_name . ' Photo';
 
         $this->load->view('admin/admin_dashboard_header_view', $data);
@@ -316,7 +977,7 @@ class Admin extends CI_Controller
 
             $single_member = $this->app_user_model->get_single_member_by_id($member_id_dec);
             $data['single_member'] = $single_member;
-            $single_member_full_name = $single_member['full_name'];
+            $single_member_full_name = $single_member['first_name'] . " " . $single_member['last_name'];
             $data['common_header'] = 'Upload ' . $single_member_full_name . ' Photo';
 
             $this->load->view('admin/admin_dashboard_header_view', $data);
@@ -423,7 +1084,11 @@ class Admin extends CI_Controller
     public function delete_member_image($member_id)
     {
         $member_id_dec = base64_decode($member_id);
+        $single_member = $this->app_user_model->get_single_member_by_id($member_id_dec);
         $this->app_user_model->delete_member_image($member_id_dec);
+        $image_name = $single_member["personal_image"];
+        $path = "./uploaded/admin/".$image_name;
+        unlink($path);
         $this->session->set_flashdata('image_delete_message', 'Selected image is successfully deleted');
         redirect(base_url() . 'admin/addteam');
     }
@@ -1093,6 +1758,94 @@ class Admin extends CI_Controller
             return TRUE;
         } else {
             $this->form_validation->set_message('unique_designation', "%s {$str} already exist!");
+            return FALSE;
+        }
+    }
+
+    function unique_project_cat_name($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_project_cat_name($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_project_cat_name', "%s '{$str}' already exist!");
+            return FALSE;
+        }
+    }
+
+    function unique_project_title($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_project_title($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_project_title', "%s '{$str}' already exist!");
+            return FALSE;
+        }
+    }
+
+    function unique_project_cat_code($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_project_cat_code($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_project_cat_code', "%s '{$str}' already exist!");
+            return FALSE;
+        }
+    }
+
+    function unique_partner_name($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_partner_name($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_partner_name', "%s {$str} already exist!");
+            return FALSE;
+        }
+    }
+
+    function unique_partner_internal_link($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_partner_internal_link($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_partner_internal_link', "%s {$str} already exist!");
+            return FALSE;
+        }
+    }
+
+    function unique_partner_external_link($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_partner_external_link($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_partner_external_link', "%s {$str} already exist!");
+            return FALSE;
+        }
+    }
+
+    function unique_project_internal_link($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_project_internal_link($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_project_internal_link', "%s {$str} already exist!");
+            return FALSE;
+        }
+    }
+
+    function unique_project_external_link($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_project_external_link($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_project_external_link', "%s {$str} already exist!");
             return FALSE;
         }
     }

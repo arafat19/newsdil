@@ -58,6 +58,40 @@ class main_ui_model extends CI_Model
             return NULL;
         }
     }
+    function get_active_partners()
+    {
+        $this->db->select('*');
+        $this->db->where('is_active', 1);
+        $result = $this->db->get('sdil_partners');
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
+    }
+
+    function get_active_project_category()
+    {
+        $this->db->select('*');
+        $this->db->where('is_active', 1);
+        $result = $this->db->get('sdil_project_category');
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
+    }
+    function get_project_category_name_by_id($project_category_id)
+    {
+        $this->db->select('project_category_name');
+        $this->db->where('project_category_id', $project_category_id);
+        $result = $this->db->get('sdil_project_category');
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
+    }
 
     public function submit_contact_request()
     {

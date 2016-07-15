@@ -138,15 +138,18 @@
             <li class="<?php echo($active=='testimonials')?'active':''; ?>">
                 <a href="<?php echo base_url();?>admin/addtestimonials"><i class="fa fa-fw fa-database"></i>Add Testimonials</a>
             </li>
+            <li class="<?php echo($active=='partners')?'active':''; ?>">
+                <a href="<?php echo base_url();?>admin/add/partners"><i class="fa fa-fw fa-group"></i>Add Partners</a>
+            </li>
 
-            <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+            <li class="<?php echo($active=='pr_category')?'active':''; ?>">
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-gear"></i> Project Configuration <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
-                    <li>
-                        <a href="#">Dropdown Item</a>
+                    <li class="<?php echo($active=='pr_category')?'active':''; ?>">
+                        <a href="<?php echo base_url();?>admin/add/project/category"><i class="fa fa-fw fa-database"></i>Add Project Category</a>
                     </li>
-                    <li>
-                        <a href="#">Dropdown Item</a>
+                    <li class="<?php echo($active=='pr_category')?'active':''; ?>">
+                        <a href="<?php echo base_url();?>admin/add/project"><i class="fa fa-fw fa-database"></i>Add Project</a>
                     </li>
                 </ul>
             </li>

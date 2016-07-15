@@ -175,15 +175,18 @@
                 <div class="portfolio-section title sub-title clearfix">
                     <div id="portfolio">
                         <div class="row text-center">
-                            <div class="col-md-12" id="isotope-filter"><a data-filter="*" href="#"
-                                                                          class="btn btn-sm btn-outline btn-primary active">All</a>
-                                <a data-filter=".wordpress" href="#" class="btn btn-primary btn-sm btn-outline">Wordpress</a>
-                                <a data-filter=".megento" href="#"
-                                   class="btn btn-sm btn-outline btn-primary">Megento</a> <a data-filter=".drupal"
-                                                                                             href="#"
-                                                                                             class="btn btn-sm btn-outline btn-primary">Drupal</a>
-                                <a data-filter=".html" href="#" class="btn btn-sm btn-outline btn-primary">HTML &
-                                    CSS</a></div>
+                            <div class="col-md-12" id="isotope-filter">
+                                <a data-filter="*" href="#" class="btn btn-sm btn-outline btn-primary active">All</a>
+                                <?php if (isset($active_project_category) && $active_project_category->num_rows() > 0):
+                                    foreach ($active_project_category->result() as $row): ?>
+                                        <a data-filter=".<?php echo $row->project_category_code; ?>" href="#" class="btn btn-primary btn-sm btn-outline"><?php echo $row->project_category_name; ?></a>
+                                    <?php
+                                    endforeach;
+                                endif; ?>
+                               <!-- <a data-filter=".megento" href="#" class="btn btn-sm btn-outline btn-primary">Megento</a>
+                                <a data-filter=".drupal" href="#" class="btn btn-sm btn-outline btn-primary">Drupal</a>
+                                <a data-filter=".html" href="#" class="btn btn-sm btn-outline btn-primary">HTML & CSS</a>-->
+                            </div>
                         </div>
                         <div id="isotope" class="wow animated fadeInUp clearfix">
                             <div class="col-xs-12 col-sm-6 col-md-3 wordpress">
@@ -525,36 +528,36 @@
                     endif; ?>
 
                 </div>
-               <!-- <div class="iteam">
-                    <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
-                    <div class="contain">
-                        <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration in some form, by injected humour, or randomised words which don't
-                            look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
+                <!-- <div class="iteam">
+                     <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
+                     <div class="contain">
+                         <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
+                             suffered alteration in some form, by injected humour, or randomised words which don't
+                             look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
 
-                        <div class="more-btn"><a href="#">Read more</a></div>
-                    </div>
-                </div>
-                <div class="iteam">
-                    <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
-                    <div class="contain">
-                        <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration in some form, by injected humour, or randomised words which don't
-                            look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
+                         <div class="more-btn"><a href="#">Read more</a></div>
+                     </div>
+                 </div>
+                 <div class="iteam">
+                     <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
+                     <div class="contain">
+                         <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
+                             suffered alteration in some form, by injected humour, or randomised words which don't
+                             look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
 
-                        <div class="more-btn"><a href="#">Read more</a></div>
-                    </div>
-                </div>
-                <div class="iteam">
-                    <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
-                    <div class="contain">
-                        <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration in some form, by injected humour, or randomised words which don't
-                            look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
+                         <div class="more-btn"><a href="#">Read more</a></div>
+                     </div>
+                 </div>
+                 <div class="iteam">
+                     <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
+                     <div class="contain">
+                         <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
+                             suffered alteration in some form, by injected humour, or randomised words which don't
+                             look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
 
-                        <div class="more-btn"><a href="#">Read more</a></div>
-                    </div>
-                </div>-->
+                         <div class="more-btn"><a href="#">Read more</a></div>
+                     </div>
+                 </div>-->
             </div>
         </div>
     </div>
@@ -574,17 +577,34 @@
             <div class="contain-body patner-section clearfix">
                 <div class="patner-list">
                     <ul>
-                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_01.png" alt="partner"></a>
-                        </li>
-                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_02.png" alt="partner"></a>
-                        </li>
-                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_03.png" alt="partner"></a>
-                        </li>
-                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_04.png" alt="partner"></a>
-                        </li>
-                        <li><a href="#"><img src="<?php echo base_url(); ?>images/patners_05.png" alt="partner"></a>
-                        </li>
+                        <?php if (isset($active_partners) && $active_partners->num_rows() > 0):
+                            foreach ($active_partners->result() as $row): ?>
+                                <li>
+                                    <a href="<?php echo $row->partner_external_link; ?>" target="_blank">
+                                        <img
+                                            src="<?php echo base_url(); ?>uploaded/partners/<?php echo $row->partner_image; ?>"
+                                            alt="<?php echo $row->partner_name; ?>"
+                                            title="<?php echo $row->partner_name; ?>">
+                                    </a>
+                                </li>
+                            <?php
+                            endforeach;
+                        endif; ?>
                     </ul>
+                    <!--
+
+                    <ul>
+                        <li><a href="#"><img src="<?php /*echo base_url(); */ ?>images/patners_01.png" alt="partner"></a>
+                        </li>
+                        <li><a href="#"><img src="<?php /*echo base_url(); */ ?>images/patners_02.png" alt="partner"></a>
+                        </li>
+                        <li><a href="#"><img src="<?php /*echo base_url(); */ ?>images/patners_03.png" alt="partner"></a>
+                        </li>
+                        <li><a href="#"><img src="<?php /*echo base_url(); */ ?>images/patners_04.png" alt="partner"></a>
+                        </li>
+                        <li><a href="#"><img src="<?php /*echo base_url(); */ ?>images/patners_05.png" alt="partner"></a>
+                        </li>
+                    </ul>-->
                 </div>
             </div>
         </div>

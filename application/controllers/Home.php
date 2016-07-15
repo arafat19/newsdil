@@ -11,7 +11,8 @@ class Home extends CI_Controller
         $this->load->model('main_ui_model');
     }
 
-    function index(){
+    function index()
+    {
         $all_services = $this->main_ui_model->get_service_by_is_active(1); // Reading and showing the Service list from DB by setting is_active = 1
         $data['all_services'] = $all_services;
 
@@ -27,6 +28,12 @@ class Home extends CI_Controller
 
         $active_testimonials = $this->main_ui_model->get_active_testimonials(); // Reading and showing Only the Active Social Icons list from DB by setting is_active = 1
         $data['active_testimonials'] = $active_testimonials;
+
+        $active_partners = $this->main_ui_model->get_active_partners(); // Reading and showing Only the Active partner list from DB by setting is_active = 1
+        $data['active_partners'] = $active_partners;
+
+        $active_project_category = $this->main_ui_model->get_active_project_category(); // Reading and showing Only the Active project category list from DB by setting is_active = 1
+        $data['active_project_category'] = $active_project_category;
 
         $data['title'] = 'Shwapno Duar IT Ltd.';
         $data['active'] = 'contacts';

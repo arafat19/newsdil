@@ -27,9 +27,5 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <link href="<?php echo base_url(); ?>css/jquery.dataTables.css" rel="stylesheet" type="text/css">
-
-
-
-
-
+    <link href="<?php echo base_url(); ?>css/bootstrap-datepicker.css" rel="stylesheet" type="text/css">
 </head>

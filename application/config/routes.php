@@ -61,6 +61,26 @@ $route['admin/uploadlogofile'] = "admin/upload_logo_file";
 $route['admin/socialicon'] = "admin/social_icon_management";
 $route['admin/addteam'] = "admin/add_team_members";
 $route['admin/addtestimonials'] = "admin/add_testimonials";
+
+$route['admin/add/project/category'] = "admin/add_project_category";
+$route['admin/delete/project/category/(:any)'] = "admin/delete_project_category/$1";
+$route['admin/update/project/category/(:any)'] = "admin/update_project_category/$1";
+
+$route['admin/add/project'] = "admin/add_project";
+$route['admin/delete/project/(:any)'] = "admin/delete_project/$1";
+$route['admin/update/project/(:any)'] = "admin/update_project/$1";
+$route['admin/upload/project/image/(:any)'] = "admin/upload_project_file/$1";
+$route['admin/upload/project/photo/(:any)'] = "admin/upload_project_photo/$1";
+$route['admin/project/image/delete/(:any)'] = 'admin/delete_project_image/$1';
+
+
+$route['admin/add/partners'] = "admin/add_partners";
+$route['admin/delete/partner/image/(:any)'] = 'admin/delete_partner_image/$1';
+$route['admin/delete/partner/(:any)'] = 'admin/delete_partner/$1';
+
+$route['admin/upload/partner/image/(:any)'] = "admin/upload_partner_image_file/$1";
+$route['admin/upload/partner/photo/(:any)'] = "admin/upload_partner_photo/$1";
+
 $route['admin/uploadmemberimg/(:any)'] = "admin/upload_member_image_file/$1";
 $route['admin/uploadmemberphoto/(:any)'] = "admin/upload_member_photo/$1";
 $route['signout'] = "admin/logout";
@@ -70,6 +90,7 @@ $route['admin/delete/testimonial/(:any)'] = 'admin/delete_testimonial/$1';
 $route['admin/sdelete/(:any)'] = 'admin/delete_service/$1';
 $route['admin/socialedit/(:any)'] = "admin/social_icon_edit/$1";
 $route['admin/updateteamember/(:any)'] = "admin/update_team_member/$1";
+$route['admin/update/partner/(:any)'] = "admin/update_partners/$1";
 $route['admin/socialdelete/(:any)'] = 'admin/social_icon_delete/$1';
 $route['admin/cdelete/(:any)'] = 'admin/delete_contacts/$1';
 $route['admin/imagedelete/(:any)'] = 'admin/delete_member_image/$1';

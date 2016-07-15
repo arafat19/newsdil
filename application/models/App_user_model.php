@@ -1,4 +1,4 @@
-<?php 
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class app_user_model extends CI_Model
@@ -41,11 +41,13 @@ class app_user_model extends CI_Model
         }
     }
 
-    public function total_count() {
+    public function total_count()
+    {
         return $this->db->count_all("service_list");
     }
 
-    public function get_services($limit, $start) {
+    public function get_services($limit, $start)
+    {
         $this->db->limit($limit, $start);
         $this->db->order_by("id", "desc");
         $query = $this->db->get("service_list");
@@ -56,11 +58,28 @@ class app_user_model extends CI_Model
         return false;
     }
 
-    public function total_count_of_testimonials() {
+    public function total_count_of_testimonials()
+    {
         return $this->db->count_all("sdil_testimonials");
     }
 
-    public function get_all_testimonials($limit, $start) {
+    public function total_count_of_partners()
+    {
+        return $this->db->count_all("sdil_partners");
+    }
+
+    public function total_count_of_project_cat()
+    {
+        return $this->db->count_all("sdil_project_category");
+    }
+
+    public function total_count_of_projects()
+    {
+        return $this->db->count_all("sdil_projects");
+    }
+
+    public function get_all_testimonials($limit, $start)
+    {
         $this->db->limit($limit, $start);
         $this->db->order_by("id", "desc");
         $query = $this->db->get("sdil_testimonials");
@@ -71,11 +90,52 @@ class app_user_model extends CI_Model
         return false;
     }
 
-    public function total_count_of_social_icons() {
+    public function get_all_partners($limit, $start)
+    {
+        $this->db->limit($limit, $start);
+        $this->db->order_by("id", "desc");
+        $query = $this->db->get("sdil_partners");
+
+        if ($query->num_rows() > 0) {
+            return $query;
+        }
+        return false;
+    }
+
+    public function get_all_project_cat($limit, $start)
+    {
+        $this->db->limit($limit, $start);
+        $this->db->order_by("project_category_id", "desc");
+        $query = $this->db->get("sdil_project_category");
+
+        if ($query->num_rows() > 0) {
+            return $query;
+        }
+        return false;
+    }
+
+    public function get_all_projects($limit, $start)
+    {
+        $this->db->select('sdil_projects.*, sdil_project_category.project_category_name');
+        $this->db->from('sdil_projects');
+        $this->db->join('sdil_project_category', 'sdil_project_category.project_category_id = sdil_projects.project_category_id');
+        $this->db->limit($limit, $start);
+        $this->db->order_by("project_id", "desc");
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query;
+        }
+        return false;
+    }
+
+    public function total_count_of_social_icons()
+    {
         return $this->db->count_all("social_icon");
     }
 
-    public function get_social_icon($limit, $start) {
+    public function get_social_icon($limit, $start)
+    {
         $this->db->limit($limit, $start);
         $this->db->order_by("id", "desc");
         $query = $this->db->get("social_icon");
@@ -85,7 +145,6 @@ class app_user_model extends CI_Model
         }
         return false;
     }
-
 
 
     function get_all_team_members()
@@ -116,6 +175,38 @@ class app_user_model extends CI_Model
 
         return $query->row_array();
     }
+
+    public function get_single_partner_by_id($partner_id)
+    {
+        $this->db->select('*');
+        $this->db->where('id', $partner_id);
+        $query = $this->db->get('sdil_partners');
+
+        return $query->row_array();
+    }
+
+    public function get_single_project_cat_by_id($project_category_id)
+    {
+        $this->db->select('*');
+        $this->db->where('project_category_id', $project_category_id);
+        $query = $this->db->get('sdil_project_category');
+
+        return $query->row_array();
+    }
+
+
+    public function get_single_project_by_id($project_id)
+    {
+        $this->db->select('sdil_projects.*, sdil_project_category.project_category_name');
+        $this->db->from('sdil_projects');
+        $this->db->join('sdil_project_category', 'sdil_project_category.project_category_id = sdil_projects.project_category_id');
+        $this->db->where('project_id', $project_id);
+        $query = $this->db->get();
+
+        return $query->row_array();
+    }
+
+
     public function get_single_testimonial_by_id($testimonial_id)
     {
         $this->db->select('*');
@@ -162,14 +253,18 @@ class app_user_model extends CI_Model
         $this->db->update('system_configuration', $data);
     }
 
-    function update_image($table_name,$data)
+    function update_image($table_name, $data)
     {
         $this->db->update($table_name, $data);
     }
 
-    function update_single_image($member_id_dec,$table_name,$data)
+    function update_single_image($table_id_dec, $table_name, $data)
     {
-        $this->db->where('id', $member_id_dec);
+        $id = 'id';
+        if($table_name == 'sdil_projects'){
+            $id = 'project_id';
+        }
+        $this->db->where($id, $table_id_dec);
         $this->db->update($table_name, $data);
     }
 
@@ -197,9 +292,25 @@ class app_user_model extends CI_Model
     {
         $this->db->insert('team_members', $data);
     }
+
     public function add_testimonials($data)
     {
         $this->db->insert('sdil_testimonials', $data);
+    }
+
+    public function add_project_category($data)
+    {
+        $this->db->insert('sdil_project_category', $data);
+    }
+
+    public function add_projects($data)
+    {
+        $this->db->insert('sdil_projects', $data);
+    }
+
+    public function add_partners($data)
+    {
+        $this->db->insert('sdil_partners', $data);
     }
 
     public function delete_service($service_id)
@@ -207,6 +318,7 @@ class app_user_model extends CI_Model
         $this->db->where('id', $service_id);
         $this->db->delete('service_list');
     }
+
     public function delete_member_image($member_id)
     {
         $data = array(
@@ -215,16 +327,51 @@ class app_user_model extends CI_Model
         $this->db->where('id', $member_id);
         $this->db->update('team_members', $data);
     }
+    public function delete_projects_image($project_id)
+    {
+        $data = array(
+            'project_image' => ''
+        );
+        $this->db->where('project_id', $project_id);
+        $this->db->update('sdil_projects', $data);
+    }
+
+    public function delete_partners_image($member_id)
+    {
+        $data = array(
+            'partner_image' => ''
+        );
+        $this->db->where('id', $member_id);
+        $this->db->update('sdil_partners', $data);
+    }
 
     public function delete_member($member_id)
     {
         $this->db->where('id', $member_id);
         $this->db->delete('team_members');
     }
+
+    public function delete_partner($partner_id)
+    {
+        $this->db->where('id', $partner_id);
+        $this->db->delete('sdil_partners');
+    }
+
+    public function delete_project_category($project_category_id)
+    {
+        $this->db->where('project_category_id', $project_category_id);
+        $this->db->delete('sdil_project_category');
+    }
+
     public function delete_testimonial($testimonial_id)
     {
         $this->db->where('id', $testimonial_id);
         $this->db->delete('sdil_testimonials');
+    }
+    public function delete_project($project_id)
+    {
+        $this->db->where('project_id', $project_id);
+        $this->db->delete('sdil_projects');
     }
 
     public function delete_social_icon($social_icon_id)
@@ -304,6 +451,95 @@ class app_user_model extends CI_Model
             return FALSE;
         }
     }
+
+    public function exist_project_cat_code($cat_code)
+    {
+        $this->db->where('project_category_code', $cat_code);
+        $query = $this->db->get('sdil_project_category');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function exist_project_cat_name($cat_name)
+    {
+        $this->db->where('project_category_name', $cat_name);
+        $query = $this->db->get('sdil_project_category');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function exist_project_title($project_title)
+    {
+        $this->db->where('project_title', $project_title);
+        $query = $this->db->get('sdil_projects');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function exist_partner_name($partner_name)
+    {
+        $this->db->where('partner_name', $partner_name);
+        $query = $this->db->get('sdil_partners');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function exist_partner_internal_link($partner_internal_link)
+    {
+        $this->db->where('partner_internal_link', $partner_internal_link);
+        $query = $this->db->get('sdil_partners');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function exist_partner_external_link($partner_external_link)
+    {
+        $this->db->where('partner_external_link', $partner_external_link);
+        $query = $this->db->get('sdil_partners');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function exist_project_internal_link($partner_internal_link)
+    {
+        $this->db->where('project_internal_link', $partner_internal_link);
+        $query = $this->db->get('sdil_projects');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function exist_project_external_link($partner_external_link)
+    {
+        $this->db->where('project_external_link', $partner_external_link);
+        $query = $this->db->get('sdil_projects');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
     public function exist_facebook($facebook_link)
     {
         $this->db->where('facebook_link', $facebook_link);
@@ -325,6 +561,7 @@ class app_user_model extends CI_Model
             return FALSE;
         }
     }
+
     public function exist_linkedin($linkedin_link)
     {
         $this->db->where('linkedin_link', $linkedin_link);
@@ -376,7 +613,7 @@ class app_user_model extends CI_Model
 
         echo $count_row = $query->num_rows();
 
-        if ( $count_row == 1) {
+        if ($count_row == 1) {
             return FALSE;
         } else {
             return TRUE;
@@ -393,7 +630,8 @@ class app_user_model extends CI_Model
             return TRUE;
         }
     }
-    public function exist_team_member_edit($field,$attr)
+
+    public function exist_team_member_edit($field, $attr)
     {
         $this->db->where($field, $attr);
         $query = $this->db->get('team_members');
@@ -415,7 +653,7 @@ class app_user_model extends CI_Model
         }
     }
 
-    public function exist_social_icon_edit($field,$attr)
+    public function exist_social_icon_edit($field, $attr)
     {
         $this->db->where($field, $attr);
         $query = $this->db->get('social_icon');
@@ -488,6 +726,24 @@ class app_user_model extends CI_Model
     {
         $this->db->where('id', $testimonial_id);
         $this->db->update('sdil_testimonials', $data);
+    }
+
+    public function update_partner($data, $partner_id)
+    {
+        $this->db->where('id', $partner_id);
+        $this->db->update('sdil_partners', $data);
+    }
+
+    public function update_project_cat($data, $project_category_id)
+    {
+        $this->db->where('project_category_id', $project_category_id);
+        $this->db->update('sdil_project_category', $data);
+    }
+
+    public function update_project($data, $project_id)
+    {
+        $this->db->where('project_id', $project_id);
+        $this->db->update('sdil_projects', $data);
     }
 
 
