@@ -31,7 +31,7 @@ class app_user_model extends CI_Model
         return false;
     }
 
-    function get_service()
+    /*function get_service()
     {
         $result = $this->db->get("service_list");
         if ($result->num_rows() > 0) {
@@ -39,9 +39,20 @@ class app_user_model extends CI_Model
         } else {
             return NULL;
         }
+    }*/
+
+    function get_service()
+    {
+        $this->db->select('id, service_name');
+        $result = $this->db->get('service_list');
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
     }
 
-    public function total_count()
+    public function total_count_of_service()
     {
         return $this->db->count_all("service_list");
     }
@@ -167,6 +178,15 @@ class app_user_model extends CI_Model
         return $query->row_array();
     }
 
+    public function get_company_overview_by_id($company_overview_id)
+    {
+        $this->db->select('*');
+        $this->db->where('id', $company_overview_id);
+        $query = $this->db->get('sdil_overview');
+
+        return $query->row_array();
+    }
+
     public function get_single_member_by_id($member_id)
     {
         $this->db->select('*');
@@ -253,6 +273,14 @@ class app_user_model extends CI_Model
         $this->db->update('system_configuration', $data);
     }
 
+    public function update_company_overview()
+    {
+        $data = array(
+            'company_overview' => $this->input->post('company_overview')
+        );
+        $this->db->update('sdil_overview', $data);
+    }
+
     function update_image($table_name, $data)
     {
         $this->db->update($table_name, $data);
@@ -261,7 +289,7 @@ class app_user_model extends CI_Model
     function update_single_image($table_id_dec, $table_name, $data)
     {
         $id = 'id';
-        if($table_name == 'sdil_projects'){
+        if ($table_name == 'sdil_projects') {
             $id = 'project_id';
         }
         $this->db->where($id, $table_id_dec);
@@ -308,6 +336,15 @@ class app_user_model extends CI_Model
         $this->db->insert('sdil_projects', $data);
     }
 
+    public function add_pages($service_id)
+    {
+        $data = array(
+            'service_page_description' => $this->input->post('page_description')
+        );
+        $this->db->where('id', $service_id);
+        $this->db->update('service_list', $data);
+    }
+
     public function add_partners($data)
     {
         $this->db->insert('sdil_partners', $data);
@@ -327,6 +364,7 @@ class app_user_model extends CI_Model
         $this->db->where('id', $member_id);
         $this->db->update('team_members', $data);
     }
+
     public function delete_projects_image($project_id)
     {
         $data = array(
@@ -368,6 +406,7 @@ class app_user_model extends CI_Model
         $this->db->where('id', $testimonial_id);
         $this->db->delete('sdil_testimonials');
     }
+
     public function delete_project($project_id)
     {
         $this->db->where('project_id', $project_id);
@@ -383,7 +422,7 @@ class app_user_model extends CI_Model
 
     public function get_service_by_id($service_id)
     {
-        $this->db->select('id, service_name, total_description_div, is_active, service_page_url');
+        $this->db->select('*');
         $this->db->where('id', $service_id);
         $query = $this->db->get('service_list');
 
@@ -478,6 +517,28 @@ class app_user_model extends CI_Model
     {
         $this->db->where('project_title', $project_title);
         $query = $this->db->get('sdil_projects');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function exist_page_title($page_title)
+    {
+        $this->db->where('page_title', $page_title);
+        $query = $this->db->get('sdil_page_manager');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function exist_page_link($page_link)
+    {
+        $this->db->where('service_page_url', $page_link);
+        $query = $this->db->get('service_list');
         if ($query->num_rows() > 0) {
             return TRUE;
         } else {
@@ -686,6 +747,24 @@ class app_user_model extends CI_Model
             'total_description_div' => $total_des_div,
             'is_active' => $is_active,
             'service_page_url' => $service_page_url
+        );
+        $this->db->where('id', $service_id);
+        $this->db->update('service_list', $data);
+    }
+
+    public function update_service_page($service_id)
+    {
+        $data = array(
+            'service_page_description' => $this->input->post('page_description')
+        );
+        $this->db->where('id', $service_id);
+        $this->db->update('service_list', $data);
+    }
+
+    public function delete_service_page($service_id)
+    {
+        $data = array(
+            'service_page_description' => ''
         );
         $this->db->where('id', $service_id);
         $this->db->update('service_list', $data);

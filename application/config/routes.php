@@ -50,7 +50,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'Home';
-$route['admin/service'] = "admin/add_service_page";
+$route['about-us'] = 'About';
+$route['admin/service'] = "admin/add_service";
 $route['admin/sdil/profile'] = "admin/edit_admin_user";
 $route['admin/contacts'] = "admin/get_all_contacts";
 $route['admin/configuration'] = "admin/update_system_configuration";
@@ -73,6 +74,11 @@ $route['admin/upload/project/image/(:any)'] = "admin/upload_project_file/$1";
 $route['admin/upload/project/photo/(:any)'] = "admin/upload_project_photo/$1";
 $route['admin/project/image/delete/(:any)'] = 'admin/delete_project_image/$1';
 
+$route['admin/add/service/page'] = "admin/add_service_page";
+$route['admin/update/service/page/(:any)'] = "admin/edit_service_page/$1";
+$route['admin/delete/service/page/(:any)'] = "admin/service_page_delete/$1";
+
+$route['admin/update/company/overview'] = "admin/update_company_overview";
 
 $route['admin/add/partners'] = "admin/add_partners";
 $route['admin/delete/partner/image/(:any)'] = 'admin/delete_partner_image/$1';

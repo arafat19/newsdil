@@ -7,7 +7,32 @@
             return false;
         }
     }
+    function link_create() {
+        var f1 = document.getElementById("service_name");
+        var f2 = document.getElementById("service_page_url");
 
+        f2.value = string_to_slug(f1.value);
+    }
+
+
+    function string_to_slug(str) {
+        str = str.replace(/^\s+|\s+$/g, ''); // trim
+        str = str.toLowerCase();
+
+        // remove accents, swap ñ for n, etc
+        var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+        var to = "aaaaeeeeiiiioooouuuunc------";
+        for (var i = 0, l = from.length; i < l; i++) {
+            str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+        }
+
+        str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+            .replace(/\s+/g, '-') // collapse whitespace and replace by -
+            .replace(/-+/g, '-'); // collapse dashes
+
+        var url = window.base_url = <?php echo json_encode(base_url()); ?>;
+        return url + str;
+    }
 
 </script>
 <div id="wrapper">
@@ -80,6 +105,18 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        <?php }
+                                        if ($this->session->flashdata('service_delete_message')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-success" role="alert">
+                                                        <i class="fa fa-check"></i>
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('service_delete_message'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <?php } ?>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="service_name">Service
@@ -87,8 +124,16 @@
 
                                             <div class="col-md-5">
                                                 <input type="text" class="form-control" name="service_name"
-                                                       id="service_name"
+                                                       id="service_name"  onblur="link_create()"
                                                        placeholder="Service Name" required autofocus/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="service_page_url">Service Page URL</label>
+
+                                            <div class="col-md-5">
+                                                <input type="url" class="form-control" name="service_page_url"
+                                                       id="service_page_url"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -101,15 +146,7 @@
                                                           placeholder="255 Char Max" required></textarea>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="service_page_url">Service Page URL</label>
 
-                                            <div class="col-md-5">
-                                                <input type="url" class="form-control" name="service_page_url"
-                                                       id="service_page_url" pattern="https?://.+"
-                                                       placeholder="http://"/>
-                                            </div>
-                                        </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label label-optional"
                                                    for="is_active">Is Active:</label>
@@ -140,7 +177,7 @@
                 <!-- /.row -->
             </div>
 
-            <div class="row">
+            <div class="row row-fluid">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title">Service List</h3>

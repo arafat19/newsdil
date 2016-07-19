@@ -32,9 +32,14 @@
                                     </ul> -->
                         </ul>
                     </li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Work</a></li>
+                    <li><a class="<?php echo($active=='about')?'active':''; ?>" href="#">About</a>
+                        <ul class="wsmenu-submenu">
+                            <li><a class="<?php echo($active=='about')?'active':''; ?>" href="<?php echo base_url();?>about-us">Company Overview</a></li>
+                            <li><a href="#">Career</a></li>
+                        </ul>
+                    </li>
+                    <!--<li><a href="#">Services</a></li>-->
+                    <li><a href="#">Our Skills</a></li>
                     <li><a href="#">News</a></li>
                     <li><a class="<?php echo($active=='contacts')?'active':''; ?>" href="<?php echo base_url();?>contact">Contact</a></li>
                     <li>

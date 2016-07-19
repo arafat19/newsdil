@@ -36,6 +36,9 @@ class Contact extends CI_Controller
             $active_social_icons = $this->main_ui_model->get_social_icon_by_is_active(1); // Reading and showing Only the Active Social Icons list from DB by setting is_active = 1
             $data['active_social_icons'] = $active_social_icons;
 
+            $all_services = $this->main_ui_model->get_service_by_is_active(1); // Reading and showing the Service list from DB by setting is_active = 1
+            $data['all_services'] = $all_services;
+
 
             $this->load->view('index/header', $data);
             $this->load->view('contact/body', $data);

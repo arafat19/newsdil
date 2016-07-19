@@ -24,7 +24,7 @@
                                     src="<?php echo base_url(); ?>images/logo.png" alt=""/></a></div>
                     </div>
                     <!-- Navigation -->
-                    <?php $this->load->view('index/menu'); ?>
+                    <?php $this->load->view('menu'); ?>
                 </div>
             </div>
         </nav>

@@ -19,14 +19,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-3">
-                        <div class="logo clearfix"><a href="<?php echo base_url(); ?>index.html"
+                        <div class="logo clearfix"><a href="<?php echo base_url(); ?>"
                                                       title="Responsive Slide Menus"><img
                                     src="<?php echo base_url(); ?>uploaded/admin/<?php echo $all_system_configuration_ui['logo']; ?>"
                                     alt="<?php echo base_url(); ?>uploaded/admin/<?php echo $all_system_configuration_ui['logo']; ?>"/></a>
                         </div>
                     </div>
                     <!-- Navigation -->
-                    <?php $this->load->view('index/menu'); ?>
+                    <?php $this->load->view('menu'); ?>
                 </div>
             </div>
         </nav>
@@ -45,20 +45,20 @@
 
                             <h2><?php echo $all_system_configuration_ui['top_heading2']; ?></h2>
 
-                            <div class="read-btn"><a href="">Read More</a></div>
+                            <div class="read-btn"><a href="<?php echo base_url();?>about-us">Read More</a></div>
                         </div>
                     </div>
-                    <div id="services-list">
-                        <!--All the service come from DB using Main_ui_model-->
-                        <?php if (isset($all_services) && $all_services->num_rows() > 0):
+                    <?php if (isset($all_services) && $all_services->num_rows() > 0): ?>
+                        <div id="services-list">
+                            <!--All the service come from DB using Main_ui_model-->
+                            <?php
                             foreach ($all_services->result() as $row):
                                 echo $row->total_description_div;
-                            endforeach;
-                        else:
-                            echo "<p>No Service Found!</p>";
-                        endif; ?>
-                        <!--All the service come from DB using Main_ui_model-->
-                    </div>
+                            endforeach; ?>
+
+                            <!--All the service come from DB using Main_ui_model-->
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -179,17 +179,44 @@
                                 <a data-filter="*" href="#" class="btn btn-sm btn-outline btn-primary active">All</a>
                                 <?php if (isset($active_project_category) && $active_project_category->num_rows() > 0):
                                     foreach ($active_project_category->result() as $row): ?>
-                                        <a data-filter=".<?php echo $row->project_category_code; ?>" href="#" class="btn btn-primary btn-sm btn-outline"><?php echo $row->project_category_name; ?></a>
-                                    <?php
+                                        <a data-filter=".<?php echo $row->project_category_code; ?>" href="#"
+                                           class="btn btn-primary btn-sm btn-outline"><?php echo $row->project_category_name; ?></a>
+                                        <?php
                                     endforeach;
                                 endif; ?>
-                               <!-- <a data-filter=".megento" href="#" class="btn btn-sm btn-outline btn-primary">Megento</a>
-                                <a data-filter=".drupal" href="#" class="btn btn-sm btn-outline btn-primary">Drupal</a>
-                                <a data-filter=".html" href="#" class="btn btn-sm btn-outline btn-primary">HTML & CSS</a>-->
+                                <!-- <a data-filter=".megento" href="#" class="btn btn-sm btn-outline btn-primary">Megento</a>
+                                 <a data-filter=".drupal" href="#" class="btn btn-sm btn-outline btn-primary">Drupal</a>
+                                 <a data-filter=".html" href="#" class="btn btn-sm btn-outline btn-primary">HTML & CSS</a>-->
                             </div>
                         </div>
                         <div id="isotope" class="wow animated fadeInUp clearfix">
-                            <div class="col-xs-12 col-sm-6 col-md-3 wordpress">
+                            <?php if (isset($active_projects) && $active_projects->num_rows() > 0):
+                                foreach ($active_projects->result() as $row): ?>
+                                    <div class="col-xs-12 col-sm-6 col-md-3 <?php echo $row->project_category_code; ?>">
+                                        <div class="portfolio-hover">
+                                            <div class="portfolio-hover-buttons">
+                                                <div class="portfolio-containarea">
+                                                    <h3><?php echo $row->project_title; ?></h3>
+
+                                                    <p><?php echo $row->project_description; ?></p>
+                                                </div>
+                                                <!-- <a href="javascript:MyPopFunction();" target="_blank">View Project</a> <a data-pp="prettyPhoto[portfolio]" href="images/work_01.jpg" title=""><span class="fa fa-eye"></span></a> -->
+                                                <a href="<?php echo $row->project_internal_link; ?>">View Project</a> <a
+                                                    data-pp="prettyPhoto[portfolio]"
+                                                    href="<?php echo base_url(); ?>uploaded/projects/<?php echo $row->project_image; ?>"
+                                                    title="<?php echo $row->project_title; ?>"><span
+                                                        class="fa fa-eye"></span></a></div>
+                                        </div>
+                                        <div class="img-thumb"><img
+                                                src="<?php echo base_url(); ?>uploaded/projects/<?php echo $row->project_image; ?>"
+                                                alt="<?php echo $row->project_title; ?>"></div>
+                                    </div>
+                                    <?php
+                                endforeach;
+                            endif; ?>
+
+
+                            <!--<div class="col-xs-12 col-sm-6 col-md-3 megento">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-buttons">
                                         <div class="portfolio-containarea">
@@ -197,29 +224,12 @@
 
                                             <p>Aenean commodo ligula eget dolor. Aenean massa.</p>
                                         </div>
-                                        <!-- <a href="javascript:MyPopFunction();" target="_blank">View Project</a> <a data-pp="prettyPhoto[portfolio]" href="images/work_01.jpg" title=""><span class="fa fa-eye"></span></a> -->
                                         <a href="javascript:MyPopFunction();">View Project</a> <a
                                             data-pp="prettyPhoto[portfolio]"
-                                            href="<?php echo base_url(); ?>images/work_01.jpg" title=""><span
+                                            href="<?php /*echo base_url(); */ ?>images/work_02.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_01.jpg"
-                                                            alt="work"></div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-3 megento">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-buttons">
-                                        <div class="portfolio-containarea">
-                                            <h3>Rabiul Biplob</h3>
-
-                                            <p>Aenean commodo ligula eget dolor. Aenean massa.</p>
-                                        </div>
-                                        <a href="javascript:MyPopFunction();">View Project</a> <a
-                                            data-pp="prettyPhoto[portfolio]"
-                                            href="<?php echo base_url(); ?>images/work_02.jpg" title=""><span
-                                                class="fa fa-eye"></span></a></div>
-                                </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_02.jpg"
+                                <div class="img-thumb"><img src="<?php /*echo base_url(); */ ?>images/work_02.jpg"
                                                             alt="work"></div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 drupal">
@@ -232,10 +242,10 @@
                                         </div>
                                         <a href="javascript:MyPopFunction();">View Project</a> <a
                                             data-pp="prettyPhoto[portfolio]"
-                                            href="<?php echo base_url(); ?>images/work_03.jpg" title=""><span
+                                            href="<?php /*echo base_url(); */ ?>images/work_03.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_03.jpg"
+                                <div class="img-thumb"><img src="<?php /*echo base_url(); */ ?>images/work_03.jpg"
                                                             alt="work"></div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 html">
@@ -248,10 +258,10 @@
                                         </div>
                                         <a href="javascript:MyPopFunction();">View Project</a> <a
                                             data-pp="prettyPhoto[portfolio]"
-                                            href="<?php echo base_url(); ?>images/work_04.jpg" title=""><span
+                                            href="<?php /*echo base_url(); */ ?>images/work_04.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_04.jpg"
+                                <div class="img-thumb"><img src="<?php /*echo base_url(); */ ?>images/work_04.jpg"
                                                             alt="work"></div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 wordpress">
@@ -264,10 +274,10 @@
                                         </div>
                                         <a href="javascript:MyPopFunction();">View Project</a> <a
                                             data-pp="prettyPhoto[portfolio]"
-                                            href="<?php echo base_url(); ?>images/work_05.jpg" title=""><span
+                                            href="<?php /*echo base_url(); */ ?>images/work_05.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_05.jpg"
+                                <div class="img-thumb"><img src="<?php /*echo base_url(); */ ?>images/work_05.jpg"
                                                             alt="work"></div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 megento">
@@ -280,7 +290,7 @@
                                         </div>
                                         <a href="javascript:MyPopFunction();">View Project</a> <a
                                             data-pp="prettyPhoto[portfolio]"
-                                            href="<?php echo base_url(); ?>images/work_01.jpg" title=""><span
+                                            href="<?php /*echo base_url(); */ ?>images/work_01.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
                                 <div class="img-thumb"><img src="images/work_01.jpg" alt="work"></div>
@@ -295,10 +305,10 @@
                                         </div>
                                         <a href="javascript:MyPopFunction();">View Project</a> <a
                                             data-pp="prettyPhoto[portfolio]"
-                                            href="<?php echo base_url(); ?>images/work_02.jpg" title=""><span
+                                            href="<?php /*echo base_url(); */ ?>images/work_02.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_02.jpg"
+                                <div class="img-thumb"><img src="<?php /*echo base_url(); */ ?>images/work_02.jpg"
                                                             alt="work"></div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3 html">
@@ -311,20 +321,20 @@
                                         </div>
                                         <a href="javascript:MyPopFunction();">View Project</a> <a
                                             data-pp="prettyPhoto[portfolio]"
-                                            href="<?php echo base_url(); ?>images/work_08.jpg" title=""><span
+                                            href="<?php /*echo base_url(); */ ?>images/work_08.jpg" title=""><span
                                                 class="fa fa-eye"></span></a></div>
                                 </div>
-                                <div class="img-thumb"><img src="<?php echo base_url(); ?>images/work_08.jpg"
+                                <div class="img-thumb"><img src="<?php /*echo base_url(); */ ?>images/work_08.jpg"
                                                             alt="work"></div>
-                            </div>
+                            </div>-->
                             <!-- END ISOTOPE SCRIPT -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12">
+            <!--<div class="col-xs-12">
                 <div class="more-btn"><a href="javascript:MyPopFunction();">More News</a></div>
-            </div>
+            </div>-->
         </div>
     </div>
 </section>
@@ -379,19 +389,20 @@
     </div>
 </section>
 <!-- Our Team Section -->
-<section class="top-gape">
-    <div class="container">
-        <div class="row">
-            <div class="titel-area clearfix">
-                <div class="col-lg-12">
-                    <h2>Meet our Team</h2>
+<?php if (isset($active_team_members) && $active_team_members->num_rows() > 0): ?>
+    <section class="top-gape">
+        <div class="container">
+            <div class="row">
+                <div class="titel-area clearfix">
+                    <div class="col-lg-12">
+                        <h2>Meet our Team</h2>
 
-                    <div class="divied"></div>
+                        <div class="divied"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="contain-body team-section clearfix">
-                <div id="team-list">
-                    <?php if (isset($active_team_members) && $active_team_members->num_rows() > 0):
+                <div class="contain-body team-section clearfix">
+                    <div id="team-list">
+                        <?php
                         foreach ($active_team_members->result() as $row): ?>
                             <div class="iteam">
                                 <h4><span><?php echo $row->first_name; ?></span><?php echo " " . $row->last_name; ?>
@@ -419,16 +430,16 @@
                                     </ul>
                                 </div>
                             </div>
-                        <?php
-                        endforeach;
-                    else:
-                        echo "<p>No Member Found!</p>";
-                    endif; ?>
+                            <?php
+                        endforeach; ?>
+
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 <!-- Lates News Section -->
 <section id="news" class="top-gape">
     <div class="container">
@@ -500,70 +511,74 @@
     </div>
 </section>
 <!-- Testimonial Section -->
-<section id="testimonial" class="top-gape">
-    <div class="container">
-        <div class="row">
-            <div class="titel-area clearfix">
-                <div class="col-lg-12">
-                    <h2>Testimonial</h2>
+<?php if (isset($active_testimonials) && $active_testimonials->num_rows() > 0): ?>
+    <section id="testimonial" class="top-gape">
+        <div class="container">
+            <div class="row">
+                <div class="titel-area clearfix">
+                    <div class="col-lg-12">
+                        <h2>Testimonial</h2>
 
-                    <div class="divied"></div>
+                        <div class="divied"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="contain-body testimonial-section clearfix">
-                <div id="testimonial-list">
-                    <?php if (isset($active_testimonials) && $active_testimonials->num_rows() > 0):
+                <div class="contain-body testimonial-section clearfix">
+                    <div id="testimonial-list">
+                        <?php
                         foreach ($active_testimonials->result() as $row): ?>
                             <div class="iteam">
                                 <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
                                 <div class="contain">
                                     <p>" <?php echo $row->testimonial_description; ?> "</p>
 
-                                    <div class="more-btn"><a href="<?php echo $row->testimonial_details_link; ?>">Read
-                                            more</a></div>
+                                    <div class="testimonial-commented-by">
+                                        <div class="front-divided"></div>
+                                        <?php echo $row->commented_by;?>
+                                    <!--<div class="back-divided"></div>-->
+                                    </div>
                                 </div>
                             </div>
-                        <?php
-                        endforeach;
-                    endif; ?>
+                            <?php
+                        endforeach; ?>
 
+                    </div>
+                    <!-- <div class="iteam">
+                         <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
+                         <div class="contain">
+                             <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
+                                 suffered alteration in some form, by injected humour, or randomised words which don't
+                                 look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
+
+                             <div class="more-btn"><a href="#">Read more</a></div>
+                         </div>
+                     </div>
+                     <div class="iteam">
+                         <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
+                         <div class="contain">
+                             <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
+                                 suffered alteration in some form, by injected humour, or randomised words which don't
+                                 look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
+
+                             <div class="more-btn"><a href="#">Read more</a></div>
+                         </div>
+                     </div>
+                     <div class="iteam">
+                         <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
+                         <div class="contain">
+                             <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
+                                 suffered alteration in some form, by injected humour, or randomised words which don't
+                                 look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
+
+                             <div class="more-btn"><a href="#"  >Read more</a></div>
+                         </div>
+                     </div>-->
                 </div>
-                <!-- <div class="iteam">
-                     <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
-                     <div class="contain">
-                         <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
-                             suffered alteration in some form, by injected humour, or randomised words which don't
-                             look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
-
-                         <div class="more-btn"><a href="#">Read more</a></div>
-                     </div>
-                 </div>
-                 <div class="iteam">
-                     <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
-                     <div class="contain">
-                         <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
-                             suffered alteration in some form, by injected humour, or randomised words which don't
-                             look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
-
-                         <div class="more-btn"><a href="#">Read more</a></div>
-                     </div>
-                 </div>
-                 <div class="iteam">
-                     <div class="testimonial-thumb"><i class="fa fa-quote-right"></i></div>
-                     <div class="contain">
-                         <p>" There are many variations of passages of Lorem Ipsum available, but the majority have
-                             suffered alteration in some form, by injected humour, or randomised words which don't
-                             look even slightly believable. If you are going to use a passage of Lorem Ipsum "</p>
-
-                         <div class="more-btn"><a href="#">Read more</a></div>
-                     </div>
-                 </div>-->
             </div>
         </div>
-    </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 <!-- Patner Section -->
+<?php if (isset($active_partners) && $active_partners->num_rows() > 0): ?>
 <section id="patner" class="top-gape">
     <div class="container">
         <div class="row">
@@ -577,19 +592,19 @@
             <div class="contain-body patner-section clearfix">
                 <div class="patner-list">
                     <ul>
-                        <?php if (isset($active_partners) && $active_partners->num_rows() > 0):
-                            foreach ($active_partners->result() as $row): ?>
-                                <li>
-                                    <a href="<?php echo $row->partner_external_link; ?>" target="_blank">
-                                        <img
-                                            src="<?php echo base_url(); ?>uploaded/partners/<?php echo $row->partner_image; ?>"
-                                            alt="<?php echo $row->partner_name; ?>"
-                                            title="<?php echo $row->partner_name; ?>">
-                                    </a>
-                                </li>
+                        <?php
+                        foreach ($active_partners->result() as $row): ?>
+                            <li>
+                                <a href="<?php echo $row->partner_external_link; ?>" target="_blank">
+                                    <img
+                                        src="<?php echo base_url(); ?>uploaded/partners/<?php echo $row->partner_image; ?>"
+                                        alt="<?php echo $row->partner_name; ?>"
+                                        title="<?php echo $row->partner_name; ?>">
+                                </a>
+                            </li>
                             <?php
-                            endforeach;
-                        endif; ?>
+                        endforeach; ?>
+
                     </ul>
                     <!--
 
@@ -610,3 +625,4 @@
         </div>
     </div>
 </section>
+<?php endif; ?>

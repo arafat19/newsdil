@@ -35,8 +35,11 @@ class Home extends CI_Controller
         $active_project_category = $this->main_ui_model->get_active_project_category(); // Reading and showing Only the Active project category list from DB by setting is_active = 1
         $data['active_project_category'] = $active_project_category;
 
+        $active_projects = $this->main_ui_model->get_active_projects(); // Reading and showing Only the Active project category list from DB by setting is_active = 1
+        $data['active_projects'] = $active_projects;
+
         $data['title'] = 'Shwapno Duar IT Ltd.';
-        $data['active'] = 'contacts';
+        $data['active'] = '';
         $data['top_heading_h1'] = 'WE ARE Shwapno Duar';
         $data['top_heading_h2'] = 'SOFTWARE DEVELOPMENT & BPO COMPANY';
 

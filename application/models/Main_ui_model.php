@@ -81,6 +81,21 @@ class main_ui_model extends CI_Model
             return NULL;
         }
     }
+
+    public function get_active_projects()
+    {
+        $this->db->select('sdil_projects.*, sdil_project_category.project_category_code');
+        $this->db->from('sdil_projects');
+        $this->db->join('sdil_project_category', 'sdil_project_category.project_category_id = sdil_projects.project_category_id');
+        $this->db->where('sdil_projects.is_active', 1);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query;
+        }
+        return NULL;
+    }
+
     function get_project_category_name_by_id($project_category_id)
     {
         $this->db->select('project_category_name');

@@ -117,8 +117,16 @@
             <li class="<?php echo($active=='dashboard')?'active':''; ?>">
                 <a href="<?php echo base_url();?>admin"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
-            <li class="<?php echo($active=='add_service_page')?'active':''; ?>">
-                <a href="<?php echo base_url();?>admin/service"><i class="fa fa-fw fa-database"></i>Add Service</a>
+            <li class="<?php echo($active=='service_settings')?'active':''; ?>">
+                <a href="javascript:;" data-toggle="collapse" data-target="#service"><i class="fa fa-fw fa-gear"></i> Service Settings <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="service" class="collapse">
+                    <li class="<?php echo($active=='service_settings')?'active':''; ?>">
+                        <a href="<?php echo base_url();?>admin/service"><i class="fa fa-fw fa-database"></i>Add Service</a>
+                    </li>
+                    <li class="<?php echo($active=='service_settings')?'active':''; ?>">
+                        <a href="<?php echo base_url();?>admin/add/service/page"><i class="fa fa-fw fa-database"></i>Add Service Page</a>
+                    </li>
+                </ul>
             </li>
             <li class="<?php echo($active=='all_contacts')?'active':''; ?>">
                 <a href="<?php echo base_url();?>admin/contacts"><i class="fa fa-fw fa-phone"></i>All Contacts</a>
@@ -143,13 +151,22 @@
             </li>
 
             <li class="<?php echo($active=='pr_category')?'active':''; ?>">
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-gear"></i> Project Configuration <i class="fa fa-fw fa-caret-down"></i></a>
-                <ul id="demo" class="collapse">
+                <a href="javascript:;" data-toggle="collapse" data-target="#project"><i class="fa fa-fw fa-gear"></i> Project Configuration <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="project" class="collapse">
                     <li class="<?php echo($active=='pr_category')?'active':''; ?>">
                         <a href="<?php echo base_url();?>admin/add/project/category"><i class="fa fa-fw fa-database"></i>Add Project Category</a>
                     </li>
                     <li class="<?php echo($active=='pr_category')?'active':''; ?>">
                         <a href="<?php echo base_url();?>admin/add/project"><i class="fa fa-fw fa-database"></i>Add Project</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="<?php echo($active=='other_page')?'active':''; ?>">
+                <a href="javascript:;" data-toggle="collapse" data-target="#other_page"><i class="fa fa-fw fa-gear"></i> Other Page Settings <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="other_page" class="collapse">
+                    <li class="<?php echo($active=='other_page')?'active':''; ?>">
+                        <a href="<?php echo base_url();?>admin/update/company/overview"><i class="fa fa-fw fa-database"></i>Company Overview</a>
                     </li>
                 </ul>
             </li>

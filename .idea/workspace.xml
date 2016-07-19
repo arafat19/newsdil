@@ -1,12 +1,309 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f51c2cf3-477d-48c8-a303-dddb80b92b2d" name="Default" comment="">
+    <list default="true" id="29c94bd2-57ea-4836-928a-1bad2c8ddf60" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/img/anchor.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/img/jbimages-bw.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/img/loader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/media/moxieplayer.swf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/img/object.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-cool.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-cry.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-embarassed.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-foot-in-mouth.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-frown.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-innocent.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-kiss.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-laughing.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-money-mouth.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-sealed.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-surprised.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-tongue-out.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-undecided.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-wink.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-yell.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/img/spinner.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce-small.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce-small.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce-small.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/img/trans.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/.eslintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/.gitattributes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/About.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/Actions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/core/ActionsTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/alien/Arr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/atomic/alien/ArrTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Benchmark.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/alien/Bookmark.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/alien/BookmarkTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/ui/Buttons.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/CodeIgniter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Common.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Config.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Controller.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/file/Conversions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/file/ConversionsTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/Convert.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/atomic/core/ConvertTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/demo/js/tinymce/inlite/Demo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/ElementMatcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/core/ElementMatcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Exceptions.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/ui/Forms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Hooks.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/libraries/Image_lib.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Input.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/Layout.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/core/LayoutTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Loader.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/Matcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/atomic/core/MatcherTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/Measure.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/core/MeasureTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Model.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Output.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/ui/Panel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/file/Picker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/PredicateId.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/core/PredicateIdTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Router.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Security.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/SelectionMatcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/file/SelectionMatcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/core/SelectionMatcherTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/SkinLoader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/Theme.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/ThemeTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/ui/Toolbar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/URI.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/alien/Unlink.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/alien/UnlinkTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/libraries/Upload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/UrlType.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/atomic/core/UrlTypeTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Utf8.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/alien/Uuid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/atomic/alien/UuidTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_add_service_page_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_update_company_overview_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_update_service_page_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/views/ajax_upload_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/atomic.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/autoload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/views/blank.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/about/body.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/bootstrap-atomic.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/bootstrap-browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/bootstrap-demo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/bootstrap-prod.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/scratch/compile/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/config.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/config.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/constants.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/content.inline.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/content.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/database.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/demo/css/demo.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/demo/html/demo.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/demo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/dent/depend.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/css/dialog-v4.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/dialog-v4.htm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/js/dialog-v4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/css/dialog.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/dialog.htm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/example/dialog.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/js/dialog.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/doctypes.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/editor_plugin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/editor_plugin_src.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/langs/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/langs/en_dlg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/errors/error_404.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/errors/error_db.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/errors/error_general.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/errors/error_php.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/foreign_chars.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/langs/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/langs/fr_dlg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/hooks.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/french/imglib_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/russian/imglib_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/language/english/imglib_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/controllers/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/errors/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/helpers/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/english/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/french/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/russian/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/views/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/helpers/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/language/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/language/english/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/libraries/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/is_allowed.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/helpers/jbimages_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/english/jbstrings_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/french/jbstrings_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/russian/jbstrings_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/jquery.tinymce.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/helpers/language_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/license.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/menu.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/migration.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/mimes.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/plugin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/advlist/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/anchor/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/autolink/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/autoresize/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/autosave/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/bbcode/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/charmap/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/code/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/codesample/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/colorpicker/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/contextmenu/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/directionality/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/example/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/example_dependency/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/fullpage/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/fullscreen/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/hr/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/image/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/imagetools/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/importcss/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/insertdatetime/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/layer/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/legacyoutput/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/link/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/lists/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/media/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/nonbreaking/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/noneditable/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/pagebreak/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/paste/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/preview/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/print/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/save/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/searchreplace/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/spellchecker/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/tabfocus/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/table/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/template/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/textcolor/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/textpattern/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/visualblocks/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/visualchars/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/wordcount/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/codesample/css/prism.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/prod.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/profiler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/langs/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/readme" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/routes.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/langs/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/langs/ru_dlg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/skin.ie7.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/skin.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/smileys.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/scratch/compile/theme.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/scratch/inline/theme.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/theme.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/modern/theme.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/scratch/inline/theme.raw.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce-small.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/tinymce.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/french/upload_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/russian/upload_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/language/english/upload_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/controllers/uploader.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/uploader_settings.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/user_agents.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/visualblocks/css/visualblocks.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/reactTemplatesPlugin.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/index/menu.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/11235452_124497701243155_551428656048083903_o.jpg" afterPath="$PROJECT_DIR$/images/11235452_124497701243155_551428656048083903_o.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/CEO.png" afterPath="$PROJECT_DIR$/images/CEO.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/Iconic-Logo-Argos-Gold-Mart.jpg" afterPath="$PROJECT_DIR$/uploaded/partners/Iconic-Logo-Argos-Gold-Mart.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/admin/blank_person.png" afterPath="$PROJECT_DIR$/uploaded/admin/blank_person.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/blank_person.png" afterPath="$PROJECT_DIR$/uploaded/partners/blank_person.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/contact-us.png" afterPath="$PROJECT_DIR$/images/contact-us.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/favicon.ico" afterPath="$PROJECT_DIR$/images/favicon.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/favicon.jpg" afterPath="$PROJECT_DIR$/images/favicon.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/admin/favicon.jpg" afterPath="$PROJECT_DIR$/uploaded/admin/favicon.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/faviconS.jpg" afterPath="$PROJECT_DIR$/images/faviconS.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.woff2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/admin/logo.png" afterPath="$PROJECT_DIR$/uploaded/admin/logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/lrn-share-site-ms-logo.png" afterPath="$PROJECT_DIR$/uploaded/partners/lrn-share-site-ms-logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/admin/news_thumb_02.jpg" afterPath="$PROJECT_DIR$/uploaded/admin/news_thumb_02.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/patners_01.png" afterPath="$PROJECT_DIR$/uploaded/partners/patners_01.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/patners_02.png" afterPath="$PROJECT_DIR$/uploaded/partners/patners_02.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/patners_04.png" afterPath="$PROJECT_DIR$/uploaded/partners/patners_04.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/patners_05.png" afterPath="$PROJECT_DIR$/uploaded/partners/patners_05.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/admin/team_thumb_02.jpg" afterPath="$PROJECT_DIR$/uploaded/admin/team_thumb_02.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/admin/team_thumb_03.jpg" afterPath="$PROJECT_DIR$/uploaded/admin/team_thumb_03.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Admin.php" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/App_user_model.php" afterPath="$PROJECT_DIR$/application/models/App_user_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Contact.php" afterPath="$PROJECT_DIR$/application/controllers/Contact.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Home.php" afterPath="$PROJECT_DIR$/application/controllers/Home.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Main_ui_model.php" afterPath="$PROJECT_DIR$/application/models/Main_ui_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/admin.js" afterPath="$PROJECT_DIR$/js/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_add_service_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_add_service_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_all_contact_list_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_all_contact_list_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_dashboard_header_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_dashboard_header_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_dashboard_navbar_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_dashboard_navbar_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_dashboard_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_dashboard_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_edit_service_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_edit_service_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_login_index_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_login_index_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_login_index_wrong_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_login_index_wrong_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_profile_update_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_profile_update_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/admin_regis.css" afterPath="$PROJECT_DIR$/css/admin_regis.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/admin_style.css" afterPath="$PROJECT_DIR$/css/admin_style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/app_user_registration_view.php" afterPath="$PROJECT_DIR$/application/views/admin/app_user_registration_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/contact/body.php" afterPath="$PROJECT_DIR$/application/views/contact/body.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index/body.php" afterPath="$PROJECT_DIR$/application/views/index/body.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap-datepicker.css" afterPath="$PROJECT_DIR$/css/bootstrap-datepicker.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/bootstrap-datepicker.js" afterPath="$PROJECT_DIR$/js/bootstrap-datepicker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/browser.js" afterPath="$PROJECT_DIR$/js/browser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/config.php" afterPath="$PROJECT_DIR$/application/config/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/file_view.php" afterPath="$PROJECT_DIR$/application/views/admin/file_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/contact/footer.php" afterPath="$PROJECT_DIR$/application/views/contact/footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index/footer.php" afterPath="$PROJECT_DIR$/application/views/index/footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index/header.php" afterPath="$PROJECT_DIR$/application/views/index/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/header_view.php" afterPath="$PROJECT_DIR$/application/views/admin/header_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index.php" afterPath="$PROJECT_DIR$/application/views/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/jquery.dataTables.css" afterPath="$PROJECT_DIR$/css/jquery.dataTables.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery.dataTables.js" afterPath="$PROJECT_DIR$/js/jquery.dataTables.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react-dom.js" afterPath="$PROJECT_DIR$/js/react-dom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react.js" afterPath="$PROJECT_DIR$/js/react.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/routes.php" afterPath="$PROJECT_DIR$/application/config/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/upload_success.php" afterPath="$PROJECT_DIR$/application/views/admin/upload_success.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="newsdil.iws" />
     <ignored path=".idea/workspace.xml" />
-    <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,175 +318,12 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
-  <component name="DatabaseView">
-    <option name="FLATTEN" value="false" />
-    <option name="GROUP_BY_TYPE" value="true" />
-    <option name="SORT_CHILDREN" value="false" />
-    <option name="SHOW_TABLE_CONSTRAINTS" value="true" />
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="newsdil" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.5329883" vertical-offset="17505" max-vertical-offset="31260">
-              <caret line="1088" column="52" selection-start-line="1088" selection-start-column="52" selection-end-line="1088" selection-end-column="52" />
-              <folding>
-                <element signature="e#6#87#0#PHP" expanded="true" />
-                <marker date="1468595463000" expanded="true" signature="18698:18716" placeholder="..." />
-                <marker date="1468595463000" expanded="true" signature="18852:18870" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="file_helper.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/system/helpers/file_helper.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.541666" vertical-offset="1769" max-vertical-offset="6855">
-              <caret line="146" column="23" selection-start-line="146" selection-start-column="23" selection-end-line="146" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="standard_defines.php" pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_defines.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.625" vertical-offset="10446" max-vertical-offset="20355">
-              <caret line="715" column="8" selection-start-line="715" selection-start-column="8" selection-end-line="715" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_add_team_members_view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/admin_add_team_members_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="5325">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="15" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_project_image_upload_form_view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/admin_project_image_upload_form_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.208334" vertical-offset="655" max-vertical-offset="1725">
-              <caret line="76" column="70" selection-start-line="76" selection-start-column="70" selection-end-line="76" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.2941175" vertical-offset="774" max-vertical-offset="1575">
-              <caret line="73" column="35" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_update_project_view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/admin_update_project_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="25.416666" vertical-offset="1975" max-vertical-offset="2775">
-              <caret line="91" column="155" selection-start-line="91" selection-start-column="155" selection-end-line="91" selection-end-column="155" />
-              <folding>
-                <marker date="1468507510000" expanded="true" signature="3374:3444" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App_user_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/App_user_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.041666" vertical-offset="4526" max-vertical-offset="11535">
-              <caret line="329" column="41" selection-start-line="329" selection-start-column="20" selection-end-line="329" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_add_project_view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/admin_add_project_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.625" vertical-offset="1215" max-vertical-offset="5445">
-              <caret line="122" column="114" selection-start-line="122" selection-start-column="114" selection-end-line="122" selection-end-column="114" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/application/views/index/footer.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_logo_upload_form_view.php" />
-        <option value="$PROJECT_DIR$/css/sdil-admin.css" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_update_team_members_view.php" />
-        <option value="$PROJECT_DIR$/js/test.js" />
-        <option value="$PROJECT_DIR$/application/views/admin/header_view.php" />
-        <option value="$PROJECT_DIR$/application/config/autoload.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_add_service_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_all_contact_list_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_edit_service_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_update_social_icon_manage_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_add_social_icon_manage_view.php" />
-        <option value="$PROJECT_DIR$/application/models/app_user_model.php" />
-        <option value="$PROJECT_DIR$/application/models/main_ui_model.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Contact.php" />
-        <option value="$PROJECT_DIR$/../newMe/index.php" />
-        <option value="$PROJECT_DIR$/application/views/index/menu.php" />
-        <option value="$PROJECT_DIR$/application/views/contact/body.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_update_testimonials_view.php" />
-        <option value="$USER_HOME$/Desktop/v1/index.html" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_favicon_upload_form_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_profile_update_view.php" />
-        <option value="$PROJECT_DIR$/application/util/Tools.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/file_view.php" />
-        <option value="$PROJECT_DIR$/../testtab/bootstrap.css" />
-        <option value="$PROJECT_DIR$/../testtab/index.html" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_login_index_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_add_testimonials_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_member_image_upload_form_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_add_team_members_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_partner_image_upload_form_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_update_partner_view.php" />
-        <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_update_project_cat_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_add_project_category_view.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Home.php" />
-        <option value="$PROJECT_DIR$/application/views/index/body.php" />
-        <option value="$PROJECT_DIR$/application/views/index/header.php" />
-        <option value="$PROJECT_DIR$/css/bootstrap-datepicker.css" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_dashboard_header_view.php" />
-        <option value="$PROJECT_DIR$/js/bootstrap-datepicker.js" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_add_partners_view.php" />
-        <option value="$PROJECT_DIR$/application/models/Main_ui_model.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_update_project_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_dashboard_navbar_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_project_image_upload_form_view.php" />
-        <option value="$PROJECT_DIR$/application/config/routes.php" />
-        <option value="$PROJECT_DIR$/application/models/App_user_model.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/admin_add_project_view.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
-      </list>
-    </option>
   </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
@@ -200,7 +334,7 @@
     <option name="width" value="1920" />
     <option name="height" value="983" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -223,7 +357,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -252,57 +385,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="uploaded" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uploaded" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partners" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uploaded" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -335,50 +418,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="index" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="errors" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -440,97 +479,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="about" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newsdil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newsdil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="language" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hooks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsdil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -572,45 +543,13 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wordpress_sebpo" />
-    <property name="LayoutCode.rearrangeEntriesPHP" value="true" />
-    <property name="recentsLimit" value="5" />
-    <property name="FullScreen" value="false" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
-    <property name="options.lastSelected" value="com.wix.rt.settings.RTSettingsPage" />
-    <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="LayoutCode.rearrangeEntriesCSS" value="false" />
-    <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="LayoutCode.rearrangeEntries" value="false" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/uploaded/projects" />
-      <recent name="$PROJECT_DIR$/application/views/admin" />
-      <recent name="$PROJECT_DIR$/uploaded/partners" />
-      <recent name="$PROJECT_DIR$/application/views/contact" />
-      <recent name="$PROJECT_DIR$/css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/images" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/user_guide" />
-      <recent name="$PROJECT_DIR$/application/models" />
-      <recent name="$PROJECT_DIR$/application/controllers" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JavaScript Debug.config.php">
-    <configuration default="false" name="config.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/newsdil/application/config/config.php">
-      <RunnerSettings RunnerId="JavascriptDebugRunner" />
-      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
       <method />
@@ -625,187 +564,47 @@
       <BehatRunner />
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <pass-parent-envs>true</pass-parent-envs>
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.config.php" />
-    </list>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.config.php" />
-      </list>
-    </recent_temporary>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration">
-    <configuration>$USER_HOME$/.subversion</configuration>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f51c2cf3-477d-48c8-a303-dddb80b92b2d" name="Default" comment="" />
-      <created>1446526592349</created>
+      <changelist id="29c94bd2-57ea-4836-928a-1bad2c8ddf60" name="Default" comment="" />
+      <created>1468920338060</created>
       <option name="number" value="Default" />
-      <updated>1446526592349</updated>
+      <updated>1468920338060</updated>
     </task>
-    <task id="LOCAL-00001" summary="new commit">
-      <created>1452182773953</created>
-      <option name="number" value="00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1452182773954</updated>
-    </task>
-    <task id="LOCAL-00002" summary="new commit">
-      <created>1452267995318</created>
-      <option name="number" value="00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1452267995318</updated>
-    </task>
-    <task id="LOCAL-00003" summary="new commit">
-      <created>1452871367833</created>
-      <option name="number" value="00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1452871367833</updated>
-    </task>
-    <task id="LOCAL-00004" summary="new commit">
-      <created>1453821180616</created>
-      <option name="number" value="00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1453821180616</updated>
-    </task>
-    <task id="LOCAL-00005" summary="new commit">
-      <created>1453994315538</created>
-      <option name="number" value="00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1453994315538</updated>
-    </task>
-    <task id="LOCAL-00006" summary="new commit">
-      <created>1455549823247</created>
-      <option name="number" value="00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1455549823247</updated>
-    </task>
-    <task id="LOCAL-00007" summary="new commit">
-      <created>1455723115824</created>
-      <option name="number" value="00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1455723115824</updated>
-    </task>
-    <task id="LOCAL-00008" summary="new commit">
-      <created>1457101252561</created>
-      <option name="number" value="00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1457101252561</updated>
-    </task>
-    <task id="LOCAL-00009" summary="new commit">
-      <created>1457101295019</created>
-      <option name="number" value="00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1457101295019</updated>
-    </task>
-    <task id="LOCAL-00010" summary="new commit">
-      <created>1457101370260</created>
-      <option name="number" value="00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1457101370260</updated>
-    </task>
-    <task id="LOCAL-00011" summary="new commit">
-      <created>1457101430390</created>
-      <option name="number" value="00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1457101430390</updated>
-    </task>
-    <task id="LOCAL-00012" summary="new commit">
-      <created>1457362120274</created>
-      <option name="number" value="00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1457362120274</updated>
-    </task>
-    <task id="LOCAL-00013" summary="new commit">
-      <created>1457968863449</created>
-      <option name="number" value="00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1457968863449</updated>
-    </task>
-    <task id="LOCAL-00014" summary="new commit">
-      <created>1458658801014</created>
-      <option name="number" value="00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1458658801014</updated>
-    </task>
-    <task id="LOCAL-00015" summary="new commit">
-      <created>1463642925724</created>
-      <option name="number" value="00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1463642925724</updated>
-    </task>
-    <task id="LOCAL-00016" summary="new commit">
-      <created>1464964281208</created>
-      <option name="number" value="00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1464964281208</updated>
-    </task>
-    <task id="LOCAL-00017" summary="new huge commit">
-      <created>1468596959096</created>
-      <option name="number" value="00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1468596959096</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
     <servers />
-  </component>
-  <component name="TodoView" selected-index="0">
-    <todo-panel id="selected-file">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
-    <todo-panel id="default-changelist">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="983" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978156" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20181043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24973376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -823,404 +622,9 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/newsdil" />
-    </ignored-roots>
-    <MESSAGE value="new commit" />
-    <MESSAGE value="new huge commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="new huge commit" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/application/controllers/Admin.php</url>
-          <line>70</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/application/controllers/Admin.php</url>
-          <line>166</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/application/controllers/Admin.php</url>
-          <line>303</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/application/controllers/Admin.php</url>
-          <line>909</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="30" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/controllers/Contact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1035">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_login_index_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.75" vertical-offset="0" max-vertical-offset="1050">
-          <caret line="30" column="127" selection-start-line="30" selection-start-column="117" selection-end-line="30" selection-end-column="127" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/helpers/url_helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.625" vertical-offset="981" max-vertical-offset="8625">
-          <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7665">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/header_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="815">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="41" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1380">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="839">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploaded/partners/lrn-share-site-ms-logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_partner_image_upload_form_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1725">
-          <caret line="19" column="100" selection-start-line="19" selection-start-column="100" selection-end-line="19" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_update_testimonials_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="31.25" vertical-offset="765" max-vertical-offset="2070">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_update_team_members_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.86715865" vertical-offset="705" max-vertical-offset="4230">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/patners_02.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/patners_03.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/patners_04.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_member_image_upload_form_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="29.958334" vertical-offset="899" max-vertical-offset="1725">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_add_testimonials_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.458334" vertical-offset="1990" max-vertical-offset="4275">
-          <caret line="175" column="36" selection-start-line="175" selection-start-column="36" selection-end-line="175" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_add_service_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2265" max-vertical-offset="3330">
-          <caret line="187" column="146" selection-start-line="186" selection-start-column="35" selection-end-line="187" selection-end-column="146" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="11096" max-vertical-offset="18255">
-          <caret line="791" column="5" selection-start-line="791" selection-start-column="5" selection-end-line="791" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07281554" vertical-offset="0" max-vertical-offset="824">
-          <caret line="4" column="73559" selection-start-line="4" selection-start-column="73559" selection-end-line="4" selection-end-column="73559" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33252427" vertical-offset="62156" max-vertical-offset="98790">
-          <caret line="4162" column="0" selection-start-line="4162" selection-start-column="0" selection-end-line="4162" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/aria.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="13236" max-vertical-offset="18660">
-          <caret line="901" column="22" selection-start-line="901" selection-start-column="22" selection-end-line="901" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3425" vertical-offset="71" max-vertical-offset="17130">
-          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_update_partner_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="642" max-vertical-offset="1905">
-          <caret line="67" column="179" selection-start-line="67" selection-start-column="116" selection-end-line="67" selection-end-column="179" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_add_project_category_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2700" max-vertical-offset="3690">
-          <caret line="201" column="76" selection-start-line="201" selection-start-column="76" selection-end-line="201" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../startbootstrap-sb-admin-1.0.3/forms.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="170.0" vertical-offset="4440" max-vertical-offset="6750">
-          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.75" vertical-offset="3" max-vertical-offset="840">
-          <caret line="35" column="68" selection-start-line="34" selection-start-column="7" selection-end-line="35" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/system_configuration_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.5" vertical-offset="960" max-vertical-offset="2445">
-          <caret line="100" column="160" selection-start-line="98" selection-start-column="47" selection-end-line="100" selection-end-column="160" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/index/body.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="232.29167" vertical-offset="8260" max-vertical-offset="9255">
-          <caret line="179" column="26" selection-start-line="179" selection-start-column="26" selection-end-line="184" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/bootstrap-datepicker.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7305">
-          <caret line="481" column="0" selection-start-line="481" selection-start-column="0" selection-end-line="481" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_add_partners_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.0479705" vertical-offset="1707" max-vertical-offset="4305">
-          <caret line="279" column="0" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/index/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42435426" vertical-offset="0" max-vertical-offset="813">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/bootstrap-datepicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.018203884" vertical-offset="0" max-vertical-offset="21015">
-          <caret line="1" column="26" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Main_ui_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="851" max-vertical-offset="2160">
-          <caret line="83" column="44" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_dashboard_header_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="555">
-          <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_update_project_cat_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.125" vertical-offset="795" max-vertical-offset="1950">
-          <caret line="66" column="127" selection-start-line="66" selection-start-column="127" selection-end-line="66" selection-end-column="127" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_dashboard_navbar_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1713" max-vertical-offset="2550">
-          <caret line="150" column="63" selection-start-line="150" selection-start-column="63" selection-end-line="150" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/work_01.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_add_team_members_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="5325">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="15" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.2941175" vertical-offset="774" max-vertical-offset="1575">
-          <caret line="73" column="35" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_update_project_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="25.416666" vertical-offset="1975" max-vertical-offset="2775">
-          <caret line="91" column="155" selection-start-line="91" selection-start-column="155" selection-end-line="91" selection-end-column="155" />
-          <folding>
-            <marker date="1468507510000" expanded="true" signature="3374:3444" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_project_image_upload_form_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.208334" vertical-offset="655" max-vertical-offset="1725">
-          <caret line="76" column="70" selection-start-line="76" selection-start-column="70" selection-end-line="76" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/App_user_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.041666" vertical-offset="4526" max-vertical-offset="11535">
-          <caret line="329" column="41" selection-start-line="329" selection-start-column="20" selection-end-line="329" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_add_project_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.625" vertical-offset="1215" max-vertical-offset="5445">
-          <caret line="122" column="114" selection-start-line="122" selection-start-column="114" selection-end-line="122" selection-end-column="114" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_defines.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.625" vertical-offset="10446" max-vertical-offset="20355">
-          <caret line="715" column="8" selection-start-line="715" selection-start-column="8" selection-end-line="715" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="14.0" vertical-offset="9681" max-vertical-offset="15885">
-          <caret line="623" column="9" selection-start-line="623" selection-start-column="9" selection-end-line="623" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/helpers/file_helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.541666" vertical-offset="1769" max-vertical-offset="6855">
-          <caret line="146" column="23" selection-start-line="146" selection-start-column="23" selection-end-line="146" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploaded/partners/patners_01.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploaded/partners/patners_02.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploaded/partners/patners_04.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploaded/partners/patners_05.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5329883" vertical-offset="17505" max-vertical-offset="31260">
-          <caret line="1088" column="52" selection-start-line="1088" selection-start-column="52" selection-end-line="1088" selection-end-column="52" />
-          <folding>
-            <element signature="e#6#87#0#PHP" expanded="true" />
-            <marker date="1468595463000" expanded="true" signature="18698:18716" placeholder="..." />
-            <marker date="1468595463000" expanded="true" signature="18852:18870" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>

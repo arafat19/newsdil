@@ -68,6 +68,165 @@ class Admin extends CI_Controller
     }
 
 
+    public function add_service_page()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('service_name', 'Please select a Service', 'required');
+            $this->form_validation->set_rules('page_description', 'This Page description', 'required|trim|min_length[5]');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Add Service Page - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'service_settings';
+                $data['common_header'] = 'Add Service Page';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                /*==================================================
+                Start of Pagination Code segment for service page
+                ===================================================*/
+
+                $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
+                $config['total_rows'] = $this->app_user_model->total_count_of_service();
+                $config['per_page'] = 5;
+                $config['uri_segment'] = 3;
+                $config['base_url'] = base_url() . 'admin/add_service_page';
+                $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['prev_link'] = '&laquo;';
+                $config['prev_tag_open'] = '<li>';
+                $config['prev_tag_close'] = '</li>';
+                $config['next_link'] = '&raquo;';
+                $config['next_tag_open'] = '<li>';
+                $config['next_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="active"><a href="#">';
+                $config['cur_tag_close'] = '</a></li>';
+                $config['num_tag_open'] = '<li>';
+                $config['num_tag_close'] = '</li>';
+                $this->pagination->initialize($config);
+                $data['paginglinks'] = $this->pagination->create_links();
+
+                $current_page = ($this->pagination->cur_page == 0) ? 1 : $this->pagination->cur_page;
+                $data['start_from'] = ($current_page - 1) * $config["per_page"] + 1;
+
+
+                /*$data['serial'] = (($this->pagination->cur_page - 1) * $config["per_page"]) + 1;*/
+                $data['cur'] = $this->pagination->cur_page;
+
+                // Showing total rows count
+                if ($data['paginglinks'] != '') {
+                    $to_serial = $this->pagination->cur_page * $this->pagination->per_page;
+                    $data['pagermessage'] = 'Showing ' . ((($this->pagination->cur_page - 1) * $this->pagination->per_page) + 1) . ' to ' . ($to_serial >= $config['total_rows'] ? $config['total_rows'] : $to_serial) . ' of ' . $config['total_rows'];
+                }
+
+                /*=================================================
+                    End of Pagination Code segment for service page
+               ===================================================*/
+
+                $all_services = $this->app_user_model->get_services($config["per_page"], $offset);
+                $data['all_services'] = $all_services;
+
+                $service_list = $this->app_user_model->get_service();
+                $data['service_list'] = $service_list;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_add_service_page_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $service_id = $this->input->post('service_name');
+                $this->app_user_model->add_pages($service_id);
+                $this->session->set_flashdata('add_success', 'Service Page is successfully added');
+                redirect(base_url() . 'admin/add/service/page');
+            }
+        }
+    }
+
+    public function edit_service_page($service_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $service_id = base64_decode($service_id);
+            $this->load->library('Form_validation');
+            $this->form_validation->set_rules('page_description', 'This Page description', 'required|trim|min_length[5]');
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update Service Page - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'service_settings';
+                $data['full_name'] = $this->session->userdata('full_name');
+                $data['common_header'] = 'Update Service Page';
+
+                $single_service = $this->app_user_model->get_service_by_id($service_id);
+                $data['single_service'] = $single_service;
+
+                $service_list = $this->app_user_model->get_service();
+                $data['service_list'] = $service_list;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_service_page_view', $data);
+                $this->load->view('admin/footer_view', $data);
+            } else {
+                $this->app_user_model->update_service_page($service_id);
+                $this->session->set_flashdata('update_message', "Selected Service page updated successfully.");
+                redirect(base_url() . 'admin/add/service/page');
+            }
+        }
+    }
+
+    public function service_page_delete($service_id)
+    {
+        $service_id_dec = base64_decode($service_id);
+        $single_service = $this->app_user_model->get_service_by_id($service_id_dec);
+        $is_active = $single_service["is_active"];
+        if ($is_active) {
+            $this->session->set_flashdata('cant_delete_message', 'Active Service page can not be deleted');
+        } else {
+            $this->app_user_model->delete_service_page($service_id_dec);
+            $this->session->set_flashdata('service_page_delete_message', 'Selected Service Page is successfully deleted');
+        }
+
+        redirect(base_url() . 'admin/add/service/page/');
+    }
+
+    public function update_company_overview()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('company_overview', 'This overview', 'trim|required|min_length[4]');
+
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update Company Overview - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'other_page';
+                $data['common_header'] = 'Update Company Overview';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                $company_overview_id = 1;
+                $all_company_overview = $this->app_user_model->get_company_overview_by_id($company_overview_id); // Reading and showing the System configuration from DB
+                $data['all_company_overview'] = $all_company_overview;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_company_overview_view', $data);
+                $this->load->view('admin/footer_view', $data);
+            } else {
+                $this->app_user_model->update_company_overview();
+
+                $this->session->set_flashdata('update_company_overview', "Company Overview updated successfully.");
+                redirect(base_url() . 'admin/update/company/overview');
+            }
+        }
+    }
+
+
     public function add_project()
     {
         if (($this->session->userdata('user_email') == "")) {
@@ -307,7 +466,7 @@ class Admin extends CI_Controller
         $single_project = $this->app_user_model->get_single_project_by_id($project_id_dec);
         $this->app_user_model->delete_projects_image($project_id_dec);
         $image_name = $single_project["project_image"];
-        $path = "./uploaded/projects/".$image_name;
+        $path = "./uploaded/projects/" . $image_name;
         unlink($path);
         $this->session->set_flashdata('image_delete_message', 'Selected image is successfully deleted');
         redirect(base_url() . 'admin/add/project');
@@ -913,7 +1072,7 @@ class Admin extends CI_Controller
         $single_partner = $this->app_user_model->get_single_partner_by_id($partner_id_dec);
         $this->app_user_model->delete_partners_image($partner_id_dec);
         $image_name = $single_partner["partner_image"];
-        $path = "./uploaded/partners/".$image_name;
+        $path = "./uploaded/partners/" . $image_name;
         unlink($path);
         $this->session->set_flashdata('image_delete_message', 'Selected partner image is successfully deleted');
         redirect(base_url() . 'admin/add/partners');
@@ -1087,7 +1246,7 @@ class Admin extends CI_Controller
         $single_member = $this->app_user_model->get_single_member_by_id($member_id_dec);
         $this->app_user_model->delete_member_image($member_id_dec);
         $image_name = $single_member["personal_image"];
-        $path = "./uploaded/admin/".$image_name;
+        $path = "./uploaded/admin/" . $image_name;
         unlink($path);
         $this->session->set_flashdata('image_delete_message', 'Selected image is successfully deleted');
         redirect(base_url() . 'admin/addteam');
@@ -1530,7 +1689,7 @@ class Admin extends CI_Controller
      * This is Add Service Page for admin
      * It contains Add service method to adding service to database
      */
-    public function add_service_page()
+    public function add_service()
     {
         if (($this->session->userdata('user_email') == "")) {
             redirect('/admin', 'refresh');
@@ -1540,12 +1699,12 @@ class Admin extends CI_Controller
             $this->form_validation->set_rules('service_name', 'This Service Name', 'trim|required|min_length[4]|callback_unique_service_name');
             $this->form_validation->set_rules('service_details', 'This Service Details', 'required');
             $this->form_validation->set_rules('is_active', 'Is Active');
-            $this->form_validation->set_rules('service_page_url', 'This URL');
+            $this->form_validation->set_rules('service_page_url', 'This URL', 'trim|required|min_length[4]|callback_unique_service_link');
 
             if ($this->form_validation->run() == FALSE) {
                 $data['title'] = 'Add Services - Shwapno Duar IT Ltd.';
                 $data['navbar_title'] = 'SDIL Admin Panel';
-                $data['active'] = 'add_service_page';
+                $data['active'] = 'service_settings';
                 $data['full_name'] = $this->session->userdata('full_name');
 
                 /*==================================================
@@ -1553,12 +1712,12 @@ class Admin extends CI_Controller
                  ===================================================*/
 
                 $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
-                $config['total_rows'] = $this->app_user_model->total_count();
+                $config['total_rows'] = $this->app_user_model->total_count_of_service();
                 $config['per_page'] = 5;
                 $config['first_link'] = 'First';
                 $config['last_link'] = 'Last';
                 $config['uri_segment'] = 3;
-                $config['base_url'] = base_url() . 'admin/add_service_page';
+                $config['base_url'] = base_url() . 'admin/add_service';
                 $config['suffix'] = '?==MnZe==' . http_build_query($_GET, '', "&");
                 $config['full_tag_open'] = '<ul class="pagination">';
                 $config['full_tag_close'] = '</ul>';
@@ -1597,18 +1756,13 @@ class Admin extends CI_Controller
                 $this->load->view('admin/footer_view', $data);
 
             } else {
-                $this->add_service();
+                $this->app_user_model->add_services();
+                $this->session->set_flashdata('success_msg', 'Service is added successfully');
+                redirect(base_url() . 'admin/service', 'refresh');
             }
         }
     }
 
-    public function add_service()
-    {
-        $this->app_user_model->add_services();
-        $this->session->set_flashdata('success_msg', 'Service name has been saved successfully');
-        redirect(base_url() . 'admin/service', 'refresh');
-
-    }
 
     public function edit_service($service_id)
     {
@@ -1638,7 +1792,7 @@ class Admin extends CI_Controller
             if ($this->form_validation->run() == FALSE) {
                 $data['title'] = 'Edit Services - Shwapno Duar IT Ltd.';
                 $data['navbar_title'] = 'SDIL Admin Panel';
-                $data['active'] = 'add_service_page';
+                $data['active'] = 'service_settings';
                 $data['full_name'] = $this->session->userdata('full_name');
                 $data['service'] = $service;
 
@@ -1660,7 +1814,7 @@ class Admin extends CI_Controller
     {
         $service_id = base64_decode($service_id);
         $this->app_user_model->delete_service($service_id);
-        $this->session->set_flashdata('delete_message', '<p>Service is successfully deleted!</p>');
+        $this->session->set_flashdata('service_delete_message', 'Selected Service is successfully deleted');
         redirect(base_url() . 'admin/service');
     }
 
@@ -1780,6 +1934,18 @@ class Admin extends CI_Controller
             return TRUE;
         } else {
             $this->form_validation->set_message('unique_project_title', "%s '{$str}' already exist!");
+            return FALSE;
+        }
+    }
+
+
+    function unique_service_link($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_page_link($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_service_link', "%s '{$str}' already exist!");
             return FALSE;
         }
     }

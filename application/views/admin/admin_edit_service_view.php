@@ -70,6 +70,15 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="col-md-3 control-label" for="service_page_url">Service Page URL</label>
+
+                                            <div class="col-md-5">
+                                                <input type="url" class="form-control" name="service_page_url"
+                                                       id="service_page_url" pattern="https?://.+"
+                                                       value="<?php echo $service['service_page_url'];?>" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="col-md-3 control-label" for="service_details">Service Details
                                                 Div:</label>
 
@@ -79,15 +88,7 @@
                                                           placeholder="255 Char Max" required><?php echo $service['total_description_div']; ?></textarea>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="service_page_url">Service Page URL</label>
 
-                                            <div class="col-md-5">
-                                                <input type="url" class="form-control" name="service_page_url"
-                                                       id="service_page_url" pattern="https?://.+"
-                                                       placeholder="http://" />
-                                            </div>
-                                        </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label label-optional"
                                                    for="is_active">Is Active:</label>
