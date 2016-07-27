@@ -1,309 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29c94bd2-57ea-4836-928a-1bad2c8ddf60" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/img/anchor.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/img/jbimages-bw.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/img/loader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/media/moxieplayer.swf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/img/object.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-cool.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-cry.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-embarassed.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-foot-in-mouth.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-frown.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-innocent.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-kiss.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-laughing.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-money-mouth.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-sealed.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-smile.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-surprised.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-tongue-out.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-undecided.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-wink.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/img/smiley-yell.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/img/spinner.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce-small.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce-small.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce-small.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/img/trans.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/.eslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/.gitattributes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/About.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/Actions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/core/ActionsTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/alien/Arr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/atomic/alien/ArrTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Benchmark.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/alien/Bookmark.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/alien/BookmarkTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/ui/Buttons.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/CodeIgniter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Common.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Controller.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/file/Conversions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/file/ConversionsTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/Convert.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/atomic/core/ConvertTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/demo/js/tinymce/inlite/Demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/ElementMatcher.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/core/ElementMatcher.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Exceptions.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/ui/Forms.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Hooks.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/libraries/Image_lib.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Input.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Lang.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/Layout.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/core/LayoutTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Loader.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/Matcher.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/atomic/core/MatcherTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/Measure.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/core/MeasureTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Model.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Output.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/ui/Panel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/file/Picker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/PredicateId.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/core/PredicateIdTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Router.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Security.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/SelectionMatcher.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/file/SelectionMatcher.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/core/SelectionMatcherTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/SkinLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/Theme.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/ThemeTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/ui/Toolbar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/URI.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/alien/Unlink.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/browser/alien/UnlinkTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/libraries/Upload.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/core/UrlType.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/atomic/core/UrlTypeTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/Utf8.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/main/js/tinymce/inlite/alien/Uuid.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/test/js/atomic/alien/UuidTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_add_service_page_view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_update_company_overview_view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_update_service_page_view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/views/ajax_upload_result.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/atomic.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/autoload.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/views/blank.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/about/body.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/bootstrap-atomic.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/bootstrap-browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/bootstrap-demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/bootstrap-prod.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/scratch/compile/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/constants.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/content.inline.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/content.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/database.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/demo/css/demo.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/src/demo/html/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/dent/depend.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/css/dialog-v4.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/dialog-v4.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/js/dialog-v4.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/css/dialog.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/dialog.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/example/dialog.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/js/dialog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/doctypes.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/editor_plugin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/editor_plugin_src.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/langs/en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/langs/en_dlg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/errors/error_404.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/errors/error_db.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/errors/error_general.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/errors/error_php.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/foreign_chars.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/langs/fr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/langs/fr_dlg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/hooks.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/french/imglib_lang.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/russian/imglib_lang.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/language/english/imglib_lang.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/controllers/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/errors/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/helpers/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/english/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/french/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/russian/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/views/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/core/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/helpers/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/language/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/language/english/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/libraries/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/is_allowed.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/helpers/jbimages_helper.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/english/jbstrings_lang.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/french/jbstrings_lang.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/russian/jbstrings_lang.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/jquery.tinymce.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/helpers/language_helper.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/menu.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/migration.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/mimes.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/plugin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/advlist/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/anchor/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/autolink/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/autoresize/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/autosave/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/bbcode/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/charmap/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/code/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/codesample/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/colorpicker/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/contextmenu/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/directionality/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/emoticons/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/example/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/example_dependency/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/fullpage/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/fullscreen/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/hr/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/image/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/imagetools/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/importcss/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/insertdatetime/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/layer/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/legacyoutput/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/link/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/lists/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/media/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/nonbreaking/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/noneditable/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/pagebreak/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/paste/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/preview/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/print/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/save/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/searchreplace/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/spellchecker/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/tabfocus/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/table/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/template/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/textcolor/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/textpattern/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/visualblocks/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/visualchars/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/wordcount/plugin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/codesample/css/prism.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/config/bolt/prod.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/profiler.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/langs/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/readme" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/routes.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/langs/ru.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/langs/ru_dlg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/skin.ie7.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/skin.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/smileys.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/scratch/compile/theme.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/scratch/inline/theme.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/theme.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/modern/theme.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/themes/inlite/scratch/inline/theme.raw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce-small.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/tinymce.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/skins/lightgray/fonts/tinymce.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/french/upload_lang.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/language/russian/upload_lang.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/system/language/english/upload_lang.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/controllers/uploader.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/uploader_settings.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/jbimages/ci/application/config/user_agents.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tinymce/plugins/visualblocks/css/visualblocks.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/reactTemplatesPlugin.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/index/menu.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/11235452_124497701243155_551428656048083903_o.jpg" afterPath="$PROJECT_DIR$/images/11235452_124497701243155_551428656048083903_o.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/CEO.png" afterPath="$PROJECT_DIR$/images/CEO.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/Iconic-Logo-Argos-Gold-Mart.jpg" afterPath="$PROJECT_DIR$/uploaded/partners/Iconic-Logo-Argos-Gold-Mart.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/admin/blank_person.png" afterPath="$PROJECT_DIR$/uploaded/admin/blank_person.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/blank_person.png" afterPath="$PROJECT_DIR$/uploaded/partners/blank_person.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/contact-us.png" afterPath="$PROJECT_DIR$/images/contact-us.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/favicon.ico" afterPath="$PROJECT_DIR$/images/favicon.ico" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/favicon.jpg" afterPath="$PROJECT_DIR$/images/favicon.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/admin/favicon.jpg" afterPath="$PROJECT_DIR$/uploaded/admin/favicon.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/faviconS.jpg" afterPath="$PROJECT_DIR$/images/faviconS.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/admin/logo.png" afterPath="$PROJECT_DIR$/uploaded/admin/logo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/lrn-share-site-ms-logo.png" afterPath="$PROJECT_DIR$/uploaded/partners/lrn-share-site-ms-logo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/admin/news_thumb_02.jpg" afterPath="$PROJECT_DIR$/uploaded/admin/news_thumb_02.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/patners_01.png" afterPath="$PROJECT_DIR$/uploaded/partners/patners_01.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/patners_02.png" afterPath="$PROJECT_DIR$/uploaded/partners/patners_02.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/patners_04.png" afterPath="$PROJECT_DIR$/uploaded/partners/patners_04.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/partners/patners_05.png" afterPath="$PROJECT_DIR$/uploaded/partners/patners_05.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/admin/team_thumb_02.jpg" afterPath="$PROJECT_DIR$/uploaded/admin/team_thumb_02.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploaded/admin/team_thumb_03.jpg" afterPath="$PROJECT_DIR$/uploaded/admin/team_thumb_03.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
+    <list default="true" id="688b5f99-4c45-47c2-b497-c254398e1c15" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Career.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Jobs.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Project.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Service.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Skills.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_add_company_skill_category_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_add_company_skill_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_add_job_page_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_add_job_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_add_project_page_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_all_applicants_list_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_single_applicant_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_update_company_skill_cat_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_update_company_skill_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_update_job_page_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_update_job_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/admin_update_project_page_view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/jobs/application_form.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/career/body.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/jobs/body.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/project/body.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/service/body.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/skills/body.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/About.php" afterPath="$PROJECT_DIR$/application/controllers/About.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Admin.php" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/App_user_model.php" afterPath="$PROJECT_DIR$/application/models/App_user_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Contact.php" afterPath="$PROJECT_DIR$/application/controllers/Contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Home.php" afterPath="$PROJECT_DIR$/application/controllers/Home.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Main_ui_model.php" afterPath="$PROJECT_DIR$/application/models/Main_ui_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/admin.js" afterPath="$PROJECT_DIR$/js/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_add_project_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_add_project_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_add_service_page_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_add_service_page_view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_add_service_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_add_service_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_all_contact_list_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_all_contact_list_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_dashboard_header_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_dashboard_header_view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_dashboard_navbar_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_dashboard_navbar_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_dashboard_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_dashboard_view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_edit_service_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_edit_service_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_login_index_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_login_index_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_login_index_wrong_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_login_index_wrong_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_profile_update_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_profile_update_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/admin_regis.css" afterPath="$PROJECT_DIR$/css/admin_regis.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/admin_style.css" afterPath="$PROJECT_DIR$/css/admin_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/app_user_registration_view.php" afterPath="$PROJECT_DIR$/application/views/admin/app_user_registration_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_update_company_overview_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_update_company_overview_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_update_project_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_update_project_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/admin_update_service_page_view.php" afterPath="$PROJECT_DIR$/application/views/admin/admin_update_service_page_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/about/body.php" afterPath="$PROJECT_DIR$/application/views/about/body.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/contact/body.php" afterPath="$PROJECT_DIR$/application/views/contact/body.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index/body.php" afterPath="$PROJECT_DIR$/application/views/index/body.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap-datepicker.css" afterPath="$PROJECT_DIR$/css/bootstrap-datepicker.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/bootstrap-datepicker.js" afterPath="$PROJECT_DIR$/js/bootstrap-datepicker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/browser.js" afterPath="$PROJECT_DIR$/js/browser.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/config.php" afterPath="$PROJECT_DIR$/application/config/config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/file_view.php" afterPath="$PROJECT_DIR$/application/views/admin/file_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/contact/footer.php" afterPath="$PROJECT_DIR$/application/views/contact/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index/footer.php" afterPath="$PROJECT_DIR$/application/views/index/footer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index/header.php" afterPath="$PROJECT_DIR$/application/views/index/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/header_view.php" afterPath="$PROJECT_DIR$/application/views/admin/header_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index.php" afterPath="$PROJECT_DIR$/application/views/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/jquery.dataTables.css" afterPath="$PROJECT_DIR$/css/jquery.dataTables.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery.dataTables.js" afterPath="$PROJECT_DIR$/js/jquery.dataTables.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react-dom.js" afterPath="$PROJECT_DIR$/js/react-dom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/react.js" afterPath="$PROJECT_DIR$/js/react.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/menu.php" afterPath="$PROJECT_DIR$/application/views/menu.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/routes.php" afterPath="$PROJECT_DIR$/application/config/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/upload_success.php" afterPath="$PROJECT_DIR$/application/views/admin/upload_success.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="newsdil.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -322,8 +70,133 @@
   <component name="FavoritesManager">
     <favorites_list name="newsdil" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="body.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/skills/body.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.833333" vertical-offset="910" max-vertical-offset="1710">
+              <caret line="86" column="38" selection-start-line="86" selection-start-column="38" selection-end-line="86" selection-end-column="38" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#1;n#body#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App_user_model.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/App_user_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.041666" vertical-offset="3116" max-vertical-offset="17010">
+              <caret line="235" column="9" selection-start-line="235" selection-start-column="9" selection-end-line="235" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.74074" vertical-offset="22078" max-vertical-offset="22875">
+              <caret line="1502" column="9" selection-start-line="1502" selection-start-column="1" selection-end-line="1502" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main_ui_model.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/models/Main_ui_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3878628" vertical-offset="1701" max-vertical-offset="3675">
+              <caret line="133" column="73" selection-start-line="133" selection-start-column="73" selection-end-line="133" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_add_company_skill_view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/admin_add_company_skill_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.25" vertical-offset="3135" max-vertical-offset="4245">
+              <caret line="227" column="58" selection-start-line="222" selection-start-column="52" selection-end-line="227" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="body.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/about/body.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="14.25" vertical-offset="342" max-vertical-offset="1155">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="body.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/career/body.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="10.5" vertical-offset="957" max-vertical-offset="1785">
+              <caret line="47" column="96" selection-start-line="47" selection-start-column="96" selection-end-line="47" selection-end-column="96" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="body.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/service/body.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.625" vertical-offset="540" max-vertical-offset="1485">
+              <caret line="69" column="63" selection-start-line="69" selection-start-column="63" selection-end-line="69" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="body.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/jobs/body.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="61.75" vertical-offset="1482" max-vertical-offset="2295">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="body.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/project/body.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.625" vertical-offset="657" max-vertical-offset="1470">
+              <caret line="72" column="65" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/application/config/config.php" />
+        <option value="$PROJECT_DIR$/application/config/database.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/admin_add_company_skill_view.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/admin_dashboard_navbar_view.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/admin_update_company_skill_cat_view.php" />
+        <option value="$PROJECT_DIR$/application/config/routes.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/admin_add_company_skill_category_view.php" />
+        <option value="$PROJECT_DIR$/application/models/App_user_model.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Skills.php" />
+        <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/application/views/skills/body.php" />
+        <option value="$PROJECT_DIR$/application/models/Main_ui_model.php" />
+      </list>
+    </option>
   </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
@@ -357,6 +230,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -439,7 +313,95 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="contact" />
+              <option name="myItemId" value="skills" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newsdil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newsdil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newsdil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newsdil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newsdil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newsdil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jobs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newsdil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="newsdil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="career" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -543,11 +505,17 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wordpress_sebpo" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/application/views/admin" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -573,18 +541,21 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="29c94bd2-57ea-4836-928a-1bad2c8ddf60" name="Default" comment="" />
-      <created>1468920338060</created>
+      <changelist id="688b5f99-4c45-47c2-b497-c254398e1c15" name="Default" comment="" />
+      <created>1469600995297</created>
       <option name="number" value="Default" />
-      <updated>1468920338060</updated>
+      <updated>1469600995297</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="983" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -592,19 +563,19 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24973376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24973376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -624,7 +595,164 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Admin.php</url>
+          <line>196</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.75" vertical-offset="195" max-vertical-offset="7665">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.458334" vertical-offset="550" max-vertical-offset="1365">
+          <caret line="71" column="21" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_dashboard_navbar_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-27.625" vertical-offset="2247" max-vertical-offset="3240">
+          <caret line="194" column="153" selection-start-line="194" selection-start-column="153" selection-end-line="194" selection-end-column="153" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_update_company_skill_cat_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.458334" vertical-offset="235" max-vertical-offset="1680">
+          <caret line="58" column="89" selection-start-line="58" selection-start-column="89" selection-end-line="58" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.958334" vertical-offset="565" max-vertical-offset="2040">
+          <caret line="84" column="8" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_add_company_skill_category_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-116.875" vertical-offset="0" max-vertical-offset="3465">
+          <caret line="187" column="122" selection-start-line="187" selection-start-column="122" selection-end-line="187" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.583334" vertical-offset="580" max-vertical-offset="46245">
+          <caret line="91" column="92" selection-start-line="91" selection-start-column="92" selection-end-line="91" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Skills.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="630">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/service/body.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.625" vertical-offset="540" max-vertical-offset="1485">
+          <caret line="69" column="63" selection-start-line="69" selection-start-column="63" selection-end-line="69" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/jobs/body.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="61.75" vertical-offset="1482" max-vertical-offset="2295">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/project/body.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.625" vertical-offset="657" max-vertical-offset="1470">
+          <caret line="72" column="65" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/about/body.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="14.25" vertical-offset="342" max-vertical-offset="1155">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_add_company_skill_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.25" vertical-offset="3135" max-vertical-offset="4245">
+          <caret line="227" column="58" selection-start-line="222" selection-start-column="52" selection-end-line="227" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.74074" vertical-offset="22078" max-vertical-offset="22875">
+          <caret line="1502" column="9" selection-start-line="1502" selection-start-column="1" selection-end-line="1502" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/App_user_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.041666" vertical-offset="3116" max-vertical-offset="17010">
+          <caret line="235" column="9" selection-start-line="235" selection-start-column="9" selection-end-line="235" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/career/body.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="10.5" vertical-offset="957" max-vertical-offset="1785">
+          <caret line="47" column="96" selection-start-line="47" selection-start-column="96" selection-end-line="47" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/skills/body.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.833333" vertical-offset="910" max-vertical-offset="1710">
+          <caret line="86" column="38" selection-start-line="86" selection-start-column="38" selection-end-line="86" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#1;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Main_ui_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3878628" vertical-offset="1701" max-vertical-offset="3675">
+          <caret line="133" column="73" selection-start-line="133" selection-start-column="73" selection-end-line="133" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

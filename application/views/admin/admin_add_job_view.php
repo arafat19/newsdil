@@ -1,23 +1,17 @@
 <body>
 <script language="javascript">
     function checkMe() {
-        if (confirm("Are you sure you want to delete the selected Category?")) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    function deleteImage() {
-        if (confirm("Are you sure you want to delete the selected Project Image?")) {
+        if (confirm("Are you sure you want to delete the Job?")) {
             return true;
         } else {
             return false;
         }
     }
 
+
     function link_create() {
-        var f1 = document.getElementById("project_title");
-        var f2 = document.getElementById("project_internal_link");
+        var f1 = document.getElementById("job_title");
+        var f2 = document.getElementById("job_page_url");
 
         f2.value = string_to_slug(f1.value);
     }
@@ -39,7 +33,7 @@
             .replace(/-+/g, '-'); // collapse dashes
 
         var url = window.base_url = <?php echo json_encode(base_url()); ?>;
-        return url + 'project/'+ str;
+        return url + 'jobs/' + str;
     }
 </script>
 <div id="wrapper">
@@ -60,7 +54,7 @@
                             <i class="fa fa-dashboard"></i> <a href="<?php echo base_url(); ?>admin">Dashboard</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-edit"></i>  <?php echo $common_header; ?>
+                            <i class="fa fa-edit"></i> <?php echo $common_header; ?>
                         </li>
                     </ol>
                 </div>
@@ -104,14 +98,14 @@
                                                 </div>
                                             </div>
                                         <?php }
-                                        if ($this->session->flashdata('project_update_message')) { ?>
+                                        if ($this->session->flashdata('job_update_message')) { ?>
                                             <div class="form-group">
                                                 <div class="col-md-8">
                                                     <div class="alert alert-success" role="alert">
                                                         <i class="fa fa-check"></i>
                                                         <a href="#" class="close" data-dismiss="alert"
                                                            aria-label="close">&times;</a>
-                                                        <?php echo $this->session->flashdata('project_update_message'); ?>
+                                                        <?php echo $this->session->flashdata('job_update_message'); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,26 +122,14 @@
                                                 </div>
                                             </div>
                                         <?php }
-                                        if ($this->session->flashdata('project_delete_message')) { ?>
+                                        if ($this->session->flashdata('job_delete_message')) { ?>
                                             <div class="form-group">
                                                 <div class="col-md-8">
                                                     <div class="alert alert-success" role="alert">
                                                         <i class="fa fa-check"></i>
                                                         <a href="#" class="close" data-dismiss="alert"
                                                            aria-label="close">&times;</a>
-                                                        <?php echo $this->session->flashdata('project_delete_message'); ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php }
-                                        if ($this->session->flashdata('image_delete_message')) { ?>
-                                            <div class="form-group">
-                                                <div class="col-md-8">
-                                                    <div class="alert alert-success" role="alert">
-                                                        <i class="fa fa-check"></i>
-                                                        <a href="#" class="close" data-dismiss="alert"
-                                                           aria-label="close">&times;</a>
-                                                        <?php echo $this->session->flashdata('image_delete_message'); ?>
+                                                        <?php echo $this->session->flashdata('job_delete_message'); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -155,85 +137,96 @@
                                         ?>
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_category">Project
-                                                Category:</label>
+                                            <label class="col-md-3 control-label" for="job_type">Job Type:</label>
 
                                             <div class="col-md-5">
-                                                <select class="form-control" name="project_category"
-                                                        id="project_category" title="Select Project Category Name" required autofocus>
-                                                    <option selected>Please Select a Project Category Name</option>
-                                                    <?php if (isset($active_project_category) && $active_project_category->num_rows() > 0):
-                                                        foreach ($active_project_category->result() as $row): ?>
-                                                            <option
-                                                                value="<?php echo $row->project_category_id; ?>"><?php echo $row->project_category_name; ?></option>
-                                                        <?php
-                                                        endforeach;
-                                                    endif; ?>
+                                                <select class="form-control" name="job_type"
+                                                        id="job_type" title="Select a Job Type" required autofocus>
+                                                    <option selected>Please Select a Job Type</option>
+                                                    <option value="Full Time">Full Time</option>
+                                                    <option value="Part Time">Part Time</option>
+                                                    <option value="Contractual">Contractual</option>
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_title">Project
+                                            <label class="col-md-3 control-label" for="job_title">Job
                                                 Title:</label>
 
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" name="project_title"  onblur="link_create()"
-                                                       id="project_title" placeholder="Project Title" required/>
+                                                <input type="text" class="form-control" name="job_title"
+                                                       onblur="link_create()"
+                                                       id="job_title" placeholder="Job Title" required/>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_internal_link">Project
-                                                Internal Link:</label>
+                                            <label class="col-md-3 control-label" for="job_page_url">Job Page URL:</label>
 
                                             <div class="col-md-5">
-                                                <input type="url" class="form-control" name="project_internal_link"
-                                                       id="project_internal_link"
-                                                       placeholder="Write Project internal link"/>
+                                                <input type="url" class="form-control" name="job_page_url"
+                                                       id="job_page_url"
+                                                       placeholder="Write Job Page URL" required/>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_description">Project
+                                            <label class="col-md-3 control-label" for="job_short_description">Job Short
                                                 Description:</label>
 
                                             <div class="col-md-5">
-                                                 <textarea type="text" class="form-control" id="project_description"
-                                                           name="project_description" rows="3"
-                                                           placeholder="Project Description" required></textarea>
+                                                 <textarea type="text" class="form-control" id="job_short_description"
+                                                           name="job_short_description" rows="3"
+                                                           placeholder="Job Short Description" required></textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_external_link">Project
-                                                External Link:</label>
+                                            <label class="col-md-3 control-label" for="job_experience">Job Experience:</label>
 
                                             <div class="col-md-5">
-                                                <input type="url" class="form-control" name="project_external_link"
-                                                       id="project_external_link"
-                                                       placeholder="Write Project external link"/>
+                                                 <textarea type="text" class="form-control" id="job_experience"
+                                                           name="job_experience" rows="3"
+                                                           placeholder="Job Experience" required></textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_start_date">Project Start
-                                                Date:</label>
+                                            <label class="col-md-3 control-label" for="working_hour">Working Hour:</label>
 
                                             <div class="col-md-5">
-                                                <input type="text" name="project_start_date" class="form-control"
-                                                       placeholder="Click to pick Project Start Date"
-                                                       id="project_start_date" required/>
+                                                <input type="text" class="form-control" name="working_hour"
+                                                       id="working_hour"
+                                                       placeholder="Write Job Working Hour" required/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_end_date">Project End
-                                                Date:</label>
+                                            <label class="col-md-3 control-label" for="job_salary">Job Salary:</label>
 
                                             <div class="col-md-5">
-                                                <input type="text" name="project_end_date" class="form-control"
-                                                       placeholder="Click to pick Project End Date"
-                                                       id="project_end_date" required/>
+                                                <input type="text" class="form-control" name="job_salary"
+                                                       id="job_salary"
+                                                       placeholder="Write Job Salary" required/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="job_application_deadline">Job Application Deadline:</label>
+
+                                            <div class="col-md-5">
+                                                <input type="text" name="job_application_deadline" class="form-control"
+                                                       placeholder="Click to pick Job application deadline"
+                                                       id="job_application_deadline" required/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="other_conditions">Other Job Conditions:</label>
+
+                                            <div class="col-md-5">
+                                                <input type="text" name="other_conditions" class="form-control"
+                                                       placeholder="Write other conditions of the job"
+                                                       id="other_conditions"/>
                                             </div>
                                         </div>
 
@@ -279,68 +272,44 @@
                                         <thead>
                                         <tr>
                                             <th>Serial</th>
-                                            <th>Category Name</th>
-                                            <th>Project Title</th>
-                                            <th>Project Image</th>
-                                            <th>Project Start Date</th>
-                                            <th>Project End Date</th>
-                                            <th>Project Internal Link</th>
+                                            <th>Job Title</th>
+                                            <th>Job Page URL</th>
+                                            <th>Job Short Description</th>
+                                            <th>Job Type</th>
+                                            <th>Job Application Deadline</th>
                                             <th>Is Active</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
                                         <?php $i = $start_from;
                                         $start = 0; ?>
-                                        <?php if (isset($all_projects) && $all_projects->num_rows() > 0): ?>
-                                        <?php foreach ($all_projects->result() as $row):
-                                        ?>
+                                        <?php if (isset($all_jobs) && $all_jobs->num_rows() > 0): ?>
+                                        <?php foreach ($all_jobs->result() as $row):
+                                            ?>
 
                                             <tbody>
                                             <tr>
                                                 <td align="center"><?php echo $i + $start; ?></td>
-                                                <td><?php echo $row->project_category_name; ?></td>
-                                                <td><?php echo $row->project_title; ?></td>
-                                                <td align="center">
-                                                    <?php if ($row->project_image) { ?>
-                                                        <img class="img-responsive img-thumbnail" height="85px" width="85px"
-                                                             src="<?php echo base_url(); ?>uploaded/projects/<?php echo $row->project_image; ?>"
-                                                             alt="<?php echo $row->project_image; ?>"/> <br/>
-
-                                                        <a class='btn btn-sm btn-warning'
-                                                           href="<?php echo base_url(); ?>admin/upload/project/image/<?php echo base64_encode($row->project_id); ?>"
-                                                           role="button"><span class='glyphicon glyphicon-edit'></span>Change
-                                                            Image</a>
-                                                        <a class="btn btn-danger"
-                                                           href="<?php echo base_url(); ?>admin/project/image/delete//<?php echo base64_encode($row->project_id); ?>"
-                                                           onclick="return deleteImage()" title="Delete"
-                                                           role="button"><span class="glyphicon glyphicon-trash"></span></a>
-
-                                                    <?php } else { ?>
-                                                        <a class='btn btn-submit btn-info'
-                                                           href="<?php echo base_url(); ?>admin/upload/project/image/<?php echo base64_encode($row->project_id); ?>"
-                                                           role="button"><span class='glyphicon glyphicon-plus'></span>Add
-                                                            Image</a>
-                                                    <?php } ?>
-                                                </td>
-
-                                                <td><?php echo $row->project_start_date; ?></td>
-                                                <td><?php echo $row->project_end_date; ?></td>
-                                                <td><?php echo $row->project_internal_link; ?></td>
+                                                <td><?php echo $row->job_title; ?></td>
+                                                <td><?php echo $row->job_page_url; ?></td>
+                                                <td><?php echo $row->job_short_description; ?></td>
+                                                <td><?php echo $row->job_type; ?></td>
+                                                <td><?php echo $row->job_application_deadline; ?></td>
                                                 <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
                                                 <td align="center"><a class="btn btn-success" title="Edit"
-                                                                      href="<?php echo base_url(); ?>admin/update/project/<?php echo base64_encode($row->project_id); ?>"
+                                                                      href="<?php echo base_url(); ?>admin/update/job/<?php echo base64_encode($row->job_id); ?>"
                                                                       role="button"><span
                                                             class="glyphicon glyphicon-edit"></span></a>
 
                                                     <a class="btn btn-danger"
-                                                       href="<?php echo base_url(); ?>admin/delete/project/<?php echo base64_encode($row->project_id); ?>"
+                                                       href="<?php echo base_url(); ?>admin/delete/job/<?php echo base64_encode($row->job_id); ?>"
                                                        onclick="return checkMe()" title="Delete"
                                                        role="button"><span class="glyphicon glyphicon-trash"></span></a>
                                                 </td>
 
                                             </tr>
                                             </tbody> <?php $i++; ?>
-                                        <?php endforeach;  ?>
+                                        <?php endforeach; ?>
                                     </table>
                                     <div class="pagination" style="float:right;"> <?php echo $paginglinks; ?></div>
                                     <div class="pagination"
@@ -371,20 +340,15 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>js/bootstrap-datepicker.js"></script>
-    <script type="text/javascript">
-        // When the document is ready
-        $(document).ready(function () {
-
-            $('#project_start_date').datepicker({
-                format: "dd/mm/yyyy"
-            });
-            $('#project_end_date').datepicker({
-                format: "dd/mm/yyyy"
-            });
-
+<script src="<?php echo base_url(); ?>js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    // When the document is ready
+    $(document).ready(function () {
+        $('#job_application_deadline').datepicker({
+            format: "dd/mm/yyyy"
         });
-    </script>
+    });
+</script>
 
 
 </body>

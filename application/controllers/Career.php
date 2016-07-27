@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class About extends CI_Controller
+class Career extends CI_Controller
 {
     function __construct()
     {
@@ -13,9 +13,6 @@ class About extends CI_Controller
 
     function index()
     {
-        $company_overviews = $this->app_user_model->get_company_overview_by_id(1); // Reading and showing the Service list from DB by setting is_active = 1
-        $data['company_overviews'] = $company_overviews;
-
         $system_config_id = 1;
         $all_system_configuration = $this->app_user_model->get_system_configuration_by_id($system_config_id); // Reading and showing the System configuration from DB
         $data['all_system_configuration_ui'] = $all_system_configuration;
@@ -26,12 +23,15 @@ class About extends CI_Controller
         $all_services = $this->main_ui_model->get_service_by_is_active(1); // Reading and showing the Service list from DB by setting is_active = 1
         $data['all_services'] = $all_services;
 
-        $data['title'] = 'About Us - Shwapno Duar IT Ltd.';
-        $data['title_area_heading_h2'] = 'Company Overview';
+        $all_active_jobs = $this->main_ui_model->get_jobs_by_is_active(); // Reading and showing the Service list from DB by setting is_active = 1
+        $data['all_active_jobs'] = $all_active_jobs;
+
+        $data['title'] = 'Career - Shwapno Duar IT Ltd.';
+        $data['title_area_heading_h2'] = 'Career at Shwapno Duar IT Ltd';
         $data['active'] = 'about';
 
         $this->load->view('index/header', $data);
-        $this->load->view('about/body', $data);
+        $this->load->view('career/body', $data);
         $this->load->view('index/footer', $data);
     }
 }

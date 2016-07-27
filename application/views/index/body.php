@@ -6,7 +6,7 @@
                 <div class="wsmenucontent overlapblackbg"></div>
                 <div class="wsmenuexpandermain slideRight"><a id="navToggle"
                                                               class="animated-arrow slideLeft"><span></span></a> <a
-                        href="#" class="smallogo"><img src="<?php echo base_url(); ?>images/logo.png" width="120"
+                        href="<?php echo base_url(); ?>" class="smallogo"><img src="<?php echo base_url(); ?>images/logo.png" width="120"
                                                        alt=""/></a>
 
                     <!--<form action="#" class="searchBox" id="searchiteam" method="get">

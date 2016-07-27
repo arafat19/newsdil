@@ -23,6 +23,35 @@ class main_ui_model extends CI_Model
 
     }
 
+    public function get_jobs_by_is_active()
+    {
+        $this->db->select('*');
+        $this->db->where('is_active', 1);
+        $result = $this->db->get('sdil_jobs');
+
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
+
+    }
+
+    public function get_project_by_project_category_is_active($active_project_category_id)
+    {
+        $this->db->select('*');
+        $this->db->where('project_category_id', $active_project_category_id);
+        $this->db->where('is_active', 1);
+        $result = $this->db->get('sdil_projects');
+
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
+
+    }
+
     public function get_social_icon_by_is_active($is_active)
     {
         $this->db->select('id, social_icon_name, social_icon_link, social_icon_logo_class_name, is_active');
@@ -47,6 +76,7 @@ class main_ui_model extends CI_Model
             return NULL;
         }
     }
+
     function get_active_testimonials()
     {
         $this->db->select('*');
@@ -58,6 +88,7 @@ class main_ui_model extends CI_Model
             return NULL;
         }
     }
+
     function get_active_partners()
     {
         $this->db->select('*');
@@ -78,6 +109,34 @@ class main_ui_model extends CI_Model
         if ($result->num_rows() > 0) {
             return $result;
         } else {
+            return NULL;
+        }
+    }
+    function get_active_skill_category()
+    {
+        $this->db->select('*');
+        $this->db->where('is_active', 1);
+        $result = $this->db->get('sdil_skill_category');
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
+    }
+
+    function get_active_skills()
+    {
+        $this->db->select('sdil_skills.*, sdil_skill_category.skill_category_name');
+        $this->db->from('sdil_skills');
+        $this->db->join('sdil_skill_category', 'sdil_skill_category.skill_category_id = sdil_skills.skill_category_id');
+        $this->db->where('sdil_skills.is_active', 1);
+        $this->db->group_by("sdil_skill_category.skill_category_name, sdil_skills.skill_name");
+        $this->db->order_by("sdil_skill_category.skill_category_id", "ASC");
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query;
+        } else{
             return NULL;
         }
     }
@@ -128,6 +187,11 @@ class main_ui_model extends CI_Model
 
     }
 
+    public function submit_job_application($data)
+    {
+        $this->db->insert('sdil_job_applicants', $data);
+    }
+
 
     public function total_count_of_contacts()
     {
@@ -151,4 +215,26 @@ class main_ui_model extends CI_Model
         $this->db->where('id', $contact_id);
         $this->db->delete('contact_us');
     }
+
+    public function exist_applicant_email($email)
+    {
+        $this->db->where('email', $email);
+        $query = $this->db->get('sdil_job_applicants');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+    public function exist_applicant_mobile_no($mobile_no)
+    {
+        $this->db->where('mobile_no', $mobile_no);
+        $query = $this->db->get('sdil_job_applicants');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
 }

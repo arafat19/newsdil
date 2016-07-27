@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://localhost/newsdil/';
+$config['base_url'] = 'http://localhost:8888/newsdil/';
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ $config['base_url'] = 'http://localhost/newsdil/';
 |
 */
 //$config['index_page'] = 'index.php';
-$config['index_page'] = '';
+$config['index_page'] = ''  ;
 
 /*
 |--------------------------------------------------------------------------

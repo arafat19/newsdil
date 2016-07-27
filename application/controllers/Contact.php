@@ -24,8 +24,6 @@ class Contact extends CI_Controller
 
         if ($this->form_validation->run() == FALSE) {
             $data['title'] = 'Contact Us - Shwapno Duar IT Ltd.';
-            $data['top_heading_h1'] = 'WE ARE Shwapno Duar';
-            $data['top_heading_h2'] = 'SOFTWARE DEVELOPMENT & BPO COMPANY';
             $data['title_area_heading_h2'] = 'CONTACT US';
             $data['active'] = 'contacts';
 

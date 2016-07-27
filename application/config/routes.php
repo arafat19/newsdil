@@ -51,6 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'Home';
 $route['about-us'] = 'About';
+$route['service/(:any)'] = 'Service';
+$route['project/(:any)'] = 'Project';
+$route['our-skills'] = 'Skills';
+$route['jobs/(:any)'] = 'Jobs';
+$route['jobs/apply/(:any)'] = 'jobs/job_application';
 $route['admin/service'] = "admin/add_service";
 $route['admin/sdil/profile'] = "admin/edit_admin_user";
 $route['admin/contacts'] = "admin/get_all_contacts";
@@ -67,16 +72,36 @@ $route['admin/add/project/category'] = "admin/add_project_category";
 $route['admin/delete/project/category/(:any)'] = "admin/delete_project_category/$1";
 $route['admin/update/project/category/(:any)'] = "admin/update_project_category/$1";
 
+$route['admin/job/applicants'] = "admin/show_all_applicants";
+$route['admin/job/applicant/delete/(:any)'] = "admin/delete_job_applicant/$1";
+$route['admin/job/single/applicant/(:any)'] = "admin/show_single_applicant/$1";
+
+$route['admin/add/company/skills'] = "admin/add_company_skills";
+$route['admin/update/company/skill/(:any)'] = "admin/update_company_skills/$1";
+$route['admin/delete/company/skill/(:any)'] = "admin/delete_company_skills/$1";
+
+$route['admin/add/company/skill/category'] = "admin/add_company_skill_category";
+$route['admin/update/company/skill/category/(:any)'] = "admin/update_company_skill_category/$1";
+$route['admin/delete/company/skill/category/(:any)'] = "admin/delete_company_skill_category/$1";
+
+$route['admin/add/job'] = "admin/add_job";
+$route['admin/delete/job/(:any)'] = "admin/delete_job/$1";
+$route['admin/update/job/(:any)'] = "admin/update_job/$1";
+$route['admin/add/job/page'] = "admin/add_job_page";
+$route['admin/update/job/page/(:any)'] = "admin/update_job_page/$1";
+
+
 $route['admin/add/project'] = "admin/add_project";
 $route['admin/delete/project/(:any)'] = "admin/delete_project/$1";
 $route['admin/update/project/(:any)'] = "admin/update_project/$1";
 $route['admin/upload/project/image/(:any)'] = "admin/upload_project_file/$1";
 $route['admin/upload/project/photo/(:any)'] = "admin/upload_project_photo/$1";
 $route['admin/project/image/delete/(:any)'] = 'admin/delete_project_image/$1';
+$route['admin/add/project/page'] = "admin/add_project_page";
+$route['admin/update/project/page/(:any)'] = "admin/update_project_page/$1";
 
 $route['admin/add/service/page'] = "admin/add_service_page";
 $route['admin/update/service/page/(:any)'] = "admin/edit_service_page/$1";
-$route['admin/delete/service/page/(:any)'] = "admin/service_page_delete/$1";
 
 $route['admin/update/company/overview'] = "admin/update_company_overview";
 

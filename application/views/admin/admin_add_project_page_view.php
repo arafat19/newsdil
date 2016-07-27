@@ -1,40 +1,5 @@
 <body>
-<script language="javascript">
-    function checkMe() {
-        if (confirm("Are you sure you want to delete the selected Page?")) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
-    function link_create() {
-        var f1 = document.getElementById("page_title");
-        var f2 = document.getElementById("page_link");
-
-        f2.value = string_to_slug(f1.value);
-    }
-
-
-    function string_to_slug(str) {
-        str = str.replace(/^\s+|\s+$/g, ''); // trim
-        str = str.toLowerCase();
-
-        // remove accents, swap ñ for n, etc
-        var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
-        var to = "aaaaeeeeiiiioooouuuunc------";
-        for (var i = 0, l = from.length; i < l; i++) {
-            str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-        }
-
-        str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
-            .replace(/\s+/g, '-') // collapse whitespace and replace by -
-            .replace(/-+/g, '-'); // collapse dashes
-
-        var url = window.base_url = <?php echo json_encode(base_url()); ?>;
-        return url + str;
-    }
-</script>
 <div id="wrapper">
     <?php $this->load->view('admin/admin_dashboard_navbar_view'); ?>
 
@@ -53,7 +18,7 @@
                             <i class="fa fa-dashboard"></i> <a href="<?php echo base_url(); ?>admin">Dashboard</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-edit"></i>  <?php echo $common_header; ?>
+                            <i class="fa fa-edit"></i> <?php echo $common_header; ?>
                         </li>
                     </ol>
                 </div>
@@ -108,18 +73,43 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        <?php }
+                                        if ($this->session->flashdata('service_page_delete_message')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-success" role="alert">
+                                                        <i class="fa fa-check"></i>
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('service_page_delete_message'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                        if ($this->session->flashdata('cant_add_success')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-warning" role="alert">
+                                                        <i class="fa fa-exclamation-triangle"></i>
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('cant_add_success'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <?php } ?>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="service_name">Service Name:</label>
+                                            <label class="col-md-3 control-label" for="project_title">Project Title:</label>
 
                                             <div class="col-md-5">
-                                                <select class="form-control" name="service_name"
-                                                        id="service_name" title="Select Service Name" required autofocus>
-                                                    <option selected>Please Select a Service Name</option>
-                                                    <?php if (isset($service_list) && $service_list->num_rows() > 0):
-                                                        foreach ($service_list->result() as $row): ?>
+                                                <select class="form-control" name="project_title"
+                                                        id="project_title" title="Select Project Title" required
+                                                        autofocus>
+                                                    <option selected>Please Select a Project Title</option>
+                                                    <?php if (isset($project_title_list) && $project_title_list->num_rows() > 0):
+                                                        foreach ($project_title_list->result() as $row): ?>
                                                             <option
-                                                                value="<?php echo $row->id; ?>"  <?php if ($single_service['service_name'] == $row->service_name) echo "selected"; ?>><?php echo $row->service_name; ?></option>
+                                                                value="<?php echo $row->project_id; ?>"><?php echo $row->project_title; ?></option>
                                                             <?php
                                                         endforeach;
                                                     endif; ?>
@@ -129,11 +119,12 @@
 
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="page_description">Service Page Content:</label>
+                                            <label class="col-md-3 control-label" for="page_description">Project Page
+                                                Content:</label>
 
                                             <div class="col-md-5">
                                                 <textarea class="form-control" name="page_description"
-                                                       id="page_description"><?php echo $single_service['service_page_description']; ?></textarea>
+                                                          id="page_description"></textarea>
 
                                             </div>
                                         </div>
@@ -143,17 +134,76 @@
                         </div>
                         <div class="panel-footer panel-success">
 
-                            <button id="update" name="update" type="submit" data-role="button"
-                                    class="btn btn-submit btn-success"><span class="glyphicon glyphicon-edit"></span>Update
+                            <button id="addButton" name="addButton" type="submit" data-role="button"
+                                    class="btn btn-submit btn-success"><span class="glyphicon glyphicon-plus"></span>Create
                             </button>
 
                             <button id="clearFormButton" name="clearFormButton" type="reset"
                                     class="btn btn-submit btn-danger"><span class="glyphicon glyphicon-remove"></span>Cancel
                             </button>
+
                         </div>
                     </form>
                 </div>
                 <!-- /.row -->
+            </div>
+            <div class="row row-fluid">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Poject List</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Serial</th>
+                                            <th>Category Name</th>
+                                            <th>Project Title</th>
+                                            <th>Project Page</th>
+                                            <th>Is Active</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <?php $i = $start_from;
+                                        $start = 0; ?>
+                                        <?php if (isset($all_projects) && $all_projects->num_rows() > 0): ?>
+                                        <?php foreach ($all_projects->result() as $row):
+                                            ?>
+
+                                            <tbody>
+                                            <tr>
+                                                <td align="center"><?php echo $i + $start; ?></td>
+                                                <td><?php echo $row->project_category_name; ?></td>
+                                                <td><?php echo $row->project_title; ?></td>
+                                                <td><?php echo $row->project_page_description; ?></td>
+                                                <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
+                                                <td align="center"><a class="btn btn-success" title="Edit"
+                                                                      href="<?php echo base_url(); ?>admin/update/project/page/<?php echo base64_encode($row->project_id); ?>"
+                                                                      role="button"><span
+                                                            class="glyphicon glyphicon-edit"></span></a>
+                                                </td>
+                                            </tr>
+                                            </tbody> <?php $i++; ?>
+                                        <?php endforeach;  ?>
+                                    </table>
+                                    <div class="pagination" style="float:right;"> <?php echo $paginglinks; ?></div>
+                                    <div class="pagination"
+                                         style="float:left;"> <?php echo(!empty($pagermessage) ? $pagermessage : ''); ?></div>
+                                    <?php else: ?>
+                                        <div class="col-md-12">
+                                            <div class="alert alert-info " role="alert">
+                                                No Results were found.
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- /.container-fluid -->

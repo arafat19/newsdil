@@ -1,37 +1,11 @@
 <body>
 <script language="javascript">
     function checkMe() {
-        if (confirm("Are you sure you want to delete the selected service?")) {
+        if (confirm("Are you sure you want to delete the selected skill category?")) {
             return true;
         } else {
             return false;
         }
-    }
-    function link_create() {
-        var f1 = document.getElementById("service_name");
-        var f2 = document.getElementById("service_page_url");
-
-        f2.value = string_to_slug(f1.value);
-    }
-
-
-    function string_to_slug(str) {
-        str = str.replace(/^\s+|\s+$/g, ''); // trim
-        str = str.toLowerCase();
-
-        // remove accents, swap ñ for n, etc
-        var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
-        var to = "aaaaeeeeiiiioooouuuunc------";
-        for (var i = 0, l = from.length; i < l; i++) {
-            str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-        }
-
-        str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
-            .replace(/\s+/g, '-') // collapse whitespace and replace by -
-            .replace(/-+/g, '-'); // collapse dashes
-
-        var url = window.base_url = <?php echo json_encode(base_url()); ?>;
-        return url + 'service/'+ str;
     }
 
 </script>
@@ -46,14 +20,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Add Service
+                        <?php echo $common_header; ?>
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i> <a href="<?php echo base_url(); ?>admin">Dashboard</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-edit"></i> Add Service
+                            <i class="fa fa-edit"></i> <?php echo $common_header; ?>
                         </li>
                     </ol>
                 </div>
@@ -63,18 +37,19 @@
             <div class="row">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Add Service</h3>
+                        <h3 class="panel-title"> <?php echo $common_header; ?></h3>
                     </div>
-                    <form name='add_service_form' id='add_service_form' enctype="multipart/form-data"
-                          class="form-horizontal form-widgets" role="form" method="post">
+                    <form name='add_project_cat_form' id='add_project_cat_form' enctype="multipart/form-data"
+                          class="form-horizontal form-widgets" role="form" method="POST" action="">
                         <div class="panel-body">
                             <div class="form-group">
-                                <div class="col-md-8">
+                                <div class="col-md-12">
                                     <fieldset>
                                         <?php if (validation_errors()) { ?>
                                             <div class="form-group">
                                                 <div class="col-md-8">
                                                     <div class="alert alert-danger" role="alert">
+
                                                         <a href="#" class="close" data-dismiss="alert"
                                                            aria-label="close">&times;</a>
                                                         <?php echo validation_errors(); ?>
@@ -84,68 +59,66 @@
                                             </div>
 
                                         <?php }
-                                        if ($this->session->flashdata('success_msg')) { ?>
-                                            <div class="form-group">
-                                                <div class="col-md-8">
-                                                    <div class="alert alert-success" role="alert">
-                                                        <a href="#" class="close" data-dismiss="alert"
-                                                           aria-label="close">&times;</a>
-                                                        <?php echo $this->session->flashdata('success_msg'); ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php }
-                                        if ($this->session->flashdata('update_message')) { ?>
-                                            <div class="form-group">
-                                                <div class="col-md-8">
-                                                    <div class="alert alert-success" role="alert">
-                                                        <a href="#" class="close" data-dismiss="alert"
-                                                           aria-label="close">&times;</a>
-                                                        <?php echo $this->session->flashdata('update_message'); ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php }
-                                        if ($this->session->flashdata('service_delete_message')) { ?>
+                                        if ($this->session->flashdata('add_success')) { ?>
                                             <div class="form-group">
                                                 <div class="col-md-8">
                                                     <div class="alert alert-success" role="alert">
                                                         <i class="fa fa-check"></i>
                                                         <a href="#" class="close" data-dismiss="alert"
                                                            aria-label="close">&times;</a>
-                                                        <?php echo $this->session->flashdata('service_delete_message'); ?>
+                                                        <?php echo $this->session->flashdata('add_success'); ?>
                                                     </div>
                                                 </div>
                                             </div>
-                                        <?php } ?>
+                                        <?php }
+                                        if ($this->session->flashdata('skill_cat_update_message')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-success" role="alert">
+                                                        <i class="fa fa-check"></i>
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('skill_cat_update_message'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                        if ($this->session->flashdata('cant_delete_message')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-warning" role="alert">
+                                                        <i class="fa fa-exclamation-triangle"></i>
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('cant_delete_message'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                        if ($this->session->flashdata('skill_cat_delete_message')) { ?>
+                                            <div class="form-group">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-success" role="alert">
+                                                        <i class="fa fa-check"></i>
+                                                        <a href="#" class="close" data-dismiss="alert"
+                                                           aria-label="close">&times;</a>
+                                                        <?php echo $this->session->flashdata('skill_cat_delete_message'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                        ?>
+
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="service_name">Service
-                                                Name:</label>
+                                            <label class="col-md-3 control-label" for="skill_category_name">Skill Category Name:</label>
 
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" name="service_name"
-                                                       id="service_name"  onblur="link_create()"
-                                                       placeholder="Service Name" required autofocus/>
+                                                <input type="text" class="form-control" name="skill_category_name"
+                                                       id="skill_category_name"
+                                                       placeholder="Write Skill Category Name" required/>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="service_page_url">Service Page URL</label>
 
-                                            <div class="col-md-5">
-                                                <input type="url" class="form-control" name="service_page_url"
-                                                       id="service_page_url"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="service_details">Service Details
-                                                Div:</label>
-
-                                            <div class="col-md-5">
-                                                <textarea type="text" class="form-control" id="service_details"
-                                                          name="service_details" rows="7"
-                                                          placeholder="255 Char Max" required></textarea>
-                                            </div>
-                                        </div>
 
                                         <div class="form-group">
                                             <label class="col-md-3 control-label label-optional"
@@ -164,7 +137,7 @@
                         </div>
                         <div class="panel-footer panel-success">
 
-                            <button id="create" name="create" type="submit" data-role="button"
+                            <button id="update" name="update" type="submit" data-role="button"
                                     class="btn btn-submit btn-success"><span class="glyphicon glyphicon-plus"></span>Create
                             </button>
 
@@ -176,57 +149,59 @@
                 </div>
                 <!-- /.row -->
             </div>
-
             <div class="row row-fluid">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Service List</h3>
+                        <h3 class="panel-title"><?php echo $list_title; ?></h3>
                     </div>
                     <div class="panel-body">
                         <div class="form-group">
                             <div class="col-lg-12">
                                 <div class="table-responsive">
-                                    <table id="myTable" class="table table-bordered table-hover table-striped">
+                                    <table class="table table-bordered table-hover table-striped">
                                         <thead>
                                         <tr>
                                             <th>Serial</th>
-                                            <th>Service Name</th>
-                                            <th>Service Details</th>
+                                            <th>Skill Category Name</th>
                                             <th>Is Active</th>
-                                            <th>Service URL</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
-                                        <?php $i = $start_from; $start = 0;?>
-                                        <?php if (isset($all_services) && $all_services->num_rows() > 0): ?>
-                                        <?php foreach ($all_services->result() as $row): ?>
+                                        <?php $i = $start_from;
+                                        $start = 0; ?>
+                                        <?php if (isset($all_skill_category) && $all_skill_category->num_rows() > 0): ?>
+                                        <?php foreach ($all_skill_category->result() as $row):
+                                            ?>
 
                                             <tbody>
                                             <tr>
-                                                <td align="center"><?php echo $i+$start; ?></td>
-                                                <td><?php echo $row->service_name; ?></td>
-                                                <td><?php echo $row->total_description_div; ?></td>
+                                                <td align="center"><?php echo $i + $start; ?></td>
+                                                <td><?php echo $row->skill_category_name; ?></td>
+
                                                 <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
-                                                <td align="left"><?php echo $row->service_page_url ? $row->service_page_url : 'No URL'; ?></td>
                                                 <td align="center"><a class="btn btn-success" title="Edit"
-                                                       href="<?php echo base_url(); ?>admin/sedit/<?php echo base64_encode($row->id); ?>"
-                                                       role="button"><span class="glyphicon glyphicon-edit"></span></a>
+                                                                      href="<?php echo base_url(); ?>admin/update/company/skill/category/<?php echo base64_encode($row->skill_category_id); ?>"
+                                                                      role="button"><span
+                                                            class="glyphicon glyphicon-edit"></span></a>
 
                                                     <a class="btn btn-danger"
-                                                       href="<?php echo base_url(); ?>admin/sdelete/<?php echo base64_encode($row->id); ?>" onclick="return checkMe()" title="Delete"
+                                                       href="<?php echo base_url(); ?>admin/delete/company/skill/category/<?php echo base64_encode($row->skill_category_id); ?>"
+                                                       onclick="return checkMe()" title="Delete"
                                                        role="button"><span class="glyphicon glyphicon-trash"></span></a>
                                                 </td>
+
                                             </tr>
                                             </tbody> <?php $i++; ?>
                                         <?php endforeach; ?>
-
                                     </table>
                                     <div class="pagination" style="float:right;"> <?php echo $paginglinks; ?></div>
-                                    <div class="pagination" style="float:left;"> <?php echo (!empty($pagermessage) ? $pagermessage : ''); ?></div>
-
+                                    <div class="pagination"
+                                         style="float:left;"> <?php echo(!empty($pagermessage) ? $pagermessage : ''); ?></div>
                                     <?php else: ?>
-                                        <div>
-                                            <p>No results were found</p>
+                                        <div class="col-md-12">
+                                            <div class="alert alert-info " role="alert">
+                                                No Results were found.
+                                            </div>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -237,7 +212,6 @@
             </div>
         </div>
         <!-- /.container-fluid -->
-
     </div>
     <!-- /#page-wrapper -->
 
@@ -249,6 +223,4 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-
-
 </body>

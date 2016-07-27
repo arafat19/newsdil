@@ -1,46 +1,13 @@
 <body>
 <script language="javascript">
     function checkMe() {
-        if (confirm("Are you sure you want to delete the selected Category?")) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    function deleteImage() {
-        if (confirm("Are you sure you want to delete the selected Project Image?")) {
+        if (confirm("Are you sure you want to delete the selected skill?")) {
             return true;
         } else {
             return false;
         }
     }
 
-    function link_create() {
-        var f1 = document.getElementById("project_title");
-        var f2 = document.getElementById("project_internal_link");
-
-        f2.value = string_to_slug(f1.value);
-    }
-
-
-    function string_to_slug(str) {
-        str = str.replace(/^\s+|\s+$/g, ''); // trim
-        str = str.toLowerCase();
-
-        // remove accents, swap ñ for n, etc
-        var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
-        var to = "aaaaeeeeiiiioooouuuunc------";
-        for (var i = 0, l = from.length; i < l; i++) {
-            str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-        }
-
-        str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
-            .replace(/\s+/g, '-') // collapse whitespace and replace by -
-            .replace(/-+/g, '-'); // collapse dashes
-
-        var url = window.base_url = <?php echo json_encode(base_url()); ?>;
-        return url + 'project/'+ str;
-    }
 </script>
 <div id="wrapper">
     <?php $this->load->view('admin/admin_dashboard_navbar_view'); ?>
@@ -60,7 +27,7 @@
                             <i class="fa fa-dashboard"></i> <a href="<?php echo base_url(); ?>admin">Dashboard</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-edit"></i>  <?php echo $common_header; ?>
+                            <i class="fa fa-edit"></i> <?php echo $common_header; ?>
                         </li>
                     </ol>
                 </div>
@@ -104,14 +71,14 @@
                                                 </div>
                                             </div>
                                         <?php }
-                                        if ($this->session->flashdata('project_update_message')) { ?>
+                                        if ($this->session->flashdata('skill_update_message')) { ?>
                                             <div class="form-group">
                                                 <div class="col-md-8">
                                                     <div class="alert alert-success" role="alert">
                                                         <i class="fa fa-check"></i>
                                                         <a href="#" class="close" data-dismiss="alert"
                                                            aria-label="close">&times;</a>
-                                                        <?php echo $this->session->flashdata('project_update_message'); ?>
+                                                        <?php echo $this->session->flashdata('skill_update_message'); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,26 +95,14 @@
                                                 </div>
                                             </div>
                                         <?php }
-                                        if ($this->session->flashdata('project_delete_message')) { ?>
+                                        if ($this->session->flashdata('skill_delete_message')) { ?>
                                             <div class="form-group">
                                                 <div class="col-md-8">
                                                     <div class="alert alert-success" role="alert">
                                                         <i class="fa fa-check"></i>
                                                         <a href="#" class="close" data-dismiss="alert"
                                                            aria-label="close">&times;</a>
-                                                        <?php echo $this->session->flashdata('project_delete_message'); ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php }
-                                        if ($this->session->flashdata('image_delete_message')) { ?>
-                                            <div class="form-group">
-                                                <div class="col-md-8">
-                                                    <div class="alert alert-success" role="alert">
-                                                        <i class="fa fa-check"></i>
-                                                        <a href="#" class="close" data-dismiss="alert"
-                                                           aria-label="close">&times;</a>
-                                                        <?php echo $this->session->flashdata('image_delete_message'); ?>
+                                                        <?php echo $this->session->flashdata('skill_delete_message'); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -155,85 +110,52 @@
                                         ?>
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_category">Project
-                                                Category:</label>
+                                            <label class="col-md-3 control-label" for="skill_category_name">Skill Category:</label>
 
                                             <div class="col-md-5">
-                                                <select class="form-control" name="project_category"
-                                                        id="project_category" title="Select Project Category Name" required autofocus>
-                                                    <option selected>Please Select a Project Category Name</option>
-                                                    <?php if (isset($active_project_category) && $active_project_category->num_rows() > 0):
-                                                        foreach ($active_project_category->result() as $row): ?>
+                                                <select class="form-control" name="skill_category_name"
+                                                        id="skill_category_name" title="Select a Skill Category" required autofocus>
+                                                    <option selected>Please Select a Skill Category</option>
+                                                    <?php if (isset($active_skill_category) && $active_skill_category->num_rows() > 0):
+                                                        foreach ($active_skill_category->result() as $row): ?>
                                                             <option
-                                                                value="<?php echo $row->project_category_id; ?>"><?php echo $row->project_category_name; ?></option>
-                                                        <?php
+                                                                value="<?php echo $row->skill_category_id; ?>"><?php echo $row->skill_category_name; ?></option>
+                                                            <?php
                                                         endforeach;
                                                     endif; ?>
                                                 </select>
                                             </div>
                                         </div>
 
+
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_title">Project
-                                                Title:</label>
+                                            <label class="col-md-3 control-label" for="skill_name">Skill Name:</label>
 
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" name="project_title"  onblur="link_create()"
-                                                       id="project_title" placeholder="Project Title" required/>
+                                                <input type="text" class="form-control" name="skill_name"
+                                                       id="skill_name"
+                                                       placeholder="Write Skill Name" required/>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_internal_link">Project
-                                                Internal Link:</label>
-
-                                            <div class="col-md-5">
-                                                <input type="url" class="form-control" name="project_internal_link"
-                                                       id="project_internal_link"
-                                                       placeholder="Write Project internal link"/>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_description">Project
+                                            <label class="col-md-3 control-label" for="skill_description">Skill
                                                 Description:</label>
 
                                             <div class="col-md-5">
-                                                 <textarea type="text" class="form-control" id="project_description"
-                                                           name="project_description" rows="3"
-                                                           placeholder="Project Description" required></textarea>
+                                                 <textarea type="text" class="form-control" id="skill_description"
+                                                           name="skill_description" rows="3"
+                                                           placeholder="Skill Description"></textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_external_link">Project
-                                                External Link:</label>
+                                            <label class="col-md-3 control-label" for="skill_percentage">Skill Percentage:</label>
 
                                             <div class="col-md-5">
-                                                <input type="url" class="form-control" name="project_external_link"
-                                                       id="project_external_link"
-                                                       placeholder="Write Project external link"/>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_start_date">Project Start
-                                                Date:</label>
-
-                                            <div class="col-md-5">
-                                                <input type="text" name="project_start_date" class="form-control"
-                                                       placeholder="Click to pick Project Start Date"
-                                                       id="project_start_date" required/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_end_date">Project End
-                                                Date:</label>
-
-                                            <div class="col-md-5">
-                                                <input type="text" name="project_end_date" class="form-control"
-                                                       placeholder="Click to pick Project End Date"
-                                                       id="project_end_date" required/>
+                                                 <input type="number" class="form-control" id="skill_percentage"
+                                                           name="skill_percentage"
+                                                           placeholder="Skill Percentage" required/>
                                             </div>
                                         </div>
 
@@ -279,68 +201,48 @@
                                         <thead>
                                         <tr>
                                             <th>Serial</th>
-                                            <th>Category Name</th>
-                                            <th>Project Title</th>
-                                            <th>Project Image</th>
-                                            <th>Project Start Date</th>
-                                            <th>Project End Date</th>
-                                            <th>Project Internal Link</th>
+                                            <th>Skill Category Name</th>
+                                            <th>Skill Name</th>
+                                            <th>Skill Percentage</th>
                                             <th>Is Active</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
                                         <?php $i = $start_from;
                                         $start = 0; ?>
-                                        <?php if (isset($all_projects) && $all_projects->num_rows() > 0): ?>
-                                        <?php foreach ($all_projects->result() as $row):
-                                        ?>
+                                        <?php if (isset($all_skills) && $all_skills->num_rows() > 0): ?>
+                                        <?php foreach ($all_skills->result() as $row):
+                                            ?>
 
                                             <tbody>
                                             <tr>
                                                 <td align="center"><?php echo $i + $start; ?></td>
-                                                <td><?php echo $row->project_category_name; ?></td>
-                                                <td><?php echo $row->project_title; ?></td>
-                                                <td align="center">
-                                                    <?php if ($row->project_image) { ?>
-                                                        <img class="img-responsive img-thumbnail" height="85px" width="85px"
-                                                             src="<?php echo base_url(); ?>uploaded/projects/<?php echo $row->project_image; ?>"
-                                                             alt="<?php echo $row->project_image; ?>"/> <br/>
+                                                <td><?php echo $row->skill_category_name; ?></td>
+                                                <td><?php echo $row->skill_name; ?></td>
+                                                <td>
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped active" role="progressbar"
+                                                             aria-valuenow="<?php echo $row->skill_percentage; ?>" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $row->skill_percentage; ?>%">
+                                                            <?php echo $row->skill_percentage; ?>%
+                                                        </div>
+                                                    </div>
 
-                                                        <a class='btn btn-sm btn-warning'
-                                                           href="<?php echo base_url(); ?>admin/upload/project/image/<?php echo base64_encode($row->project_id); ?>"
-                                                           role="button"><span class='glyphicon glyphicon-edit'></span>Change
-                                                            Image</a>
-                                                        <a class="btn btn-danger"
-                                                           href="<?php echo base_url(); ?>admin/project/image/delete//<?php echo base64_encode($row->project_id); ?>"
-                                                           onclick="return deleteImage()" title="Delete"
-                                                           role="button"><span class="glyphicon glyphicon-trash"></span></a>
-
-                                                    <?php } else { ?>
-                                                        <a class='btn btn-submit btn-info'
-                                                           href="<?php echo base_url(); ?>admin/upload/project/image/<?php echo base64_encode($row->project_id); ?>"
-                                                           role="button"><span class='glyphicon glyphicon-plus'></span>Add
-                                                            Image</a>
-                                                    <?php } ?>
                                                 </td>
-
-                                                <td><?php echo $row->project_start_date; ?></td>
-                                                <td><?php echo $row->project_end_date; ?></td>
-                                                <td><?php echo $row->project_internal_link; ?></td>
                                                 <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
                                                 <td align="center"><a class="btn btn-success" title="Edit"
-                                                                      href="<?php echo base_url(); ?>admin/update/project/<?php echo base64_encode($row->project_id); ?>"
+                                                                      href="<?php echo base_url(); ?>admin/update/company/skill/<?php echo base64_encode($row->id); ?>"
                                                                       role="button"><span
                                                             class="glyphicon glyphicon-edit"></span></a>
 
                                                     <a class="btn btn-danger"
-                                                       href="<?php echo base_url(); ?>admin/delete/project/<?php echo base64_encode($row->project_id); ?>"
+                                                       href="<?php echo base_url(); ?>admin/delete/company/skill/<?php echo base64_encode($row->id); ?>"
                                                        onclick="return checkMe()" title="Delete"
                                                        role="button"><span class="glyphicon glyphicon-trash"></span></a>
                                                 </td>
 
                                             </tr>
                                             </tbody> <?php $i++; ?>
-                                        <?php endforeach;  ?>
+                                        <?php endforeach; ?>
                                     </table>
                                     <div class="pagination" style="float:right;"> <?php echo $paginglinks; ?></div>
                                     <div class="pagination"
@@ -371,20 +273,6 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>js/bootstrap-datepicker.js"></script>
-    <script type="text/javascript">
-        // When the document is ready
-        $(document).ready(function () {
-
-            $('#project_start_date').datepicker({
-                format: "dd/mm/yyyy"
-            });
-            $('#project_end_date').datepicker({
-                format: "dd/mm/yyyy"
-            });
-
-        });
-    </script>
-
+<script src="<?php echo base_url(); ?>js/bootstrap-datepicker.js"></script>
 
 </body>

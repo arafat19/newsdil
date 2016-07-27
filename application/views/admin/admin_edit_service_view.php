@@ -1,4 +1,33 @@
 <body>
+<script language="javascript">
+    function link_create() {
+        var f1 = document.getElementById("service_name");
+        var f2 = document.getElementById("service_page_url");
+
+        f2.value = string_to_slug(f1.value);
+    }
+
+
+    function string_to_slug(str) {
+        str = str.replace(/^\s+|\s+$/g, ''); // trim
+        str = str.toLowerCase();
+
+        // remove accents, swap ñ for n, etc
+        var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+        var to = "aaaaeeeeiiiioooouuuunc------";
+        for (var i = 0, l = from.length; i < l; i++) {
+            str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+        }
+
+        str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+            .replace(/\s+/g, '-') // collapse whitespace and replace by -
+            .replace(/-+/g, '-'); // collapse dashes
+
+        var url = window.base_url = <?php echo json_encode(base_url()); ?>;
+        return url +'service/'+ str;
+    }
+
+</script>
 <div id="wrapper">
     <?php $this->load->view('admin/admin_dashboard_navbar_view'); ?>
 
@@ -64,7 +93,7 @@
                                                 Name:</label>
 
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" name="service_name"
+                                                <input type="text" class="form-control" name="service_name" onblur="link_create()"
                                                        id="service_name" value="<?php echo $service['service_name']; ?>"
                                                        placeholder="Service Name" required autofocus/>
                                             </div>

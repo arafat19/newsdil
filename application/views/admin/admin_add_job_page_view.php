@@ -1,13 +1,5 @@
 <body>
-<script language="javascript">
-    function checkMe() {
-        if (confirm("Are you sure you want to delete the selected service page?")) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-</script>
+
 <div id="wrapper">
     <?php $this->load->view('admin/admin_dashboard_navbar_view'); ?>
 
@@ -70,14 +62,14 @@
                                                 </div>
                                             </div>
                                         <?php }
-                                        if ($this->session->flashdata('update_message')) { ?>
+                                        if ($this->session->flashdata('job_page_update_message')) { ?>
                                             <div class="form-group">
                                                 <div class="col-md-8">
                                                     <div class="alert alert-success" role="alert">
                                                         <i class="fa fa-check"></i>
                                                         <a href="#" class="close" data-dismiss="alert"
                                                            aria-label="close">&times;</a>
-                                                        <?php echo $this->session->flashdata('update_message'); ?>
+                                                        <?php echo $this->session->flashdata('job_page_update_message'); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -107,18 +99,16 @@
                                             </div>
                                         <?php } ?>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="service_name">Service
-                                                Name:</label>
+                                            <label class="col-md-3 control-label" for="job_title">Job Title:</label>
 
                                             <div class="col-md-5">
-                                                <select class="form-control" name="service_name"
-                                                        id="service_name" title="Select Service Name" required
-                                                        autofocus>
-                                                    <option selected>Please Select a Service Name</option>
-                                                    <?php if (isset($service_list) && $service_list->num_rows() > 0):
-                                                        foreach ($service_list->result() as $row): ?>
+                                                <select class="form-control" name="job_title"
+                                                        id="job_title" title="Select a Job Title" required autofocus>
+                                                    <option selected>Please Select a Job Title</option>
+                                                    <?php if (isset($job_title_list) && $job_title_list->num_rows() > 0):
+                                                        foreach ($job_title_list->result() as $row): ?>
                                                             <option
-                                                                value="<?php echo $row->id; ?>"><?php echo $row->service_name; ?></option>
+                                                                value="<?php echo $row->job_id; ?>"><?php echo $row->job_title; ?></option>
                                                             <?php
                                                         endforeach;
                                                     endif; ?>
@@ -128,12 +118,20 @@
 
 
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="page_description">Service Page
-                                                Content:</label>
+                                            <label class="col-md-3 control-label" for="job_detail_description">Job Detail Description:</label>
 
                                             <div class="col-md-5">
-                                                <textarea class="form-control" name="page_description"
-                                                          id="page_description"></textarea>
+                                                <textarea class="form-control" name="job_detail_description"
+                                                          id="job_detail_description"></textarea>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="job_requirements">Job Requirements:</label>
+
+                                            <div class="col-md-5">
+                                                <textarea class="form-control" name="job_requirements"
+                                                          id="job_requirements"></textarea>
 
                                             </div>
                                         </div>
@@ -150,6 +148,7 @@
                             <button id="clearFormButton" name="clearFormButton" type="reset"
                                     class="btn btn-submit btn-danger"><span class="glyphicon glyphicon-remove"></span>Cancel
                             </button>
+
                         </div>
                     </form>
                 </div>
@@ -158,52 +157,54 @@
             <div class="row row-fluid">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Service List</h3>
+                        <h3 class="panel-title"><?php echo $list_title; ?></h3>
                     </div>
                     <div class="panel-body">
                         <div class="form-group">
                             <div class="col-lg-12">
                                 <div class="table-responsive">
-                                    <table id="myTable" class="table table-bordered table-hover table-striped">
+                                    <table class="table table-bordered table-hover table-striped">
                                         <thead>
                                         <tr>
                                             <th>Serial</th>
-                                            <th>Service Name</th>
-                                            <th>Service Page</th>
+                                            <th>Job Title</th>
+                                            <th>Job Detail Description</th>
+                                            <th>Job Requirements</th>
                                             <th>Is Active</th>
-                                            <th>Service URL</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
                                         <?php $i = $start_from;
                                         $start = 0; ?>
-                                        <?php if (isset($all_services) && $all_services->num_rows() > 0): ?>
-                                        <?php foreach ($all_services->result() as $row): ?>
+                                        <?php if (isset($all_jobs) && $all_jobs->num_rows() > 0): ?>
+                                        <?php foreach ($all_jobs->result() as $row):
+                                            ?>
 
                                             <tbody>
                                             <tr>
                                                 <td align="center"><?php echo $i + $start; ?></td>
-                                                <td><?php echo $row->service_name; ?></td>
-                                                <td><?php echo $row->service_page_description; ?></td>
+                                                <td><?php echo $row->job_title; ?></td>
+                                                <td><?php echo $row->job_detail_description; ?></td>
+                                                <td><?php echo $row->job_requirements; ?></td>
                                                 <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
-                                                <td align="left"><?php echo $row->service_page_url ? $row->service_page_url : 'No URL'; ?></td>
                                                 <td align="center"><a class="btn btn-success" title="Edit"
-                                                                      href="<?php echo base_url(); ?>admin/update/service/page/<?php echo base64_encode($row->id); ?>"
+                                                                      href="<?php echo base_url(); ?>admin/update/job/page/<?php echo base64_encode($row->job_id); ?>"
                                                                       role="button"><span
                                                             class="glyphicon glyphicon-edit"></span></a>
                                                 </td>
+
                                             </tr>
                                             </tbody> <?php $i++; ?>
                                         <?php endforeach; ?>
-
                                     </table>
                                     <div class="pagination" style="float:right;"> <?php echo $paginglinks; ?></div>
                                     <div class="pagination"
                                          style="float:left;"> <?php echo(!empty($pagermessage) ? $pagermessage : ''); ?></div>
-
                                     <?php else: ?>
-                                        <div>
-                                            <p>No results were found</p>
+                                        <div class="col-md-12">
+                                            <div class="alert alert-info " role="alert">
+                                                No Results were found.
+                                            </div>
                                         </div>
                                     <?php endif; ?>
                                 </div>

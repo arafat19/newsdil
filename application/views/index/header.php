@@ -13,7 +13,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url();?>css/bootstrap.css" rel="stylesheet">
     <!--Main Menu File-->
-    <link rel="stylesheet" type="text/css" media="all" href="css/webslidemenu.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url();?>css/webslidemenu.css" />
     <!-- Custom CSS -->
     <link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
     <!-- Owl Carousel Assets -->
@@ -31,5 +31,6 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
     <![endif]-->
 </head>

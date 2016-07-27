@@ -1,4 +1,32 @@
 <body>
+<script language="JavaScript">
+    function link_create() {
+        var f1 = document.getElementById("project_title");
+        var f2 = document.getElementById("project_internal_link");
+
+        f2.value = string_to_slug(f1.value);
+    }
+
+
+    function string_to_slug(str) {
+        str = str.replace(/^\s+|\s+$/g, ''); // trim
+        str = str.toLowerCase();
+
+        // remove accents, swap ñ for n, etc
+        var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+        var to = "aaaaeeeeiiiioooouuuunc------";
+        for (var i = 0, l = from.length; i < l; i++) {
+            str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+        }
+
+        str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+            .replace(/\s+/g, '-') // collapse whitespace and replace by -
+            .replace(/-+/g, '-'); // collapse dashes
+
+        var url = window.base_url = <?php echo json_encode(base_url()); ?>;
+        return url + 'project/'+ str;
+    }
+</script>
 
 <div id="wrapper">
     <?php $this->load->view('admin/admin_dashboard_navbar_view'); ?>
@@ -77,8 +105,19 @@
                                                 Title:</label>
 
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" name="project_title" value="<?php echo $single_project['project_title']; ?>"
+                                                <input type="text" class="form-control" name="project_title"  onblur="link_create()"
+                                                       value="<?php echo $single_project['project_title']; ?>"
                                                        id="project_title" placeholder="Project Title" required/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="project_internal_link">Project
+                                                Internal Link:</label>
+
+                                            <div class="col-md-5">
+                                                <input type="url" class="form-control" name="project_internal_link"
+                                                       id="project_internal_link" value="<?php echo $single_project['project_internal_link']; ?>"/>
                                             </div>
                                         </div>
 
@@ -92,16 +131,7 @@
                                                            placeholder="Project Description" required><?php echo $single_project['project_description']; ?></textarea>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="project_internal_link">Project
-                                                Internal Link:</label>
 
-                                            <div class="col-md-5">
-                                                <input type="url" class="form-control" name="project_internal_link"
-                                                       id="project_internal_link" value="<?php echo $single_project['project_internal_link']; ?>"
-                                                       placeholder="Write Project internal link"/>
-                                            </div>
-                                        </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="project_external_link">Project
                                                 External Link:</label>
@@ -156,8 +186,8 @@
                                     class="btn btn-submit btn-success"><span class="glyphicon glyphicon-edit"></span>Update
                             </button>
 
-                            <a class="btn btn-danger" href="<?php echo base_url(); ?>admin/add/project/"
-                               role="button"><span class="glyphicon glyphicon-remove"></span>Cancel</a>
+                                <a class="btn btn-danger" href="<?php echo base_url(); ?>admin/add/project/"
+                                   role="button"><span class="glyphicon glyphicon-remove"></span>Cancel</a>
                         </div>
                     </form>
                 </div>

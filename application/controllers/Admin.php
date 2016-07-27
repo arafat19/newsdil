@@ -67,6 +67,809 @@ class Admin extends CI_Controller
         $this->load->view('admin/footer_view', $data);
     }
 
+    public function add_company_skill_category()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('skill_category_name', 'Skill Category Name', 'required|trim|min_length[2]|callback_unique_skill_category_name');
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Add Company Skill Category - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'other_page';
+                $data['common_header'] = 'Add Company Skill Category';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                /*==================================================
+                Start of Pagination Code segment for service page
+                ===================================================*/
+
+                $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
+                $config['total_rows'] = $this->app_user_model->total_count_of_skill_category();
+                $config['per_page'] = 10;
+                $config['uri_segment'] = 3;
+                $config['base_url'] = base_url() . 'admin/add_company_skill_category';
+                $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['prev_link'] = '&laquo;';
+                $config['prev_tag_open'] = '<li>';
+                $config['prev_tag_close'] = '</li>';
+                $config['next_link'] = '&raquo;';
+                $config['next_tag_open'] = '<li>';
+                $config['next_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="active"><a href="#">';
+                $config['cur_tag_close'] = '</a></li>';
+                $config['num_tag_open'] = '<li>';
+                $config['num_tag_close'] = '</li>';
+                $this->pagination->initialize($config);
+                $data['paginglinks'] = $this->pagination->create_links();
+
+                $current_page = ($this->pagination->cur_page == 0) ? 1 : $this->pagination->cur_page;
+                $data['start_from'] = ($current_page - 1) * $config["per_page"] + 1;
+
+
+                /*$data['serial'] = (($this->pagination->cur_page - 1) * $config["per_page"]) + 1;*/
+                $data['cur'] = $this->pagination->cur_page;
+
+                // Showing total rows count
+                if ($data['paginglinks'] != '') {
+                    $to_serial = $this->pagination->cur_page * $this->pagination->per_page;
+                    $data['pagermessage'] = 'Showing ' . ((($this->pagination->cur_page - 1) * $this->pagination->per_page) + 1) . ' to ' . ($to_serial >= $config['total_rows'] ? $config['total_rows'] : $to_serial) . ' of ' . $config['total_rows'];
+                }
+
+                /*=================================================
+                    End of Pagination Code segment for service page
+               ===================================================*/
+
+                $all_skill_category = $this->app_user_model->get_all_skill_category($config["per_page"], $offset); // Reading and showing the Testimonials list from DB
+                $data['all_skill_category'] = $all_skill_category;
+                $data['list_title'] = 'Company Skill Category List';
+
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_add_company_skill_category_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $data = array(
+                    'skill_category_name' => $this->input->post('skill_category_name'),
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->add_skill_category($data);
+                $this->session->set_flashdata('add_success', 'Company skill category is successfully added');
+                redirect(base_url() . 'admin/add/company/skill/category');
+            }
+        }
+    }
+
+    public function update_company_skill_category($skill_cat_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $skill_cat_id_dec = base64_decode($skill_cat_id);
+            $single_skill_cat = $this->app_user_model->get_single_skill_cat_by_id($skill_cat_id_dec);
+
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            $single_skill_cat_name_db = $single_skill_cat["skill_category_name"];
+            $single_skill_cat_name = $this->input->post('skill_category_name');
+            if ($single_skill_cat_name_db != $single_skill_cat_name) {
+                $this->form_validation->set_rules('skill_category_name', 'Skill Category Name', 'required|trim|min_length[2]|callback_unique_skill_category_name');
+            } else {
+                $this->form_validation->set_rules('skill_category_name', 'Skill Category Name', 'required|trim|min_length[2]');
+            }
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update Company Skill Category - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'other_page';
+                $data['common_header'] = 'Update Company Skill Category';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                $data['single_skill_cat'] = $single_skill_cat;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_company_skill_cat_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $data = array(
+                    'skill_category_name' => $this->input->post('skill_category_name'),
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->update_skill_cat($data, $skill_cat_id_dec);
+                $this->session->set_flashdata('skill_cat_update_message', "Selected Skill Category is updated successfully.");
+                redirect(base_url() . 'admin/add/company/skill/category');
+            }
+        }
+    }
+
+
+    public function delete_company_skill_category($skill_cat_id)
+    {
+        $skill_cat_id_dec = base64_decode($skill_cat_id);
+        $single_skill_cat = $this->app_user_model->get_single_skill_cat_by_id($skill_cat_id_dec);
+        $is_active = $single_skill_cat["is_active"];
+        if ($is_active) {
+            $this->session->set_flashdata('cant_delete_message', 'Active Company skill category can not be deleted.');
+        } else {
+            $this->app_user_model->delete_company_skill_category($skill_cat_id_dec);
+            $this->session->set_flashdata('skill_cat_delete_message', 'Selected Skill category is successfully deleted.');
+        }
+        redirect(base_url() . 'admin/add/company/skill/category');
+    }
+
+
+    public function add_company_skills()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('skill_category_name', 'Skill Category Name', 'required');
+            $this->form_validation->set_rules('skill_name', 'Skill Name', 'required|trim|min_length[4]|callback_unique_skill_name');
+            $this->form_validation->set_rules('skill_description', 'Skill description', 'trim|min_length[2]');
+            $this->form_validation->set_rules('skill_percentage', 'Skill Percentage', 'required|trim|min_length[1]');
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Add Company Skills - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'other_page';
+                $data['common_header'] = 'Add Company Skills';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                /*==================================================
+                Start of Pagination Code segment for service page
+                ===================================================*/
+
+                $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
+                $config['total_rows'] = $this->app_user_model->total_count_of_skills();
+                $config['per_page'] = 10;
+                $config['uri_segment'] = 3;
+                $config['base_url'] = base_url() . 'admin/add_company_skills';
+                $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['prev_link'] = '&laquo;';
+                $config['prev_tag_open'] = '<li>';
+                $config['prev_tag_close'] = '</li>';
+                $config['next_link'] = '&raquo;';
+                $config['next_tag_open'] = '<li>';
+                $config['next_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="active"><a href="#">';
+                $config['cur_tag_close'] = '</a></li>';
+                $config['num_tag_open'] = '<li>';
+                $config['num_tag_close'] = '</li>';
+                $this->pagination->initialize($config);
+                $data['paginglinks'] = $this->pagination->create_links();
+
+                $current_page = ($this->pagination->cur_page == 0) ? 1 : $this->pagination->cur_page;
+                $data['start_from'] = ($current_page - 1) * $config["per_page"] + 1;
+
+
+                /*$data['serial'] = (($this->pagination->cur_page - 1) * $config["per_page"]) + 1;*/
+                $data['cur'] = $this->pagination->cur_page;
+
+                // Showing total rows count
+                if ($data['paginglinks'] != '') {
+                    $to_serial = $this->pagination->cur_page * $this->pagination->per_page;
+                    $data['pagermessage'] = 'Showing ' . ((($this->pagination->cur_page - 1) * $this->pagination->per_page) + 1) . ' to ' . ($to_serial >= $config['total_rows'] ? $config['total_rows'] : $to_serial) . ' of ' . $config['total_rows'];
+                }
+
+                /*=================================================
+                    End of Pagination Code segment for service page
+               ===================================================*/
+
+                $all_skills = $this->app_user_model->get_all_skills($config["per_page"], $offset); // Reading and showing the Testimonials list from DB
+                $data['all_skills'] = $all_skills;
+                $data['list_title'] = 'Company Skill List';
+
+                $active_skill_category = $this->main_ui_model->get_active_skill_category(); // Reading and showing Only the Active project category list from DB by setting is_active = 1
+                $data['active_skill_category'] = $active_skill_category;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_add_company_skill_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $data = array(
+                    'skill_category_id' => $this->input->post('skill_category_name'),
+                    'skill_name' => $this->input->post('skill_name'),
+                    'skill_description' => $this->input->post('skill_description'),
+                    'skill_percentage' => $this->input->post('skill_percentage'),
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->add_skills($data);
+                $this->session->set_flashdata('add_success', 'Company skill is successfully added');
+                redirect(base_url() . 'admin/add/company/skills');
+            }
+        }
+    }
+
+    public function update_company_skills($skill_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $skill_id_dec = base64_decode($skill_id);
+            $single_skill = $this->app_user_model->get_single_skill_by_id($skill_id_dec);
+
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            $single_skill_name_db = $single_skill["skill_name"];
+            $single_skill_name = $this->input->post('skill_name');
+            if ($single_skill_name_db != $single_skill_name) {
+                $this->form_validation->set_rules('skill_name', 'Skill Name', 'required|trim|min_length[4]|callback_unique_skill_name');
+            } else {
+                $this->form_validation->set_rules('skill_name', 'Skill Name', 'required|trim|min_length[4]');
+            }
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update Company Skills - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'other_page';
+                $data['common_header'] = 'Update Company Skills';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                $data['single_skill'] = $single_skill;
+
+                $active_skill_category = $this->main_ui_model->get_active_skill_category(); // Reading and showing Only the Active project category list from DB by setting is_active = 1
+                $data['active_skill_category'] = $active_skill_category;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_company_skill_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $data = array(
+                    'skill_category_id' => $this->input->post('skill_category_name'),
+                    'skill_name' => $this->input->post('skill_name'),
+                    'skill_description' => $this->input->post('skill_description'),
+                    'skill_percentage' => $this->input->post('skill_percentage'),
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->update_skill($data, $skill_id_dec);
+                $this->session->set_flashdata('skill_update_message', "Selected Skill is updated successfully.");
+                redirect(base_url() . 'admin/add/company/skills');
+            }
+        }
+    }
+
+
+    public function delete_company_skills($skill_id)
+    {
+        $skill_id_dec = base64_decode($skill_id);
+        $single_skill = $this->app_user_model->get_single_skill_by_id($skill_id_dec);
+        $is_active = $single_skill["is_active"];
+        if ($is_active) {
+            $this->session->set_flashdata('cant_delete_message', 'Active Company skill can not be deleted.');
+        } else {
+            $this->app_user_model->delete_company_skill($skill_id_dec);
+            $this->session->set_flashdata('skill_delete_message', 'Selected Skill is successfully deleted.');
+        }
+        redirect(base_url() . 'admin/add/company/skills');
+    }
+
+
+    public function show_single_applicant($applicant_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+
+            $data['title'] = 'Single Applicant Details - Shwapno Duar IT Ltd.';
+            $data['navbar_title'] = 'SDIL Admin Panel';
+            $data['active'] = 'career';
+            $data['full_name'] = $this->session->userdata('full_name');
+            $data['common_header'] = 'Single Applicant Details';
+
+            $applicant_id_dec = base64_decode($applicant_id);
+            $single_applicant = $this->app_user_model->get_single_applicant_by_id($applicant_id_dec);
+            $data['single_applicant'] = $single_applicant;
+
+            $this->load->view('admin/admin_dashboard_header_view', $data);
+            $this->load->view('admin/admin_single_applicant_view', $data);
+            $this->load->view('admin/footer_view', $data);
+        }
+    }
+
+    public function show_all_applicants()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+
+            $data['title'] = 'All Applicants List - Shwapno Duar IT Ltd.';
+            $data['navbar_title'] = 'SDIL Admin Panel';
+            $data['active'] = 'career';
+            $data['full_name'] = $this->session->userdata('full_name');
+            $data['common_header'] = 'All Applicants List';
+
+            /*==================================================
+                Start of Pagination Code segment for service page
+                ===================================================*/
+
+            $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
+            $config['total_rows'] = $this->app_user_model->total_count_of_applicants();
+            $config['per_page'] = 10;
+            $config['uri_segment'] = 3;
+            $config['base_url'] = base_url() . 'admin/show_all_applicants';
+            $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
+            $config['full_tag_open'] = '<ul class="pagination">';
+            $config['full_tag_close'] = '</ul>';
+            $config['prev_link'] = '&laquo;';
+            $config['prev_tag_open'] = '<li>';
+            $config['prev_tag_close'] = '</li>';
+            $config['next_link'] = '&raquo;';
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';
+            $config['cur_tag_open'] = '<li class="active"><a href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+            $this->pagination->initialize($config);
+            $data['paginglinks'] = $this->pagination->create_links();
+
+            $current_page = ($this->pagination->cur_page == 0) ? 1 : $this->pagination->cur_page;
+            $data['start_from'] = ($current_page - 1) * $config["per_page"] + 1;
+
+            $data['cur'] = $this->pagination->cur_page;
+
+            // Showing total rows count
+            if ($data['paginglinks'] != '') {
+                $to_serial = $this->pagination->cur_page * $this->pagination->per_page;
+                $data['pagermessage'] = 'Showing ' . ((($this->pagination->cur_page - 1) * $this->pagination->per_page) + 1) . ' to ' . ($to_serial >= $config['total_rows'] ? $config['total_rows'] : $to_serial) . ' of ' . $config['total_rows'];
+            }
+
+            /*=================================================
+                End of Pagination Code segment for service page
+           ===================================================*/
+
+            $all_applicants_obj = $this->app_user_model->get_all_applicants($config["per_page"], $offset);
+            $data['all_applicants'] = $all_applicants_obj;
+
+
+            $this->load->view('admin/admin_dashboard_header_view', $data);
+            $this->load->view('admin/admin_all_applicants_list_view', $data);
+            $this->load->view('admin/footer_view', $data);
+        }
+    }
+
+    public function delete_job_applicant($applicant_id)
+    {
+        $applicant_id_dec = base64_decode($applicant_id);
+        $single_applicant = $this->app_user_model->get_single_applicant_by_id($applicant_id_dec);
+        $applicant_cv_file = $single_applicant["applicant_cv_file"];
+        $path = "./uploaded/job_applicants_resume/" . $applicant_cv_file;
+        unlink($path);
+        $this->app_user_model->delete_applicant($applicant_id_dec);
+        $this->session->set_flashdata('applicant_delete_message', 'Selected Applicant is successfully deleted with resume file.');
+        redirect(base_url() . 'admin/job/applicants');
+    }
+
+
+    public function add_job()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('job_type', 'Please select a Job type', 'required');
+            $this->form_validation->set_rules('job_title', 'Job title', 'required|trim|min_length[4]|callback_unique_job_title');
+            $this->form_validation->set_rules('job_page_url', 'Job Page URL', 'required|trim|min_length[4]|callback_unique_job_page_url');
+            $this->form_validation->set_rules('job_short_description', 'job short description', 'required|trim|min_length[8]');
+            $this->form_validation->set_rules('job_experience', 'job experience', 'required|trim|min_length[4]');
+            $this->form_validation->set_rules('job_salary', 'job salary', 'required|trim|min_length[4]');
+            $this->form_validation->set_rules('working_hour', 'job working hour', 'trim|min_length[4]');
+            $this->form_validation->set_rules('job_application_deadline', 'Job Application Deadline Date', 'required|trim|min_length[4]');
+            $this->form_validation->set_rules('other_conditions', 'others job conditions', 'trim|min_length[4]');
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Add Job - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'career';
+                $data['common_header'] = 'Add Job';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                /*==================================================
+                Start of Pagination Code segment for service page
+                ===================================================*/
+
+                $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
+                $config['total_rows'] = $this->app_user_model->total_count_of_jobs();
+                $config['per_page'] = 10;
+                $config['uri_segment'] = 3;
+                $config['base_url'] = base_url() . 'admin/add_job';
+                $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['prev_link'] = '&laquo;';
+                $config['prev_tag_open'] = '<li>';
+                $config['prev_tag_close'] = '</li>';
+                $config['next_link'] = '&raquo;';
+                $config['next_tag_open'] = '<li>';
+                $config['next_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="active"><a href="#">';
+                $config['cur_tag_close'] = '</a></li>';
+                $config['num_tag_open'] = '<li>';
+                $config['num_tag_close'] = '</li>';
+                $this->pagination->initialize($config);
+                $data['paginglinks'] = $this->pagination->create_links();
+
+                $current_page = ($this->pagination->cur_page == 0) ? 1 : $this->pagination->cur_page;
+                $data['start_from'] = ($current_page - 1) * $config["per_page"] + 1;
+
+
+                /*$data['serial'] = (($this->pagination->cur_page - 1) * $config["per_page"]) + 1;*/
+                $data['cur'] = $this->pagination->cur_page;
+
+                // Showing total rows count
+                if ($data['paginglinks'] != '') {
+                    $to_serial = $this->pagination->cur_page * $this->pagination->per_page;
+                    $data['pagermessage'] = 'Showing ' . ((($this->pagination->cur_page - 1) * $this->pagination->per_page) + 1) . ' to ' . ($to_serial >= $config['total_rows'] ? $config['total_rows'] : $to_serial) . ' of ' . $config['total_rows'];
+                }
+
+                /*=================================================
+                    End of Pagination Code segment for service page
+               ===================================================*/
+
+                $all_jobs = $this->app_user_model->get_all_jobs($config["per_page"], $offset); // Reading and showing the Testimonials list from DB
+                $data['all_jobs'] = $all_jobs;
+                $data['list_title'] = 'Job List';
+
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_add_job_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $data = array(
+                    'job_title' => $this->input->post('job_title'),
+                    'job_page_url' => $this->input->post('job_page_url'),
+                    'job_short_description' => $this->input->post('job_short_description'),
+                    'job_type' => $this->input->post('job_type'),
+                    'job_salary' => $this->input->post('job_salary'),
+                    'job_experience' => $this->input->post('job_experience'),
+                    'working_hour' => $this->input->post('working_hour'),
+                    'job_application_deadline' => $this->input->post('job_application_deadline'),
+                    'other_conditions' => $this->input->post('other_conditions'),
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->add_jobs($data);
+                $this->session->set_flashdata('add_success', 'Job is successfully added');
+                redirect(base_url() . 'admin/add/job');
+            }
+        }
+    }
+
+    public function update_job($job_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $job_id_dec = base64_decode($job_id);
+            $single_job = $this->app_user_model->get_single_job_by_id($job_id_dec);
+
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            $single_job_title_db = $single_job["job_title"];
+            $single_job_title = $this->input->post('job_title');
+
+            $job_page_url_db = $single_job["job_page_url"];
+            $job_page_url = strtolower($this->input->post('job_page_url'));
+
+            if ($single_job_title_db != $single_job_title) {
+                $this->form_validation->set_rules('job_title', 'Job title', 'required|trim|min_length[4]|callback_unique_job_title');
+            } else {
+                $this->form_validation->set_rules('job_title', 'Job title', 'required|trim|min_length[4]');
+            }
+            if ($job_page_url_db != $job_page_url) {
+                $this->form_validation->set_rules('job_page_url', 'Job Page URL', 'required|trim|min_length[4]|callback_unique_job_page_url');
+            } else {
+                $this->form_validation->set_rules('job_page_url', 'Job Page URL', 'required|trim|min_length[4]');
+            }
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update Job - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'career';
+                $data['common_header'] = 'Update Job';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                $data['single_job'] = $single_job;
+
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_job_view', $data);
+                $this->load->view('admin/footer_view', $data);
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $data = array(
+                    'job_title' => $this->input->post('job_title'),
+                    'job_page_url' => $this->input->post('job_page_url'),
+                    'job_short_description' => $this->input->post('job_short_description'),
+                    'job_type' => $this->input->post('job_type'),
+                    'job_salary' => $this->input->post('job_salary'),
+                    'job_experience' => $this->input->post('job_experience'),
+                    'working_hour' => $this->input->post('working_hour'),
+                    'job_application_deadline' => $this->input->post('job_application_deadline'),
+                    'other_conditions' => $this->input->post('other_conditions'),
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->update_job($data, $job_id_dec);
+                $this->session->set_flashdata('job_update_message', "Selected Job is updated successfully.");
+                redirect(base_url() . 'admin/add/job/');
+            }
+        }
+    }
+
+    public function delete_job($job_id)
+    {
+        $job_id_dec = base64_decode($job_id);
+        $single_job = $this->app_user_model->get_single_job_by_id($job_id_dec);
+        $is_active = $single_job["is_active"];
+        if ($is_active) {
+            $this->session->set_flashdata('cant_delete_message', 'Active Job can not be deleted');
+        } else {
+            $this->app_user_model->delete_job($job_id_dec);
+            $this->session->set_flashdata('job_delete_message', 'Selected Job is successfully deleted');
+        }
+        redirect(base_url() . 'admin/add/job/');
+    }
+
+    public function add_job_page()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('job_title', 'Please select a Job Title', 'required');
+            $this->form_validation->set_rules('job_detail_description', 'Job Details description', 'required|trim|min_length[5]');
+            $this->form_validation->set_rules('job_requirements', 'Job Requirements', 'required|trim|min_length[5]');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Add Job Page - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'career';
+                $data['common_header'] = 'Add Job Page';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                /*==================================================
+                Start of Pagination Code segment for service page
+                ===================================================*/
+
+                $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
+                $config['total_rows'] = $this->app_user_model->total_count_of_jobs();
+                $config['per_page'] = 10;
+                $config['uri_segment'] = 3;
+                $config['base_url'] = base_url() . 'admin/add_job_page';
+                $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['prev_link'] = '&laquo;';
+                $config['prev_tag_open'] = '<li>';
+                $config['prev_tag_close'] = '</li>';
+                $config['next_link'] = '&raquo;';
+                $config['next_tag_open'] = '<li>';
+                $config['next_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="active"><a href="#">';
+                $config['cur_tag_close'] = '</a></li>';
+                $config['num_tag_open'] = '<li>';
+                $config['num_tag_close'] = '</li>';
+                $this->pagination->initialize($config);
+                $data['paginglinks'] = $this->pagination->create_links();
+
+                $current_page = ($this->pagination->cur_page == 0) ? 1 : $this->pagination->cur_page;
+                $data['start_from'] = ($current_page - 1) * $config["per_page"] + 1;
+
+
+                /*$data['serial'] = (($this->pagination->cur_page - 1) * $config["per_page"]) + 1;*/
+                $data['cur'] = $this->pagination->cur_page;
+
+                // Showing total rows count
+                if ($data['paginglinks'] != '') {
+                    $to_serial = $this->pagination->cur_page * $this->pagination->per_page;
+                    $data['pagermessage'] = 'Showing ' . ((($this->pagination->cur_page - 1) * $this->pagination->per_page) + 1) . ' to ' . ($to_serial >= $config['total_rows'] ? $config['total_rows'] : $to_serial) . ' of ' . $config['total_rows'];
+                }
+
+                /*=================================================
+                    End of Pagination Code segment for service page
+               ===================================================*/
+
+                $all_jobs = $this->app_user_model->get_all_jobs($config["per_page"], $offset); // Reading and showing the Testimonials list from DB
+                $data['all_jobs'] = $all_jobs;
+
+                $job_title_list = $this->app_user_model->get_active_job_title_list();
+                $data['job_title_list'] = $job_title_list;
+                $data['list_title'] = 'Job List';
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_add_job_page_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $job_id = $this->input->post('job_title');
+                $single_job = $this->app_user_model->get_single_job_by_id($job_id);
+                if ($single_job['job_detail_description'] == '' || $single_job['job_responsibilities'] == '') {
+                    $this->app_user_model->add_job_pages($job_id);
+                    $this->session->set_flashdata('add_success', 'Selected Job Page is successfully added');
+                } else {
+                    $this->session->set_flashdata('cant_add_success', 'Selected Job Page is already added. You can update the selected page.');
+                }
+
+                redirect(base_url() . 'admin/add/job/page');
+            }
+        }
+    }
+
+    public function update_job_page($job_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $job_id_dec = base64_decode($job_id);
+            $this->load->library('Form_validation');
+            $this->form_validation->set_rules('job_detail_description', 'Job Details description', 'required|trim|min_length[5]');
+            $this->form_validation->set_rules('job_requirements', 'Job Requirements', 'required|trim|min_length[5]');
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update Job Page - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'career';
+                $data['full_name'] = $this->session->userdata('full_name');
+                $data['common_header'] = 'Update Job Page';
+
+                $single_job = $this->app_user_model->get_single_job_by_id($job_id_dec);
+                $data['single_job'] = $single_job;
+
+                $job_title_list = $this->app_user_model->get_active_job_title_list();
+                $data['job_title_list'] = $job_title_list;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_job_page_view', $data);
+                $this->load->view('admin/footer_view', $data);
+            } else {
+                $this->app_user_model->update_job_page($job_id_dec);
+                $this->session->set_flashdata('job_page_update_message', "Selected Job page updated successfully.");
+                redirect(base_url() . 'admin/add/job/page');
+            }
+        }
+    }
+
+    public function add_project_page()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('project_title', 'Please select a Project Title', 'required');
+            $this->form_validation->set_rules('page_description', 'This Page description', 'required|trim|min_length[5]');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Add Project Page - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'pr_category';
+                $data['common_header'] = 'Add Project Page';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                /*==================================================
+                Start of Pagination Code segment for service page
+                ===================================================*/
+
+                $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
+                $config['total_rows'] = $this->app_user_model->total_count_of_projects();
+                $config['per_page'] = 10;
+                $config['uri_segment'] = 3;
+                $config['base_url'] = base_url() . 'admin/add_project_page';
+                $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['prev_link'] = '&laquo;';
+                $config['prev_tag_open'] = '<li>';
+                $config['prev_tag_close'] = '</li>';
+                $config['next_link'] = '&raquo;';
+                $config['next_tag_open'] = '<li>';
+                $config['next_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="active"><a href="#">';
+                $config['cur_tag_close'] = '</a></li>';
+                $config['num_tag_open'] = '<li>';
+                $config['num_tag_close'] = '</li>';
+                $this->pagination->initialize($config);
+                $data['paginglinks'] = $this->pagination->create_links();
+
+                $current_page = ($this->pagination->cur_page == 0) ? 1 : $this->pagination->cur_page;
+                $data['start_from'] = ($current_page - 1) * $config["per_page"] + 1;
+
+
+                /*$data['serial'] = (($this->pagination->cur_page - 1) * $config["per_page"]) + 1;*/
+                $data['cur'] = $this->pagination->cur_page;
+
+                // Showing total rows count
+                if ($data['paginglinks'] != '') {
+                    $to_serial = $this->pagination->cur_page * $this->pagination->per_page;
+                    $data['pagermessage'] = 'Showing ' . ((($this->pagination->cur_page - 1) * $this->pagination->per_page) + 1) . ' to ' . ($to_serial >= $config['total_rows'] ? $config['total_rows'] : $to_serial) . ' of ' . $config['total_rows'];
+                }
+
+                /*=================================================
+                    End of Pagination Code segment for service page
+               ===================================================*/
+
+                $all_projects = $this->app_user_model->get_all_projects($config["per_page"], $offset); // Reading and showing the Testimonials list from DB
+                $data['all_projects'] = $all_projects;
+
+                $project_title_list = $this->app_user_model->get_project_title_list();
+                $data['project_title_list'] = $project_title_list;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_add_project_page_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $project_id = $this->input->post('project_title');
+                $single_project = $this->app_user_model->get_single_project_by_id($project_id);
+                if ($single_project['project_page_description'] == '') {
+                    $this->app_user_model->add_project_pages($project_id);
+                    $this->session->set_flashdata('add_success', 'Selected Project Page is successfully added');
+                } else {
+                    $this->session->set_flashdata('cant_add_success', 'Selected Project Page is already added. You can update the selected page.');
+                }
+
+                redirect(base_url() . 'admin/add/project/page');
+            }
+        }
+    }
+
+    public function update_project_page($project_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            redirect('/admin', 'refresh');
+        } else {
+            $project_id_dec = base64_decode($project_id);
+            $this->load->library('Form_validation');
+            $this->form_validation->set_rules('page_description', 'This Page description', 'required|trim|min_length[5]');
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update Project Page - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'pr_category';
+                $data['full_name'] = $this->session->userdata('full_name');
+                $data['common_header'] = 'Update Project Page';
+
+                $single_project = $this->app_user_model->get_single_project_by_id($project_id_dec);
+                $data['single_project'] = $single_project;
+
+                $project_title_list = $this->app_user_model->get_project_title_list();
+                $data['project_title_list'] = $project_title_list;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_project_page_view', $data);
+                $this->load->view('admin/footer_view', $data);
+            } else {
+                $this->app_user_model->update_project_page($project_id_dec);
+                $this->session->set_flashdata('update_message', "Selected Project page updated successfully.");
+                redirect(base_url() . 'admin/add/project/page');
+            }
+        }
+    }
 
     public function add_service_page()
     {
@@ -91,7 +894,7 @@ class Admin extends CI_Controller
 
                 $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
                 $config['total_rows'] = $this->app_user_model->total_count_of_service();
-                $config['per_page'] = 5;
+                $config['per_page'] = 10;
                 $config['uri_segment'] = 3;
                 $config['base_url'] = base_url() . 'admin/add_service_page';
                 $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
@@ -139,8 +942,13 @@ class Admin extends CI_Controller
 
             } else {
                 $service_id = $this->input->post('service_name');
-                $this->app_user_model->add_pages($service_id);
-                $this->session->set_flashdata('add_success', 'Service Page is successfully added');
+                $single_service = $this->app_user_model->get_service_by_id($service_id);
+                if ($single_service['service_page_description'] == '') {
+                    $this->app_user_model->add_service_pages($service_id);
+                    $this->session->set_flashdata('add_success', 'Selected Service Page is successfully added');
+                } else {
+                    $this->session->set_flashdata('cant_add_success', 'Selected Service Page is already added. You can update the selected page.');
+                }
                 redirect(base_url() . 'admin/add/service/page');
             }
         }
@@ -178,20 +986,6 @@ class Admin extends CI_Controller
         }
     }
 
-    public function service_page_delete($service_id)
-    {
-        $service_id_dec = base64_decode($service_id);
-        $single_service = $this->app_user_model->get_service_by_id($service_id_dec);
-        $is_active = $single_service["is_active"];
-        if ($is_active) {
-            $this->session->set_flashdata('cant_delete_message', 'Active Service page can not be deleted');
-        } else {
-            $this->app_user_model->delete_service_page($service_id_dec);
-            $this->session->set_flashdata('service_page_delete_message', 'Selected Service Page is successfully deleted');
-        }
-
-        redirect(base_url() . 'admin/add/service/page/');
-    }
 
     public function update_company_overview()
     {
@@ -213,6 +1007,7 @@ class Admin extends CI_Controller
                 $company_overview_id = 1;
                 $all_company_overview = $this->app_user_model->get_company_overview_by_id($company_overview_id); // Reading and showing the System configuration from DB
                 $data['all_company_overview'] = $all_company_overview;
+
 
                 $this->load->view('admin/admin_dashboard_header_view', $data);
                 $this->load->view('admin/admin_update_company_overview_view', $data);
@@ -256,7 +1051,7 @@ class Admin extends CI_Controller
 
                 $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
                 $config['total_rows'] = $this->app_user_model->total_count_of_projects();
-                $config['per_page'] = 5;
+                $config['per_page'] = 10;
                 $config['uri_segment'] = 3;
                 $config['base_url'] = base_url() . 'admin/add_project';
                 $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
@@ -422,7 +1217,7 @@ class Admin extends CI_Controller
         $config['upload_path'] = './uploaded/projects';
         $config['allowed_types'] = 'jpg|png|jpeg';
         $config['overwrite'] = TRUE;
-        $config['max_size'] = 60000;
+        $config['max_size'] = 6000;
         $config['max_width'] = 600;
         $config['max_height'] = 600;
 
@@ -468,7 +1263,7 @@ class Admin extends CI_Controller
         $image_name = $single_project["project_image"];
         $path = "./uploaded/projects/" . $image_name;
         unlink($path);
-        $this->session->set_flashdata('image_delete_message', 'Selected image is successfully deleted');
+        $this->session->set_flashdata('image_delete_message', 'Selected image is successfully deleted with image file.');
         redirect(base_url() . 'admin/add/project');
     }
 
@@ -512,7 +1307,7 @@ class Admin extends CI_Controller
 
                 $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
                 $config['total_rows'] = $this->app_user_model->total_count_of_project_cat();
-                $config['per_page'] = 5;
+                $config['per_page'] = 10;
                 $config['uri_segment'] = 3;
                 $config['base_url'] = base_url() . 'admin/add_project_category';
                 $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
@@ -657,7 +1452,7 @@ class Admin extends CI_Controller
             if ($this->form_validation->run() == FALSE) {
                 $data['title'] = 'Add Partners - Shwapno Duar IT Ltd.';
                 $data['navbar_title'] = 'SDIL Admin Panel';
-                $data['active'] = 'partners';
+                $data['active'] = 'landing_page';
                 $data['common_header'] = 'Add Partners';
                 $data['full_name'] = $this->session->userdata('full_name');
 
@@ -667,7 +1462,7 @@ class Admin extends CI_Controller
 
                 $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
                 $config['total_rows'] = $this->app_user_model->total_count_of_partners();
-                $config['per_page'] = 5;
+                $config['per_page'] = 10;
                 $config['uri_segment'] = 3;
                 $config['base_url'] = base_url() . 'admin/add_partners';
                 $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
@@ -741,7 +1536,7 @@ class Admin extends CI_Controller
             if ($this->form_validation->run() == FALSE) {
                 $data['title'] = 'Add Testimonials - Shwapno Duar IT Ltd.';
                 $data['navbar_title'] = 'SDIL Admin Panel';
-                $data['active'] = 'testimonials';
+                $data['active'] = 'landing_page';
                 $data['common_header'] = 'Add Testimonials';
                 $data['full_name'] = $this->session->userdata('full_name');
 
@@ -751,7 +1546,7 @@ class Admin extends CI_Controller
 
                 $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
                 $config['total_rows'] = $this->app_user_model->total_count_of_testimonials();
-                $config['per_page'] = 5;
+                $config['per_page'] = 10;
                 $config['uri_segment'] = 3;
                 $config['base_url'] = base_url() . 'admin/add_testimonials';
                 $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
@@ -853,7 +1648,7 @@ class Admin extends CI_Controller
             if ($this->form_validation->run() == FALSE) {
                 $data['title'] = 'Update Partners - Shwapno Duar IT Ltd.';
                 $data['navbar_title'] = 'SDIL Admin Panel';
-                $data['active'] = 'partners';
+                $data['active'] = 'landing_page';
                 $data['common_header'] = 'Update Partners';
                 $data['full_name'] = $this->session->userdata('full_name');
 
@@ -906,7 +1701,7 @@ class Admin extends CI_Controller
             if ($this->form_validation->run() == FALSE) {
                 $data['title'] = 'Update Testimonial - Shwapno Duar IT Ltd.';
                 $data['navbar_title'] = 'SDIL Admin Panel';
-                $data['active'] = 'testimonials';
+                $data['active'] = 'landing_page';
                 $data['full_name'] = $this->session->userdata('full_name');
 
                 $data['single_testimonial'] = $single_testimonial;
@@ -966,7 +1761,7 @@ class Admin extends CI_Controller
             if ($this->form_validation->run() == FALSE) {
                 $data['title'] = 'Add Team Members - Shwapno Duar IT Ltd.';
                 $data['navbar_title'] = 'SDIL Admin Panel';
-                $data['active'] = 'team_members';
+                $data['active'] = 'landing_page';
                 $data['common_header'] = 'Add Team Members';
                 $data['full_name'] = $this->session->userdata('full_name');
 
@@ -1004,7 +1799,7 @@ class Admin extends CI_Controller
         $partner_id_dec = base64_decode($partner_id);
         $data['title'] = 'Upload Partner Image - Shwapno Duar IT Ltd.';
         $data['navbar_title'] = 'SDIL Admin Panel';
-        $data['active'] = 'partners';
+        $data['active'] = 'landing_page';
 
         $data['full_name'] = $this->session->userdata('full_name');
         $data['error'] = '';
@@ -1036,7 +1831,7 @@ class Admin extends CI_Controller
         if (!$this->upload->do_upload()) {
             $data['title'] = 'Upload Partner Image - Shwapno Duar IT Ltd.';
             $data['navbar_title'] = 'SDIL Admin Panel';
-            $data['active'] = 'partners';
+            $data['active'] = 'landing_page';
             $data['full_name'] = $this->session->userdata('full_name');
             $data['error'] = $this->upload->display_errors();
             $data['partner_id'] = $partner_id;
@@ -1098,7 +1893,7 @@ class Admin extends CI_Controller
         $member_id_dec = base64_decode($member_id);
         $data['title'] = 'Upload Member Image - Shwapno Duar IT Ltd.';
         $data['navbar_title'] = 'SDIL Admin Panel';
-        $data['active'] = 'team_members';
+        $data['active'] = 'landing_page';
 
         $data['full_name'] = $this->session->userdata('full_name');
         $data['error'] = '';
@@ -1129,7 +1924,7 @@ class Admin extends CI_Controller
         if (!$this->upload->do_upload()) {
             $data['title'] = 'Upload Member Image - Shwapno Duar IT Ltd.';
             $data['navbar_title'] = 'SDIL Admin Panel';
-            $data['active'] = 'team_members';
+            $data['active'] = 'landing_page';
             $data['full_name'] = $this->session->userdata('full_name');
             $data['error'] = $this->upload->display_errors();
             $data['member_id'] = $member_id;
@@ -1219,7 +2014,7 @@ class Admin extends CI_Controller
             if ($this->form_validation->run() == FALSE) {
                 $data['title'] = 'Update Team Member - Shwapno Duar IT Ltd.';
                 $data['navbar_title'] = 'SDIL Admin Panel';
-                $data['active'] = 'team_members';
+                $data['active'] = 'landing_page';
                 $data['full_name'] = $this->session->userdata('full_name');
 
                 $data['single_member'] = $single_member;
@@ -1540,7 +2335,7 @@ class Admin extends CI_Controller
             if ($this->form_validation->run() == FALSE) {
                 $data['title'] = 'Add Social Icon - Shwapno Duar IT Ltd.';
                 $data['navbar_title'] = 'SDIL Admin Panel';
-                $data['active'] = 'social_icon';
+                $data['active'] = 'landing_page';
                 $data['common_header'] = 'Add Social Icon';
                 $data['full_name'] = $this->session->userdata('full_name');
 
@@ -1551,7 +2346,7 @@ class Admin extends CI_Controller
 
                 $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
                 $config['total_rows'] = $this->app_user_model->total_count_of_social_icons();
-                $config['per_page'] = 5;
+                $config['per_page'] = 10;
                 $config['uri_segment'] = 3;
                 $config['base_url'] = base_url() . 'admin/social_icon_management';
                 $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
@@ -1651,7 +2446,7 @@ class Admin extends CI_Controller
             if ($this->form_validation->run() == FALSE) {
                 $data['title'] = 'Update Social Icon - Shwapno Duar IT Ltd.';
                 $data['navbar_title'] = 'SDIL Admin Panel';
-                $data['active'] = 'social_icon';
+                $data['active'] = 'landing_page';
                 $data['common_header'] = 'Update Social Icon';
                 $data['full_name'] = $this->session->userdata('full_name');
                 $data['social'] = $social_icon;
@@ -1713,7 +2508,7 @@ class Admin extends CI_Controller
 
                 $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
                 $config['total_rows'] = $this->app_user_model->total_count_of_service();
-                $config['per_page'] = 5;
+                $config['per_page'] = 10;
                 $config['first_link'] = 'First';
                 $config['last_link'] = 'Last';
                 $config['uri_segment'] = 3;
@@ -1894,6 +2689,27 @@ class Admin extends CI_Controller
         }
     }
 
+    function unique_skill_name($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_skill_name($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_skill_name', "%s {$str} already exist!");
+            return FALSE;
+        }
+    }
+    function unique_skill_category_name($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_skill_category_name($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_skill_category_name', "%s {$str} already exist!");
+            return FALSE;
+        }
+    }
+
     function unique_social_icon_name($str)
     {
         $this->load->model('app_user_model');
@@ -1938,6 +2754,17 @@ class Admin extends CI_Controller
         }
     }
 
+    function unique_job_title($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_job_title($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_job_title', "%s '{$str}' already exist!");
+            return FALSE;
+        }
+    }
+
 
     function unique_service_link($str)
     {
@@ -1946,6 +2773,17 @@ class Admin extends CI_Controller
             return TRUE;
         } else {
             $this->form_validation->set_message('unique_service_link', "%s '{$str}' already exist!");
+            return FALSE;
+        }
+    }
+
+    function unique_job_page_url($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_job_page_url($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_job_page_url', "%s '{$str}' already exist!");
             return FALSE;
         }
     }

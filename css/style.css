@@ -70,6 +70,13 @@ a {
     margin: 0px auto;
     margin-bottom: 50px;
 }
+.divider-job-page {
+    background-color: #00a651;
+    width: 200px;
+    height: 1px;
+    margin: 0px auto;
+    margin-bottom: 18px;
+}
 .front-divided {
     background-color: #00a651;
     width: 33px;
@@ -285,6 +292,34 @@ intro body custom code for about us page
     font-size: 38px;
     text-transform: uppercase;
     margin-top: 23px;
+}
+
+.banner-section .intro-body-area-about .read-btn {
+    background-color: transparent;
+    height: 30px;
+    margin: 30px auto 0;
+    text-align: center;
+    width: 100px;
+}
+
+.banner-section .intro-body-area-about .read-btn a {
+    line-height: 34px;
+    border: 3px solid #1fc067;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.banner-section .intro-body-area-about .read-btn a:hover {
+    background-color: #1fc067;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    color: #fff;
 }
 
 /*
@@ -1341,6 +1376,7 @@ intro body custom code for about us page
         font-size: 26px;
     }
 
+
     .divied {
         margin-bottom: 20px;
     }
@@ -1460,3 +1496,25 @@ intro body custom code for about us page
 }
 
 
+.fa-asterisk {
+    color:red;
+}
+
+.progress {
+    position: relative;
+    height: 25px;
+}
+.progress > .progress-type {
+    position: absolute;
+    left: 0px;
+    font-weight: 800;
+    padding: 3px 30px 2px 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(25, 25, 25, 0.2);
+}
+.progress > .progress-completed {
+    position: absolute;
+    right: 0px;
+    font-weight: 800;
+    padding: 3px 10px 2px;
+}

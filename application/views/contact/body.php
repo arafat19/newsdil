@@ -6,7 +6,7 @@
                 <div class="wsmenucontent overlapblackbg"></div>
                 <div class="wsmenuexpandermain slideRight"><a id="navToggle"
                                                               class="animated-arrow slideLeft"><span></span></a> <a
-                        href="#" class="smallogo"><img src="<?php echo base_url(); ?>images/logo.png" width="120"
+                        href="<?php echo base_url(); ?>" class="smallogo"><img src="<?php echo base_url(); ?>images/logo.png" width="120"
                                                        alt=""/></a>
 
                     <!--<form action="#" class="searchBox" id="searchiteam" method="get">
@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-3">
-                        <div class="logo clearfix"><a href="<?php echo base_url(); ?>index.html"
+                        <div class="logo clearfix"><a href="<?php echo base_url(); ?>"
                                                       title="Responsive Slide Menus"><img
                                     src="<?php echo base_url(); ?>images/logo.png" alt=""/></a></div>
                     </div>
@@ -34,16 +34,16 @@
 <section id="intro">
     <div class="banner-section">
         <div class="img-overlay"></div>
-        <div class="banner-intro">
+        <div class="banner-intro-about">
             <div class="container">
                 <div class="row">
-                    <div class="intro-body-area clearfix">
+                    <div class="intro-body-area-about clearfix">
                         <div class="col-xs-12">
-                            <h1><?php echo $top_heading_h1; ?></h1>
+                            <h1><?php echo $all_system_configuration_ui['top_heading1']; ?></h1>
 
-                            <h2><?php echo $top_heading_h2; ?></h2>
+                            <h2><?php echo $all_system_configuration_ui['top_heading2']; ?></h2>
 
-                            <div class="read-btn"><a href="">Read More</a></div>
+                            <div class="read-btn"><a href="<?php echo base_url();?>about-us">Read More</a></div>
                         </div>
                     </div>
 
