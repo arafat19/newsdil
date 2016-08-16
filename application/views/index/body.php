@@ -6,8 +6,9 @@
                 <div class="wsmenucontent overlapblackbg"></div>
                 <div class="wsmenuexpandermain slideRight"><a id="navToggle"
                                                               class="animated-arrow slideLeft"><span></span></a> <a
-                        href="<?php echo base_url(); ?>" class="smallogo"><img src="<?php echo base_url(); ?>images/logo.png" width="120"
-                                                       alt=""/></a>
+                        href="<?php echo base_url(); ?>" class="smallogo"><img
+                            src="<?php echo base_url(); ?>images/logo.png" width="120"
+                            alt=""/></a>
 
                     <!--<form action="#" class="searchBox" id="searchiteam" method="get">
                         <input type="search" onblur="if (this.value == '') {this.value = 'Search';}"
@@ -19,8 +20,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-3">
-                        <div class="logo clearfix"><a href="<?php echo base_url(); ?>"
-                                                      title="Responsive Slide Menus"><img
+                        <div class="logo wow animated bounceIn clearfix"><a href="<?php echo base_url(); ?>"
+                                                                              title="Responsive Slide Menus"><img
                                     src="<?php echo base_url(); ?>uploaded/admin/<?php echo $all_system_configuration_ui['logo']; ?>"
                                     alt="<?php echo base_url(); ?>uploaded/admin/<?php echo $all_system_configuration_ui['logo']; ?>"/></a>
                         </div>
@@ -39,17 +40,17 @@
         <div class="banner-intro">
             <div class="container">
                 <div class="row">
-                    <div class="intro-body-area clearfix">
+                    <div class="intro-body-area wow animated slideInUp clearfix">
                         <div class="col-xs-12">
                             <h1><?php echo $all_system_configuration_ui['top_heading1']; ?></h1>
 
                             <h2><?php echo $all_system_configuration_ui['top_heading2']; ?></h2>
 
-                            <div class="read-btn"><a href="<?php echo base_url();?>about-us">Read More</a></div>
+                            <div class="read-btn"><a href="<?php echo base_url(); ?>about-us">Read More</a></div>
                         </div>
                     </div>
                     <?php if (isset($all_services) && $all_services->num_rows() > 0): ?>
-                        <div id="services-list">
+                        <div id="services-list" class="wow animated slideInUp">
                             <!--All the service come from DB using Main_ui_model-->
                             <?php
                             foreach ($all_services->result() as $row):
@@ -69,7 +70,7 @@
 <section id="choos" class="top-gape">
     <div class="container">
         <div class="row">
-            <div class="titel-area clearfix">
+            <div class="titel-area  wow animated slideInDown clearfix">
                 <div class="col-lg-12">
                     <h2>What we do</h2>
 
@@ -78,11 +79,12 @@
             </div>
             <div class="contain-body about-section clearfix">
                 <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="about-thumb"><img src="<?php echo base_url(); ?>images/about_thumb.jpg" alt="About">
+                    <div class="about-thumb wow animated slideInLeft"><img
+                            src="<?php echo base_url(); ?>images/about_thumb.jpg" alt="About">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-8">
-                    <div class="contain">
+                    <div class="contain wow animated slideInRight">
                         <h5>SDIL is a premier business process outsourcing company that began in 2006. We have offices
                             in the U.S. and Bangladesh. Because we commit to our clients’ success, we grow consistently
                             each year. We are a unique company that provides quantifiable and sustainable value to our
@@ -105,7 +107,7 @@
                              <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Back office processing</a>
                              </li>-->
                         </ul>
-                        <div class="read-btn"><a href="javascript:MyPopFunction();">Read more</a></div>
+                        <div class="read-btn"><a href="<?=base_url()?>about-us">Read more</a></div>
                     </div>
                 </div>
             </div>
@@ -117,7 +119,7 @@
 <section id="about" class="top-gape">
     <div class="container">
         <div class="row">
-            <div class="titel-area clearfix">
+            <div class="titel-area wow animated slideInDown clearfix">
                 <div class="col-lg-12">
                     <h2>why choose us</h2>
 
@@ -131,7 +133,7 @@
             <div class="row">
                 <div class="contain-body about-section choose-us-section clearfix">
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="contain">
+                        <div class="contain wow animated slideInLeft">
                             <h5>We offer a Full Range of Digital Marketing Services !</h5>
 
                             <div class="bottom-Line"></div>
@@ -152,8 +154,9 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="choose-us-thumb"><img src="<?php echo base_url(); ?>images/why_choose_thumb.jpg"
-                                                          alt="About"></div>
+                        <div class="choose-us-thumb wow animated zoomIn"><img
+                                src="<?php echo base_url(); ?>images/why_choose_thumb.jpg"
+                                alt="About"></div>
                     </div>
                 </div>
             </div>
@@ -164,7 +167,7 @@
 <section id="work" class="top-gape">
     <div class="container">
         <div class="row">
-            <div class="titel-area clearfix">
+            <div class="titel-area wow animated slideInDown clearfix">
                 <div class="col-lg-12">
                     <h2>Recent work</h2>
 
@@ -174,7 +177,7 @@
             <div class="contain-body recent-work-section clearfix">
                 <div class="portfolio-section title sub-title clearfix">
                     <div id="portfolio">
-                        <div class="row text-center">
+                        <div class="row text-center wow animated slideInDown">
                             <div class="col-md-12" id="isotope-filter">
                                 <a data-filter="*" href="#" class="btn btn-sm btn-outline btn-primary active">All</a>
                                 <?php if (isset($active_project_category) && $active_project_category->num_rows() > 0):
@@ -198,7 +201,7 @@
                                                 <div class="portfolio-containarea">
                                                     <h3><?php echo $row->project_title; ?></h3>
 
-                                                    <p><?php echo $row->project_description; ?></p>
+                                                    <p><?php echo substr($row->project_description, 0, 25); ?>...</p>
                                                 </div>
                                                 <!-- <a href="javascript:MyPopFunction();" target="_blank">View Project</a> <a data-pp="prettyPhoto[portfolio]" href="images/work_01.jpg" title=""><span class="fa fa-eye"></span></a> -->
                                                 <a href="<?php echo $row->project_internal_link; ?>">View Project</a> <a
@@ -342,9 +345,9 @@
 <section id="counter" class="top-gape">
     <div class="container">
         <div class="row">
-            <div class="titel-area clearfix">
+            <div class="titel-area wow animated slideInDown clearfix">
                 <div class="col-lg-12">
-                    <h2>why choose us</h2>
+                    <h2>Our Current Status</h2>
 
                     <div class="divied"></div>
                 </div>
@@ -393,7 +396,7 @@
     <section class="top-gape">
         <div class="container">
             <div class="row">
-                <div class="titel-area clearfix">
+                <div class="titel-area wow animated slideInDown clearfix">
                     <div class="col-lg-12">
                         <h2>Meet our Team</h2>
 
@@ -401,7 +404,7 @@
                     </div>
                 </div>
                 <div class="contain-body team-section clearfix">
-                    <div id="team-list">
+                    <div id="team-list" class="wow animated zoomInUp">
                         <?php
                         foreach ($active_team_members->result() as $row): ?>
                             <div class="iteam">
@@ -444,7 +447,7 @@
 <section id="news" class="top-gape">
     <div class="container">
         <div class="row">
-            <div class="titel-area clearfix">
+            <div class="titel-area wow animated slideInDown clearfix">
                 <div class="col-lg-12">
                     <h2>Latest News</h2>
 
@@ -456,11 +459,31 @@
     <div class="full-width-iteam">
         <div class="container">
             <div class="row">
-                <div class="contain-body news-section clearfix">
+                <div class="contain-body news-section wow animated slideInLeft clearfix">
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="nees-iteam">
+                        <?php if (isset($all_active_news) && $all_active_news->num_rows() > 0): ?>
+                            <?php foreach ($all_active_news->result() as $row): ?>
+                                <div class="nees-iteam">
+                                    <div class="news-thumb">
+                                        <a href="<?php echo $row->news_page_url; ?>">
+                                            <img width="98" height="100"
+                                                src="<?php echo base_url(); ?>uploaded/news_image/<?php echo $row->news_image; ?>"
+                                                alt="<?php echo $row->news_image; ?>"/>
+                                        </a>
+                                        <div class="read-btn"><a href="<?php echo $row->news_page_url; ?>">Read
+                                                More</a></div>
+                                    </div>
+                                    <div class="contain">
+                                        <h4><?php echo $row->news_title; ?></h4>
+                                        <p><?php echo substr($row->news_short_description, 0, 64); ?>...</p>
+
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                        <!--<div class="nees-iteam">
                             <div class="news-thumb"><a href="#"><img
-                                        src="<?php echo base_url(); ?>images/news_thumb_01.jpg" alt="thumb"></a>
+                                        src="<?php /*echo base_url(); */?>images/news_thumb_01.jpg" alt="thumb"></a>
 
                                 <div class="read-btn"><a href="#">More News</a></div>
                             </div>
@@ -472,7 +495,7 @@
                         </div>
                         <div class="nees-iteam">
                             <div class="news-thumb"><a href="#"><img
-                                        src="<?php echo base_url(); ?>images/news_thumb_02.jpg" alt="thumb"></a>
+                                        src="<?php /*echo base_url(); */?>images/news_thumb_02.jpg" alt="thumb"></a>
 
                                 <div class="read-btn"><a href="#">More News</a></div>
                             </div>
@@ -484,7 +507,7 @@
                         </div>
                         <div class="nees-iteam">
                             <div class="news-thumb"><a href="#"><img
-                                        src="<?php echo base_url(); ?>images/news_thumb_03.jpg" alt="thumb"></a>
+                                        src="<?php /*echo base_url(); */?>images/news_thumb_03.jpg" alt="thumb"></a>
 
                                 <div class="read-btn"><a href="#">More News</a></div>
                             </div>
@@ -493,10 +516,13 @@
 
                                 <p>Coming Soon...</p>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="video-area"><img src="<?php echo base_url(); ?>images/video.jpg" alt="thumb"></div>
+                        <div class="video-area wow animated slideInRight">
+                        <!--<img src="--><?php //echo base_url(); ?><!--images/video.jpg" alt="thumb">-->
+                            <iframe width="420" height="315" src="https://www.youtube.com/embed/eiXS9dyItnY" frameborder="0" allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -505,7 +531,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <div class="more-btn"><a href="#">More News</a></div>
+                <div class="more-btn"><a href="<?php echo base_url(); ?>news">More News</a></div>
             </div>
         </div>
     </div>
@@ -515,14 +541,14 @@
     <section id="testimonial" class="top-gape">
         <div class="container">
             <div class="row">
-                <div class="titel-area clearfix">
+                <div class="titel-area wow animated slideInDown clearfix">
                     <div class="col-lg-12">
                         <h2>Testimonial</h2>
 
                         <div class="divied"></div>
                     </div>
                 </div>
-                <div class="contain-body testimonial-section clearfix">
+                <div class="contain-body testimonial-section wow animated fadeInUp clearfix">
                     <div id="testimonial-list">
                         <?php
                         foreach ($active_testimonials->result() as $row): ?>
@@ -533,8 +559,8 @@
 
                                     <div class="testimonial-commented-by">
                                         <div class="front-divided"></div>
-                                        <?php echo $row->commented_by;?>
-                                    <!--<div class="back-divided"></div>-->
+                                        <?php echo $row->commented_by; ?>
+                                        <!--<div class="back-divided"></div>-->
                                     </div>
                                 </div>
                             </div>
@@ -582,25 +608,25 @@
 <section id="patner" class="top-gape">
     <div class="container">
         <div class="row">
-            <div class="titel-area clearfix">
+            <div class="titel-area wow animated slideInDown clearfix">
                 <div class="col-lg-12">
-                    <h2>Patners</h2>
+                    <h2>Partners</h2>
 
                     <div class="divied"></div>
                 </div>
             </div>
-            <div class="contain-body patner-section clearfix">
+            <div class="contain-body patner-section wow animated fadeInUp clearfix">
                 <div class="patner-list">
                     <ul>
                         <?php
                         foreach ($active_partners->result() as $row): ?>
                             <li>
-                                <a href="<?php echo $row->partner_external_link; ?>" target="_blank">
+                                <!--<a href="<?php /*echo $row->partner_external_link; */?>" target="_blank">-->
                                     <img
                                         src="<?php echo base_url(); ?>uploaded/partners/<?php echo $row->partner_image; ?>"
                                         alt="<?php echo $row->partner_name; ?>"
                                         title="<?php echo $row->partner_name; ?>">
-                                </a>
+                                <!--</a>-->
                             </li>
                             <?php
                         endforeach; ?>
