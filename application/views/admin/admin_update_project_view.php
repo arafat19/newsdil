@@ -122,6 +122,15 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <label class="col-md-3 control-label" for="client_name">Client Name:</label>
+
+                                            <div class="col-md-5">
+                                                <input type="text" class="form-control" name="client_name" value="<?php echo $single_project['client_name']; ?>"
+                                                       id="client_name" placeholder="Client Name" required/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
                                             <label class="col-md-3 control-label" for="project_description">Project
                                                 Description:</label>
 
@@ -129,6 +138,35 @@
                                                  <textarea type="text" class="form-control" id="project_description"
                                                            name="project_description" rows="3"
                                                            placeholder="Project Description" required><?php echo $single_project['project_description']; ?></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="project_key_features">Project
+                                                Key Features:</label>
+
+                                            <div class="col-md-5">
+                                                 <textarea type="text" class="form-control" id="project_key_features"
+                                                           name="project_key_features" rows="3"
+                                                           placeholder="<li><a>Asset grouping and auto coding system</a></li>" required><?php echo $single_project['project_key_features']; ?></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="project_benefits">Project
+                                                Benefits:</label>
+
+                                            <div class="col-md-5">
+                                                 <textarea class="form-control" id="project_benefits"
+                                                           name="project_benefits" rows="3"
+                                                           placeholder="<li><a>Easy report generation</a></li>" required><?php echo $single_project['project_benefits']; ?></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="project_technology_used">Project Technology Used:</label>
+
+                                            <div class="col-md-5">
+                                                 <textarea class="form-control" id="project_technology_used"
+                                                           name="project_technology_used" rows="3"
+                                                           placeholder="<li><a>HTML</a></li>" required><?php echo $single_project['project_technology_used']; ?></textarea>
                                             </div>
                                         </div>
 
@@ -206,5 +244,19 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    // When the document is ready
+    $(document).ready(function () {
+
+        $('#project_start_date').datepicker({
+            format: "dd/mm/yyyy"
+        });
+        $('#project_end_date').datepicker({
+            format: "dd/mm/yyyy"
+        });
+
+    });
+</script>
 
 </body>

@@ -15,11 +15,12 @@ class Contact extends CI_Controller
     function index()
     {
         $this->load->library('Form_validation');
+        $this->form_validation->set_error_delimiters('', '');
         // field name, error message, validation rules
-        $this->form_validation->set_rules('full_name', 'Your Full Name', 'trim|required|min_length[4]');
+        $this->form_validation->set_rules('full_name', 'Full Name', 'trim|required|min_length[4]');
         $this->form_validation->set_rules('email', 'This Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('cell_number', 'This Cell Number', 'trim|required');
-        $this->form_validation->set_rules('subject', 'Subject', 'trim|required|min_length[10]');
+        $this->form_validation->set_rules('subject', 'Subject', 'trim|required|min_length[5]');
         $this->form_validation->set_rules('message', 'Your Message', 'trim|max_length[255]');
 
         if ($this->form_validation->run() == FALSE) {
@@ -37,10 +38,9 @@ class Contact extends CI_Controller
             $all_services = $this->main_ui_model->get_service_by_is_active(1); // Reading and showing the Service list from DB by setting is_active = 1
             $data['all_services'] = $all_services;
 
-
             $this->load->view('index/header', $data);
             $this->load->view('contact/body', $data);
-            $this->load->view('index/footer', $data);
+            $this->load->view('contact/footer', $data);
         } else {
             $this->submit_contact();
         }

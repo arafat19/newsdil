@@ -56,6 +56,11 @@ $route['project/(:any)'] = 'Project';
 $route['our-skills'] = 'Skills';
 $route['jobs/(:any)'] = 'Jobs';
 $route['jobs/apply/(:any)'] = 'jobs/job_application';
+//$route['jobs/online/test/(:any)/(:any)'] = 'jobs/job_online_test/$1/$2';
+$route['jobs/online/test'] = 'jobs/job_online_test';
+
+$route['news/(:any)'] = 'News';
+$route['news/details/(:any)'] = 'news/details_news';
 $route['admin/service'] = "admin/add_service";
 $route['admin/sdil/profile'] = "admin/edit_admin_user";
 $route['admin/contacts'] = "admin/get_all_contacts";
@@ -85,10 +90,24 @@ $route['admin/update/company/skill/category/(:any)'] = "admin/update_company_ski
 $route['admin/delete/company/skill/category/(:any)'] = "admin/delete_company_skill_category/$1";
 
 $route['admin/add/job'] = "admin/add_job";
-$route['admin/delete/job/(:any)'] = "admin/delete_job/$1";
 $route['admin/update/job/(:any)'] = "admin/update_job/$1";
+$route['admin/delete/job/(:any)'] = "admin/delete_job/$1";
 $route['admin/add/job/page'] = "admin/add_job_page";
 $route['admin/update/job/page/(:any)'] = "admin/update_job_page/$1";
+
+$route['admin/add/test/question'] = "admin/add_test_question";
+$route['admin/update/test/question/(:any)'] = "admin/update_test_question/$1";
+$route['admin/delete/test/question/(:any)'] = "admin/delete_test_question/$1";
+
+
+$route['admin/add/news'] = "admin/add_news";
+$route['admin/update/news/(:any)'] = "admin/update_news/$1";
+$route['admin/delete/news/(:any)'] = "admin/delete_news/$1";
+$route['admin/upload/news/image/(:any)'] = "admin/upload_news_file/$1";
+$route['admin/upload/news/photo/(:any)'] = "admin/upload_news_photo/$1";
+$route['admin/delete/news/image/(:any)'] = 'admin/delete_news_image/$1';
+$route['admin/add/news/page'] = "admin/add_news_page";
+$route['admin/update/news/page/(:any)'] = "admin/update_news_page/$1";
 
 
 $route['admin/add/project'] = "admin/add_project";

@@ -89,6 +89,17 @@
                                             </div>
                                         <?php } ?>
                                         <div class="form-group">
+                                            <label class="col-md-3 control-label" for="icon_class_name">Icon Class
+                                                Name:</label>
+
+                                            <div class="col-md-5">
+                                                <select class="form-control" name="icon_class_name"
+                                                        id="icon_class_name" title="Select an icon class Name" disabled>
+                                                    <option selected><?php echo $service['icon_class_name']; ?></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="col-md-3 control-label" for="service_name">Service
                                                 Name:</label>
 

@@ -30,6 +30,7 @@
     <link href="<?php echo base_url(); ?>css/bootstrap-datepicker.css" rel="stylesheet" type="text/css">
 
     <script src="<?php echo base_url();?>tinymce/tinymce.min.js"></script>
+    <script src="<?php echo base_url();?>js/bootstrap-confirmation.js"></script>
     <!--<script type="text/javascript">
         tinymce.init({
             selector: "textarea",

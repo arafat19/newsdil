@@ -193,15 +193,52 @@
                                                        placeholder="Write Project internal link"/>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="client_name">Client Name:</label>
 
+                                            <div class="col-md-5">
+                                                <input type="text" class="form-control" name="client_name"
+                                                       id="client_name" placeholder="Client Name" required/>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="project_description">Project
                                                 Description:</label>
 
                                             <div class="col-md-5">
-                                                 <textarea type="text" class="form-control" id="project_description"
+                                                 <textarea  class="form-control" id="project_description"
                                                            name="project_description" rows="3"
                                                            placeholder="Project Description" required></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="project_key_features">Project
+                                                Key Features:</label>
+
+                                            <div class="col-md-5">
+                                                 <textarea type="text" class="form-control" id="project_key_features"
+                                                           name="project_key_features" rows="3"
+                                                           placeholder="<li><a>Asset grouping and auto coding system</a></li>" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="project_benefits">Project
+                                                Benefits:</label>
+
+                                            <div class="col-md-5">
+                                                 <textarea class="form-control" id="project_benefits"
+                                                           name="project_benefits" rows="3"
+                                                           placeholder="<li><a>Easy report generation</a></li>" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="project_technology_used">Project Technology Used:</label>
+
+                                            <div class="col-md-5">
+                                                 <textarea class="form-control" id="project_technology_used"
+                                                           name="project_technology_used" rows="3"
+                                                           placeholder="<li><a>HTML</a></li>" required></textarea>
                                             </div>
                                         </div>
 
@@ -311,7 +348,7 @@
                                                            role="button"><span class='glyphicon glyphicon-edit'></span>Change
                                                             Image</a>
                                                         <a class="btn btn-danger"
-                                                           href="<?php echo base_url(); ?>admin/project/image/delete//<?php echo base64_encode($row->project_id); ?>"
+                                                           href="<?php echo base_url(); ?>admin/project/image/delete/<?php echo base64_encode($row->project_id); ?>"
                                                            onclick="return deleteImage()" title="Delete"
                                                            role="button"><span class="glyphicon glyphicon-trash"></span></a>
 

@@ -31,7 +31,7 @@
             .replace(/-+/g, '-'); // collapse dashes
 
         var url = window.base_url = <?php echo json_encode(base_url()); ?>;
-        return url + 'service/'+ str;
+        return url + 'service/' + str;
     }
 
 </script>
@@ -119,17 +119,40 @@
                                             </div>
                                         <?php } ?>
                                         <div class="form-group">
+                                            <label class="col-md-3 control-label" for="icon_class_name">Icon Class
+                                                Name:</label>
+
+                                            <div class="col-md-5">
+                                                <select class="form-control" name="icon_class_name"
+                                                        id="icon_class_name" title="Select an icon class Name" required
+                                                        autofocus>
+                                                    <option selected>Please Select an icon class Name</option>
+                                                    <option value="icon-award">icon-award</option>
+                                                    <option value="icon-desktop">icon-desktop</option>
+                                                    <option value="icon-rocket">icon-rocket</option>
+                                                    <option value="icon-wrench">icon-wrench</option>
+                                                    <option value="icon-lightbulb">icon-lightbulb</option>
+                                                    <option value="icon-globe">icon-globe</option>
+                                                    <option value="icon-briefcase">icon-briefcase</option>
+                                                    <option value="icon-cloud-thunder">icon-cloud-thunder</option>
+                                                    <option value="icon-cloud">icon-cloud</option>
+                                                    <option value="icon-reply">icon-reply</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="col-md-3 control-label" for="service_name">Service
                                                 Name:</label>
 
                                             <div class="col-md-5">
                                                 <input type="text" class="form-control" name="service_name"
-                                                       id="service_name"  onblur="link_create()"
+                                                       id="service_name" onblur="link_create()"
                                                        placeholder="Service Name" required autofocus/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="service_page_url">Service Page URL</label>
+                                            <label class="col-md-3 control-label" for="service_page_url">Service Page
+                                                URL</label>
 
                                             <div class="col-md-5">
                                                 <input type="url" class="form-control" name="service_page_url"
@@ -197,23 +220,26 @@
                                             <th>Action</th>
                                         </tr>
                                         </thead>
-                                        <?php $i = $start_from; $start = 0;?>
+                                        <?php $i = $start_from;
+                                        $start = 0; ?>
                                         <?php if (isset($all_services) && $all_services->num_rows() > 0): ?>
                                         <?php foreach ($all_services->result() as $row): ?>
 
                                             <tbody>
                                             <tr>
-                                                <td align="center"><?php echo $i+$start; ?></td>
+                                                <td align="center"><?php echo $i + $start; ?></td>
                                                 <td><?php echo $row->service_name; ?></td>
                                                 <td><?php echo $row->total_description_div; ?></td>
                                                 <td align="center"><?php echo $row->is_active ? 'Yes' : 'No'; ?></td>
                                                 <td align="left"><?php echo $row->service_page_url ? $row->service_page_url : 'No URL'; ?></td>
                                                 <td align="center"><a class="btn btn-success" title="Edit"
-                                                       href="<?php echo base_url(); ?>admin/sedit/<?php echo base64_encode($row->id); ?>"
-                                                       role="button"><span class="glyphicon glyphicon-edit"></span></a>
+                                                                      href="<?php echo base_url(); ?>admin/sedit/<?php echo base64_encode($row->id); ?>"
+                                                                      role="button"><span
+                                                            class="glyphicon glyphicon-edit"></span></a>
 
                                                     <a class="btn btn-danger"
-                                                       href="<?php echo base_url(); ?>admin/sdelete/<?php echo base64_encode($row->id); ?>" onclick="return checkMe()" title="Delete"
+                                                       href="<?php echo base_url(); ?>admin/sdelete/<?php echo base64_encode($row->id); ?>"
+                                                       onclick="return checkMe()" title="Delete"
                                                        role="button"><span class="glyphicon glyphicon-trash"></span></a>
                                                 </td>
                                             </tr>
@@ -222,7 +248,8 @@
 
                                     </table>
                                     <div class="pagination" style="float:right;"> <?php echo $paginglinks; ?></div>
-                                    <div class="pagination" style="float:left;"> <?php echo (!empty($pagermessage) ? $pagermessage : ''); ?></div>
+                                    <div class="pagination"
+                                         style="float:left;"> <?php echo(!empty($pagermessage) ? $pagermessage : ''); ?></div>
 
                                     <?php else: ?>
                                         <div>

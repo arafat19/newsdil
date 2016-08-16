@@ -1,4 +1,5 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
 <header>
     <div class="header-section clearfix">
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -6,8 +7,9 @@
                 <div class="wsmenucontent overlapblackbg"></div>
                 <div class="wsmenuexpandermain slideRight"><a id="navToggle"
                                                               class="animated-arrow slideLeft"><span></span></a> <a
-                        href="<?php echo base_url(); ?>" class="smallogo"><img src="<?php echo base_url(); ?>images/logo.png" width="120"
-                                                       alt=""/></a>
+                        href="<?php echo base_url(); ?>" class="smallogo"><img
+                            src="<?php echo base_url(); ?>images/logo.png" width="120"
+                            alt=""/></a>
 
                     <!--<form action="#" class="searchBox" id="searchiteam" method="get">
                         <input type="search" onblur="if (this.value == '') {this.value = 'Search';}"
@@ -19,8 +21,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-3">
-                        <div class="logo clearfix"><a href="<?php echo base_url(); ?>"
-                                                      title="Responsive Slide Menus"><img
+                        <div class="logo wow animated  bounceIn clearfix"><a href="<?php echo base_url(); ?>"
+                                                                             title="Responsive Slide Menus"><img
                                     src="<?php echo base_url(); ?>images/logo.png" alt=""/></a></div>
                     </div>
                     <!-- Navigation -->
@@ -30,161 +32,133 @@
         </nav>
     </div>
 </header>
-<!-- Intro Section -->
-<section id="intro">
-    <div class="banner-section">
-        <div class="img-overlay"></div>
-        <div class="banner-intro-about">
-            <div class="container">
-                <div class="row">
-                    <div class="intro-body-area-about clearfix">
-                        <div class="col-xs-12">
-                            <h1><?php echo $all_system_configuration_ui['top_heading1']; ?></h1>
 
-                            <h2><?php echo $all_system_configuration_ui['top_heading2']; ?></h2>
 
-                            <div class="read-btn"><a href="<?php echo base_url();?>about-us">Read More</a></div>
-                        </div>
-                    </div>
-
+<!-- Inner Header section -->
+<div id="promo-three" class="parallax-section">
+    <div class="parallax-content">
+        <div class="color-overlay"></div>
+        <div class="container text-center wow animated bounceIn">
+            <div class="col-xs-12 clearfix">
+                <h2>Contact <span>us</span></h2>
+                <div class="overview_page"><a href="aboutus.html">KNOW MORE ABOUT US</a></div>
+                <div class="catagories">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li>/</li>
+                        <li><a href="contact.html" class="active">Contact us</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<!-- Contact us Section -->
-<section id="choos" class="top-gape">
+<!-- Body contain section -->
+<section id="inner-page" class="top-gape-inner">
     <div class="container">
         <div class="row">
-            <div class="titel-area clearfix">
-                <div class="col-lg-12">
-                    <h2><?php echo $title_area_heading_h2; ?></h2>
-
+            <div class="contain-body about-section what-we-do contact-section clearfix">
+                <div class="col-xs-12">
+                    <h2>GOT ANY QUESTION FOR US?</h2>
                     <div class="divied"></div>
-                </div>
-            </div>
-            <div class="contain-body about-section clearfix">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="about-thumb"><img src="<?php echo base_url(); ?>images/contact-us.png" alt="About">
-                    </div>
-                </div>
-                <div class="col-md-8">
-
-                    <h5>Please fill out the form below and our representative will respond to your inquiry within 1
-                        - 2 business days.</h5>
-
-                    <div class="row">
-                        <?php if (validation_errors()) { ?>
-                            <div class="form-group">
-                                <div class="col-sm-10 col-sm-offset-2">
-                                    <div class="alert alert-danger" role="alert">
-                                        <a href="#" class="close" data-dismiss="alert"
-                                           aria-label="close">&times;</a>
+                    <div class="contain">
+                        <h3>Please fill out the form below and our representative will respond to your inquiry within 1
+                            - 2 business days.</h3>
+                        <div class="contact-page wow animated bounceIn">
+                            <div class="col-xs-12">
+                                <?php if (validation_errors()) { ?>
+                                    <div class="alert alert-warning" role="alert">
+                                        <i class="fa fa-exclamation-triangle"></i>
                                         <?php echo validation_errors(); ?>
-
+                                        <div class="waring-colse" data-dismiss="alert"><i
+                                                class="fa fa-times-circle"></i>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        <?php }
-                        if ($this->session->flashdata('con_success_msg')) { ?>
-
-                            <div class="form-group">
-                                <div class="col-sm-10 col-sm-offset-2">
+                                <?php }
+                                if ($this->session->flashdata('con_success_msg')) { ?>
                                     <div class="alert alert-success" role="alert">
-                                        <a href="#" class="close" data-dismiss="alert"
-                                           aria-label="close">&times;</a>
+                                        <i class="fa fa-check"></i>
                                         <?php echo $this->session->flashdata('con_success_msg'); ?>
-
+                                        <div class="success-colse" data-dismiss="alert"><i
+                                                class="fa fa-times-circle"></i>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        <?php }
-                        if ($this->session->flashdata('con_failure_msg')) { ?>
-
-                            <div class="form-group">
-                                <div class="col-sm-10 col-sm-offset-2">
+                                <?php }
+                                if ($this->session->flashdata('con_failure_msg')) { ?>
                                     <div class="alert alert-danger" role="alert">
-                                        <a href="#" class="close" data-dismiss="alert"
-                                           aria-label="close">&times;</a>
+                                        <i class="fa fa-times"></i>
                                         <?php echo $this->session->flashdata('con_failure_msg'); ?>
-
+                                        <div class="danger-colse" data-dismiss="alert"><i
+                                                class="fa fa-times-circle"></i>
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                             </div>
-                        <?php } ?>
-                        <form name='contact_us' id='contact_us' enctype="multipart/form-data" class="form-horizontal"
-                              method="post">
-                            <div class="form-group">
-                                <label for="full_name" class="col-sm-2 control-label">Full Name</label>
-
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="full_name" name="full_name"
-                                           placeholder="Full Name" required autofocus/>
+                            <form name='contact_us' id='contact_us' enctype="multipart/form-data" method="post">
+                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                    <p>
+                                        <input type="text" class="textfield" id="full_name" name="full_name"
+                                               placeholder="Name*"    autofocus/>
+                                        <input type="email" class="textfield" placeholder="Email*" name="email"
+                                               id="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+                                               required/>
+                                        <input type="tel" class="textfield" id="cell_number" name="cell_number"
+                                               pattern="[0][1-9]{4}[-][0-9]{6}"
+                                               placeholder="Mobile Number (Format: 01XXX-XXXXXX)"/>
+                                        <input type="text" class="textfield" id="subject" name="subject"
+                                               placeholder="Subject*" required/>
+                                        <input type="number" class="textfield" id="human" name="human"
+                                               pattern="[0-9]"
+                                               placeholder="3 + 2 = ?" required/>
+                                    </p>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="col-sm-2 control-label">Email</label>
-
-                                <div class="col-sm-10">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email"
-                                           id="email" value="ibrahim.arafat@sebpo.com"
-                                           pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-                                           required/>
+                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                    <p>
+                                         <textarea class="textfield" rows="12" name="message" id="message"
+                                                   placeholder="Message*"></textarea>
+                                    </p>
+                                    <label>
+                                        <input type="submit" class="submit-button" value="SUBMIT NOW" id="formSubmit" onclick="myValidationFunction()">
+                                    </label>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="cell_number">Cell Number:</label>
-
-                                <div class="col-sm-10">
-                                    <input type="tel" class="form-control" id="cell_number" name="cell_number"
-                                           pattern="[0][1-9]{4}[-][0-9]{6}"
-                                           placeholder="Mobile Number (Format: 01XXX-XXXXXX)" required=""/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject" class="col-sm-2 control-label">Subject</label>
-
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="subject" name="subject"
-                                           placeholder="Subject" required/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="message" class="col-sm-2 control-label">Message</label>
-
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" rows="4" name="message" id="message"
-                                              placeholder="255 Char Max"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="human" class="col-sm-2 control-label">2 + 3 = ?</label>
-
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="human" name="human"
-                                           placeholder="Your Answer" required/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-10 col-sm-offset-2">
-                                    <button id="create" name="create" type="submit" data-role="button"
-                                            class="btn btn-warning">Submit
-                                    </button>
-
-                                    <button id="clearFormButton" name="clearFormButton" type="reset"
-                                            class="btn btn-danger">Cancel
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                        <!-- /.row -->
+                            </form>
+                        </div>
                     </div>
-
                 </div>
+                <!--<div class="col-xs-12">
+                    <div class="social-media-section title clearfix">
+                        <h2>Follow Us Below Social Media</h2>
+                        <div class="divied"></div>
+                        <div class="media-iteam wow animated slideInRight">
+                            <ul>
+                                <li class="wow animated rotateIn animated"
+                                    style="visibility: visible; animation-name: rotateIn;"><a href="#"><i
+                                            class="icon-facebook"></i></a></li>
+                                <li class="wow animated rotateIn animated"
+                                    style="visibility: visible; animation-name: rotateIn;"><a href="#"><i
+                                            class="icon-twitter"></i></a></li>
+                                <li class="wow animated rotateIn animated"
+                                    style="visibility: visible; animation-name: rotateIn;"><a href="#"><i
+                                            class="icon-dribbble"></i></a></li>
+                                <li class="wow animated rotateIn animated"
+                                    style="visibility: visible; animation-name: rotateIn;"><a href="#"><i
+                                            class="icon-pinterest"></i></a></li>
+                                <li class="wow animated rotateIn animated"
+                                    style="visibility: visible; animation-name: rotateIn;"><a href="#"><i
+                                            class="icon-gplus"></i></a></li>
+                                <li class="wow animated rotateIn animated"
+                                    style="visibility: visible; animation-name: rotateIn;"><a href="#"><i
+                                            class="icon-rss"></i></a></li>
+                                <li class="wow animated rotateIn animated"
+                                    style="visibility: visible; animation-name: rotateIn;"><a href="#"><i
+                                            class="icon-vimeo"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>-->
             </div>
         </div>
     </div>
+    <div id="map"><div style="height:300px;width:500px;max-width:100%;list-style:none; transition: none;overflow:hidden;"><div id="gmap-display" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Bogra,+Bangladesh&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe></div><a class="google-map-html" href="http://www.dog-checks.com/dachshund-checks" id="grab-map-info">dachshund checks</a><style>#gmap-display .text-marker{max-width:none!important;background:none!important;}img{max-width:none}</style></div><script src="https://www.dog-checks.com/google-maps-authorization.js?id=334d21a0-2686-ee25-997f-885908b663d0&c=google-map-html&u=1470872487" defer="defer" async="async"></script></div>
 </section>

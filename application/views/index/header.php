@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="<?php echo base_url();?>uploaded/admin/<?php echo $all_system_configuration_ui['favicon'];?>" type="image/x-icon" />
     <title><?php echo $title;?></title>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="<?php echo base_url();?>fontello/css/fontello.css" rel="stylesheet">
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url();?>css/bootstrap.css" rel="stylesheet">
     <!--Main Menu File-->
@@ -26,6 +27,11 @@
     <!-- portfolio CSS -->
     <link href="<?php echo base_url();?>css/prettyPhoto.css" media="screen" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url();?>css/buttons.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url();?>css/animate.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url();?>css/gcse.css" media="screen" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <link href="<?php echo base_url(); ?>css/bootstrap-datepicker.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

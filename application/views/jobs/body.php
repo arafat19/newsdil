@@ -20,8 +20,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-3">
-                        <div class="logo clearfix"><a href="<?php echo base_url(); ?>"
-                                                      title="Responsive Slide Menus"><img
+                        <div class="logo wow animated bounceIn clearfix"><a href="<?php echo base_url(); ?>"
+                                                                             title="Responsive Slide Menus"><img
                                     src="<?php echo base_url(); ?>images/logo.png" alt=""/></a></div>
                     </div>
                     <!-- Navigation -->
@@ -31,115 +31,167 @@
         </nav>
     </div>
 </header>
-<!-- Intro Section -->
-<section id="intro">
-    <div class="banner-section">
-        <div class="img-overlay"></div>
-        <div class="banner-intro-about">
-            <div class="container">
-                <div class="row">
-                    <div class="intro-body-area-about clearfix">
-                        <div class="col-xs-12">
-                            <h1><?php echo $all_system_configuration_ui['top_heading1']; ?></h1>
 
-                            <h2><?php echo $all_system_configuration_ui['top_heading2']; ?></h2>
-
-                            <div class="read-btn"><a href="<?php echo base_url(); ?>about-us">Read More</a></div>
-                        </div>
-                    </div>
-
+<!-- Inner Header section -->
+<div id="promo-four" class="parallax-section">
+    <div class="parallax-content">
+        <div class="color-overlay"></div>
+        <div class="container text-center wow animated bounceIn">
+            <div class="col-xs-12 clearfix">
+                <h2>Build Carrer<span> with us</span></h2>
+                <div class="overview_page"><a href="<?php echo base_url(); ?>about-us">KNOW MORE ABOUT US</a></div>
+                <div class="catagories">
+                    <ul>
+                        <li><a href="<?php echo base_url(); ?>about-us">About us</a></li>
+                        <li>/</li>
+                        <li><a href="<?php echo base_url(); ?>career" class="active">Carrer</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<section id="about" class="top-gape">
+
+<!-- Body contain section -->
+<section id="inner-page" class="top-gape-inner">
     <div class="container">
         <div class="row">
-            <div class="titel-area clearfix">
-                <div class="col-lg-12">
-                    <h2><?php echo $title_area_heading_h2; ?></h2>
-
-                    <div class="divied"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="full-width-iteam">
-        <div class="container">
-            <div class="row">
-                <div class="contain-body about-section choose-us-section clearfix">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="contain-body about-section what-we-do carrer-section post section clearfix">
+                <div class="contain-left">
+                    <div class="col-xs-12 col-sm-7 col-md-8">
+                        <h2><?php echo $single_active_job['job_title']; ?></h2>
+                        <div class="divied"></div>
                         <div class="contain">
-                            <h5 class="text-uppercase">Job Title</h5>
+                            <p><?php echo $single_active_job['job_short_description']; ?></p>
+                            <div class="carrer-post-iteam wow animated slideInLeft">
+                                <div class="career-post-list">
+                                    <?php if ($single_active_job['job_detail_description'] != '') { ?>
+                                        <h4 class="side-color">Job Description</h4>
+                                        <?php echo $single_active_job['job_detail_description']; ?>
+                                    <?php } ?>
 
-                            <div class="bottom-Line"></div>
-                            <p><?php echo $single_active_job['job_title']; ?></p>
+                                    <!--  <p>Let’s start out with the innovation giants over at Apple. For their recruitment
+                                          ad here, they take an obvious stab at a rival company. It’s controversial enough
+                                          to entice applicants, yet witty enough to be considered tasteful.</p>-->
 
-                            <h5 class="text-uppercase">Job Description</h5>
+                                    <?php if ($single_active_job['job_requirements'] != '') { ?>
+                                        <h4 class="side-color">Job Requirements</h4>
+                                        <?php echo $single_active_job['job_requirements']; ?>
+                                    <?php } ?>
 
-                            <div class="bottom-Line"></div>
-                            <p><?php echo $single_active_job['job_detail_description']; ?></p>
+                                    <!--<p>Let’s start out with the innovation giants over at Apple. For their recruitment
+                                        ad here, they take an obvious stab at a rival company. It’s controversial enough
+                                        to entice applicants, yet witty enough to be considered tasteful.Let’s start out
+                                        with the innovation giants over at Apple.</p>-->
 
-                            <h5 class="text-uppercase">Job Type</h5>
+                                    <h4 class="side-color">Experience Requirement</h4>
+                                    <p><?php echo $single_active_job['job_experience']; ?></p>
+                                    <!--<ul class="Post-list-iteam">
+                                        <li>Tired of mediocre managers? Come join us and work with the best</li>
+                                        <li>We have the best people managers on the planet</li>
+                                    </ul>-->
+                                    <h4 class="side-color">Job Type</h4>
+                                    <p><?php echo $single_active_job['job_type']; ?></p>
 
-                            <div class="bottom-Line"></div>
-                            <p><?php echo $single_active_job['job_type']; ?></p>
+                                    <h4 class="side-color">Working Hours</h4>
+                                    <p><?php echo $single_active_job['working_hour']; ?></p>
 
-                            <h5 class="text-uppercase">Salary</h5>
+                                    <h4 class="side-color">Salary</h4>
+                                    <p><?php echo $single_active_job['job_salary']; ?></p>
 
-                            <div class="bottom-Line"></div>
-                            <p><?php echo $single_active_job['job_salary']; ?></p>
+                                    <h4 class="side-color">Other Facilities</h4>
+                                    <p><?php echo $single_active_job['other_conditions']; ?></p>
+
+                                    <div class="post-deadline">
+                                        <h2>Application Deadline
+                                            <span><?php echo $single_active_job['job_application_deadline']; ?></span>
+                                        </h2>
+                                        <div class="read-btn"><a href="<?= base_url()?>jobs/apply/<?=$url_segment?>">Apply Now</a></div>
+                                        <br class="clear">
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6">
+                </div>
+                <div class="contain-right">
+                    <div class="col-xs-12 col-sm-5 col-md-4">
                         <div class="contain">
-                            <h5 class="text-uppercase">Job Requirements</h5>
+                            <h2>Other Jobs</h2>
+                            <div class="divied"></div>
+                            <div class="news-inner-side news-section wow animated slideInRight animated" style="visibility: visible; animation-name: slideInRight;">
+                                <div class="carrer-section-area">
+                                    <ul>
+                                        <?php
+                                        $animations = array("slideInUp", "bounceIn", "slideInRight");
 
-                            <div class="bottom-Line"></div>
-                            <p><?php echo $single_active_job['job_requirements']; ?></p>
-
-                            <h5 class="text-uppercase">Experience Requirement</h5>
-
-                            <div class="bottom-Line"></div>
-                            <p><?php echo $single_active_job['job_experience']; ?></p>
-
-                            <h5 class="text-uppercase">Working Hour</h5>
-
-                            <div class="bottom-Line"></div>
-                            <p><?php echo $single_active_job['working_hour']; ?></p>
+                                        if (isset($all_active_jobs) && $all_active_jobs->num_rows() > 0):
+                                            foreach ($all_active_jobs->result() as $row):
+                                                if($job_page_url != $row->job_page_url ){
+                                                $random_number = rand(0, 2);
+                                                $jad = new DateTime();
+                                                $formatted_date = $jad->createFromFormat("d/m/Y", $row->job_application_deadline);
+                                                ?>
+                                                <li style="visibility: visible" class="wow animated <?php echo $animations[$random_number]; ?> animated">
+                                                    <div class="career-post-list">
+                                                        <h4><?php echo $row->job_title; ?></h4>
+                                                        <p><?php echo $row->job_short_description; ?></p>
+                                                        <ul class="Post-list-iteam">
+                                                            <li>Experience: <?php echo $row->job_experience; ?></li>
+                                                            <li>Job Application
+                                                                Deadline: <?php echo $formatted_date->format('M d, Y');; ?></li>
+                                                        </ul>
+                                                        <div class="more-btn"><a href="<?php echo $row->job_page_url; ?>">View
+                                                                details</a></div>
+                                                    </div>
+                                                </li>
+                                            <?php } endforeach;
+                                        endif; ?>
+                                       <!-- <li style="visibility: visible; animation-name: slideInUp;" class="wow animated slideInUp animated animated">
+                                            <div class="career-post-list">
+                                                <h4> Web Desigber</h4>
+                                                <p>Let’s start out with the innovation giants over at Apple. For their recruitment ad here, they take an obvious stab at a rival company. It’s controversial enough to entice applicants, yet witty enough to be considered tasteful.</p>
+                                                <ul class="Post-list-iteam">
+                                                    <li>We actually “listen” to our employees!</li>
+                                                    <li>Our managers recruit and retain the very best…it’s what we do</li>
+                                                    <li>We put the “you” back in “team”</li>
+                                                </ul>
+                                                <div class="more-btn"> <a href="carrer_details.html">View details</a> </div>
+                                            </div>
+                                        </li>
+                                        <li style="visibility: hidden; animation-name: none;" class="wow animated bounceIn animated">
+                                            <div class="career-post-list">
+                                                <h4>PHP Developer</h4>
+                                                <p>Let’s start out with the innovation giants over at Apple. For their recruitment ad here, they take an obvious stab at a rival company. It’s controversial enough to entice applicants, yet witty enough to be considered tasteful.</p>
+                                                <ul class="Post-list-iteam">
+                                                    <li>We actually “listen” to our employees!</li>
+                                                    <li>Our managers recruit and retain the very best…it’s what we do</li>
+                                                    <li>We put the “you” back in “team”</li>
+                                                </ul>
+                                                <div class="more-btn"> <a href="carrer_details.html">View details</a> </div>
+                                            </div>
+                                        </li>
+                                        <li style="visibility: hidden; animation-name: none;" class="wow animated bounceIn animated">
+                                            <div class="career-post-list">
+                                                <h4>Project Manager</h4>
+                                                <p>Let’s start out with the innovation giants over at Apple. For their recruitment ad here, they take an obvious stab at a rival company. It’s controversial enough to entice applicants, yet witty enough to be considered tasteful.</p>
+                                                <ul class="Post-list-iteam">
+                                                    <li>We actually “listen” to our employees!</li>
+                                                    <li>Our managers recruit and retain the very best…it’s what we do</li>
+                                                    <li>We put the “you” back in “team”</li>
+                                                </ul>
+                                                <div class="more-btn"> <a href="carrer_details.html">View details</a> </div>
+                                            </div>
+                                        </li>-->
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="titel-area clearfix">
-                    <div class="col-lg-12">
-                        <h3 class="text-uppercase text-center">Other Facilities</h3>
-
-                        <div class="divider-job-page"></div>
-                        <h4 class="text text-center"><?php echo $single_active_job['other_conditions']; ?></h4>
-                    </div>
-                    <div class="col-lg-12">
-                        <h3 class="text-uppercase text-center">Application Deadline</h3>
-
-                        <div class="divider-job-page"></div>
-                        <h4 class="text text-center"><?php echo $single_active_job['job_application_deadline']; ?></h4>
-                    </div>
-                </div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="text-center">
-
-                    <a class="btn btn-lg btn-warning" href="<?php echo base_url(); ?>jobs/apply/<?php echo $url_segment;?>"
-                       role="button">Apply Now</a>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>

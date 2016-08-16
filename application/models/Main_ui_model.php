@@ -11,7 +11,7 @@ class main_ui_model extends CI_Model
 
     public function get_service_by_is_active($is_active)
     {
-        $this->db->select('id, service_name, total_description_div, is_active,service_page_url');
+        $this->db->select('*');
         $this->db->where('is_active', $is_active);
         $result = $this->db->get('service_list');
 
@@ -21,6 +21,28 @@ class main_ui_model extends CI_Model
             return NULL;
         }
 
+    }
+    public function get_active_news()
+    {
+        $this->db->select('*');
+        $this->db->where('is_active', 1);
+        $result = $this->db->get('sdil_news');
+
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
+
+    }
+
+    public function get_active_news_by_page_url($news_page_url)
+    {
+        $this->db->select('*');
+        $this->db->where('news_page_url', $news_page_url);
+        $this->db->where('is_active', 1);
+        $query = $this->db->get('sdil_news');
+        return $query->row_array();
     }
 
     public function get_jobs_by_is_active()

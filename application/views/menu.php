@@ -40,10 +40,22 @@
                     </li>
                     <!--<li><a href="#">Services</a></li>-->
                     <li><a class="<?php echo($active=='our_skills')?'active':''; ?>" href="<?php echo base_url();?>our-skills">Our Skills</a></li>
-                    <li><a href="#">News</a></li>
+                    <li><a class="<?php echo($active=='news')?'active':''; ?>" href="<?php echo base_url();?>news">News</a></li>
                     <li><a class="<?php echo($active=='contacts')?'active':''; ?>" href="<?php echo base_url();?>contact">Contact</a></li>
                     <li>
                         <form action="#" class="searchBox" id="searchiteam" method="get">
+                            <!--<script>
+                                (function() {
+                                    var cx = '009611862725777442995:f1zwmmzfnjc';
+                                    var gcse = document.createElement('script');
+                                    gcse.type = 'text/javascript';
+                                    gcse.async = true;
+                                    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                                    var s = document.getElementsByTagName('script')[0];
+                                    s.parentNode.insertBefore(gcse, s);
+                                })();
+                            </script>
+                            <gcse:search></gcse:search>-->
                             <input type="search" onblur="if (this.value == '') {this.value = 'Search';}" onfocus="if (this.value == 'Search') {this.value = '';}" id="s" name="s" value="" />
                         </form>
                     </li>

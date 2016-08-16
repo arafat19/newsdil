@@ -466,7 +466,7 @@
                                 <div class="nees-iteam">
                                     <div class="news-thumb">
                                         <a href="<?php echo $row->news_page_url; ?>">
-                                            <img width="98" height="100"
+                                            <img
                                                 src="<?php echo base_url(); ?>uploaded/news_image/<?php echo $row->news_image; ?>"
                                                 alt="<?php echo $row->news_image; ?>"/>
                                         </a>
@@ -474,7 +474,7 @@
                                                 More</a></div>
                                     </div>
                                     <div class="contain">
-                                        <h4><?php echo $row->news_title; ?></h4>
+                                        <h3><?php echo $row->news_title; ?></h3>
                                         <p><?php echo substr($row->news_short_description, 0, 64); ?>...</p>
 
                                     </div>

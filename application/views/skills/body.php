@@ -20,8 +20,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-3">
-                        <div class="logo clearfix"><a href="<?php echo base_url(); ?>"
-                                                      title="Responsive Slide Menus"><img
+                        <div class="logo wow animated  bounceIn clearfix"><a href="<?php echo base_url(); ?>"
+                                                                             title="Responsive Slide Menus"><img
                                     src="<?php echo base_url(); ?>images/logo.png" alt=""/></a></div>
                     </div>
                     <!-- Navigation -->
@@ -31,76 +31,72 @@
         </nav>
     </div>
 </header>
-<!-- Intro Section -->
-<section id="intro">
-    <div class="banner-section">
-        <div class="img-overlay"></div>
-        <div class="banner-intro-about">
-            <div class="container">
-                <div class="row">
-                    <div class="intro-body-area-about clearfix">
-                        <div class="col-xs-12">
-                            <h1><?php echo $all_system_configuration_ui['top_heading1']; ?></h1>
 
-                            <h2><?php echo $all_system_configuration_ui['top_heading2']; ?></h2>
-
-                            <div class="read-btn"><a href="<?php echo base_url(); ?>about-us">Read More</a></div>
-                        </div>
-                    </div>
-
+<!-- Inner Header section -->
+<div id="promo-seven" class="parallax-section">
+    <div class="parallax-content">
+        <div class="color-overlay"></div>
+        <div class="container text-center">
+            <div class="col-xs-12 clearfix">
+                <h2>Our <span> Skill</span></h2>
+                <div class="overview_page"><a href="<?= base_url() ?>/about">KNOW MORE ABOUT US</a></div>
+                <div class="catagories">
+                    <ul>
+                        <li><a href="<?= base_url() ?>">Home</a></li>
+                        <li>/</li>
+                        <li><a href="" class="active">Skill</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 
-<!-- Why Choose us Section -->
-<section id="about" class="top-gape">
+<!-- Body contain section -->
+<section id="inner-page" class="top-gape-inner">
     <div class="container">
         <div class="row">
-            <div class="titel-area clearfix">
-                <div class="col-lg-12">
-                    <h2><?php echo $title_area_heading_h2; ?></h2>
-
-                    <div class="divied"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="full-width-iteam">
-        <div class="container">
-            <div class="row">
-                <div class="contain-body about-section choose-us-section clearfix">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="contain-body about-section what-we-do">
+                <div class="contain">
+                    <div class="col-xs-12">
+                        <h2>Our Global Skills</h2>
+                        <div class="divied"></div>
                         <div class="contain">
-                            <?php
-                            $skill_cat_id = 0;
-                            if (isset($active_skills) && $active_skills->num_rows() > 0):
-
-                                foreach ($active_skills->result() as $row):
-                                    if ($skill_cat_id != $row->skill_category_id) {
-                                        ?>
-                                        <h5><?php echo $row->skill_category_name; ?></h5>
-                                        <div class="bottom-Line"></div>
-                                    <?php }
-                                    ?>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-striped progress-bar-success active"
-                                             role="progressbar" aria-valuenow="<?php echo $row->skill_percentage; ?>"
-                                             aria-valuemin="0" aria-valuemax="100"
-                                             style="width: <?php echo $row->skill_percentage; ?>%">
-                                            <span class="sr-only"><?php echo $row->skill_percentage; ?>% Complete (success)</span>
-                                        </div>
-                                        <span class="progress-type"><?php echo $row->skill_name; ?></span>
-                                        <span class="progress-completed"><?php echo $row->skill_percentage; ?>%</span>
-                                    </div>
-                                    <?php
-                                    $skill_cat_id = $row->skill_category_id;
-                                endforeach;
-
-                            endif; ?>
+                            <h3>We have International standard expert Software Engineers and Project Managers</h3>
+                            <p>They are capable to make your dream true and accelerate your business like F1 cars.</p>
                         </div>
+                    </div>
+                    <div class="progress-iteam">
+                        <?php
+                        $skill_cat_id = 0;
+                        if (isset($active_skills) && $active_skills->num_rows() > 0):
+                            foreach ($active_skills->result() as $row): ?>
+
+                                <?php if ($skill_cat_id != $row->skill_category_id) {
+                                    ?>
+                                    <div class="col-md-6">
+                                        <div class="progress-list">
+                                            <p class="lead text-black"><?php echo $row->skill_category_name; ?></p>
+                                            <?php
+                                            $query = $this->db->query("SELECT sdil_skills.* FROM sdil_skills WHERE sdil_skills.is_active= '1' AND sdil_skills.skill_category_id=" . $row->skill_category_id);
+                                            foreach ($query->result() as $rows): ?>
+                                                <div class="progress-item">
+                                                    <div class="progress-title">
+                                                        <h6><?php echo $rows->skill_name; ?></h6>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar"
+                                                             data-percent="<?= $rows->skill_percentage ?>"></div>
+                                                    </div>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                                <?php $skill_cat_id = $row->skill_category_id;
+                            endforeach;
+                        endif; ?>
                     </div>
                 </div>
             </div>

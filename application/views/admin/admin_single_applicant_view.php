@@ -43,7 +43,12 @@
                                 </tr>
                                 <tr>
                                     <td>Date of Birth:</td>
-                                    <td><?php echo $single_applicant['date_of_birth']; ?></td>
+                                    <td>
+                                        <?php
+                                        $jad = new DateTime();
+                                        $formatted_date = $jad->createFromFormat("d/m/Y", $single_applicant['date_of_birth']);
+                                        echo $formatted_date->format('M d, Y'); ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Email:</td>
@@ -58,16 +63,44 @@
                                     <td><?php echo $single_applicant['last_education_degree']; ?></td>
                                 </tr>
                                 <tr>
+                                    <td>Institution Name:</td>
+                                    <td><?php echo $single_applicant['education_institute_name']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Passing Year:</td>
+                                    <td><?php echo $single_applicant['passing_year']; ?></td>
+                                </tr>
+                                <tr>
                                     <td>Present Address:</td>
                                     <td><?php echo $single_applicant['present_address']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Years of Job Experience:</td>
+                                    <td><?php echo $single_applicant['years_of_experience']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Last Work Experience:</td>
                                     <td><?php echo $single_applicant['last_work_experience']; ?></td>
                                 </tr>
                                 <tr>
+                                    <td>Current/Last Employer Name:</td>
+                                    <td><?php echo $single_applicant['current_employer_name']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Current Salary:</td>
+                                    <td><?php echo $single_applicant['current_salary']; ?></td>
+                                </tr>
+                                <tr>
                                     <td>Expected Salary:</td>
                                     <td><?php echo $single_applicant['expected_salary']; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>LinkedIn Profile:</td>
+                                    <td>
+                                        <a href="<?= $single_applicant['linkedin_profile'] ?>" target="_blank">
+                                            <?php echo $single_applicant['linkedin_profile']; ?>
+                                        </a>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

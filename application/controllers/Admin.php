@@ -67,6 +67,525 @@ class Admin extends CI_Controller
         $this->load->view('admin/footer_view', $data);
     }
 
+    public function add_test_question()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            $this->logout();
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('job_title', 'Please select a Job Title', 'required');
+            $this->form_validation->set_rules('question_description', 'Question description', 'required|trim|min_length[4]|callback_unique_question_description');
+            $this->form_validation->set_rules('answer1', 'Answer 1', 'required|trim|min_length[4]');
+            $this->form_validation->set_rules('answer2', 'Answer 2', 'required|trim|min_length[4]');
+            $this->form_validation->set_rules('answer3', 'Answer 3', 'required|trim|min_length[4]');
+            $this->form_validation->set_rules('answer4', 'Answer 4', 'required|trim|min_length[4]');
+            $this->form_validation->set_rules('true_answer', 'True Answer', 'required|trim|min_length[4]');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Add Test Questions - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'test';
+                $data['common_header'] = 'Add Test Questions';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                /*==================================================
+                Start of Pagination Code segment for service page
+                ===================================================*/
+
+                $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
+                $config['total_rows'] = $this->app_user_model->total_count_of_test_questions();
+                $config['per_page'] = 10;
+                $config['uri_segment'] = 3;
+                $config['base_url'] = base_url() . 'admin/add_test_question';
+                $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['prev_link'] = '&laquo;';
+                $config['prev_tag_open'] = '<li>';
+                $config['prev_tag_close'] = '</li>';
+                $config['next_link'] = '&raquo;';
+                $config['next_tag_open'] = '<li>';
+                $config['next_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="active"><a href="#">';
+                $config['cur_tag_close'] = '</a></li>';
+                $config['num_tag_open'] = '<li>';
+                $config['num_tag_close'] = '</li>';
+                $this->pagination->initialize($config);
+                $data['paginglinks'] = $this->pagination->create_links();
+
+                $current_page = ($this->pagination->cur_page == 0) ? 1 : $this->pagination->cur_page;
+                $data['start_from'] = ($current_page - 1) * $config["per_page"] + 1;
+
+
+                /*$data['serial'] = (($this->pagination->cur_page - 1) * $config["per_page"]) + 1;*/
+                $data['cur'] = $this->pagination->cur_page;
+
+                // Showing total rows count
+                if ($data['paginglinks'] != '') {
+                    $to_serial = $this->pagination->cur_page * $this->pagination->per_page;
+                    $data['pagermessage'] = 'Showing ' . ((($this->pagination->cur_page - 1) * $this->pagination->per_page) + 1) . ' to ' . ($to_serial >= $config['total_rows'] ? $config['total_rows'] : $to_serial) . ' of ' . $config['total_rows'];
+                }
+
+                /*=================================================
+                    End of Pagination Code segment for service page
+               ===================================================*/
+
+                $all_questions = $this->app_user_model->get_all_questions($config["per_page"], $offset); // Reading and showing the Testimonials list from DB
+                $data['all_questions'] = $all_questions;
+                $data['list_title'] = 'Test questions List';
+
+                $job_title_list = $this->app_user_model->get_active_job_title_list();
+                $data['job_title_list'] = $job_title_list;
+
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_add_test_question_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $job_id = $this->input->post('job_title');
+                $data = array(
+                    'job_id' => $job_id,
+                    'question_description' => $this->input->post('question_description'),
+                    'answer1' => $this->input->post('answer1'),
+                    'answer2' => $this->input->post('answer2'),
+                    'answer3' => $this->input->post('answer3'),
+                    'answer4' => $this->input->post('answer4'),
+                    'true_answer' => $this->input->post('true_answer')
+                );
+                $test_question_count = $this->app_user_model->total_count_of_test_questions_by_job_id($job_id);
+                if ($test_question_count > 19) {
+                    $this->session->set_flashdata('cant_add_message', 'Already there are 20 questions added for this job.');
+                } else {
+                    $this->app_user_model->add_test_question($data);
+                    $this->session->set_flashdata('add_success', 'Test Question is successfully added');
+                }
+                redirect(base_url() . 'admin/add/test/question');
+            }
+        }
+    }
+
+    public function update_test_question($question_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            $this->logout();
+        } else {
+            $question_id_dec = base64_decode($question_id);
+            $single_test_question = $this->app_user_model->get_single_test_question_by_id($question_id_dec);
+
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+
+            $single_test_question_des_db = $single_test_question["question_description"];
+            $single_test_question_des = $this->input->post('question_description');
+
+
+            if ($single_test_question_des_db != $single_test_question_des) {
+                $this->form_validation->set_rules('question_description', 'Question description', 'required|trim|min_length[4]|callback_unique_question_description');
+            } else {
+                $this->form_validation->set_rules('question_description', 'Question description', 'required|trim|min_length[4]');
+            }
+
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update Test Questions - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'test';
+                $data['common_header'] = 'Update Test Questions';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                $data['single_test_question'] = $single_test_question;
+
+                $job_title_list = $this->app_user_model->get_active_job_title_list();
+                $data['job_title_list'] = $job_title_list;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_test_question_view', $data);
+                $this->load->view('admin/footer_view', $data);
+            } else {
+                $data = array(
+                    'job_id' => $this->input->post('job_title'),
+                    'question_description' => $this->input->post('question_description'),
+                    'answer1' => $this->input->post('answer1'),
+                    'answer2' => $this->input->post('answer2'),
+                    'answer3' => $this->input->post('answer3'),
+                    'answer4' => $this->input->post('answer4'),
+                    'true_answer' => $this->input->post('true_answer')
+                );
+                $this->app_user_model->update_test_question($data, $question_id_dec);
+                $this->session->set_flashdata('test_question_update_message', "Selected Question is updated successfully.");
+                redirect(base_url() . 'admin/add/test/question');
+            }
+        }
+    }
+
+    public function delete_test_question($question_id)
+    {
+        $question_id_dec = base64_decode($question_id);
+        $this->app_user_model->delete_test_question($question_id_dec);
+        $this->session->set_flashdata('test_question_delete_message', 'Selected Question is successfully deleted');
+
+        redirect(base_url() . 'admin/add/test/question');
+    }
+
+    public function add_news()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            $this->logout();
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('news_title', 'News title', 'required|trim|min_length[4]|callback_unique_news_title');
+            $this->form_validation->set_rules('news_page_url', 'News Page URL', 'required|trim|min_length[4]|callback_unique_news_page_url');
+            $this->form_validation->set_rules('news_short_description', 'news short description', 'required|trim|min_length[8]');
+            $this->form_validation->set_rules('news_post_date', 'News post date', 'trim|min_length[4]');
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Add News - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'news';
+                $data['common_header'] = 'Add News';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                /*==================================================
+                Start of Pagination Code segment for service page
+                ===================================================*/
+
+                $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
+                $config['total_rows'] = $this->app_user_model->total_count_of_news();
+                $config['per_page'] = 10;
+                $config['uri_segment'] = 3;
+                $config['base_url'] = base_url() . 'admin/add_news';
+                $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['prev_link'] = '&laquo;';
+                $config['prev_tag_open'] = '<li>';
+                $config['prev_tag_close'] = '</li>';
+                $config['next_link'] = '&raquo;';
+                $config['next_tag_open'] = '<li>';
+                $config['next_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="active"><a href="#">';
+                $config['cur_tag_close'] = '</a></li>';
+                $config['num_tag_open'] = '<li>';
+                $config['num_tag_close'] = '</li>';
+                $this->pagination->initialize($config);
+                $data['paginglinks'] = $this->pagination->create_links();
+
+                $current_page = ($this->pagination->cur_page == 0) ? 1 : $this->pagination->cur_page;
+                $data['start_from'] = ($current_page - 1) * $config["per_page"] + 1;
+
+
+                /*$data['serial'] = (($this->pagination->cur_page - 1) * $config["per_page"]) + 1;*/
+                $data['cur'] = $this->pagination->cur_page;
+
+                // Showing total rows count
+                if ($data['paginglinks'] != '') {
+                    $to_serial = $this->pagination->cur_page * $this->pagination->per_page;
+                    $data['pagermessage'] = 'Showing ' . ((($this->pagination->cur_page - 1) * $this->pagination->per_page) + 1) . ' to ' . ($to_serial >= $config['total_rows'] ? $config['total_rows'] : $to_serial) . ' of ' . $config['total_rows'];
+                }
+
+                /*=================================================
+                    End of Pagination Code segment for service page
+               ===================================================*/
+
+                $all_news = $this->app_user_model->get_all_news($config["per_page"], $offset); // Reading and showing the Testimonials list from DB
+                $data['all_news'] = $all_news;
+                $data['list_title'] = 'News List';
+
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_add_news_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $data = array(
+                    'news_title' => $this->input->post('news_title'),
+                    'news_page_url' => $this->input->post('news_page_url'),
+                    'news_short_description' => $this->input->post('news_short_description'),
+                    'news_post_date' => $this->input->post('news_post_date'),
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->add_news($data);
+                $this->session->set_flashdata('add_success', 'News is successfully added');
+                redirect(base_url() . 'admin/add/news');
+            }
+        }
+    }
+
+    public function update_news($news_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            $this->logout();
+        } else {
+            $news_id_dec = base64_decode($news_id);
+            $single_news = $this->app_user_model->get_single_news_by_id($news_id_dec);
+
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('is_active', 'Is Active');
+
+            $single_news_title_db = $single_news["news_title"];
+            $single_news_title = $this->input->post('news_title');
+
+            $news_page_url_db = $single_news["news_page_url"];
+            $news_page_url = strtolower($this->input->post('news_page_url'));
+
+            if ($single_news_title_db != $single_news_title) {
+                $this->form_validation->set_rules('news_title', 'News title', 'required|trim|min_length[4]|callback_unique_news_title');
+            } else {
+                $this->form_validation->set_rules('news_title', 'News title', 'required|trim|min_length[4]');
+            }
+            if ($news_page_url_db != $news_page_url) {
+                $this->form_validation->set_rules('news_page_url', 'News Page URL', 'required|trim|min_length[4]|callback_unique_news_page_url');
+            } else {
+                $this->form_validation->set_rules('news_page_url', 'News Page URL', 'required|trim|min_length[4]');
+            }
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update News - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'news';
+                $data['common_header'] = 'Update News';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                $data['single_news'] = $single_news;
+
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_news_view', $data);
+                $this->load->view('admin/footer_view', $data);
+            } else {
+                $is_active = $this->input->post('is_active') ? 1 : 0;
+                $data = array(
+                    'news_title' => $this->input->post('news_title'),
+                    'news_page_url' => $this->input->post('news_page_url'),
+                    'news_short_description' => $this->input->post('news_short_description'),
+                    'news_post_date' => $this->input->post('news_post_date'),
+                    'is_active' => $is_active
+                );
+                $this->app_user_model->update_news($data, $news_id_dec);
+                $this->session->set_flashdata('news_update_message', "Selected news is updated successfully.");
+                redirect(base_url() . 'admin/add/news/');
+            }
+        }
+    }
+
+    public function upload_news_file($news_id)
+    {
+        $news_id_dec = base64_decode($news_id);
+        $data['title'] = 'Upload News Image - Shwapno Duar IT Ltd.';
+        $data['navbar_title'] = 'SDIL Admin Panel';
+        $data['active'] = 'news';
+
+        $data['full_name'] = $this->session->userdata('full_name');
+        $data['error'] = '';
+        $data['news_id'] = $news_id;
+
+        $single_news = $this->app_user_model->get_single_news_by_id($news_id_dec);
+        $data['single_news'] = $single_news;
+        $single_news_title = $single_news['news_title'];
+        $data['common_header'] = 'Upload ' . $single_news_title . ' Image';
+
+        $this->load->view('admin/admin_dashboard_header_view', $data);
+        $this->load->view('admin/admin_news_image_upload_form_view', $data);
+        $this->load->view('admin/footer_view', $data);
+    }
+
+    public function upload_news_photo($news_id)
+    {
+        $news_id_dec = base64_decode($news_id);
+        $config['upload_path'] = './uploaded/news_image';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['overwrite'] = TRUE;
+        $config['max_size'] = 6000;
+        $config['max_width'] = 800;
+        $config['max_height'] = 600;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload()) {
+            $data['title'] = 'Upload News Image - Shwapno Duar IT Ltd.';
+            $data['navbar_title'] = 'SDIL Admin Panel';
+            $data['active'] = 'news';
+            $data['full_name'] = $this->session->userdata('full_name');
+            $data['error'] = $this->upload->display_errors();
+            $data['news_id'] = $news_id;
+
+            $single_news = $this->app_user_model->get_single_news_by_id($news_id_dec);
+            $data['single_news'] = $single_news;
+            $single_news_title = $single_news['news_title'];
+            $data['common_header'] = 'Upload ' . $single_news_title . ' Image';
+
+            $this->load->view('admin/admin_dashboard_header_view', $data);
+            $this->load->view('admin/admin_news_image_upload_form_view', $data);
+            $this->load->view('admin/footer_view', $data);
+
+        } else {
+            $file = array(
+                'news_image' => $this->upload->data('file_name')
+            );
+            $table_name = 'sdil_news';
+            $this->app_user_model->update_single_image($news_id_dec, $table_name, $file);
+            $this->session->set_flashdata('upload_success', 'Your file is successfully uploaded');
+            redirect(base_url() . 'admin/upload/news/photo/' . $news_id);
+        }
+
+    }
+
+
+    public function delete_news_image($news_id)
+    {
+        $news_id_dec = base64_decode($news_id);
+        $single_news = $this->app_user_model->get_single_news_by_id($news_id_dec);
+        $this->app_user_model->delete_news_image($news_id_dec);
+        $image_name = $single_news["project_image"];
+        $path = "./uploaded/news_image/" . $image_name;
+        unlink($path);
+        $this->session->set_flashdata('image_delete_message', 'Selected Image is successfully deleted.');
+        redirect(base_url() . 'admin/add/news');
+    }
+
+    public function delete_news($news_id)
+    {
+        $news_id_dec = base64_decode($news_id);
+        $single_news = $this->app_user_model->get_single_news_by_id($news_id_dec);
+        $is_active = $single_news["is_active"];
+        $has_image = $single_news['news_image'];
+        if ($is_active) {
+            $this->session->set_flashdata('cant_delete_message', 'Active News can not be deleted');
+        } else if ($has_image) {
+            $this->session->set_flashdata('cant_delete_message', 'News with image can not be deleted. Please delete the news image at first.');
+        } else {
+            $this->app_user_model->delete_news($news_id_dec);
+            $this->session->set_flashdata('news_delete_message', 'Selected News is successfully deleted');
+        }
+        redirect(base_url() . 'admin/add/news/');
+    }
+
+
+    public function add_news_page()
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            $this->logout();
+        } else {
+            $this->load->library('Form_validation');
+            // field name, error message, validation rules
+            $this->form_validation->set_rules('news_title', 'Please select a News Title', 'required');
+            $this->form_validation->set_rules('news_details', 'News Details', 'required|trim|min_length[5]');
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Add News Page - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'news';
+                $data['common_header'] = 'Add News Page';
+                $data['full_name'] = $this->session->userdata('full_name');
+
+                /*==================================================
+                Start of Pagination Code segment for service page
+                ===================================================*/
+
+                $offset = ($this->uri->segment(3) != '' ? $this->uri->segment(3) : 0);
+                $config['total_rows'] = $this->app_user_model->total_count_of_news();
+                $config['per_page'] = 10;
+                $config['uri_segment'] = 3;
+                $config['base_url'] = base_url() . 'admin/add_news_page';
+                $config['suffix'] = '?==CoMnZe==' . http_build_query($_GET, '', "&");
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['prev_link'] = '&laquo;';
+                $config['prev_tag_open'] = '<li>';
+                $config['prev_tag_close'] = '</li>';
+                $config['next_link'] = '&raquo;';
+                $config['next_tag_open'] = '<li>';
+                $config['next_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="active"><a href="#">';
+                $config['cur_tag_close'] = '</a></li>';
+                $config['num_tag_open'] = '<li>';
+                $config['num_tag_close'] = '</li>';
+                $this->pagination->initialize($config);
+                $data['paginglinks'] = $this->pagination->create_links();
+
+                $current_page = ($this->pagination->cur_page == 0) ? 1 : $this->pagination->cur_page;
+                $data['start_from'] = ($current_page - 1) * $config["per_page"] + 1;
+
+
+                /*$data['serial'] = (($this->pagination->cur_page - 1) * $config["per_page"]) + 1;*/
+                $data['cur'] = $this->pagination->cur_page;
+
+                // Showing total rows count
+                if ($data['paginglinks'] != '') {
+                    $to_serial = $this->pagination->cur_page * $this->pagination->per_page;
+                    $data['pagermessage'] = 'Showing ' . ((($this->pagination->cur_page - 1) * $this->pagination->per_page) + 1) . ' to ' . ($to_serial >= $config['total_rows'] ? $config['total_rows'] : $to_serial) . ' of ' . $config['total_rows'];
+                }
+
+                /*=================================================
+                    End of Pagination Code segment for service page
+               ===================================================*/
+
+                $all_news = $this->app_user_model->get_all_news($config["per_page"], $offset); // Reading and showing the Testimonials list from DB
+                $data['all_news'] = $all_news;
+                $data['list_title'] = 'News List';
+
+                $news_title_list = $this->app_user_model->get_news_title_list();
+                $data['news_title_list'] = $news_title_list;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_add_news_page_view', $data);
+                $this->load->view('admin/footer_view', $data);
+
+            } else {
+                $news_id = $this->input->post('news_title');
+                $single_news = $this->app_user_model->get_single_news_by_id($news_id);
+                if ($single_news['news_details'] == '') {
+                    $this->app_user_model->add_news_pages($news_id);
+                    $this->session->set_flashdata('add_success', 'Selected Project Page is successfully added');
+                } else {
+                    $this->session->set_flashdata('cant_add_success', 'Selected News Page is already added. You can update the selected page.');
+                }
+
+                redirect(base_url() . 'admin/add/news/page');
+            }
+        }
+    }
+
+    public function update_news_page($news_id)
+    {
+        if (($this->session->userdata('user_email') == "")) {
+            $this->logout();
+        } else {
+            $news_id_dec = base64_decode($news_id);
+            $this->load->library('Form_validation');
+            $this->form_validation->set_rules('news_title', 'Please select a News Title', 'required');
+            $this->form_validation->set_rules('news_details', 'News Details', 'required|trim|min_length[5]');
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Update News Page - Shwapno Duar IT Ltd.';
+                $data['navbar_title'] = 'SDIL Admin Panel';
+                $data['active'] = 'news';
+                $data['full_name'] = $this->session->userdata('full_name');
+                $data['common_header'] = 'Update News Page';
+
+                $single_news = $this->app_user_model->get_single_news_by_id($news_id_dec);
+                $data['single_news'] = $single_news;
+
+                $news_title_list = $this->app_user_model->get_news_title_list();
+                $data['news_title_list'] = $news_title_list;
+
+                $this->load->view('admin/admin_dashboard_header_view', $data);
+                $this->load->view('admin/admin_update_news_page_view', $data);
+                $this->load->view('admin/footer_view', $data);
+            } else {
+                echo $this->app_user_model->update_news_page($news_id_dec);
+                $this->session->set_flashdata('page_update_message', "Selected News page updated successfully.");
+                redirect(base_url() . 'admin/add/news/page');
+            }
+        }
+    }
+
+
     public function add_company_skill_category()
     {
         if (($this->session->userdata('user_email') == "")) {
@@ -1031,7 +1550,11 @@ class Admin extends CI_Controller
             // field name, error message, validation rules
             $this->form_validation->set_rules('project_category', 'Please select a Project Category', 'required');
             $this->form_validation->set_rules('project_title', 'This Project title', 'required|trim|min_length[4]|callback_unique_project_title');
+            $this->form_validation->set_rules('client_name', 'Client name', 'required|trim|min_length[4]');
             $this->form_validation->set_rules('project_description', 'This Project description', 'required|trim|min_length[8]');
+            $this->form_validation->set_rules('project_key_features', 'Project key features', 'required|trim|min_length[8]');
+            $this->form_validation->set_rules('project_benefits', 'Project benefits', 'required|trim|min_length[8]');
+            $this->form_validation->set_rules('project_technology_used', 'Project technology used', 'required|trim|min_length[8]');
             $this->form_validation->set_rules('project_internal_link', 'This Project Internal Link', 'trim|min_length[4]|callback_unique_project_internal_link');
             $this->form_validation->set_rules('project_external_link', 'This Project External Link', 'trim|min_length[4]|callback_unique_project_external_link');
             $this->form_validation->set_rules('project_start_date', 'This Project Start Date', 'required|trim|min_length[4]');
@@ -1103,7 +1626,11 @@ class Admin extends CI_Controller
                 $is_active = $this->input->post('is_active') ? 1 : 0;
                 $data = array(
                     'project_title' => $this->input->post('project_title'),
+                    'client_name' => $this->input->post('client_name'),
                     'project_description' => $this->input->post('project_description'),
+                    'project_key_features' => $this->input->post('project_key_features'),
+                    'project_benefits' => $this->input->post('project_benefits'),
+                    'project_technology_used' => $this->input->post('project_technology_used'),
                     'project_external_link' => $this->input->post('project_external_link'),
                     'project_internal_link' => $this->input->post('project_internal_link'),
                     'project_start_date' => $this->input->post('project_start_date'),
@@ -1174,7 +1701,11 @@ class Admin extends CI_Controller
                 $is_active = $this->input->post('is_active') ? 1 : 0;
                 $data = array(
                     'project_title' => $this->input->post('project_title'),
+                    'client_name' => $this->input->post('client_name'),
                     'project_description' => $this->input->post('project_description'),
+                    'project_key_features' => $this->input->post('project_key_features'),
+                    'project_benefits' => $this->input->post('project_benefits'),
+                    'project_technology_used' => $this->input->post('project_technology_used'),
                     'project_external_link' => $this->input->post('project_external_link'),
                     'project_internal_link' => $this->input->post('project_internal_link'),
                     'project_start_date' => $this->input->post('project_start_date'),
@@ -1218,7 +1749,7 @@ class Admin extends CI_Controller
         $config['allowed_types'] = 'jpg|png|jpeg';
         $config['overwrite'] = TRUE;
         $config['max_size'] = 6000;
-        $config['max_width'] = 600;
+        $config['max_width'] = 700;
         $config['max_height'] = 600;
 
         $this->load->library('upload', $config);
@@ -2491,6 +3022,7 @@ class Admin extends CI_Controller
         } else {
             $this->load->library('Form_validation');
             // field name, error message, validation rules
+            $this->form_validation->set_rules('icon_class_name', 'Please select an icon class for Service', 'required');
             $this->form_validation->set_rules('service_name', 'This Service Name', 'trim|required|min_length[4]|callback_unique_service_name');
             $this->form_validation->set_rules('service_details', 'This Service Details', 'required');
             $this->form_validation->set_rules('is_active', 'Is Active');
@@ -2689,6 +3221,17 @@ class Admin extends CI_Controller
         }
     }
 
+    function unique_question_description($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_test_question($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_question_description', "%s {$str} already exist!");
+            return FALSE;
+        }
+    }
+
     function unique_skill_name($str)
     {
         $this->load->model('app_user_model');
@@ -2699,6 +3242,7 @@ class Admin extends CI_Controller
             return FALSE;
         }
     }
+
     function unique_skill_category_name($str)
     {
         $this->load->model('app_user_model');
@@ -2806,6 +3350,28 @@ class Admin extends CI_Controller
             return TRUE;
         } else {
             $this->form_validation->set_message('unique_partner_name', "%s {$str} already exist!");
+            return FALSE;
+        }
+    }
+
+    function unique_news_title($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_news_title($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_news_title', "%s {$str} already exist!");
+            return FALSE;
+        }
+    }
+
+    function unique_news_page_url($str)
+    {
+        $this->load->model('app_user_model');
+        if (!$this->app_user_model->exist_news_page_url($str)) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('unique_news_page_url', "%s {$str} already exist!");
             return FALSE;
         }
     }

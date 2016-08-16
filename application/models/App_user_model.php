@@ -51,6 +51,17 @@ class app_user_model extends CI_Model
             return NULL;
         }
     }
+    function get_news_title_list()
+    {
+        $this->db->select('id, news_title');
+        $this->db->where('is_active', 1);
+        $result = $this->db->get('sdil_news');
+        if ($result->num_rows() > 0) {
+            return $result;
+        } else {
+            return NULL;
+        }
+    }
     function get_active_job_title_list()
     {
         $this->db->select('job_id, job_title');
@@ -111,12 +122,22 @@ class app_user_model extends CI_Model
         $query = $this->db->get();
         return $query->row_array();
     }
+
     public function get_active_job_by_page_url($job_page_url)
     {
         $this->db->select('*');
         $this->db->where('job_page_url', $job_page_url);
         $this->db->where('is_active', 1);
         $query = $this->db->get('sdil_jobs');
+        return $query->row_array();
+    }
+
+    public function get_active_news_by_page_url($news_page_url)
+    {
+        $this->db->select('*');
+        $this->db->where('news_page_url', $news_page_url);
+        $this->db->where('is_active', 1);
+        $query = $this->db->get('sdil_news');
         return $query->row_array();
     }
 
@@ -133,6 +154,17 @@ class app_user_model extends CI_Model
     public function total_count_of_project_cat()
     {
         return $this->db->count_all("sdil_project_category");
+    }
+
+    public function total_count_of_test_questions()
+    {
+        return $this->db->count_all("sdil_question");
+    }
+    public function total_count_of_test_questions_by_job_id($job_id)
+    {
+        return $this->db
+            ->where('job_id', $job_id)
+            ->count_all_results('sdil_question');
     }
 
     public function total_count_of_projects()
@@ -219,8 +251,50 @@ class app_user_model extends CI_Model
         if ($query->num_rows() > 0) {
             return $query;
         }
-        return false;
+        return NULL;
     }
+    public function get_all_news($limit, $start)
+    {
+        $this->db->select('*');
+        $this->db->limit($limit, $start);
+        $this->db->order_by("id", "desc");
+        $query = $this->db->get('sdil_news');
+
+        if ($query->num_rows() > 0) {
+            return $query;
+        }
+        return NULL;
+    }
+
+    public function get_all_questions($limit, $start)
+    {
+        $this->db->select('sdil_question.*, sdil_jobs.job_title');
+        $this->db->from('sdil_question');
+        $this->db->join('sdil_jobs', 'sdil_jobs.job_id = sdil_question.job_id');
+        $this->db->limit($limit, $start);
+        $this->db->order_by("question_id", "desc");
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query;
+        }
+        return NULL;
+    }
+    public function get_all_questions_by_job_id($job_id)
+    {
+        $this->db->select('sdil_question.*, sdil_jobs.job_title');
+        $this->db->from('sdil_question');
+        $this->db->join('sdil_jobs', 'sdil_jobs.job_id = sdil_question.job_id');
+        $this->db->where('sdil_question.job_id', $job_id);
+        $this->db->order_by("question_id", "ASC");
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query;
+        }
+        return NULL;
+    }
+
 
     public function get_all_skills($limit, $start)
     {
@@ -234,7 +308,7 @@ class app_user_model extends CI_Model
         if ($query->num_rows() > 0) {
             return $query;
         }
-        return false;
+        return NULL;
     }
     public function get_all_skill_category($limit, $start)
     {
@@ -246,7 +320,7 @@ class app_user_model extends CI_Model
         if ($query->num_rows() > 0) {
             return $query;
         }
-        return false;
+        return NULL;
     }
 
     public function get_all_applicants($limit, $start)
@@ -261,7 +335,7 @@ class app_user_model extends CI_Model
         if ($query->num_rows() > 0) {
             return $query;
         }
-        return false;
+        return NULL;
     }
 
     public function delete_applicant($applicant_id)
@@ -273,6 +347,10 @@ class app_user_model extends CI_Model
     public function total_count_of_social_icons()
     {
         return $this->db->count_all("social_icon");
+    }
+    public function total_count_of_news()
+    {
+        return $this->db->count_all("sdil_news");
     }
 
     public function get_social_icon($limit, $start)
@@ -356,11 +434,31 @@ class app_user_model extends CI_Model
         return $query->row_array();
     }
 
+
+    public function get_single_test_question_by_id($question_id)
+    {
+        $this->db->select('sdil_question.*, sdil_jobs.job_title');
+        $this->db->from('sdil_question');
+        $this->db->join('sdil_jobs', 'sdil_question.job_id = sdil_jobs.job_id');
+        $this->db->where('question_id', $question_id);
+        $query = $this->db->get();
+
+        return $query->row_array();
+    }
+
     public function get_single_job_by_id($job_id)
     {
         $this->db->select('*');
         $this->db->where('job_id', $job_id);
         $query = $this->db->get('sdil_jobs');
+        return $query->row_array();
+    }
+
+    public function get_single_news_by_id($news_id)
+    {
+        $this->db->select('*');
+        $this->db->where('id', $news_id);
+        $query = $this->db->get('sdil_news');
         return $query->row_array();
     }
 
@@ -470,6 +568,7 @@ class app_user_model extends CI_Model
 
         $data = array(
             'service_name' => $this->input->post('service_name'),
+            'icon_class_name' => $this->input->post('icon_class_name'),
             'total_description_div' => $total_des_div,
             'is_active' => $is_active,
             'service_page_url' => $service_page_url
@@ -506,6 +605,15 @@ class app_user_model extends CI_Model
     {
         $this->db->insert('sdil_jobs', $data);
     }
+    public function add_news($data)
+    {
+        $this->db->insert('sdil_news', $data);
+    }
+
+    public function add_test_question($data)
+    {
+        $this->db->insert('sdil_question', $data);
+    }
 
     public function add_skills($data)
     {
@@ -523,6 +631,14 @@ class app_user_model extends CI_Model
         );
         $this->db->where('project_id', $project_id);
         $this->db->update('sdil_projects', $data);
+    }
+    public function add_news_pages($news_id)
+    {
+        $data = array(
+            'news_details' => $this->input->post('news_details')
+        );
+        $this->db->where('id', $news_id);
+        $this->db->update('sdil_news', $data);
     }
     public function add_job_pages($job_id)
     {
@@ -571,6 +687,14 @@ class app_user_model extends CI_Model
         $this->db->where('project_id', $project_id);
         $this->db->update('sdil_projects', $data);
     }
+    public function delete_news_image($news_id)
+    {
+        $data = array(
+            'news_image' => ''
+        );
+        $this->db->where('id', $news_id);
+        $this->db->update('sdil_news', $data);
+    }
 
     public function delete_partners_image($member_id)
     {
@@ -615,6 +739,18 @@ class app_user_model extends CI_Model
     {
         $this->db->where('job_id', $job_id);
         $this->db->delete('sdil_jobs');
+    }
+
+    public function delete_test_question($question_id)
+    {
+        $this->db->where('question_id', $question_id);
+        $this->db->delete('sdil_question');
+    }
+
+    public function delete_news($news_id)
+    {
+        $this->db->where('id', $news_id);
+        $this->db->delete('sdil_news');
     }
 
     public function delete_company_skill($skill_id)
@@ -677,6 +813,16 @@ class app_user_model extends CI_Model
     {
         $this->db->where('service_name', $name);
         $query = $this->db->get('service_list');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+    public function exist_test_question($question)
+    {
+        $this->db->where('question_description', $question);
+        $query = $this->db->get('sdil_question');
         if ($query->num_rows() > 0) {
             return TRUE;
         } else {
@@ -815,6 +961,27 @@ class app_user_model extends CI_Model
             return FALSE;
         }
     }
+    public function exist_news_title($news_title)
+    {
+        $this->db->where('news_title', $news_title);
+        $query = $this->db->get('sdil_news');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+    public function exist_news_page_url($news_page_url)
+    {
+        $this->db->where('news_page_url', $news_page_url);
+        $query = $this->db->get('sdil_news');
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
 
     public function exist_partner_internal_link($partner_internal_link)
     {
@@ -1039,6 +1206,15 @@ class app_user_model extends CI_Model
         $this->db->update('sdil_jobs', $data);
     }
 
+    public function update_news_page($news_id)
+    {
+        $data = array(
+            'news_details' => $this->input->post('news_details')
+        );
+        $this->db->where('id', $news_id);
+        $this->db->update('sdil_news', $data);
+    }
+
 
     public function update_social_icon($social_icon_id)
     {
@@ -1099,6 +1275,16 @@ class app_user_model extends CI_Model
     {
         $this->db->where('job_id', $job_id);
         $this->db->update('sdil_jobs', $data);
+    }
+    public function update_test_question($data, $question_id_dec)
+    {
+        $this->db->where('question_id', $question_id_dec);
+        $this->db->update('sdil_question', $data);
+    }
+    public function update_news($data, $news_id)
+    {
+        $this->db->where('id', $news_id);
+        $this->db->update('sdil_news', $data);
     }
     public function update_skill($data, $skill_id)
     {

@@ -26,6 +26,13 @@ class Career extends CI_Controller
         $all_active_jobs = $this->main_ui_model->get_jobs_by_is_active(); // Reading and showing the Service list from DB by setting is_active = 1
         $data['all_active_jobs'] = $all_active_jobs;
 
+
+        $all_active_news = $this->main_ui_model->get_active_news();
+        $data['all_active_news'] = $all_active_news;
+
+        $active_testimonials = $this->main_ui_model->get_active_testimonials(); // Reading and showing Only the Active Social Icons list from DB by setting is_active = 1
+        $data['active_testimonials'] = $active_testimonials;
+
         $data['title'] = 'Career - Shwapno Duar IT Ltd.';
         $data['title_area_heading_h2'] = 'Career at Shwapno Duar IT Ltd';
         $data['active'] = 'about';
