@@ -685,8 +685,7 @@ input[type="search"] {
 =============================================================================================================*/
 
 .news-section .nees-iteam{
-    margin-bottom:35px;
-    float:right;
+    margin-bottom:60px;
 }
 .news-section .news-thumb{
     float:left;
@@ -713,7 +712,7 @@ input[type="search"] {
 }
 .news-section .contain h3{
     margin-top:0px;
-    font-size:23px;
+    font-size:19px;
     color:#252525;
     font-weight:400;
     border-bottom:1px solid #ccc;
@@ -758,9 +757,9 @@ input[type="search"] {
     text-align:center;
     width:80%;
     margin:0px auto;
-    font-size:23px;
+    font-size:19px;
     color:#323233;
-    line-height:40px;
+    line-height:30px;
     font-weight:300;
 }
 .testimonial-section .more-btn a{
@@ -1474,6 +1473,10 @@ input[type="search"] {
     padding:15px;
     margin-bottom:10px;
 }
+/*.news-thumb img{
+	width:100px;
+	height:98px;
+	}*/
 .news-inner-side .nees-iteam:hover{
     background-color:#3a3a3a!important;
     cursor:pointer;
@@ -1804,19 +1807,22 @@ input[type="search"] {
     font-weight: 600;
     text-transform: uppercase;
     display:block;
+	outline:0;
 }
 panel-heading a:hover{
     background-color:#00a651;
 }
-.panel-body {
-    color: #414141;
-    font-size: 17px;
-    font-weight: 300;
-    line-height: 26px;
+.panel-body{
+	padding:0;
+	}
+.panel-collapse {
+  padding-left: 20px;
+  padding-right:20px;
 }
-#collapse1 > ul {
-    padding-left: 20px;
-}
+.panel-collapse ul{
+	margin-top:15px!important;
+	margin-bottom:15px!important;
+	}
 .panel-group {
     margin-top: 50px;
 }
@@ -2368,22 +2374,21 @@ panel-heading a:hover{
 }
 
 .front-divided {
-    background-color: #00a651;
-    width: 33px;
-    height: 1px;
-    margin-bottom: -12px;
+  background-color: #00a651;
+  height: 2px;
+  margin-bottom: -13px;
+  width: 40px;
 }
 
 .testimonial-commented-by {
-    height: 44px;
-    text-align: center;
-    width: 361px;
-    margin: 0px auto;
-    margin-top: 50px;
-    font-size: 20px;
-    font-style: italic;
-    color: #2e6da4;
-    font-weight: bold;
+  color: #00a651;
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 700;
+  height: 44px;
+  margin: 50px auto 0;
+  text-align: center;
+  width: 30%;
 }
 .alert-success {
     position:relative;
@@ -2454,4 +2459,22 @@ panel-heading a:hover{
     height: auto;
     padding: 50px;
 }
-*
+*/
+
+/*
+.video_wrapper_sdil {
+    position: relative;
+    padding-bottom: 56.25%; !* 16:9 *!
+    padding-top: 25px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video_wrapper_sdil iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+*/

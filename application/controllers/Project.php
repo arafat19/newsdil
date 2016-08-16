@@ -31,6 +31,9 @@ class Project extends CI_Controller
         $data['active_social_icons'] = $active_social_icons;
 
 
+        $all_services = $this->main_ui_model->get_service_by_is_active(1); // Reading and showing the Service list from DB by setting is_active = 1
+        $data['all_services'] = $all_services;
+
         $data['title'] = $active_project['project_title'] . ' - Shwapno Duar IT Ltd.';
         $data['active'] = '';
         $data['title_area_heading_h2'] = $active_project['project_title'];

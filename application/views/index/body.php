@@ -1,4 +1,34 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<script language="JavaScript">
+    $(function() {
+        // Find all YouTube and Vimeo videos
+        var $allVideos = $("iframe[src*='www.youtube.com'], iframe[src*='player.vimeo.com']");
+
+        // Figure out and save aspect ratio for each video
+        $allVideos.each(function() {
+            $(this)
+                .data('aspectRatio', this.height / this.width)
+                // and remove the hard coded width/height
+                .removeAttr('height')
+                .removeAttr('width');
+        });
+
+        // When the window is resized
+        $(window).resize(function() {
+            // Resize all videos according to their own aspect ratio
+            $allVideos.each(function() {
+                var $el = $(this);
+                // Get parent width of this video
+                var newWidth = $el.parent().width();
+                $el
+                    .width(newWidth)
+                    .height(newWidth * $el.data('aspectRatio'));
+            });
+
+            // Kick off one resize to fix all videos on page load
+        }).resize();
+    });
+</script>
 <header>
     <div class="header-section clearfix">
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -21,7 +51,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-3">
                         <div class="logo wow animated bounceIn clearfix"><a href="<?php echo base_url(); ?>"
-                                                                              title="Responsive Slide Menus"><img
+                                                                            title="Responsive Slide Menus"><img
                                     src="<?php echo base_url(); ?>uploaded/admin/<?php echo $all_system_configuration_ui['logo']; ?>"
                                     alt="<?php echo base_url(); ?>uploaded/admin/<?php echo $all_system_configuration_ui['logo']; ?>"/></a>
                         </div>
@@ -107,7 +137,7 @@
                              <li><a href="javascript:MyPopFunction();"><i class="fa fa-check"></i>Back office processing</a>
                              </li>-->
                         </ul>
-                        <div class="read-btn"><a href="<?=base_url()?>about-us">Read more</a></div>
+                        <div class="read-btn"><a href="<?= base_url() ?>about-us">Read more</a></div>
                     </div>
                 </div>
             </div>
@@ -142,13 +172,13 @@
                                 successful campaigns, they also absorb valuable time that could be spent on more
                                 proactive, strategic, or revenue-generating tasks.</p>
                             <ul>
-                                <li><a href="javascript:MyPopFunction();"><i class="fa fa-line-chart"></i>We deliver top
+                                <li><a href=""><i class="fa fa-line-chart"></i>We deliver top
                                         ranking</a></li>
-                                <li><a href="javascript:MyPopFunction();"><i class="fa fa-bullhorn"></i>High customer
+                                <li><a href=""><i class="fa fa-bullhorn"></i>High customer
                                         retention rate</a></li>
-                                <li><a href="javascript:MyPopFunction();"><i class="fa fa-paper-plane"></i>We always
-                                        return e-mails and calls within one business day</a></li>
-                                <li><a href="javascript:MyPopFunction();"><i class="fa fa-usd"></i>Afordable pricing
+                                <li><a href=""><i class="fa fa-paper-plane"></i>We always
+                                        return e-mails and calls within One business day</a></li>
+                                <li><a href=""><i class="fa fa-usd"></i>Affordable pricing
                                         offers</a></li>
                             </ul>
                         </div>
@@ -466,7 +496,7 @@
                                 <div class="nees-iteam">
                                     <div class="news-thumb">
                                         <a href="<?php echo $row->news_page_url; ?>">
-                                            <img
+                                            <img style="width: 100px; height: 98px"
                                                 src="<?php echo base_url(); ?>uploaded/news_image/<?php echo $row->news_image; ?>"
                                                 alt="<?php echo $row->news_image; ?>"/>
                                         </a>
@@ -483,7 +513,7 @@
                         <?php endif; ?>
                         <!--<div class="nees-iteam">
                             <div class="news-thumb"><a href="#"><img
-                                        src="<?php /*echo base_url(); */?>images/news_thumb_01.jpg" alt="thumb"></a>
+                                        src="<?php /*echo base_url(); */ ?>images/news_thumb_01.jpg" alt="thumb"></a>
 
                                 <div class="read-btn"><a href="#">More News</a></div>
                             </div>
@@ -495,7 +525,7 @@
                         </div>
                         <div class="nees-iteam">
                             <div class="news-thumb"><a href="#"><img
-                                        src="<?php /*echo base_url(); */?>images/news_thumb_02.jpg" alt="thumb"></a>
+                                        src="<?php /*echo base_url(); */ ?>images/news_thumb_02.jpg" alt="thumb"></a>
 
                                 <div class="read-btn"><a href="#">More News</a></div>
                             </div>
@@ -507,7 +537,7 @@
                         </div>
                         <div class="nees-iteam">
                             <div class="news-thumb"><a href="#"><img
-                                        src="<?php /*echo base_url(); */?>images/news_thumb_03.jpg" alt="thumb"></a>
+                                        src="<?php /*echo base_url(); */ ?>images/news_thumb_03.jpg" alt="thumb"></a>
 
                                 <div class="read-btn"><a href="#">More News</a></div>
                             </div>
@@ -520,7 +550,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="video-area wow animated slideInRight">
-                        <!--<img src="--><?php //echo base_url(); ?><!--images/video.jpg" alt="thumb">-->
+                          <!--<img src="--><?php //echo base_url(); ?><!--images/video.jpg" alt="thumb">-->
                             <iframe width="420" height="315" src="https://www.youtube.com/embed/eiXS9dyItnY" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
@@ -621,11 +651,11 @@
                         <?php
                         foreach ($active_partners->result() as $row): ?>
                             <li>
-                                <!--<a href="<?php /*echo $row->partner_external_link; */?>" target="_blank">-->
-                                    <img
-                                        src="<?php echo base_url(); ?>uploaded/partners/<?php echo $row->partner_image; ?>"
-                                        alt="<?php echo $row->partner_name; ?>"
-                                        title="<?php echo $row->partner_name; ?>">
+                                <!--<a href="<?php /*echo $row->partner_external_link; */ ?>" target="_blank">-->
+                                <img
+                                    src="<?php echo base_url(); ?>uploaded/partners/<?php echo $row->partner_image; ?>"
+                                    alt="<?php echo $row->partner_name; ?>"
+                                    title="<?php echo $row->partner_name; ?>">
                                 <!--</a>-->
                             </li>
                             <?php

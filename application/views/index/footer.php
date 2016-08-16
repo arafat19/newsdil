@@ -19,7 +19,12 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4">
                         <div class="block-iteam">
-                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fshwapnoduar.info&tabs=timeline&width=370&height=295&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId" width="370" height="295" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item"
+                                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fshwapnoduar.info&tabs=timeline&width=370&height=295&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
+                                    width="370" height="295" style="border:none;overflow:hidden" scrolling="no"
+                                    frameborder="0" allowTransparency="true"></iframe>
+                            </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4">

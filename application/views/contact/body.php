@@ -65,7 +65,7 @@
                     <div class="contain">
                         <h3>Please fill out the form below and our representative will respond to your inquiry within 1
                             - 2 business days.</h3>
-                        <div class="contact-page wow animated bounceIn">
+                        <div class="contact-page">
                             <div class="col-xs-12">
                                 <?php if (validation_errors()) { ?>
                                     <div class="alert alert-warning" role="alert">
