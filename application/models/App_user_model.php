@@ -51,6 +51,7 @@ class app_user_model extends CI_Model
             return NULL;
         }
     }
+
     function get_news_title_list()
     {
         $this->db->select('id, news_title');
@@ -62,6 +63,7 @@ class app_user_model extends CI_Model
             return NULL;
         }
     }
+
     function get_active_job_title_list()
     {
         $this->db->select('job_id, job_title');
@@ -88,6 +90,13 @@ class app_user_model extends CI_Model
     public function total_count_of_service()
     {
         return $this->db->count_all("service_list");
+    }
+
+    public function total_count_of_active_service()
+    {
+        return $this->db
+            ->where('is_active', 1)
+            ->count_all_results("service_list");
     }
 
     public function get_services($limit, $start)
@@ -160,11 +169,19 @@ class app_user_model extends CI_Model
     {
         return $this->db->count_all("sdil_question");
     }
+
     public function total_count_of_test_questions_by_job_id($job_id)
     {
         return $this->db
             ->where('job_id', $job_id)
             ->count_all_results('sdil_question');
+    }
+
+    public function total_count_of_active_projects()
+    {
+        return $this->db
+            ->where('is_active', 1)
+            ->count_all_results("sdil_projects");
     }
 
     public function total_count_of_projects()
@@ -176,10 +193,12 @@ class app_user_model extends CI_Model
     {
         return $this->db->count_all("sdil_jobs");
     }
+
     public function total_count_of_skill_category()
     {
         return $this->db->count_all("sdil_skill_category");
     }
+
     public function total_count_of_skills()
     {
         return $this->db->count_all("sdil_skills");
@@ -253,6 +272,7 @@ class app_user_model extends CI_Model
         }
         return NULL;
     }
+
     public function get_all_news($limit, $start)
     {
         $this->db->select('*');
@@ -280,6 +300,7 @@ class app_user_model extends CI_Model
         }
         return NULL;
     }
+
     public function get_all_questions_by_job_id($job_id)
     {
         $this->db->select('sdil_question.*, sdil_jobs.job_title');
@@ -310,6 +331,7 @@ class app_user_model extends CI_Model
         }
         return NULL;
     }
+
     public function get_all_skill_category($limit, $start)
     {
         $this->db->select('*');
@@ -348,9 +370,17 @@ class app_user_model extends CI_Model
     {
         return $this->db->count_all("social_icon");
     }
+
     public function total_count_of_news()
     {
         return $this->db->count_all("sdil_news");
+    }
+
+    public function total_count_of_active_news()
+    {
+        return $this->db
+            ->where('is_active', 1)
+            ->count_all_results("sdil_news");
     }
 
     public function get_social_icon($limit, $start)
@@ -605,6 +635,7 @@ class app_user_model extends CI_Model
     {
         $this->db->insert('sdil_jobs', $data);
     }
+
     public function add_news($data)
     {
         $this->db->insert('sdil_news', $data);
@@ -619,6 +650,7 @@ class app_user_model extends CI_Model
     {
         $this->db->insert('sdil_skills', $data);
     }
+
     public function add_skill_category($data)
     {
         $this->db->insert('sdil_skill_category', $data);
@@ -632,6 +664,7 @@ class app_user_model extends CI_Model
         $this->db->where('project_id', $project_id);
         $this->db->update('sdil_projects', $data);
     }
+
     public function add_news_pages($news_id)
     {
         $data = array(
@@ -640,6 +673,7 @@ class app_user_model extends CI_Model
         $this->db->where('id', $news_id);
         $this->db->update('sdil_news', $data);
     }
+
     public function add_job_pages($job_id)
     {
         $data = array(
@@ -687,6 +721,7 @@ class app_user_model extends CI_Model
         $this->db->where('project_id', $project_id);
         $this->db->update('sdil_projects', $data);
     }
+
     public function delete_news_image($news_id)
     {
         $data = array(
@@ -758,6 +793,7 @@ class app_user_model extends CI_Model
         $this->db->where('id', $skill_id);
         $this->db->delete('sdil_skills');
     }
+
     public function delete_company_skill_category($skill_cat_id)
     {
         $this->db->where('skill_category_id', $skill_cat_id);
@@ -819,6 +855,7 @@ class app_user_model extends CI_Model
             return FALSE;
         }
     }
+
     public function exist_test_question($question)
     {
         $this->db->where('question_description', $question);
@@ -829,6 +866,7 @@ class app_user_model extends CI_Model
             return FALSE;
         }
     }
+
     public function exist_skill_name($name)
     {
         $this->db->where('skill_name', $name);
@@ -961,6 +999,7 @@ class app_user_model extends CI_Model
             return FALSE;
         }
     }
+
     public function exist_news_title($news_title)
     {
         $this->db->where('news_title', $news_title);
@@ -971,6 +1010,7 @@ class app_user_model extends CI_Model
             return FALSE;
         }
     }
+
     public function exist_news_page_url($news_page_url)
     {
         $this->db->where('news_page_url', $news_page_url);
@@ -1276,21 +1316,25 @@ class app_user_model extends CI_Model
         $this->db->where('job_id', $job_id);
         $this->db->update('sdil_jobs', $data);
     }
+
     public function update_test_question($data, $question_id_dec)
     {
         $this->db->where('question_id', $question_id_dec);
         $this->db->update('sdil_question', $data);
     }
+
     public function update_news($data, $news_id)
     {
         $this->db->where('id', $news_id);
         $this->db->update('sdil_news', $data);
     }
+
     public function update_skill($data, $skill_id)
     {
         $this->db->where('id', $skill_id);
         $this->db->update('sdil_skills', $data);
     }
+
     public function update_skill_cat($data, $skill_cat_id)
     {
         $this->db->where('skill_category_id', $skill_cat_id);

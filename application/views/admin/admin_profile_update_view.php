@@ -148,5 +148,18 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript">
+        // When the document is ready
+        $(document).ready(function () {
 
+            $('#project_start_date').datepicker({
+                format: "dd/mm/yyyy"
+            });
+            $('#project_end_date').datepicker({
+                format: "dd/mm/yyyy"
+            });
+
+        });
+    </script>
 </body>

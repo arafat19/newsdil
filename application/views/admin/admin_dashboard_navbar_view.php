@@ -118,7 +118,7 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
             <li class="<?php echo ($active == 'dashboard') ? 'active' : ''; ?>">
-                <a href="<?php echo base_url(); ?>admin"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                <a href="<?php echo base_url(); ?>nimda"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
             <li class="<?php echo ($active == 'service_settings') ? 'active' : ''; ?>">
                 <a href="javascript:;" data-toggle="collapse" data-target="#service"><i class="fa fa-fw fa-gear"></i>

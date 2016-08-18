@@ -22,9 +22,14 @@ class Admin extends CI_Controller
 
     function index()
     {
+        $url = $this->url_segment = $this->uri->segment(1);
+        if($url == 'admin'){
+            redirect(base_url());
+        }
         if (($this->session->userdata('user_email') != "")) {
             $this->welcome_admin_dashboard();
         } else {
+
             $this->load->library('Form_validation');
             // field name, error message, validation rules
 
@@ -61,6 +66,10 @@ class Admin extends CI_Controller
         $data['title'] = 'Welcome SDIL Admin Panel - Shwapno Duar IT Ltd.';
         $data['navbar_title'] = 'SDIL Admin Panel';
         $data['full_name'] = $this->session->userdata('full_name');
+        $data['number_of_active_projects'] = $this->app_user_model->total_count_of_active_projects();
+        $data['number_of_active_services'] = $this->app_user_model->total_count_of_active_service();
+        $data['number_of_active_news'] = $this->app_user_model->total_count_of_active_news();
+        $data['number_of_all_contacts'] = $this->main_ui_model->total_count_of_contacts();
         $data['active'] = 'dashboard';
         $this->load->view('admin/admin_dashboard_header_view', $data);
         $this->load->view('admin/admin_dashboard_view', $data);
@@ -3644,6 +3653,6 @@ class Admin extends CI_Controller
         );
         $this->session->unset_userdata($newdata);
         $this->session->sess_destroy();
-        redirect('/admin', 'refresh');
+        redirect('/nimda', 'refresh');
     }
 }
